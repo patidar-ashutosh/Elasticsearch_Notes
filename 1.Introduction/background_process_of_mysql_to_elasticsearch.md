@@ -1,12 +1,26 @@
-### **Background Process Me Kya Hota Hai? (MySQL → Elasticsearch Sync Process)**  
+## **📌 Table of Contents**  
+
+1️⃣ **[Background Process Me Kya Hota Hai?](#1)** 🚀  
+2️⃣ **[🔥 3 Common Methods for Syncing MySQL → Elasticsearch:](#2)**  
+   - [Change Data Capture (CDC) Approach (Real-Time Sync)](#2-1)  
+   - [Periodic Batch Sync (Cron Job Approach)](#2-2)  
+   - [API-Based Sync (Whenever MySQL Updates, API Calls Elasticsearch)](#2-3)  
+
+3️⃣ **[🛠 Best Approach?](#3)** 🏆  
+4️⃣ **[🛠 Final Architecture (Recommended)](#4)** 🏗  
+
+
+---
+
+### 1️⃣ **Background Process Me Kya Hota Hai? 🚀 (MySQL → Elasticsearch Sync Process)**  <a id="1"></a>
 
 Jab **MySQL me data add/update/delete hota hai**, to ek **background process us data ko Elasticsearch me sync karta hai**. Yeh process **real-time ya batch mode** me ho sakta hai.  
 
 ---
 
-## **🔥 3 Common Methods for Syncing MySQL → Elasticsearch:**
+## 2️⃣ **🔥 3 Common Methods for Syncing MySQL → Elasticsearch:** <a id="2"></a>
 
-### **1️⃣ Change Data Capture (CDC) Approach (Real-Time Sync)**
+### **1️⃣ Change Data Capture (CDC) Approach (Real-Time Sync)** <a id="2-1"></a>
 - **Kaise Kaam Karta Hai?**  
   - **MySQL me changes detect** karne ke liye **binlog (binary log)** use hota hai.  
   - **Tools like Debezium, Maxwell's Daemon, ya Kafka** changes ko Elasticsearch me push karte hain.  
@@ -26,7 +40,7 @@ Jab **MySQL me data add/update/delete hota hai**, to ek **background process us 
 
 ---
 
-### **2️⃣ Periodic Batch Sync (Cron Job Approach)**
+### **2️⃣ Periodic Batch Sync (Cron Job Approach)** <a id="2-2"></a>
 - **Kaise Kaam Karta Hai?**  
   - Ek **cron job** ya **scheduled script** MySQL se latest data fetch karta hai aur Elasticsearch me update karta hai.  
   - **Interval: Every 5 min, 10 min, hourly, etc.**  
@@ -68,7 +82,7 @@ Jab **MySQL me data add/update/delete hota hai**, to ek **background process us 
 
 ---
 
-### **3️⃣ API-Based Sync (Whenever MySQL Updates, API Calls Elasticsearch)**
+### **3️⃣ API-Based Sync (Whenever MySQL Updates, API Calls Elasticsearch)** <a id="2-3"></a>
 - **Kaise Kaam Karta Hai?**  
   - Jab **user koi naya record insert/update kare**, tabhi **backend Elasticsearch me bhi update kar de**.  
   - **MySQL transaction complete hone ke baad Elasticsearch ko update karna zaroori hai**.  
@@ -118,7 +132,7 @@ Jab **MySQL me data add/update/delete hota hai**, to ek **background process us 
 
 ---
 
-## **🛠 Best Approach?**
+## 3️⃣ **🛠 Best Approach?** <a id="3"></a>
 | Method | Speed | Complexity | Reliability |
 |--------|-------|------------|-------------|
 | **CDC (Debezium/Kafka)** | ⚡ **Real-time** | 😓 Complex | ✅ Reliable |
@@ -131,7 +145,7 @@ Jab **MySQL me data add/update/delete hota hai**, to ek **background process us 
 
 ---
 
-### **🛠 Final Architecture (Recommended)**
+### 4️⃣ **🛠 Final Architecture (Recommended)** <a id="4"></a>
 1️⃣ **MySQL me data store hota hai**.  
 2️⃣ **Debezium/Kafka (real-time) ya Cron Job (5-10 min) Elasticsearch me sync karta hai**.  
 3️⃣ **Search requests Elasticsearch se hote hain** (Fast results).  

@@ -1,18 +1,20 @@
 # 📌 **Walkthrough of Common Architectures**  
 
 ## 📜 **Table of Contents**  
-1. 🚀 **Introduction to Common Architectures**  
-2. 🛒 **Basic E-commerce Search Architecture**  
-3. 🔄 **Keeping Elasticsearch Data Updated**  
-4. 📊 **Adding Kibana for Data Visualization**  
-5. 📈 **Monitoring System Metrics with Metricbeat**  
-6. 📝 **Log Monitoring with Filebeat**  
-7. ⚡ **Scaling Up with Multiple Web Servers**  
-8. 🎯 **Event Processing with Logstash**  
-9. ✅ **Best Practices for a Scalable Architecture**  
+
+1️⃣ **[🚀 Introduction to Common Architectures](#1)**  
+2️⃣ **[🛒 Basic E-commerce Search Architecture](#2)**  
+3️⃣ **[🔄 Keeping Elasticsearch Data Updated](#3)**  
+4️⃣ **[📊 Adding Kibana for Data Visualization](#4)**  
+5️⃣ **[📈 Monitoring System Metrics with Metricbeat](#5)**  
+6️⃣ **[📝 Log Monitoring with Filebeat](#6)**  
+7️⃣ **[⚡ Scaling Up with Multiple Web Servers](#7)**  
+8️⃣ **[🎯 Event Processing with Logstash](#8)**  
+9️⃣ **[✅ Best Practices for a Scalable Architecture](#9)**  
+
 ---  
 
-## 🚀 **1. Introduction to Common Architectures**  
+## 🚀 **1. Introduction to Common Architectures**  <a id="1"></a>
 Elasticsearch ka use **search, analytics, monitoring** aur **log management** ke liye hota hai. Is tutorial me hum dekhenge ki **Elasticsearch ko ek simple system me kaise integrate kar sakte hain aur phir usko gradually scale kaise karte hain**.   
 
 Agar tum ek **existing system** me Elasticsearch ko integrate kar rahe ho, toh kuch major challenges hote hain:  
@@ -25,7 +27,7 @@ Yeh sab hum ek **E-commerce website** ke example ke saath samjhenge.
 
 ---
 
-## 🛒 **2. Basic E-commerce Search Architecture**  
+## 🛒 **2. Basic E-commerce Search Architecture**  <a id="2"></a>
 Ek **E-commerce website** ka simple structure kuch aisa hoga:  
 - **Frontend (React, Angular, etc.)** ➝ User se input lega  
 - **Backend (Node.js, Java, Python, etc.)** ➝ Database se query karega  
@@ -73,7 +75,7 @@ searchProducts('laptop');
 
 ---
 
-## 🔄 **3. Keeping Elasticsearch Data Updated**  
+## 🔄 **3. Keeping Elasticsearch Data Updated**  <a id="3"></a>
 📌 **Challenge:** Jab naye products database me add hote hain toh Elasticsearch ko kaise update karein?  
 
 ✅ **Solution:** **Dual Write Strategy** ka use karein:  
@@ -97,7 +99,7 @@ async function addProductToDBAndES(product: any) {
 
 ---
 
-## 📊 **4. Adding Kibana for Data Visualization**  
+## 📊 **4. Adding Kibana for Data Visualization**  <a id="4"></a>
 📌 **Kibana ek web UI hai jo Elasticsearch ke data ko visualize karne ke liye use hoti hai.**  
 
 📌 **Use Case:** Agar business owner ko sales analytics dekhna hai, toh hum **Kibana dashboards** ka use kar sakte hain.  
@@ -118,7 +120,7 @@ async function addProductToDBAndES(product: any) {
 
 ---
 
-## 📈 **5. Monitoring System Metrics with Metricbeat**  
+## 📈 **5. Monitoring System Metrics with Metricbeat**  <a id="5"></a>
 📌 **System level monitoring ke liye Metricbeat ka use hota hai.**  
 
 ### 🔧 **Steps:**  
@@ -141,7 +143,7 @@ async function addProductToDBAndES(product: any) {
 
 ---
 
-## 📝 **6. Log Monitoring with Filebeat**  
+## 📝 **6. Log Monitoring with Filebeat**  <a id="6"></a>
 📌 **Error logs aur access logs ko Elasticsearch me store karne ke liye Filebeat ka use hota hai.**  
 
 💡 **Use Case:** Agar **website slow ho rahi hai ya errors aa rahe hain**, toh Filebeat logs ko analyze karne me help karega.  
@@ -156,7 +158,7 @@ async function addProductToDBAndES(product: any) {
 
 ---
 
-## ⚡ **7. Scaling Up with Multiple Web Servers**  
+## ⚡ **7. Scaling Up with Multiple Web Servers**  <a id="7"></a>
 📌 **Jab traffic badhta hai, tab ek single server handle nahi kar pata.**  
 ✅ **Solution:** **Multiple web servers + Load Balancer**  
 
@@ -170,7 +172,7 @@ async function addProductToDBAndES(product: any) {
 
 ---
 
-## 🎯 **8. Event Processing with Logstash**  
+## 🎯 **8. Event Processing with Logstash**  <a id="8"></a>
 📌 **Complex data processing ke liye Logstash use hota hai.**  
 ✅ **Advantages:**  
 - **Custom transformations**  
@@ -198,7 +200,7 @@ output {
 
 ---
 
-## ✅ **9. Best Practices for a Scalable Architecture**  
+## ✅ **9. Best Practices for a Scalable Architecture**  <a id="9"></a>
 ✔ **Elasticsearch ko sirf queries ke liye use karo, writes ke liye nahi.**  
 ✔ **Log processing aur event handling centralized hona chahiye.**  
 ✔ **Dashboards aur monitoring setup karo pehle se.**  

@@ -1,20 +1,20 @@
 # 📖 Introduction to Elasticsearch  
 
 ## 📌 Table of Contents  
-1️⃣ **Elasticsearch Kya Hai?** 🧐  
-2️⃣ **Kaha Use Hota Hai?** 💡  
-3️⃣ **Features Jo Elasticsearch Ko Powerful Banate Hain** 🚀  
-4️⃣ **Full-Text Search vs Structured Data Queries** 🔍  
-5️⃣ **Aggregations Aur Analytics** 📊  
-6️⃣ **Machine Learning Aur Anomaly Detection** 🤖  
-7️⃣ **Elasticsearch Ka Architecture** 🏗️  
-8️⃣ **Elasticsearch vs Relational Databases** ⚖️  
-9️⃣ **Elasticsearch Queries & API Usage** 🔥  
-🔟 **Scalability & Speed Ka Secret** ⚡  
+1️⃣ **[Elasticsearch Kya Hai?](#1)** 🧐  
+2️⃣ **[Kaha Use Hota Hai?](#2)** 💡  
+3️⃣ **[Features Jo Elasticsearch Ko Powerful Banate Hain](#3)** 🚀  
+4️⃣ **[Full-Text Search vs Structured Data Queries](#4)** 🔍  
+5️⃣ **[Aggregations Aur Analytics](#5)** 📊  
+6️⃣ **[Machine Learning Aur Anomaly Detection](#6)** 🤖  
+7️⃣ **[Elasticsearch Ka Architecture](#7)** 🏗️  
+8️⃣ **[Elasticsearch vs Relational Databases](#8)** ⚖️  
+9️⃣ **[Elasticsearch Queries & API Usage](#9)** 🔥  
+🔟 **[Scalability & Speed Ka Secret](#10)** ⚡  
 
 ---  
 
-## 1️⃣ **Elasticsearch Kya Hai?** 🧐  
+## 1️⃣ **Elasticsearch Kya Hai?** 🧐  <a id="1"></a>
 
 Elasticsearch ek **open-source, distributed, full-text search aur analytics engine** hai, jo **Apache Lucene** par based hai.  
 
@@ -27,7 +27,7 @@ Elasticsearch ek **open-source, distributed, full-text search aur analytics engi
 
 ---  
 
-## 2️⃣ **Kaha Use Hota Hai?** 💡  
+## 2️⃣ **Kaha Use Hota Hai?** 💡  <a id="2"></a>
 
 Elasticsearch ka major use-case **search aur analytics** hai. Yahaan kuch real-world examples diye gaye hain:  
 
@@ -41,7 +41,7 @@ Elasticsearch ka major use-case **search aur analytics** hai. Yahaan kuch real-w
 
 ---  
 
-## 3️⃣ **Features Jo Elasticsearch Ko Powerful Banate Hain** 🚀  
+## 3️⃣ **Features Jo Elasticsearch Ko Powerful Banate Hain** 🚀  <a id="3"></a>
 
 ✅ **Auto-Completion** – Search bar me suggestive typing  
 ✅ **Fuzzy Search** – Spelling mistakes handle karta hai  
@@ -70,7 +70,7 @@ Elasticsearch **"iPhone 13"**, **"iPhone 12 Pro"**, aur **similar results** retu
 
 ---  
 
-## 4️⃣ **Full-Text Search vs Structured Data Queries** 🔍  
+## 4️⃣ **Full-Text Search vs Structured Data Queries** 🔍  <a id="4"></a>
 
 Elasticsearch sirf **text search** nahi, balki **structured queries** bhi handle karta hai.  
 
@@ -97,7 +97,7 @@ Sirf wo products aayenge jinke **price ≤ 5000** hai.
 
 ---  
 
-## 5️⃣ **Aggregations Aur Analytics** 📊  
+## 5️⃣ **Aggregations Aur Analytics** 📊  <a id="5"></a>
 
 Elasticsearch me **aggregations** ka use karke complex data analysis kiya jata hai.  
 
@@ -127,7 +127,7 @@ Yeh **bar chart ya pie chart** banane me bhi kaam aayega.
 
 ---  
 
-## 6️⃣ **Machine Learning Aur Anomaly Detection** 🤖  
+## 6️⃣ **Machine Learning Aur Anomaly Detection** 🤖  <a id="6"></a>
 
 Elasticsearch ML aur anomaly detection bhi support karta hai.  
 
@@ -141,7 +141,7 @@ Agar tumhari website ke daily **50,000 visitors** hain aur ek din sirf **5,000 v
 
 ---
 
-## 7️⃣ **Elasticsearch Ka Architecture** 🏗️  
+## 7️⃣ **Elasticsearch Ka Architecture** 🏗️  <a id="7"></a>
 
 🔹 **Cluster** – Multiple nodes ka ek group  
 🔹 **Node** – Ek Elasticsearch instance  
@@ -161,7 +161,7 @@ Agar tumhare paas ek **User Data Index** hai, uska ek document aisa ho sakta hai
 
 ---  
 
-## 8️⃣ **Elasticsearch vs Relational Databases** ⚖️  
+## 8️⃣ **Elasticsearch vs Relational Databases** ⚖️  <a id="8"></a>
 
 | Feature                | Elasticsearch            | Relational DB (SQL)  |
 |------------------------|-------------------------|----------------------|
@@ -190,7 +190,7 @@ Elasticsearch query:
 
 ---
 
-## 9️⃣ **Elasticsearch Queries & API Usage** 🔥  
+## 9️⃣ **Elasticsearch Queries & API Usage** 🔥  <a id="9"></a>
 
 Elasticsearch me queries **REST API** ke through hoti hain.  
 Agar tumhe ek **document insert** karna hai:  
@@ -221,7 +221,7 @@ Yeh **"Rahul"** wale sabhi users return karega.
 
 ---
 
-## 🔟 **Scalability & Speed Ka Secret** ⚡  
+## 🔟 **Scalability & Speed Ka Secret** ⚡  <a id="10"></a>
 
 Elasticsearch **distributed system** hai jo **horizontal scaling** support karta hai.  
 Jaise-jaise data badhta hai, tum **new nodes add** kar sakte ho bina performance loss ke.  

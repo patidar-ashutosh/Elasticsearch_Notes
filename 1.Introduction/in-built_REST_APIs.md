@@ -1,13 +1,26 @@
 **Elasticsearch me kuch in-built REST APIs hain** jo tumhare cluster, nodes, aur indices ka status check karne ke liye diye gaye hain.
 
-### **📌 Elasticsearch APIs ka kaam kya hai?**  
+## **📌 Table of Contents**  
+
+1️⃣ **[📌 Elasticsearch APIs ka kaam kya hai?](#1)**  
+2️⃣ **[📌 Types of In-Built APIs in Elasticsearch](#2)**  
+3️⃣ **[📌 _ (underscore) ka Matlab kya hai?](#3)**  
+4️⃣ **[📌 Some Example of Elasticsearch REST API commands](#4)**  
+5️⃣ **[📌 Elasticsearch API ko call karne ka syntax](#5)**  
+6️⃣ **[📌 Example Commands](#6)**  
+7️⃣ **[📌 API Calls Postman ya cURL se kaise karein?](#7)**  
+8️⃣ **[📌 Summary](#8)**  
+
+---
+
+### 1️⃣ **📌 Elasticsearch APIs ka kaam kya hai?**  <a id="1"></a>
 Elasticsearch **RESTful APIs** provide karta hai jo tumhare cluster ke andar ka data manage karne aur search operations karne me madad karti hain.  
 
 Ye APIs **default** Elasticsearch ke saath aati hain, tumhe alag se kuch install karne ki zaroorat nahi hoti.  
 
 ---
 
-### **📌 Types of In-Built APIs in Elasticsearch**
+### 2️⃣ **📌 Types of In-Built APIs in Elasticsearch** <a id="2"></a>
 1. **Cluster APIs** → Cluster aur nodes ka status check karne ke liye  
    - `GET /_cluster/health` (Cluster health check)  
    - `GET /_cat/nodes?v` (Node list)  
@@ -28,7 +41,7 @@ Ye APIs **default** Elasticsearch ke saath aati hain, tumhe alag se kuch install
 
 ---
 
-## **📌_ (underscore) ka Matlab kya hai?**
+## 3️⃣ **📌_ (underscore) ka Matlab kya hai?** <a id="3"></a>
 - Elasticsearch me jo APIs underscore (_) se start hoti hain, wo built-in APIs hoti hain.
 - Elasticsearch me _ se start hone wale endpoints internal ya built-in functionalities ko represent karte hain.
 - Ye mostly cluster, index, search, settings, mapping jaise operations handle karne ke liye hote hain.
@@ -36,7 +49,7 @@ Ye APIs **default** Elasticsearch ke saath aati hain, tumhe alag se kuch install
 
 
 ---
-## Some Example of Elasticsearch REST API commands
+## 4️⃣ Some Example of Elasticsearch REST API commands <a id="4"></a>
 
 ## **📌 1️⃣ `GET /_cluster/health` (Cluster Health Check)**
 Ye command **poore Elasticsearch cluster ki health check** karti hai.  
@@ -100,7 +113,7 @@ green  open   orders    8dsf7SDF89sdJKHsdj     2   2   10000      500          1
 
 ---
 
-### **📌 Elasticsearch API ko call karne ka syntax**  
+### 5️⃣ **📌 Elasticsearch API ko call karne ka syntax**  <a id="5"></a>
 
 Elasticsearch ke APIs **RESTful APIs** hoti hain, jo HTTP methods (`GET`, `POST`, `PUT`, `DELETE`) ka use karti hain.  
 
@@ -114,7 +127,7 @@ Elasticsearch ke APIs **RESTful APIs** hoti hain, jo HTTP methods (`GET`, `POST`
 
 ---
 
-## **📌 Example Commands**  
+## 6️⃣ **📌 Example Commands**  <a id="6"></a>
 
 ### **1️⃣ Cluster Health Check (GET Method)**
 ```bash
@@ -162,7 +175,7 @@ DELETE http://localhost:9200/products/_doc/1
 
 ---
 
-### **📌 API Calls Postman ya cURL se kaise karein?**  
+### 7️⃣ **📌 API Calls Postman ya cURL se kaise karein?**  <a id="7"></a>
 
 🔹 **Postman se**:  
 1. **Method select karo** (`GET`, `PUT`, `POST`, `DELETE`).  
@@ -178,7 +191,7 @@ curl -X GET "http://localhost:9200/_cat/indices?v"
 
 ---
 
-## **🎯 Summary**  
+## 8️⃣ **🎯 Summary**  <a id="8"></a>
 ✅ **Elasticsearch APIs HTTP methods use karti hain (GET, POST, PUT, DELETE).**  
 ✅ **Syntax: `<HTTP_METHOD> <BASE_URL>/<API_ENDPOINT>`**  
 ✅ **Postman ya cURL ka use karke APIs call kar sakte ho.**  
