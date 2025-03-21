@@ -1,26 +1,27 @@
 # 📌 Sharding & Scalability in Elasticsearch
 
-## 📖 Table of Contents
-1. 🔥 **Introduction to Scaling in Elasticsearch**
-2. 🧩 **What is Sharding?**
-3. ⚙️ **How Sharding Works in Elasticsearch?**
-4. 🎯 **Why Sharding is Important?**
-5. 🏗 **Primary vs Replica Shards**
-6. ⚖️ **Over-Sharding & Best Practices**
-7. 🚀 **Query Performance & Sharding**
-8. 🛠 **Sharding Configuration & Management**
-9. 🔄 **Scaling Strategies & Use Cases**
-10. 📌 **Conclusion**
+## 📖 Table of Contents  
+
+1️⃣ **[🔥 Introduction to Scaling in Elasticsearch](#1)**  
+2️⃣ **[🧩 What is Sharding?](#2)**  
+3️⃣ **[⚙️ How Sharding Works in Elasticsearch?](#3)**  
+4️⃣ **[🎯 Why Sharding is Important?](#4)**  
+5️⃣ **[🏗 Primary vs Replica Shards](#5)**  
+6️⃣ **[⚖️ Over-Sharding & Best Practices](#6)**  
+7️⃣ **[🚀 Query Performance & Sharding](#7)**  
+8️⃣ **[🛠 Sharding Configuration & Management](#8)**  
+9️⃣ **[🔄 Scaling Strategies & Use Cases](#9)**  
+🔟 **[📌 Conclusion](#10)**  
 
 ---
 
-## 🔥 1. Introduction to Scaling in Elasticsearch
+## 🔥 1. Introduction to Scaling in Elasticsearch <a id="1"></a>
 
 Elasticsearch ek **distributed, scalable** search engine hai jo **huge data** ko efficiently store aur search karne ke liye use hota hai. Agar data volume zyada ho, to **ek single node** par usko store karna possible nahi hota. Iska solution hai **Sharding**, jo Elasticsearch ko **horizontally scale** karne me madad karta hai.
 
 ---
 
-## 🧩 2. What is Sharding?
+## 🧩 2. What is Sharding? <a id="2"></a>
 
 **Sharding** ka matlab hai ek **index ko chhote-chhote parts** me todna. Har part ko **Shard** kaha jata hai. Shards Elasticsearch ke andar **Lucene indices** hote hain, jo independently kaam kar sakte hain.
 
@@ -32,7 +33,7 @@ Elasticsearch ek **distributed, scalable** search engine hai jo **huge data** ko
 
 ---
 
-## ⚙️ 3. How Sharding Works in Elasticsearch?
+## ⚙️ 3. How Sharding Works in Elasticsearch? <a id="3"></a>
 
 Agar ek index me **billion documents** hain, aur ek shard usko store nahi kar sakta, to **shards me divide karna** zaroori ho jata hai.
 
@@ -103,7 +104,7 @@ Shards:
 
 ---
 
-## 🎯 4. Why Sharding is Important?
+## 🎯 4. Why Sharding is Important? <a id="4"></a>
 
 ✅ **Horizontal Scalability:** Bina sharding ke **data store nahi ho payega** jab index bada ho.
 ✅ **High Availability:** Agar ek shard down ho jaye to **replica shards** backup ke liye ready rehte hain.
@@ -111,7 +112,7 @@ Shards:
 
 ---
 
-## 🏗 5. Primary vs Replica Shards
+## 🏗 5. Primary vs Replica Shards <a id="5"></a>
 
 🔹 **Primary Shard:**
 - Original shard jo **index create hone pe banta hai**
@@ -130,7 +131,7 @@ Replica Shards:   [Shard 1']  [Shard 2']
 
 ---
 
-## ⚖️ 6. Over-Sharding & Best Practices
+## ⚖️ 6. Over-Sharding & Best Practices <a id="6"></a>
 
 Agar shards **zyada ho jaye** to **performance issue** aa sakta hai. Over-sharding se bachne ke liye:
 - Chhoti indices ke liye **default 1 shard hi rakho**
@@ -139,7 +140,7 @@ Agar shards **zyada ho jaye** to **performance issue** aa sakta hai. Over-shardi
 
 ---
 
-## 🚀 7. Query Performance & Sharding
+## 🚀 7. Query Performance & Sharding <a id="7"></a>
 
 **Shards distributed hone se queries parallel execute hoti hain**, jo performance ko boost karta hai.
 
@@ -161,7 +162,7 @@ Agar ek **search query** ek **single shard** pe lage to time zyada lagega. Agar 
 
 ---
 
-## 🛠 8. Sharding Configuration & Management
+## 🛠 8. Sharding Configuration & Management <a id="8"></a>
 
 Elasticsearch me **default shard count 1** hota hai (v7 ke baad). Agar index create karte waqt sharding set karni ho:
 
@@ -180,7 +181,7 @@ PUT /my_index
 
 ---
 
-## 🔄 9. Scaling Strategies & Use Cases
+## 🔄 9. Scaling Strategies & Use Cases <a id="9"></a>
 
 ✅ **Scale Out (Add More Nodes):** Agar storage kam pad raha hai, to **new nodes add karo**
 ✅ **Increase Replica Shards:** Query load handle karne ke liye **replica shards badhao**
@@ -189,7 +190,7 @@ PUT /my_index
 
 ---
 
-## 📌 10. Conclusion
+## 📌 10. Conclusion <a id="10"></a>
 
 - **Sharding ka main goal hai scalability aur performance**
 - **Default 1 shard hota hai, but large indices ke liye 5-6 shards rakhna achha hota hai**

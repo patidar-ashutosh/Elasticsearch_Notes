@@ -1,4 +1,32 @@
-## **📌 Replication Kya Hai?**  
+## **📌 Table of Contents**  
+
+1️⃣ **[Replication Kya Hai?](#1)**  
+2️⃣ **[Replication Ka Working (With Example)](#2)**  
+3️⃣ **[Replication Configuration in Elasticsearch](#3)**  
+   - **[Dynamic Replication Set Karna](#3-1)**  
+   - **[Manually Replicas Set Karna](#3-2)**  
+   - **[Best Practice](#3-3)**  
+
+4️⃣ **[🎯 Conclusion & Summary Of Replication](#4)**  
+
+5️⃣ **[Snapshots in Elasticsearch](#5)**  
+6️⃣ **[📖 Snapshots Kya Hote Hain?](#6)**  
+7️⃣ **[Snapshot Ka Working (With Example)](#7)**  
+   - **[Snapshot Repository Banayein](#7-1)**  
+   - **[Snapshot Create Karna](#7-2)**  
+   - **[Snapshot Restore Karna](#7-3)**  
+
+8️⃣ **[🎯 Summary Of Snapshot](#8)**  
+9️⃣ **[Snapshot vs Replication](#9)**  
+   - **[🆚 Snapshot vs Replication: Automatic Update Hota Hai Ya Nahi?](#9-1)**  
+   - **[🆚 Snapshot vs Replica: Best Option for Data Recovery?](#9-2)**  
+   - **[🆚 Snapshot vs Replica: Kaun Best Hoga?](#9-3)**  
+
+🔟 **[🎯 Conclusion: Snapshot Best Hai!](#10)**  
+
+---
+
+## 1️⃣ **📌 Replication Kya Hai?**  <a id="1"></a>
 **Replication** ka matlab hai **data ka ek ya zyada copies (backup) banana**, taaki **agar ek node fail ho jaye, to bhi data accessible rahe**.  
 
 Elasticsearch **har shard ka ek ya zyada "replica shards" create karta hai**, jo **primary shard ka exact copy hote hain**.  
@@ -10,7 +38,7 @@ Elasticsearch **har shard ka ek ya zyada "replica shards" create karta hai**, jo
 
 ---
 
-## **📌 Replication Ka Working (With Example)**  
+## 2️⃣ **📌 Replication Ka Working (With Example)**  <a id="2"></a>
 Socho ek **index "products"** hai, jo **2 primary shards** me divide hai:  
 ```plaintext
 Index: products
@@ -34,7 +62,7 @@ Replica Shards:
 
 ---
 
-## **📌 Replication Configuration in Elasticsearch**  
+## 3️⃣ **📌 Replication Configuration in Elasticsearch**  <a id="3"></a>
 Jab tum index create karte ho, to **replicas ka number manually set kar sakte ho**:  
 
 ```bash
@@ -53,7 +81,7 @@ PUT /products
 **Ham Number of replica ko dynamically bhi set kar sakte hai** aur Elasticsearch ko automatically adjust karne de sakte hai **jitne nodes cluster me honge uske hisaab se replicas adjust karega**.  
 
 
-## **📌 1️⃣ Dynamic Replication Set Karna**  
+## **📌 1️⃣ Dynamic Replication Set Karna**  <a id="3-1"></a>
 Agar tum **replica count dynamically adjust karna chahte ho**, to tum **"auto_expand_replicas"** setting use kar sakte ho.  
 
 ```bash
@@ -73,7 +101,7 @@ PUT /products/_settings
 
 ---
 
-## **📌 2️⃣ Manually Replicas Set Karna**  
+## **📌 2️⃣ Manually Replicas Set Karna**  <a id="3-2"></a>
 Agar tum manually **replica count change karna chahte ho**, to ye command run kar sakte ho:  
 
 ```bash
@@ -88,13 +116,13 @@ PUT /products/_settings
 
 ---
 
-## **📌 3️⃣ Best Practice**  
+## **📌 Best Practice**  <a id="3-3"></a>
 ✔ **Agar cluster size dynamic hai (nodes aate-jate rehte hain), to "auto_expand_replicas" use karna best hai.**  
 ✔ **Agar cluster fixed hai, to manually number_of_replicas set kar sakte ho.**  
 
 ---
 
-## **🎯 Conclusion**  
+## 4️⃣ **🎯 Conclusion**  <a id="4"></a>
 ✅ **Haan, tum dynamically replica set kar sakte ho "auto_expand_replicas" use karke.**  
 ✅ **Elasticsearch automatically cluster ke nodes ke hisaab se replica adjust kar dega.**  
 ✅ **Agar manually control chahiye, to tum "number_of_replicas" update kar sakte ho.**  
@@ -109,9 +137,9 @@ PUT /products/_settings
 
 
 
-## **📌 Snapshots in Elasticsearch**  
+## 5️⃣ **📌 Snapshots in Elasticsearch**  <a id="5"></a>
 
-### **📖 Snapshots Kya Hote Hain?**  
+### 6️⃣ **📖 Snapshots Kya Hote Hain?**  <a id="6"></a>
 **Snapshot** ek **backup** hota hai jo **Elasticsearch ke indices ya pura cluster ka data save karne ke liye** use hota hai. Agar kabhi **data delete ho jaye ya system fail ho jaye, to snapshot se data restore kiya ja sakta hai**.  
 
 ✅ **Snapshots mainly long-term backup aur disaster recovery ke liye use hote hain.**  
@@ -119,8 +147,8 @@ PUT /products/_settings
 
 ---
 
-## **📌 Snapshot Ka Working (With Example)**  
-### **1️⃣ Snapshot Repository Banayein**  
+## 7️⃣ **📌 Snapshot Ka Working (With Example)**  <a id="7"></a>
+### **1️⃣ Snapshot Repository Banayein**  <a id="7-1"></a>
 Snapshot store karne ke liye pehle ek **repository** banana padta hai. Example:  
 
 ```bash
@@ -136,7 +164,7 @@ PUT _snapshot/my_backup_repo
 
 ---
 
-### **2️⃣ Snapshot Create Karna**  
+### **2️⃣ Snapshot Create Karna**  <a id="7-2"></a>
 Agar tum **"products" index ka snapshot lena chahte ho**, to ye command use karo:  
 
 ```bash
@@ -151,7 +179,7 @@ PUT _snapshot/my_backup_repo/snapshot_1
 
 ---
 
-### **3️⃣ Snapshot Restore Karna**  
+### **3️⃣ Snapshot Restore Karna**  <a id="7-3"></a>
 Agar tum **snapshot se data wapas lana chahte ho**, to ye command run karo:  
 
 ```bash
@@ -164,7 +192,7 @@ POST _snapshot/my_backup_repo/snapshot_1/_restore
 
 ---
 
-## **🎯 Summary Of Snapshot**  
+## 8️⃣ **🎯 Summary Of Snapshot**  <a id="8"></a>
 ✅ **Snapshot Elasticsearch me data ka long-term backup hota hai.**  
 ✅ **Isse data ko future me restore kiya ja sakta hai agar kuch delete ya corrupt ho jaye.**  
 ✅ **Snapshots ko local file system ya cloud storage me store kiya ja sakta hai.**  
@@ -172,7 +200,7 @@ POST _snapshot/my_backup_repo/snapshot_1/_restore
 
 ---
 
-## **📌 Snapshot vs Replication**  
+## 9️⃣ **📌 Snapshot vs Replication**  <a id="9"></a>
 | Feature | Snapshot | Replication |
 |---------|----------|------------|
 | **Purpose** | Long-term backup | High availability |
@@ -182,7 +210,7 @@ POST _snapshot/my_backup_repo/snapshot_1/_restore
 
 ---
 
-### **📌 Snapshot vs Replication: Automatic Update Hota Hai Ya Nahi?**  
+### **📌 Snapshot vs Replication: Automatic Update Hota Hai Ya Nahi?**  <a id="9-1"></a>
 
 | Feature | **Replication** | **Snapshot** |
 |---------|---------------|-------------|
@@ -193,7 +221,7 @@ POST _snapshot/my_backup_repo/snapshot_1/_restore
 
 ---
 
-### **📌 Snapshot vs Replica: Best Option for Data Recovery?**  
+### **📌 Snapshot vs Replica: Best Option for Data Recovery?**  <a id="9-2"></a>
 
 #### **🔥 Scenario:**  
 1️⃣ Tumhare **"products"** index me **"apple"** ka data hai.  
@@ -204,7 +232,7 @@ POST _snapshot/my_backup_repo/snapshot_1/_restore
 
 ---
 
-### **🆚 Snapshot vs Replica: Kaun Best Hoga?**
+### **🆚 Snapshot vs Replica: Kaun Best Hoga?** <a id="9-3"></a>
 
 | Feature | **Replication** | **Snapshot** |
 |---------|---------------|-------------|
@@ -215,7 +243,7 @@ POST _snapshot/my_backup_repo/snapshot_1/_restore
 
 ---
 
-### **🎯 Conclusion: Snapshot Best Hai!**  
+### 🔟 **🎯 Conclusion: Snapshot Best Hai!**  <a id="10"></a>
 ✅ **Agar galti se koi data update ho gaya hai aur tumhe old data wapas chahiye, to Snapshot best option hai.**  
 ❌ **Replica kaam nahi karega, kyunki wo real-time me primary shard se sync hota hai. Agar primary shard me update ho gaya, to replica me bhi update ho jayega.**  
 📌 **Isliye Regular Snapshots lena important hota hai, taaki galti se kuch update hone par tum easily restore kar sako.**  

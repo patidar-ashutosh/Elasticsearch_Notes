@@ -1,35 +1,35 @@
 ## **📌 Table of Contents**  
 
-1️⃣ **[Elasticsearch Architecture Overview 🚀](#elasticsearch-architecture-overview-🚀)**  
-&nbsp;&nbsp;&nbsp;&nbsp;🔹 [Nodes & Clusters](#1️⃣-nodes--clusters)  
-&nbsp;&nbsp;&nbsp;&nbsp;🔹 [Data Distribution & Scalability](#2️⃣-data-distribution--scalability)  
-&nbsp;&nbsp;&nbsp;&nbsp;🔹 [Documents & Indices](#3️⃣-documents--indices)  
+1️⃣ **[Elasticsearch Architecture Overview 🚀](#1)**  
+&nbsp;&nbsp;&nbsp;&nbsp;🔹 [Nodes & Clusters](#1-1)  
+&nbsp;&nbsp;&nbsp;&nbsp;🔹 [Data Distribution & Scalability](#1-2)  
+&nbsp;&nbsp;&nbsp;&nbsp;🔹 [Documents & Indices](#1-3)  
 
-2️⃣ **[Inspecting the Cluster 🧐](#inspecting-the-cluster-)**  
-&nbsp;&nbsp;&nbsp;&nbsp;🔹 [Kibana Console ka Use](#1️⃣-kibana-console-ka-use)  
-&nbsp;&nbsp;&nbsp;&nbsp;🔹 [Cluster Health Check 🏥](#2️⃣-cluster-health-check-)  
-&nbsp;&nbsp;&nbsp;&nbsp;🔹 [Nodes List Check 🖥️](#3️⃣-nodes-list-check-)  
-&nbsp;&nbsp;&nbsp;&nbsp;🔹 [Indices List Check 📂](#4️⃣-indices-list-check-)  
+2️⃣ **[Inspecting the Cluster 🧐](#2)**  
+&nbsp;&nbsp;&nbsp;&nbsp;🔹 [Kibana Console ka Use](#2-1)  
+&nbsp;&nbsp;&nbsp;&nbsp;🔹 [Cluster Health Check 🏥](#2-2)  
+&nbsp;&nbsp;&nbsp;&nbsp;🔹 [Nodes List Check 🖥️](#2-3)  
+&nbsp;&nbsp;&nbsp;&nbsp;🔹 [Indices List Check 📂](#2-4)  
 
-3️⃣ **[Conclusion 🎯](#conclusion-)**  
+3️⃣ **[Conclusion 🎯](#3)**  
 
 ---
 
-## **Elasticsearch Architecture Overview 🚀**  
+## 1️⃣ **Elasticsearch Architecture Overview 🚀**  <a id="1"></a>
 
-### **1️⃣ Nodes & Clusters**  
+### **1️⃣ Nodes & Clusters**  <a id="1-1"></a>
 - Jab tum Elasticsearch start karte ho, toh ek **node** start hota hai.  
 - **Node = Elasticsearch ka ek instance** jo data store karta hai.  
 - Multiple nodes milkar **cluster** banate hain.  
 - Cluster = Nodes ka collection jo saara data store aur manage karta hai.  
 - Tum ek machine pe multiple nodes bhi chala sakte ho, but production mein har node alag machine/container pe hona chahiye.  
 
-### **2️⃣ Data Distribution & Scalability**  
+### **2️⃣ Data Distribution & Scalability**  <a id="1-2"></a>
 - Elasticsearch **distributed system** hai, iska matlab data ko multiple nodes pe distribute kiya jata hai.  
 - Agar tumhare paas **terabytes of data** hai, toh multiple nodes bana sakte ho jo alag-alag machines pe run karenge.  
 - Har node data ka ek **hissa** store karega, jisse scalability aur reliability improve hoti hai.  
 
-### **3️⃣ Documents & Indices**  
+### **3️⃣ Documents & Indices**  <a id="1-3"></a>
 - Data **documents** ke form mein store hota hai (JSON objects).  
 - Documents **indices** ke andar store hote hain.  
 - **Index = Similar documents ka logical group** (e.g., "people" index mein sabhi logon ke documents honge).  
@@ -37,14 +37,14 @@
 
 ---
 
-## **Inspecting the Cluster 🧐**  
+## 2️⃣ **Inspecting the Cluster 🧐**  <a id="2"></a>
 
-### **1️⃣ Kibana Console ka Use**  
+### **1️⃣ Kibana Console ka Use**  <a id="2-1"></a>
 - **Dev Tools → Console** open karo.  
 - Elasticsearch REST API ko queries bhejne ke liye Console tool ka use hota hai.  
 - HTTP methods (GET, POST, PUT, DELETE) se requests bhejte hain.  
 
-### **2️⃣ Cluster Health Check 🏥**  
+### **2️⃣ Cluster Health Check 🏥**  <a id="2-2"></a>
 ```http
 GET /_cluster/health
 ```
@@ -53,7 +53,7 @@ GET /_cluster/health
   - **Yellow** 🟡 → Data available hai, but redundancy missing hai.  
   - **Red** 🔴 → Kuch shards unavailable hain, cluster unhealthy hai.  
 
-### **3️⃣ Nodes List Check 🖥️**  
+### **3️⃣ Nodes List Check 🖥️**  <a id="2-3"></a>
 ```http
 GET /_cat/nodes?v
 ```
@@ -62,7 +62,7 @@ GET /_cat/nodes?v
   - IP address  
   - Roles (Master, Data, Ingest, etc.)  
 
-### **4️⃣ Indices List Check 📂**  
+### **4️⃣ Indices List Check 📂**  <a id="2-4"></a>
 ```http
 GET /_cat/indices?v
 ```
@@ -75,7 +75,7 @@ GET /_cat/indices?v&expand_wildcards=all
 
 ---
 
-## **Conclusion 🎯**  
+## 3️⃣ **Conclusion 🎯**  <a id="3"></a>
 - **Cluster = Multiple nodes ka group jo data store aur manage karta hai.**  
 - **Node = Elasticsearch ka ek instance jo ek machine pe multiple ho sakta hai.**  
 - **Documents JSON format mein store hote hain aur Indices ke andar logically group kiye jate hain.**  

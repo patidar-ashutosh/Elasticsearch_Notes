@@ -1,17 +1,18 @@
 ### 🚀 **Table of Contents**  
-1️⃣ **Introduction to Node Roles** 🏗️  
-2️⃣ **Master Node 🏆** - Cluster ka boss  
-3️⃣ **Data Node 🗄️** - Storage aur Query Execution  
-4️⃣ **Ingest Node 🔄** - Data Preprocessing  
-5️⃣ **Machine Learning Node 🤖** - ML Jobs Execution  
-6️⃣ **Coordinating Node 🔗** - Query Distribution  
-7️⃣ **Voting-Only Node 🗳️** - Master Election Support  
-8️⃣ **Default Node Roles in Elasticsearch** 🔍  
-9️⃣ **When to Modify Node Roles? ⚙️**  
+
+1️⃣ **[Introduction to Node Roles](#1)** 🏗️  
+2️⃣ **[Master Node – Cluster ka boss](#2)** 🏆  
+3️⃣ **[Data Node – Storage aur Query Execution](#3)** 🗄️  
+4️⃣ **[Ingest Node – Data Preprocessing](#4)** 🔄  
+5️⃣ **[Machine Learning Node – ML Jobs Execution](#5)** 🤖  
+6️⃣ **[Coordinating Node – Query Distribution](#6)** 🔗  
+7️⃣ **[Voting-Only Node – Master Election Support](#7)** 🗳️  
+8️⃣ **[Default Node Roles in Elasticsearch](#8)** 🔍  
+9️⃣ **[When to Modify Node Roles?](#9)** ⚙️  
 
 ---
 
-## 1️⃣ **Introduction to Node Roles** 🏗️  
+## 1️⃣ **Introduction to Node Roles** 🏗️  <a id="1"></a>
 Elasticsearch me **cluster ek ya zyada nodes ka collection hota hai**. Har node ka **koi ek ya zyada specific role hota hai**, jo define karta hai ki us node ka primary kaam kya hoga.  
 
 **Shards kaha store hote hain?**  
@@ -33,7 +34,7 @@ Ab inko **detail me** dekhte hain.
 
 ---
 
-## 2️⃣ **Master Node 🏆 - Cluster ka Boss**  
+## 2️⃣ **Master Node 🏆 - Cluster ka Boss**  <a id="2"></a>
 Master node **cluster-wide tasks handle karta hai**, jaise:  
 ✅ **New Index Create karna / Delete karna**  
 ✅ **Nodes ko track karna** (kaun online hai, kaun offline gaya)  
@@ -55,7 +56,7 @@ Solution: **Dedicated Master Nodes** rakhna.
 
 ---
 
-## 3️⃣ **Data Node 🗄️ - Storage aur Query Execution**  
+## 3️⃣ **Data Node 🗄️ - Storage aur Query Execution**  <a id="3"></a>
 Data nodes ka kaam hota hai:  
 📌 **Data store karna**  
 📌 **Search queries execute karna**  
@@ -74,7 +75,7 @@ Agar ek **large ecommerce website** hai, jisme daily **millions of search reques
 
 ---
 
-## 4️⃣ **Ingest Node 🔄 - Data Preprocessing**  
+## 4️⃣ **Ingest Node 🔄 - Data Preprocessing**  <a id="4"></a>
 Ingest nodes ka kaam hota hai **documents ko Elasticsearch me store karne se pehle modify karna**.  
 
 ### **🔹 Use Case - Web Server Logs Parsing**  
@@ -103,7 +104,7 @@ Agar tu **Apache access logs** Elasticsearch me store kar raha hai, to ingest no
 
 ---
 
-## 5️⃣ **Machine Learning Node 🤖 - ML Jobs Execution**  
+## 5️⃣ **Machine Learning Node 🤖 - ML Jobs Execution**  <a id="5"></a>
 Machine Learning nodes **anomalies detect karne ke liye use hote hain**.  
 Agar tu real-time **fraud detection ya log pattern analysis** kar raha hai, to ML nodes kaafi useful honge.  
 
@@ -117,7 +118,7 @@ Agar tu real-time **fraud detection ya log pattern analysis** kar raha hai, to M
 
 ---
 
-## 6️⃣ **Coordinating Node 🔗 - Query Distribution**  
+## 6️⃣ **Coordinating Node 🔗 - Query Distribution**  <a id="6"></a>
 Coordinating nodes ka kaam hota hai:  
 🔄 **Query ko sahi data nodes tak pahunchana**  
 🔄 **Results collect karke response return karna**  
@@ -132,7 +133,7 @@ Coordinating nodes ka kaam hota hai:
 
 ---
 
-## 7️⃣ **Voting-Only Node 🗳️ - Master Election Support**  
+## 7️⃣ **Voting-Only Node 🗳️ - Master Election Support**  <a id="7"></a>
 Ye nodes sirf **voting me participate karte hain, but master nahi ban sakte**.  
 **Large clusters me use hota hai** taaki **election stable ho aur unnecessary master changes na ho**.  
 
@@ -142,7 +143,7 @@ Ye nodes sirf **voting me participate karte hain, but master nahi ban sakte**.
 
 ---
 
-## 8️⃣ **Default Node Roles in Elasticsearch** 🔍  
+## 8️⃣ **Default Node Roles in Elasticsearch** 🔍  <a id="8"></a>
 Agar koi custom config nahi di jaye, to **har node ke paas ye roles hote hain:**  
 📌 **Data (`d`)**  
 📌 **Ingest (`i`)**  
@@ -153,7 +154,7 @@ Kibana me agar `node.role` dekho, to `dim` ka matlab hoga **Data + Ingest + Mast
 
 ---
 
-## 9️⃣ **When to Modify Node Roles? ⚙️**  
+## 9️⃣ **When to Modify Node Roles? ⚙️**  <a id="9"></a>
 Ye depend karta hai cluster size aur workload pe.  
 📌 **Chhote clusters me default roles kaafi hain**  
 📌 **Bade clusters me role separation better hai**  

@@ -1,15 +1,15 @@
 ## 📜 Table of Contents  
 
-1️⃣ **Introduction** – Elasticsearch Architecture Overview 🏗️  
-2️⃣ **Nodes and Clusters** – How Elasticsearch Organizes Data 🔄  
-3️⃣ **Documents and Indices** – Storing and Structuring Data 📄  
-4️⃣ **Scalability and Availability** – Ensuring Performance and Redundancy ⚡  
-5️⃣ **Practical Example** – Storing a Document in Elasticsearch 🛠️  
-6️⃣ **Key Takeaways** – Summary of Core Concepts ✅  
+1️⃣ **[Introduction – Elasticsearch Architecture Overview](#1)** 🏗️  
+2️⃣ **[Nodes and Clusters – How Elasticsearch Organizes Data](#2)** 🔄  
+3️⃣ **[Documents and Indices – Storing and Structuring Data](#3)** 📄  
+4️⃣ **[Scalability and Availability – Ensuring Performance and Redundancy](#4)** ⚡  
+5️⃣ **[Practical Example – Storing a Document in Elasticsearch](#5)** 🛠️  
+6️⃣ **[Key Takeaways – Summary of Core Concepts](#6)** ✅  
 
 ---  
 
-## 1️⃣ **Introduction – Elasticsearch Architecture Overview 🏗️**  
+## 1️⃣ **Introduction – Elasticsearch Architecture Overview 🏗️**  <a id="1"></a>
 
 Elasticsearch ek **distributed, scalable, and real-time** search engine hai. Iska architecture highly optimized hota hai **Big Data** handle karne ke liye.  
 Ab hum dekhenge ki Elasticsearch **data ko organize kaise karta hai** aur **scalable search engine** kaise banta hai.  
@@ -21,7 +21,7 @@ Ab hum dekhenge ki Elasticsearch **data ko organize kaise karta hai** aur **scal
 
 ---  
 
-## 2️⃣ **Nodes and Clusters – How Elasticsearch Organizes Data 🔄**  
+## 2️⃣ **Nodes and Clusters – How Elasticsearch Organizes Data 🔄**  <a id="2"></a>
 
 ### **🔹 Node kya hota hai?**  
 Jab tumne Elasticsearch start kiya, to **ek node start hua**.  
@@ -55,7 +55,7 @@ Cluster A → Node 1 (Data Part 1), Node 2 (Data Part 2), Node 3 (Data Part 3)
 
 ---
 
-## 3️⃣ **Documents and Indices – Storing and Structuring Data 📄**  
+## 3️⃣ **Documents and Indices – Storing and Structuring Data 📄**  <a id="3"></a>
 
 ### **🔹 Document kya hota hai?**  
 **Document = JSON Object** jo Elasticsearch me store hota hai.  
@@ -87,7 +87,7 @@ Index: "people"
 
 ---
 
-## 4️⃣ **Scalability and Availability – Ensuring Performance and Redundancy ⚡**  
+## 4️⃣ **Scalability and Availability – Ensuring Performance and Redundancy ⚡**  <a id="4"></a>
 
 ### **🔹 Scalability**  
 Elasticsearch horizontally scale hota hai.  
@@ -144,7 +144,7 @@ Cluster
 
 ---
 
-## 5️⃣ **Practical Example – Storing a Document in Elasticsearch 🛠️**  
+## 5️⃣ **Practical Example – Storing a Document in Elasticsearch 🛠️**  <a id="5"></a>
 
 Ek **"people" index** banayenge aur ek person ka document store karenge.  
 
@@ -183,7 +183,7 @@ GET /people/_doc/1
 
 ---
 
-## 6️⃣ **Key Takeaways – Summary of Core Concepts ✅**  
+## 6️⃣ **Key Takeaways – Summary of Core Concepts ✅**  <a id="6"></a>
 
 ✔️ **Elasticsearch ka architecture highly scalable aur distributed hota hai.**  
 ✔️ **Node = Running instance of Elasticsearch** jo data store karta hai.  
