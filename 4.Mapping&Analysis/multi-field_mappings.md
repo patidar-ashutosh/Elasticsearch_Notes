@@ -1,15 +1,15 @@
 # 📖 **Table of Contents**
-1. [📌 Introduction: Multi-Field Mapping Kya Hai?](#intro)
-2. [🔍 Elasticsearch Field Types Recap](#field-types)
-3. [🛠️ Multi-Field Mapping Kaise Define Karte Hain?](#define-mapping)
-4. [📊 Multi-Field Mapping Ka Use Case](#use-case)
-5. [🔎 Querying Multi-Fields](#querying)
-6. [⚡ Advanced Use Cases](#advanced-use-cases)
-7. [📝 Summary](#summary)
+1️⃣ [📌 Introduction: Multi-Field Mapping Kya Hai?](#1)  
+2️⃣ [🔍 Elasticsearch Field Types Recap](#2)  
+3️⃣ [🛠️ Multi-Field Mapping Kaise Define Karte Hain?](#3)  
+4️⃣ [📊 Multi-Field Mapping Ka Use Case](#4)  
+5️⃣ [🔎 Querying Multi-Fields](#5)  
+6️⃣ [⚡ Advanced Use Cases](#6)  
+7️⃣ [📝 Summary](#7)  
 
 ---
 
-## 1️⃣ 📌 **Introduction: Multi-Field Mapping Kya Hai?** <a name="intro"></a>
+## 1️⃣ 📌 **Introduction: Multi-Field Mapping Kya Hai?** <a id="1"></a>
 Jab hum Elasticsearch me ek field ko define karte hain, to hum uske liye ek specific data type set karte hain, jaise `text`, `keyword`, `integer`, etc.  
 
 **Lekin kabhi-kabhi hume ek hi field ko different types se query karna padta hai.**  
@@ -19,7 +19,7 @@ Aise situations me **multi-field mappings** ka use hota hai, jisme ek field ke m
 
 ---
 
-## 2️⃣ 🔍 **Elasticsearch Field Types Recap** <a name="field-types"></a>
+## 2️⃣ 🔍 **Elasticsearch Field Types Recap** <a id="2"></a>
 Multi-field mappings samajhne ke liye pehle `text` aur `keyword` fields ke difference ko samajhna zaroori hai:
 
 | Field Type | Use Case | Features |
@@ -35,7 +35,7 @@ Agar ek `ingredients` field hai jo kisi recipe ka ingredient store karti hai, to
 
 ---
 
-## 3️⃣ 🛠️ **Multi-Field Mapping Kaise Define Karte Hain?** <a name="define-mapping"></a>
+## 3️⃣ 🛠️ **Multi-Field Mapping Kaise Define Karte Hain?** <a id="3"></a>
 Multi-field mappings define karne ke liye, hum `fields` parameter ka use karte hain:
 
 ### ✅ **Example: Mapping Creation**
@@ -60,7 +60,7 @@ PUT recipes
 
 ---
 
-## 4️⃣ 📊 **Multi-Field Mapping Ka Use Case** <a name="use-case"></a>
+## 4️⃣ 📊 **Multi-Field Mapping Ka Use Case** <a id="4"></a>
 Socho ek food blog hai jisme recipes hain.  
 Hume users ko **ingredients ke basis pe search aur aggregation dono features** dene hain.
 
@@ -74,7 +74,7 @@ Agar sirf `keyword` field use karein to full-text search nahi ho payega.
 
 ---
 
-## 5️⃣ 🔎 **Querying Multi-Fields** <a name="querying"></a>
+## 5️⃣ 🔎 **Querying Multi-Fields** <a id="5"></a>
 Multi-field mapping ke baad hum **different ways me query** kar sakte hain:
 
 ### ✅ **1. Full-Text Search (`text` field)**
@@ -123,7 +123,8 @@ GET recipes/_search
 
 ---
 
-## 6️⃣ ⚡ **Advanced Use Cases** <a name="advanced-use-cases"></a>
+## 6️⃣ ⚡ **Advanced Use Cases** <a id="6"></a>
+
 Multi-field mappings sirf `text` aur `keyword` tak limited nahi hain.  
 
 Agar hume ek field ke **different language analyzers** chahiye, to bhi use kar sakte hain.  
@@ -153,7 +154,8 @@ PUT products
 
 ---
 
-## 7️⃣ 📝 **Summary** <a name="summary"></a>
+## 7️⃣ 📝 **Summary** <a id="7"></a>
+
 | Feature | Description |
 |---------|------------|
 | **Multi-Field Mapping** | Ek field ko multiple types se define karne ka tarika |

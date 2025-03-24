@@ -1,26 +1,26 @@
 # 📌 Custom Analyzers in Elasticsearch
 
-## 📜 Table of Contents
-1. [Custom Analyzer Kya Hota Hai?](#custom-analyzer-kya-hota-hai)
-2. [Custom Analyzer Ka Structure](#custom-analyzer-ka-structure)
-3. [Character Filters](#character-filters)
-4. [Tokenizers](#tokenizers)
-5. [Token Filters](#token-filters)
-6. [Ek Complete Custom Analyzer Banana](#ek-complete-custom-analyzer-banana)
-7. [Custom Analyzer Ko Test Karna](#custom-analyzer-ko-test-karna)
-8. [Language Specific Customization](#language-specific-customization)
-9. [Conclusion](#conclusion)
+## 📜 Table of Contents  
+1️⃣ [Custom Analyzer Kya Hota Hai?](#1)  
+2️⃣ [Custom Analyzer Ka Structure](#2)  
+3️⃣ [Character Filters](#3)  
+4️⃣ [Tokenizers](#4)  
+5️⃣ [Token Filters](#5)  
+6️⃣ [Ek Complete Custom Analyzer Banana](#6)  
+7️⃣ [Custom Analyzer Ko Test Karna](#7)  
+8️⃣ [Language Specific Customization](#8)  
+9️⃣ [Conclusion](#9)  
 
 ---
 
-## 1️⃣ Custom Analyzer Kya Hota Hai?
+## 1️⃣ Custom Analyzer Kya Hota Hai? <a id="1"></a>
 Elasticsearch me ek **analyzer** ka kaam hota hai text ko process karna taki uspar efficiently search kiya ja sake. Built-in analyzers hote hain jo already defined hote hain jaise **standard, simple, whitespace, stop**, etc.
 
 Lekin kabhi kabhi hume custom requirements hoti hain, jaise **HTML tags remove karna, stop words hatana, lowercase karna, special characters normalize karna**, etc. Iske liye **Custom Analyzer** use hota hai jo **Character Filters, Tokenizer aur Token Filters** ka combination hota hai. 🔥
 
 ---
 
-## 2️⃣ Custom Analyzer Ka Structure
+## 2️⃣ Custom Analyzer Ka Structure <a id="2"></a>
 Custom analyzer ka structure kuch iss tarah hota hai:
 
 ```json
@@ -47,7 +47,7 @@ Custom analyzer ka structure kuch iss tarah hota hai:
 
 ---
 
-## 3️⃣ Character Filters
+## 3️⃣ Character Filters <a id="3"></a>
 Character filters ka kaam **text me unwanted cheezein remove ya replace** karna hota hai. Example:
 
 | Character Filter | Description |
@@ -63,7 +63,7 @@ Example:
 
 ---
 
-## 4️⃣ Tokenizers
+## 4️⃣ Tokenizers <a id="4"></a>
 Tokenizer ka kaam text ko **tokens (words) me split** karna hota hai. Example:
 
 | Tokenizer | Description |
@@ -80,7 +80,7 @@ Example:
 
 ---
 
-## 5️⃣ Token Filters
+## 5️⃣ Token Filters <a id="5"></a>
 Token filters ka kaam **tokens par additional processing** karna hota hai. Example:
 
 | Token Filter | Description |
@@ -97,7 +97,7 @@ Example:
 
 ---
 
-## 6️⃣ Ek Complete Custom Analyzer Banana
+## 6️⃣ Ek Complete Custom Analyzer Banana <a id="6"></a>
 Chalo ek custom analyzer **banate hain aur use test bhi karte hain**! 🚀
 
 ### 🎯 Step 1: Index Create Karna
@@ -121,7 +121,7 @@ PUT my_index
 
 ---
 
-## 7️⃣ Custom Analyzer Ko Test Karna
+## 7️⃣ Custom Analyzer Ko Test Karna <a id="7"></a>
 Test karne ke liye **Analyze API** ka use karte hain:
 
 ```json
@@ -149,7 +149,7 @@ GET my_index/_analyze
 
 ---
 
-## 8️⃣ Language Specific Customization
+## 8️⃣ Language Specific Customization <a id="8"></a>
 Agar **stop words** English ke alawa kisi aur language ke hone chahiye to hum **custom filter define** kar sakte hain:
 
 ```json
@@ -187,6 +187,6 @@ Agar **synonyms** handle karne hain to **synonym filter** bhi add kar sakte hain
 
 ---
 
-## 9️⃣ Conclusion
+## 9️⃣ Conclusion <a id="9"></a>
 Custom analyzers Elasticsearch me **text processing aur search ko improve** karne ke liye powerful tool hain. Tum **char filters, tokenizers, aur token filters** ko combine karke apne documents ke liye best search indexing bana sakte ho. 🔥
 

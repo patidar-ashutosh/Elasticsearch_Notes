@@ -1,26 +1,27 @@
 ### 📌 **Adding Explicit Mappings in Elasticsearch**  
 
 #### 📖 **Table of Contents**  
-1️⃣ **Introduction** – Mapping ka overview  
-2️⃣ **Explicit Mapping vs Dynamic Mapping**  
-3️⃣ **Index Banate Time Mapping Kaise Add Karein?**  
-4️⃣ **Fields Ko Kaise Define Karein?**  
-5️⃣ **Nested Objects Ka Handling**  
-6️⃣ **Text vs Keyword Data Type**  
-7️⃣ **Coercion Ka Impact**  
-8️⃣ **Best Practices for Field Naming**  
-9️⃣ **Example Query & Expected Output**  
+1️⃣ [Introduction](#1)  
+2️⃣ [Explicit Mapping vs Dynamic Mapping](#2)  
+3️⃣ [Index Banate Time Mapping Kaise Add Karein?](#3)  
+4️⃣ [Fields Ko Kaise Define Karein?](#4)  
+5️⃣ [Nested Objects Ka Handling](#5)  
+6️⃣ [Text vs Keyword Data Type](#6)  
+7️⃣ [Coercion Ka Impact](#7)  
+8️⃣ [Best Practices for Field Naming](#8)  
+9️⃣ [Example Query & Expected Output](#9)  
+🔟 [Conclusion](#10)  
 
 ---  
 
-## 🏗️ **1. Introduction**  
+## 🏗️ **1. Introduction**  <a id="1"></a>
 Elasticsearch me mapping ka kaam hota hai data ke structure ko define karna. Jab hum data index karte hain, to Elasticsearch automatically mapping assign kar sakta hai (Dynamic Mapping), ya phir hum khud se explicitly mapping define kar sakte hain.  
 
 **Explicit Mapping** ka fayda yeh hota hai ki hum data types aur field properties ko control kar sakte hain, jo ki aggregation, searching aur indexing performance improve karta hai.  
 
 ---
 
-## ⚖️ **2. Explicit Mapping vs Dynamic Mapping**  
+## ⚖️ **2. Explicit Mapping vs Dynamic Mapping**  <a id="2"></a>
 - **Dynamic Mapping** – Agar hum koi field explicitly define nahi karte to Elasticsearch khud hi uska data type detect kar leta hai.  
 - **Explicit Mapping** – Hum khud define karte hain ki kaunsa field kaunsa type ka hoga. Yeh best practice hai agar hume data consistency aur performance control karni ho.  
 
@@ -38,7 +39,7 @@ Elasticsearch me mapping ka kaam hota hai data ke structure ko define karna. Jab
 
 ---
 
-## 🏗️ **3. Index Banate Time Mapping Kaise Add Karein?**  
+## 🏗️ **3. Index Banate Time Mapping Kaise Add Karein?**  <a id="3"></a>
 Jab hum ek **naya index** create karte hain, tab hum mapping ko explicitly define kar sakte hain using `"mappings"` key.
 
 **Example:**  
@@ -65,7 +66,7 @@ PUT reviews
 
 ---
 
-## 🏷️ **4. Fields Ko Kaise Define Karein?**  
+## 🏷️ **4. Fields Ko Kaise Define Karein?**  <a id="4"></a>
 Har field ko **"properties"** key ke andar define karna zaroori hai. Har field ka **data type** specify karna chahiye.  
 
 🔹 **Common Data Types**  
@@ -81,7 +82,7 @@ Har field ko **"properties"** key ke andar define karna zaroori hai. Har field k
 
 ---
 
-## 🏛️ **5. Nested Objects Ka Handling**  
+## 🏛️ **5. Nested Objects Ka Handling**  <a id="5"></a>
 Agar kisi field ke andar aur bhi fields hain, to hume `"properties"` key use karni padegi.  
 
 🔹 **Example of Nested Object:**  
@@ -99,7 +100,7 @@ Agar kisi field ke andar aur bhi fields hain, to hume `"properties"` key use kar
 
 ---
 
-## 🔍 **6. Text vs Keyword Data Type**  
+## 🔍 **6. Text vs Keyword Data Type**  <a id="6"></a>
 Elasticsearch me **"text"** aur **"keyword"** kaafi alag alag kaam ke liye use hote hain.  
 
 | Feature | `text` | `keyword` |
@@ -117,7 +118,7 @@ Elasticsearch me **"text"** aur **"keyword"** kaafi alag alag kaam ke liye use h
 
 ---
 
-## ⚠️ **7. Coercion Ka Impact**  
+## ⚠️ **7. Coercion Ka Impact**  <a id="7"></a>
 Elasticsearch automatically kuch data types ko convert kar leta hai agar coercion enabled ho.  
 
 🔹 **Example:**  
@@ -149,7 +150,7 @@ POST products/_doc/1
 
 ---
 
-## 🔠 **8. Best Practices for Field Naming**  
+## 🔠 **8. Best Practices for Field Naming**  <a id="8"></a>
 - **Consistency Rakho:** Sab fields ek jaisa format follow karein.  
 - **camelCase ya snake_case Use Karo:**  
   - `firstName` (camelCase)  
@@ -160,7 +161,7 @@ POST products/_doc/1
 
 ---
 
-## 📝 **9. Example Query & Expected Output**  
+## 📝 **9. Example Query & Expected Output**  <a id="9"></a>
 
 ### 📌 **Step 1: Create Index with Mapping**  
 ```json
@@ -235,7 +236,7 @@ POST reviews/_doc/2
 
 ---
 
-## 🎯 **Conclusion**  
+## 🎯 **10. Conclusion**  <a id="10"></a>
 - **Explicit Mapping** ka use karna best practice hai.  
 - **Fields ka type carefully select karo** based on searching & aggregations.  
 - **Coercion samajhna zaroori hai** taaki unexpected errors avoid ho sakein.  

@@ -5,19 +5,19 @@ Elasticsearch me **mapping** ek important concept hai jo batata hai ki documents
 ---
 
 ## **📌 Table of Contents**  
-1️⃣ [Introduction to Mapping](#1-introduction-to-mapping)  
-2️⃣ [Why Mapping is Important?](#2-why-mapping-is-important)  
-3️⃣ [Mapping vs SQL Table Schema](#3-mapping-vs-sql-table-schema)  
-4️⃣ [Explicit vs Dynamic Mapping](#4-explicit-vs-dynamic-mapping)  
-5️⃣ [How Mapping Works? (Examples)](#5️⃣-different-way-of-doing-dynamic-mapping)  
-6️⃣ [Combining Explicit and Dynamic Mapping](#6-combining-explicit-and-dynamic-mapping)  
-7️⃣ [How to Check Index Mapping](#7-how-to-check-index-mapping)  
-8️⃣ [Best Practices for Mapping](#7-best-practices-for-mapping)  
-9️⃣ [Conclusion](#8-conclusion)  
+1️⃣ [Introduction to Mapping](#1)  
+2️⃣ [Why Mapping is Important?](#2)  
+3️⃣ [Mapping vs SQL Table Schema](#3)  
+4️⃣ [Explicit vs Dynamic Mapping](#4)  
+5️⃣ [How Mapping Works? (Examples)](#5)  
+6️⃣ [Combining Explicit and Dynamic Mapping](#6)  
+7️⃣ [How to Check Index Mapping](#7)  
+8️⃣ [Best Practices for Mapping](#8)  
+9️⃣ [Conclusion](#9)  
 
 ---
 
-## **1️⃣ Introduction to Mapping**  
+## **1️⃣ Introduction to Mapping**  <a id="1"></a>
 💡 **Mapping** define karta hai ki:  
 ✔ Documents ka **structure** kya hoga?  
 ✔ Kaunse **fields** honge?  
@@ -43,11 +43,9 @@ PUT /products
 - `"price"` ek **floating number** hoga.  
 - `"in_stock"` ek **boolean** field hai.  
 
-[🔝 Back to Top](#📌-table-of-contents)  
-
 ---
 
-## **2️⃣ Why Mapping is Important?**  
+## **2️⃣ Why Mapping is Important?**  <a id="2"></a>
 ✔ **Faster Search:** Elasticsearch ko pata hota hai ki kaunsa data kis format me hai, toh searching fast hoti hai.  
 ✔ **Optimized Storage:** Proper mapping se data efficiently store hota hai.  
 ✔ **Correct Query Execution:** Agar fields ka incorrect type ho toh queries error de sakti hain.  
@@ -69,11 +67,9 @@ GET products/_search
 ```
 **Galat mapping hone par yeh query fail ho jayegi!**  
 
-[🔝 Back to Top](#📌-table-of-contents)  
-
 ---
 
-## **3️⃣ Mapping vs SQL Table Schema**  
+## **3️⃣ Mapping vs SQL Table Schema**  <a id="3"></a>
 | Feature | SQL Table Schema | Elasticsearch Mapping |
 |---------|-----------------|----------------------|
 | Data Storage | Rows & Columns | JSON Documents |
@@ -85,11 +81,9 @@ GET products/_search
 - SQL databases me **schema rigid hota hai**, jabki Elasticsearch me **mapping flexible** hota hai.  
 - Elasticsearch **nested documents** aur **full-text search** ko optimize karta hai.  
 
-[🔝 Back to Top](#📌-table-of-contents)  
-
 ---
 
-## **4️⃣ Explicit vs Dynamic Mapping**  
+## **4️⃣ Explicit vs Dynamic Mapping**  <a id="4"></a>
 
 ## 🔹 **Explicit Mapping:**  
 - Tum **khud manually** bata sakte ho ki kaunse fields honge aur unka data type kya hoga.  
@@ -160,6 +154,7 @@ PUT products
   }
 }
 ```
+
 ### **🛠 Difference Between Both Approaches**
 | Approach | Pros | Cons |
 |----------|------|------|
@@ -186,11 +181,9 @@ POST products/_doc/1
 ```
 Yahan `"price"` ko **float**, `"name"` ko **text**, aur `"in_stock"` ko **boolean** automatically assign kiya jayega.  
 
-[🔝 Back to Top](#📌-table-of-contents)  
-
 ---
 
-## **5️⃣ Different Way Of Doing Dynamic Mapping**  
+## **5️⃣ Different Way Of Doing Dynamic Mapping**  <a id="5"></a>
 Elasticsearch me **`dynamic` mapping** ke **3 possible values** hoti hain:  
 
 1️⃣ **`true` (default)** → **Naye fields automatically add ho jate hain.**  
@@ -304,11 +297,9 @@ POST my_index/_doc/1
 - `false` → **Naya field ignore hota hai, error nahi aata.**  
 - `"strict"` → **Naya field pe error aata hai, document insert nahi hota.**  
 
-[🔝 Back to Top](#📌-table-of-contents)  
-
 ---
 
-## **6️⃣ Combining Explicit and Dynamic Mapping**  
+## **6️⃣ Combining Explicit and Dynamic Mapping**  <a id="6"></a>
 ✔ Tum **explicit mapping aur dynamic mapping dono** combine kar sakte ho.  
 ✔ Example: Tum important fields **manually define** kar sakte ho aur baaki fields ko **dynamically detect** hone de sakte ho.  
 
@@ -326,11 +317,9 @@ PUT products
 ```
 Agar tum **extra fields** daalte ho jo define nahi kiye gaye hain, toh Elasticsearch **unko automatically detect** karega.  
 
-[🔝 Back to Top](#📌-table-of-contents)  
-
 ---
 
-## **7️⃣ How to Check Index Mapping**  
+## **7️⃣ How to Check Index Mapping**  <a id="7"></a>
 Elasticsearch me **index mapping check** karne ke liye aap **`_mapping` API** ka use kar sakte ho.  
 
 ## 🔍 **1. Poore Index Ki Mapping Dekhna**  
@@ -415,28 +404,23 @@ GET _mapping
 
 🔥 **Ab aap Elasticsearch me index ki mapping easily check kar sakte ho!** 🚀
 
-
 ---
 
-## **8️⃣ Best Practices for Mapping**  
+## **8️⃣ Best Practices for Mapping**  <a id="8"></a>
 ✔ **Explicit Mapping Use Karo:** Agar tumhe fields pata hain toh manually mapping define karo.  
 ✔ **Keyword vs Text:** Agar tumhe exact matches chahiye toh `"keyword"` use karo, warna `"text"` use karo.  
 ✔ **Date Fields Define Karo:** `"date"` type explicitly define karo warna Elasticsearch galat format detect kar sakta hai.  
 ✔ **Dynamic Mapping Strict Mode Me Rakho:** **Unwanted fields prevent karne ke liye** `"dynamic": "strict"` use karo.  
 
-[🔝 Back to Top](#📌-table-of-contents)  
-
 ---
 
-## **9️⃣ Conclusion**  
+## **9️⃣ Conclusion**  <a id="9"></a>
 🔹 **Mapping** Elasticsearch ka ek **important concept** hai jo documents ka **structure define** karta hai.  
 🔹 **Explicit Mapping** tumhe **better control** aur **optimized performance** deta hai.  
 🔹 **Dynamic Mapping** flexible hai, lekin unpredictable behavior ho sakta hai.  
 🔹 **Best practices** follow karke tum apni **indexing aur searching ko optimize** kar sakte ho.  
 
 ✔ **Agar mapping sahi set ki gayi ho toh Elasticsearch me querying fast aur efficient hoti hai!** 🚀  
-
-[🔝 Back to Top](#📌-table-of-contents)  
 
 ---
 

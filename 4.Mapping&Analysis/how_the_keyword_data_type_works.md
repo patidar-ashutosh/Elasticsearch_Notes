@@ -6,22 +6,21 @@ Elasticsearch me `keyword` data type ka main use filtering, sorting, aur aggrega
 
 ## **Table of Contents**  
 
-1. [Introduction to "keyword" Data Type](#1-introduction-to-keyword-data-type)  
-2. ["keyword" vs "text" Data Type](#2-keyword-vs-text-data-type)  
-3. [How "keyword" Data Type Works](#3-how-keyword-data-type-works)  
-   - [Standard Analyzer vs Keyword Analyzer](#31-standard-analyzer-vs-keyword-analyzer)  
-   - [Inverted Index Structure](#32-inverted-index-structure)  
-4. [Use Cases of "keyword" Data Type](#4-use-cases-of-keyword-data-type)  
-   - [Email Addresses](#41-email-addresses)  
-   - [Order Status](#42-order-status)  
-   - [Tags and Categories](#43-tags-and-categories)  
-5. [Customizing the "keyword" Analyzer](#5-customizing-the-keyword-analyzer)  
-6. [Conclusion & Key Takeaways](#6-conclusion--key-takeaways)  
+1. [Introduction to "keyword" Data Type](#1)  
+2. ["keyword" vs "text" Data Type](#2)  
+3. [How "keyword" Data Type Works](#3)  
+   - [Standard Analyzer vs Keyword Analyzer](#3-1)  
+   - [Inverted Index Structure](#3-2)  
+4. [Use Cases of "keyword" Data Type](#4)  
+   - [Email Addresses](#4-1)  
+   - [Order Status](#4-2)  
+   - [Tags and Categories](#4-3)  
+5. [Customizing the "keyword" Analyzer](#5)  
+6. [Conclusion & Key Takeaways](#6)  
 
 ---
 
-## **1. Introduction to "keyword" Data Type**  
-
+## **1. Introduction to "keyword" Data Type**  <a id="1"></a>
 
 Elasticsearch me `keyword` data type ka use **filtering, sorting, aur aggregations** ke liye hota hai. Yeh **structured data** ke liye best hai jisme exact matching zaroori hoti hai.  
 
@@ -32,11 +31,9 @@ Elasticsearch me `keyword` data type ka use **filtering, sorting, aur aggregatio
 
 Lekin, iska **full-text search** ke liye use nahi hota. Uske liye `text` data type hota hai.  
 
-[🔝 Back to Table of Contents](#table-of-contents)  
-
 ---
 
-## **2. "keyword" vs "text" Data Type**  
+## **2. "keyword" vs "text" Data Type**  <a id="2"></a>
 
 | Feature         | `keyword` | `text` |
 |---------------|-----------|--------|
@@ -60,13 +57,11 @@ Lekin, iska **full-text search** ke liye use nahi hota. Uske liye `text` data ty
 - `title` full-text search ke liye tokenize hoga.  
 - `category` exact match ke liye use hoga.  
 
-[🔝 Back to Table of Contents](#table-of-contents)  
-
 ---
 
-## **3. How "keyword" Data Type Works**  
+## **3. How "keyword" Data Type Works**  <a id="3"></a>
 
-### **3.1 Standard Analyzer vs Keyword Analyzer**  
+### **3.1 Standard Analyzer vs Keyword Analyzer**  <a id="3-1"></a>
 
 Elasticsearch me har field ek **analyzer** ke through process hoti hai.  
 - `text` fields ke liye **standard analyzer** use hota hai jo text ko **tokenize** karta hai.  
@@ -98,7 +93,7 @@ POST _analyze
 
 ---
 
-### **3.2 Inverted Index Structure**  
+### **3.2 Inverted Index Structure**  <a id="3-2"></a>
 
 Inverted index me `keyword` ka **poora text ek term** ke roop me store hota hai.  
 Agar hum do email addresses store karein:  
@@ -119,13 +114,11 @@ To inverted index me ye kuch aisa dikhega:
 - Har email **poora string ke roop me ek single token** hai.  
 - Elasticsearch sirf **exact matches** kar sakta hai.  
 
-[🔝 Back to Table of Contents](#table-of-contents)  
-
 ---
 
-## **4. Use Cases of "keyword" Data Type**  
+## **4. Use Cases of "keyword" Data Type**  <a id="4"></a>
 
-### **4.1 Email Addresses**  
+### **4.1 Email Addresses**  <a id="4-1"></a>
 
 Emails hamesha exact match ke liye store hote hain.  
 Example mapping:  
@@ -147,7 +140,7 @@ Search Query:
 
 ---
 
-### **4.2 Order Status**  
+### **4.2 Order Status**  <a id="4-2"></a>
 
 Order status (`pending`, `shipped`, `delivered`) exact match ke liye ideal hai.  
 ```json
@@ -169,7 +162,7 @@ Aggregation Example:
 
 ---
 
-### **4.3 Tags and Categories**  
+### **4.3 Tags and Categories**  <a id="4-3"></a>
 
 Agar ek product ke tags hain:  
 ```json
@@ -186,11 +179,9 @@ To `keyword` type hone par exact match kar sakte hain.
 ```
 - **Partial match nahi hoga** (`electro` search karne par `electronics` nahi milega).  
 
-[🔝 Back to Table of Contents](#table-of-contents)  
-
 ---
 
-## **5. Customizing the "keyword" Analyzer**  
+## **5. Customizing the "keyword" Analyzer**  <a id="5"></a>
 
 Agar hume **case-insensitive match** chahiye to hum **lowercase filter** use kar sakte hain.  
 
@@ -211,17 +202,13 @@ Agar hume **case-insensitive match** chahiye to hum **lowercase filter** use kar
 ```
 - Is analyzer me **sabhi letters lowercase** me convert ho jayenge.  
 
-[🔝 Back to Table of Contents](#table-of-contents)  
-
 ---
 
-## **6. Conclusion & Key Takeaways**  
+## **6. Conclusion & Key Takeaways**  <a id="6"></a>
 
 ✅ `keyword` data type structured data ke liye best hai.  
 ✅ **Sorting, filtering, aur aggregations** ke liye use hota hai.  
 ✅ **Full-text search ke liye use nahi hota.**  
 ✅ **Case-sensitive hota hai**, lekin analyzer customize kiya ja sakta hai.  
-
-[🔝 Back to Table of Contents](#table-of-contents)  
 
 ---

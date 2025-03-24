@@ -5,16 +5,16 @@ Dot notation Elasticsearch me ek shortcut hai jo complex object mappings ko simp
 ---
 
 ## 📖 **Table of Contents**  
-1️⃣ **[Dot Notation Kya Hai?](#dot-notation-kya-hai)**  
-2️⃣ **[Traditional Mapping vs Dot Notation](#traditional-mapping-vs-dot-notation)**  
-3️⃣ **[Mapping Example with Dot Notation](#mapping-example-with-dot-notation)**  
-4️⃣ **[Dot Notation in Search Queries](#dot-notation-in-search-queries)**  
-5️⃣ **[Behind the Scenes: Dot Notation ka Internal Work](#behind-the-scenes-dot-notation-ka-internal-work)**  
-6️⃣ **[Conclusion](#conclusion)**  
+1️⃣ [Dot Notation Kya Hai?](#1)  
+2️⃣ [Traditional Mapping vs Dot Notation](#2)  
+3️⃣ [Mapping Example with Dot Notation](#3)  
+4️⃣ [Dot Notation in Search Queries](#4)  
+5️⃣ [Behind the Scenes: Dot Notation ka Internal Work](#5)  
+6️⃣ [Conclusion](#6)  
 
 ---
 
-## 1️⃣ 🎯 **Dot Notation Kya Hai?**  
+## 1️⃣ 🎯 **Dot Notation Kya Hai?**  <a id="1"></a>
 Dot notation ka use Elasticsearch me hierarchical objects ko represent karne ke liye hota hai bina explicitly "properties" define kiye. Iska fayda ye hai ki mapping aur queries zyada readable aur clean dikhte hain.  
 
 Jaise agar ek document me `author` ek object hai, to hum traditionally isko aise define karte:  
@@ -38,7 +38,7 @@ Dot notation ka use karne par, hum ise ek hi level par represent kar sakte hain:
 
 ---
 
-## 2️⃣ 🔄 **Traditional Mapping vs Dot Notation**  
+## 2️⃣ 🔄 **Traditional Mapping vs Dot Notation**  <a id="2"></a>
 Traditional mapping me **"properties"** parameter ka use hota hai, jo objects ko clearly define karta hai.  
 Dot notation ise simplify karta hai, lekin internally Elasticsearch ise waise hi process karta hai jaise traditional mapping me hota.  
 
@@ -74,7 +74,7 @@ Dot notation ise simplify karta hai, lekin internally Elasticsearch ise waise hi
 
 ---
 
-## 3️⃣ 🛠 **Mapping Example with Dot Notation**  
+## 3️⃣ 🛠 **Mapping Example with Dot Notation**  <a id="3"></a>
 Chalo ek example dekhte hain jisme hum dot notation ka use karke mapping create karenge:  
 
 ### **Step 1: Index Create karna with Dot Notation**
@@ -116,7 +116,7 @@ Even though humne dot notation use ki thi, Elasticsearch internally isse `proper
 
 ---
 
-## 4️⃣ 🔍 **Dot Notation in Search Queries**  
+## 4️⃣ 🔍 **Dot Notation in Search Queries**  <a id="4"></a>
 Dot notation ka use sirf mapping me nahi hota, balki search queries me bhi kiya ja sakta hai.  
 
 ### **Example Query: Find Author by First Name**
@@ -152,7 +152,7 @@ Ye query `author.first_name` field me `John` ko search karegi bina kisi nested q
 
 ---
 
-## 5️⃣ ⚙️ **Behind the Scenes: Dot Notation ka Internal Work**  
+## 5️⃣ ⚙️ **Behind the Scenes: Dot Notation ka Internal Work**  <a id="5"></a>
 Jab hum dot notation use karte hain, Elasticsearch usse internally **"properties"** structure me convert kar deta hai.  
 Lekin jab queries likhte hain, tab hume ise dot notation me hi likhna padta hai.  
 
@@ -173,7 +173,7 @@ Eska matlab ye hai ki **index mapping me dot notation kabhi directly nahi dikheg
 
 ---
 
-## 6️⃣ ✅ **Conclusion**  
+## 6️⃣ ✅ **Conclusion**  <a id="6"></a>
 🔹 **Dot notation ek shortcut hai jo mapping aur queries dono me use hota hai.**  
 🔹 **Ye mapping ko cleaner aur readable banata hai, particularly jab deeply nested objects ho.**  
 🔹 **Elasticsearch internally ise properties structure me convert kar deta hai, isliye mapping retrieve karne par dot notation nahi dikhega.**  

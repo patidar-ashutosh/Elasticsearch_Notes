@@ -1,23 +1,24 @@
 # 📜 Retrieving Mappings in Elasticsearch  
 
 ## 📑 **Table of Contents**  
-1. 🔍 **Mapping API Overview**  
-2. 📥 **Retrieve Full Mapping of an Index**  
-3. 🎯 **Retrieve Mapping of a Specific Field**  
-4. 🏗️ **Understanding Dot Notation for Nested Objects**  
-5. 🛠️ **Real-World Example with Expected Output**  
-6. 📌 **Key Insights Beyond the Video**  
+1. 🔍 [Mapping API Overview](#1)  
+2. 📥 [Retrieve Full Mapping of an Index](#2)  
+3. 🎯 [Retrieve Mapping of a Specific Field](#3)  
+4. 🏗️ [Understanding Dot Notation for Nested Objects](#4)  
+5. 🛠️ [Real-World Example with Expected Output](#5)  
+6. 📌 [Key Insights Beyond the Video](#6)  
+7. 📌 [Conclusion](#7)  
 
 ---  
 
-## 🔍 **1. Mapping API Overview**  
+## 🔍 **1. Mapping API Overview**  <a id="1"></a>
 Elasticsearch me mapping ek tarika hai jisme bataya jata hai ki documents ke fields kis type ke hone chahiye. Kabhi kabhi hume manually mapping define karni padti hai, lekin agar **dynamic mapping** enabled hai, to Elasticsearch apne aap field types detect kar leta hai.  
 
 Lekin, **dynamic mapping** unpredictable ho sakta hai, isliye hume kabhi kabhi check karna padta hai ki Elasticsearch ne fields ko kis type me map kiya hai. Isi kaam ke liye **Mapping API** use hoti hai.  
 
 ---  
 
-## 📥 **2. Retrieve Full Mapping of an Index**  
+## 📥 **2. Retrieve Full Mapping of an Index**  <a id="2"></a>
 Agar kisi index ka pura mapping structure dekhna ho, to hum **GET request** bhej sakte hain:  
 
 ### 🔹 **API Request:**  
@@ -52,7 +53,7 @@ Yeh output batata hai ki **reviews** index me **title** field text hai, **rating
 
 ---  
 
-## 🎯 **3. Retrieve Mapping of a Specific Field**  
+## 🎯 **3. Retrieve Mapping of a Specific Field**  <a id="3"></a>
 Agar kisi ek specific field ka mapping dekhna ho, to **field parameter** use kar sakte hain:  
 
 ### 🔹 **API Request:**  
@@ -74,7 +75,7 @@ Yeh confirm karta hai ki **rating** field integer type ki hai.
 
 ---  
 
-## 🏗️ **4. Understanding Dot Notation for Nested Objects**  
+## 🏗️ **4. Understanding Dot Notation for Nested Objects**  <a id="4"></a>
 Agar koi field ek **nested object** ke andar ho, to uska mapping retrieve karne ke liye **dot notation** ka use hota hai.  
 
 For example, agar **author** ke andar **email** field ka mapping check karna ho:  
@@ -98,7 +99,7 @@ Isse pata chalta hai ki **email** field ka type **keyword** hai.
 
 ---  
 
-## 🛠️ **5. Real-World Example with Expected Output**  
+## 🛠️ **5. Real-World Example with Expected Output**  <a id="5"></a>
 Man lo tumhari team Elasticsearch me **dynamic mapping** enable karke documents index kar rahi hai. Tum chahte ho verify karna ki Elasticsearch ne correct types detect kiye hain ya nahi.  
 
 ### **Step 1: Insert Document Without Predefined Mapping**  
@@ -147,7 +148,7 @@ Iska matlab hai ki agar tum chahte ho **integer** hi use ho, to manually mapping
 
 ---  
 
-## 📌 **6. Key Insights Beyond the Video**  
+## 📌 **6. Key Insights Beyond the Video**  <a id="6"></a>
 ✅ **Mapping Retrieve Karne Ke Alag-Alag Tarike**  
 - Poora mapping dekhne ke liye: `GET index_name/_mapping`  
 - Specific field ka mapping dekhne ke liye: `GET index_name/_mapping/field/field_name`  
@@ -164,6 +165,6 @@ Iska matlab hai ki agar tum chahte ho **integer** hi use ho, to manually mapping
 
 ---  
 
-### 🎯 **Conclusion**  
+### 🎯 **7. Conclusion**  <a id="7"></a>
 Ab tumhe **Mapping API** use karne ka pura process samajh aa gaya hoga. Tum kisi bhi index ka mapping retrieve kar sakte ho, specific fields ka mapping dekh sakte ho, aur nested objects ke liye **dot notation** use kar sakte ho.  
 

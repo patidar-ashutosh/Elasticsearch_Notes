@@ -1,19 +1,19 @@
 # **📌 Field Aliases in Elasticsearch**  
 
-## **📜 Table of Contents**
-1. [Field Aliases Kya Hota Hai?](#field-aliases-kya-hota-hai)  
-2. [Field Aliases Kyon Zaroori Hai?](#field-aliases-kyon-zaroori-hai)  
-3. [Field Alias Kaise Kaam Karta Hai?](#field-alias-kaise-kaam-karta-hai)  
-4. [Field Alias Implement Kaise Karein?](#field-alias-implement-kaise-karein)  
-5. [Field Alias Ko Query Mein Kaise Use Karein?](#field-alias-ko-query-mein-kaise-use-karein)  
-6. [Field Alias Update Kaise Karein?](#field-alias-update-kaise-karein)  
-7. [Field Aliases Ki Limitations](#field-aliases-ki-limitations)  
-8. [Cluster Level Index Aliases](#cluster-level-index-aliases)  
-9. [Conclusion](#conclusion)  
+## **📜 Table of Contents**  
+1️⃣ [Field Aliases Kya Hota Hai?](#1)  
+2️⃣ [Field Aliases Kyon Zaroori Hai?](#2)  
+3️⃣ [Field Alias Kaise Kaam Karta Hai?](#3)  
+4️⃣ [Field Alias Implement Kaise Karein?](#4)  
+5️⃣ [Field Alias Ko Query Mein Kaise Use Karein?](#5)  
+6️⃣ [Field Alias Update Kaise Karein?](#6)  
+7️⃣ [Field Aliases Ki Limitations](#7)  
+8️⃣ [Cluster Level Index Aliases](#8)  
+9️⃣ [Conclusion](#9)  
 
 ---
 
-## **1️⃣ Field Aliases Kya Hota Hai?**  
+## **1️⃣ Field Aliases Kya Hota Hai?**  <a id="1"></a>
 Field Aliases Elasticsearch ka ek feature hai jo tumhe bina **reindexing kiye** kisi field ka **alternate naam** use karne ki suvidha deta hai. Matlab agar tum **"content"** field ka naam **"comment"** rakhna chahte ho bina naye index banaye, toh tum **alias** ka use kar sakte ho.  
 
 🔹 **Example:**  
@@ -21,7 +21,7 @@ Tumhare paas ek index hai `blog_posts` jisme ek field hai `"content"`, agar tum 
 
 ---
 
-## **2️⃣ Field Aliases Kyon Zaroori Hai?**  
+## **2️⃣ Field Aliases Kyon Zaroori Hai?**  <a id="2"></a>
 Agar tumhare paas **millions of documents** hai aur tumhe kisi field ka naam change karna ho, toh normally tumhe **poore data ko reindex karna padega**, jo **expensive aur time-consuming** ho sakta hai. **Field aliases** iss problem ka solution dete hain kyunki:  
 
 ✅ **Reindexing ki zaroorat nahi hoti**  
@@ -30,7 +30,7 @@ Agar tumhare paas **millions of documents** hai aur tumhe kisi field ka naam cha
 
 ---
 
-## **3️⃣ Field Alias Kaise Kaam Karta Hai?**  
+## **3️⃣ Field Alias Kaise Kaam Karta Hai?**  <a id="3"></a>
 Field Alias ek **mapping level construct** hota hai jo ek field ko **alternate naam se refer karne** ki suvidha deta hai.  
 
 🔹 Jab tum ek **alias define** karte ho, toh woh **sirf query parsing** ke time kaam karta hai.  
@@ -45,7 +45,7 @@ Field Alias ek **mapping level construct** hota hai jo ek field ko **alternate n
 
 ---
 
-## **4️⃣ Field Alias Implement Kaise Karein?**  
+## **4️⃣ Field Alias Implement Kaise Karein?**  <a id="4"></a>
 Agar tum **"content"** field ka alias **"comment"** banana chahte ho, toh tumhe yeh mapping update karni padegi:
 
 ### **📌 Mapping Create Karna**
@@ -67,7 +67,7 @@ PUT blog_posts
 
 ---
 
-## **5️⃣ Field Alias Ko Query Mein Kaise Use Karein?**  
+## **5️⃣ Field Alias Ko Query Mein Kaise Use Karein?**  <a id="5"></a>
 Ab tum **"comment"** field ka use query mein **"content"** field ki tarah kar sakte ho.
 
 ### **📌 Original Query (content field se)**
@@ -97,7 +97,7 @@ GET blog_posts/_search
 
 ---
 
-## **6️⃣ Field Alias Update Kaise Karein?**  
+## **6️⃣ Field Alias Update Kaise Karein?**  <a id="6"></a>
 Agar tum **alias ka target field change karna chahte ho**, toh tum **mapping update** kar sakte ho.
 
 ### **📌 Alias Update Karna**
@@ -118,7 +118,7 @@ PUT blog_posts/_mapping
 
 ---
 
-## **7️⃣ Field Aliases Ki Limitations**  
+## **7️⃣ Field Aliases Ki Limitations**  <a id="7"></a>
 Field Aliases powerful hai, par kuch **limitations** bhi hai:  
 
 ❌ Alias ko **nested fields ke liye use nahi** kar sakte  
@@ -127,7 +127,7 @@ Field Aliases powerful hai, par kuch **limitations** bhi hai:
 
 ---
 
-## **8️⃣ Cluster Level Index Aliases**  
+## **8️⃣ Cluster Level Index Aliases**   <a id="8"></a>
 Field aliases ke alawa Elasticsearch me **Index Aliases** bhi hote hain jo **Cluster Level pe apply** hote hain.  
 
 ### **📌 Example: Index Alias Create Karna**
@@ -150,7 +150,7 @@ POST _aliases
 
 ---
 
-## **9️⃣ Conclusion**  
+## **9️⃣ Conclusion**  <a id="9"></a>
 **Field Aliases** kaafi useful hai jab tum **bina reindexing kiye kisi field ka naam change** karna chahte ho. Yeh **query parsing ke time alias ko actual field name se replace kar** deta hai.  
 
 **🔥 Key Points:**  

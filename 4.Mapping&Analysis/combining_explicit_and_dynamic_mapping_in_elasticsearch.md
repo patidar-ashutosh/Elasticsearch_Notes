@@ -1,19 +1,19 @@
 # Combining Explicit and Dynamic Mapping in Elasticsearch
 
-## Table of Contents
+## **Table of Contents**  
 
-1. [Introduction](#introduction)
-2. [What is Explicit Mapping?](#what-is-explicit-mapping)
-3. [What is Dynamic Mapping?](#what-is-dynamic-mapping)
-4. [Combining Explicit and Dynamic Mapping](#combining-explicit-and-dynamic-mapping)
-5. [Example Scenario](#example-scenario)
-6. [Benefits of Combining Both Approaches](#benefits-of-combining-both-approaches)
-7. [Best Practices](#best-practices)
-8. [Conclusion](#conclusion)
+1️⃣ [Introduction](#1)  
+2️⃣ [What is Explicit Mapping?](#2)  
+3️⃣ [What is Dynamic Mapping?](#3)  
+4️⃣ [Combining Explicit and Dynamic Mapping](#4)  
+5️⃣ [Example Scenario](#5)  
+6️⃣ [Benefits of Combining Both Approaches](#6)  
+7️⃣ [Best Practices](#7)  
+8️⃣ [Conclusion](#8)  
 
 ---
 
-## Introduction
+## 1. Introduction <a id="1"></a>
 
 Ab tak tum explicit mapping aur dynamic mapping dono samajh chuke ho. Lekin ek bada sawal yeh hai ki **kis approach ko use karna chahiye?** Kya sirf ek ko use karein ya dono ka combination possible hai?
 
@@ -23,7 +23,7 @@ Is article me hum dekhenge ki kaise **explicit mapping aur dynamic mapping ko co
 
 ---
 
-## What is Explicit Mapping?
+## 2. What is Explicit Mapping? <a id="2"></a>
 
 Explicit mapping ka matlab hota hai ki **hum khud Elasticsearch ko bata dete hain ki kaunse fields kis type ke hone chahiye**. Iska fayda yeh hai ki hum apni index structure ko **control** kar sakte hain.
 
@@ -42,7 +42,7 @@ Yeh mapping define karti hai ki **first_name** field ka type **text** hoga.
 
 ---
 
-## What is Dynamic Mapping?
+## 3. What is Dynamic Mapping? <a id="3"></a>
 
 Dynamic mapping ka matlab hai ki **Elasticsearch khud fields detect karke unka type set kar deta hai**. Agar koi field mapping me nahi di gayi hai, toh Elasticsearch automatically ek mapping generate kar leta hai.
 
@@ -58,7 +58,7 @@ Yaha **last_name** field ka koi mapping define nahi kiya gaya tha, toh Elasticse
 
 ---
 
-## Combining Explicit and Dynamic Mapping
+## 4. Combining Explicit and Dynamic Mapping <a id="4"></a>
 
 Agar hum ek index me **explicit mapping** define karte hain, lekin kuch naye fields **dynamic mapping** se create hone dete hain, toh dono approaches ek saath kaam karti hain.
 
@@ -95,7 +95,7 @@ Toh response me hume **first_name** explicitly mapped milega aur **last_name** d
 
 ---
 
-## Example Scenario
+## 5. Example Scenario <a id="5"></a>
 
 ### Step 1: Index Creation with Explicit Mapping
 ```json
@@ -128,7 +128,7 @@ Output me **name** aur **salary** toh **explicit** mapping ke basis pe set honge
 
 ---
 
-## Benefits of Combining Both Approaches
+## 6. Benefits of Combining Both Approaches <a id="6"></a>
 
 1. **Flexibility** - Tum important fields ka type khud define kar sakte ho aur naye fields automatically detect ho sakte hain.
 2. **Data Integrity** - Critical fields (jaise ki salary, date fields) ka type predefined hota hai, jisse incorrect data entry se bacha ja sakta hai.
@@ -137,7 +137,7 @@ Output me **name** aur **salary** toh **explicit** mapping ke basis pe set honge
 
 ---
 
-## Best Practices
+## 7. Best Practices <a id="7"></a>
 
 1. **Important fields ka explicit mapping define karo** - Jisme predefined constraints ya optimized indexing ki zaroorat ho.
 2. **Dynamic mapping ko controlled rakho** - Agar tum unwanted fields avoid karna chahte ho, toh dynamic mapping rules use karo.
@@ -155,7 +155,7 @@ PUT my_index
 
 ---
 
-## Conclusion
+## 8. Conclusion <a id="8"></a>
 
 Explicit aur dynamic mapping ko **combine karke best results achieve kiye ja sakte hain**. Tum **important fields** ka mapping manually define kar sakte ho aur naye fields Elasticsearch par chhod sakte ho.
 

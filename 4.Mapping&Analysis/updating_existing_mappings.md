@@ -1,19 +1,19 @@
 ## Updating Existing Mappings in Elasticsearch
 
-### **📌 Table of Contents**
-1. [Introduction](#introduction)
-2. [Elasticsearch Mapping Basics](#elasticsearch-mapping-basics)
-3. [Why Can’t We Update Existing Field Mappings?](#why-cant-we-update-existing-field-mappings)
-4. [What Can Be Updated in a Mapping?](#what-can-be-updated-in-a-mapping)
-5. [Example: Adding the `ignore_above` Parameter](#example-adding-the-ignore_above-parameter)
-6. [Workaround: How to Change a Field’s Data Type](#workaround-how-to-change-a-fields-data-type)
-7. [Reindexing: Step-by-Step Guide](#reindexing-step-by-step-guide)
-8. [Best Practices](#best-practices)
-9. [Conclusion](#conclusion)
+### **📌 Table of Contents**  
+1️⃣ [Introduction](#1)  
+2️⃣ [Elasticsearch Mapping Basics](#2)  
+3️⃣ [Why Can’t We Update Existing Field Mappings?](#3)  
+4️⃣ [What Can Be Updated in a Mapping?](#4)  
+5️⃣ [Example: Adding the `ignore_above` Parameter](#5)  
+6️⃣ [Workaround: How to Change a Field’s Data Type](#6)  
+7️⃣ [Reindexing: Step-by-Step Guide](#7)  
+8️⃣ [Best Practices](#8)  
+9️⃣ [Conclusion](#9)  
 
 ---
 
-## **🔹 Introduction**
+## 1**🔹 Introduction** <a id="1"></a>
 Elasticsearch me ek **field mapping** define karta hai ki kisi document ke ek specific field ka **data type** kya hoga aur uske upar kaunse operations perform ho sakte hain. Lekin agar ek baar mapping set ho gayi, toh usko **badalna possible nahi hota**, sirf kuch specific parameters update kiye ja sakte hain.
 
 Is guide me hum dekhenge:
@@ -24,7 +24,7 @@ Is guide me hum dekhenge:
 
 ---
 
-## **🔹 Elasticsearch Mapping Basics**
+## 2**🔹 Elasticsearch Mapping Basics** <a id="2"></a>
 Elasticsearch me har **index** ek **mapping** ke saath aata hai jo batata hai ki data ka structure kaisa hoga.
 
 Example:
@@ -45,7 +45,7 @@ Agar tumhe `product_id` ko **"keyword"** me change karna ho toh kya karoge? 🤔
 
 ---
 
-## **🔹 Why Can’t We Update Existing Field Mappings?**
+## 3**🔹 Why Can’t We Update Existing Field Mappings?** <a id="3"></a>
 Elasticsearch me ek baar mapping **define hone ke baad change nahi ho sakti**. Iska reason yeh hai ki:
 1. **Data Already Indexed** – Elasticsearch ek structured format me data ko store karta hai. Agar tum ek field ka type `long` se `keyword` karna chaaho, toh uska pura data structure change ho jayega.
 2. **Data Structures are Different** – Numeric fields (`long`) ko **BKD tree** me store kiya jata hai, jabki text fields (`keyword`) ko **inverted index** me.
@@ -69,7 +69,7 @@ The provided mapping cannot be applied to an existing field. It is not dynamical
 
 ---
 
-## **🔹 What Can Be Updated in a Mapping?**
+## 4**🔹 What Can Be Updated in a Mapping?** <a id="4"></a>
 Elasticsearch me **sirf kuch limited parameters** ko update karne ki permission hoti hai. Yeh include karte hain:
 | **Parameter**   | **Explanation** |
 |---------------|---------------|
@@ -79,7 +79,7 @@ Elasticsearch me **sirf kuch limited parameters** ko update karne ki permission 
 
 ---
 
-## **🔹 Example: Adding the `ignore_above` Parameter**
+## 5**🔹 Example: Adding the `ignore_above` Parameter** <a id="5"></a>
 Agar ek field ka **data type change nahi ho sakta**, toh kya koi field me **extra constraints** add kiye ja sakte hain?  
 Haan! Kuch parameters jaise `ignore_above` update kiye ja sakte hain.
 
@@ -104,7 +104,7 @@ PUT reviews/_mapping
 
 ---
 
-## **🔹 Workaround: How to Change a Field’s Data Type**
+## 6**🔹 Workaround: How to Change a Field’s Data Type** <a id="6"></a>
 Agar tumhe **"product_id"** ko `long` se `keyword` me change karna ho, toh iska **direct solution nahi hai**. Tumhe **naya index banana padega aur purana data migrate karna padega.**
 
 ### **🚀 Solution: Reindexing**
@@ -114,7 +114,7 @@ Agar tumhe **"product_id"** ko `long` se `keyword` me change karna ho, toh iska 
 
 ---
 
-## **🔹 Reindexing: Step-by-Step Guide**
+## 7**🔹 Reindexing: Step-by-Step Guide** <a id="7"></a>
 Maan lo, humne `product_id` ka type `long` se `keyword` karna hai.
 
 ### **Step 1️⃣: Naya Index Create Karo**
@@ -158,7 +158,7 @@ POST _aliases
 
 ---
 
-## **🔹 Best Practices**
+## 8**🔹 Best Practices** <a id="8"></a>
 ✅ **Pehle se data types soch ke define karo** – Baad me change karna bahut mushkil hota hai.  
 ✅ **Reindexing ke liye downtime plan karo** – Bada dataset ho toh reindexing slow ho sakti hai.  
 ✅ **Aliasing ka use karo** – Index ko dynamically switch karne ke liye aliases use karo.  
@@ -166,7 +166,7 @@ POST _aliases
 
 ---
 
-## **🔹 Conclusion**
+## 9**🔹 Conclusion** <a id="9"></a>
 - **Elasticsearch mapping ek baar set hone ke baad update nahi hoti** (except kuch parameters).
 - **Agar ek field ka data type change karna hai, toh reindexing karni padegi**.
 - **Reindexing ka process simple hai, par large datasets ke liye downtime aur performance issues ka dhyan rakhna zaroori hai**.

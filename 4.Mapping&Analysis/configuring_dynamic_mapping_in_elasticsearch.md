@@ -1,22 +1,21 @@
 ### **Dynamic Mapping in Elasticsearch**
 
+## **Table of Contents**  
+
+1️⃣ [Introduction to Dynamic Mapping](#1)  
+2️⃣ [Disabling Dynamic Mapping](#2)  
+3️⃣ [Understanding "_source" and Indexing](#3)  
+4️⃣ [Explicit Mapping Requirement When Dynamic is False](#4)  
+5️⃣ [Strict Mode in Dynamic Mapping](#5)  
+6️⃣ [Inheritance in Dynamic Mapping](#6)  
+7️⃣ [Overriding Inheritance for Specific Fields](#7)  
+8️⃣ [Numeric Detection in Dynamic Mapping](#8)  
+9️⃣ [Date Detection in Dynamic Mapping](#9)  
+🔟 [Conclusion](#10)  
+
 ---
 
-## **Table of Contents**
-1. [Introduction to Dynamic Mapping](#introduction-to-dynamic-mapping)  
-2. [Disabling Dynamic Mapping](#disabling-dynamic-mapping)  
-3. [Understanding "_source" and Indexing](#understanding-_source-and-indexing)  
-4. [Explicit Mapping Requirement When Dynamic is False](#explicit-mapping-requirement-when-dynamic-is-false)  
-5. [Strict Mode in Dynamic Mapping](#strict-mode-in-dynamic-mapping)  
-6. [Inheritance in Dynamic Mapping](#inheritance-in-dynamic-mapping)  
-7. [Overriding Inheritance for Specific Fields](#overriding-inheritance-for-specific-fields)  
-8. [Numeric Detection in Dynamic Mapping](#numeric-detection-in-dynamic-mapping)  
-9. [Date Detection in Dynamic Mapping](#date-detection-in-dynamic-mapping)  
-10. [Conclusion](#conclusion)  
-
----
-
-## **1. Introduction to Dynamic Mapping**  
+## **1. Introduction to Dynamic Mapping**  <a id="1"></a>
 **Dynamic Mapping** ek feature hai Elasticsearch me jo automatically naye fields ka mapping create kar deta hai jab naye documents index hote hain. Yeh feature chhoti chhoti applications ke liye useful hota hai jisme pre-defined schema maintain karna zaroori nahi hota.  
 
 **Default Behavior:**  
@@ -25,7 +24,7 @@
 
 ---
 
-## **2. Disabling Dynamic Mapping**  
+## **2. Disabling Dynamic Mapping**  <a id="2"></a>
 Agar tum chahte ho ki Elasticsearch naye fields ko automatically mapping me add na kare, to tum **dynamic mapping ko disable** kar sakte ho.  
 
 Iske liye `"dynamic": false` setting use hoti hai:
@@ -56,7 +55,7 @@ PUT my_index
 
 ---
 
-## **3. Understanding "_source" and Indexing**  
+## **3. Understanding "_source" and Indexing**  <a id="3"></a>
 Jab `"dynamic": false` hota hai, to naye fields **_source object** me store ho jate hain lekin unka mapping index me nahi hota.  
 
 - `_source` object Elasticsearch me **original document** ko store karta hai.  
@@ -75,7 +74,7 @@ GET my_index/_search
 
 ---
 
-## **4. Explicit Mapping Requirement When Dynamic is False**  
+## **4. Explicit Mapping Requirement When Dynamic is False**  <a id="4"></a>
 Jab `"dynamic": false` set hota hai, to naye fields **automatically indexed nahi hote**, unhe manually define karna padta hai.  
 
 Example:  
@@ -91,7 +90,7 @@ Ab `last_name` field query me use ho sakta hai.
 
 ---
 
-## **5. Strict Mode in Dynamic Mapping**  
+## **5. Strict Mode in Dynamic Mapping**  <a id="5"></a>
 Elasticsearch me `"dynamic"` ke liye ek aur value hoti hai: `"strict"`  
 - Jab `"dynamic": "strict"` hota hai, to agar document me koi unmapped field hoti hai, to Elasticsearch **error throw** kar deta hai.  
 
@@ -126,7 +125,7 @@ To error aayega:
 
 ---
 
-## **6. Inheritance in Dynamic Mapping**  
+## **6. Inheritance in Dynamic Mapping**  <a id="6"></a>
 Dynamic mapping settings **nested fields** par bhi apply hoti hai.  
 
 Example:  
@@ -153,7 +152,7 @@ PUT computers
 
 ---
 
-## **7. Overriding Inheritance for Specific Fields**  
+## **7. Overriding Inheritance for Specific Fields**  <a id="7"></a>
 Agar tum kisi **specific field ke liye dynamic mapping enable** karna chahte ho, to us field ka `"dynamic": true"` set kar sakte ho.  
 
 Example:
@@ -180,7 +179,7 @@ PUT computers
 
 ---
 
-## **8. Numeric Detection in Dynamic Mapping**  
+## **8. Numeric Detection in Dynamic Mapping**  <a id="8"></a>
 **Numeric detection** enable karne ke liye `"numeric_detection": true"` set karna hota hai.  
 
 ```json
@@ -205,7 +204,7 @@ POST my_index/_doc/1
 
 ---
 
-## **9. Date Detection in Dynamic Mapping**  
+## **9. Date Detection in Dynamic Mapping**  <a id="9"></a>
 Default me Elasticsearch string values ko **date formats** ke liye check karta hai.  
 
 Agar tum **date detection disable** karna chahte ho:
@@ -231,7 +230,7 @@ Iska effect:
 
 ---
 
-## **10. Conclusion**  
+## **10. Conclusion**  <a id="10"></a>
 - **Dynamic Mapping** Elasticsearch me naye fields ka mapping automatically create karne ka ek powerful feature hai.  
 - `"dynamic": false"` naye fields ko **ignore** karta hai, but store karta hai.  
 - `"dynamic": "strict"` naye fields ko **reject** karta hai.  

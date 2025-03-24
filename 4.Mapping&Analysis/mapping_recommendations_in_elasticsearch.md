@@ -1,43 +1,46 @@
 # **Mapping Recommendations in Elasticsearch**
 
-## **Table of Contents**
-1. [Introduction](#introduction)
-2. [Explicit Mapping vs Dynamic Mapping](#explicit-mapping-vs-dynamic-mapping)
-   - [Dynamic Mapping Issues](#dynamic-mapping-issues)
-   - [Why Use Explicit Mapping?](#why-use-explicit-mapping)
-3. [Setting "dynamic" Parameter](#setting-dynamic-parameter)
-4. [Avoid Mapping Fields as Both "text" and "keyword"](#avoid-mapping-fields-as-both-text-and-keyword)
-5. [Disabling Type Coercion](#disabling-type-coercion)
-6. [Choosing the Right Numeric Data Type](#choosing-the-right-numeric-data-type)
-7. [Optimizing Storage with Mapping Parameters](#optimizing-storage-with-mapping-parameters)
-   - [Disabling "doc_values"](#disabling-doc_values)
-   - [Disabling "norms"](#disabling-norms)
-   - [Disabling "index"](#disabling-index)
-8. [When to Optimize Mapping](#when-to-optimize-mapping)
-9. [Conclusion](#conclusion)
+## **Table of Contents**  
+1️⃣ [Introduction](#1)  
+2️⃣ [Explicit Mapping vs Dynamic Mapping](#2)  
+   - 🔹 [Dynamic Mapping Issues](#2-1)  
+   - 🔹 [Why Use Explicit Mapping?](#2-2)  
+
+3️⃣ [Setting "dynamic" Parameter](#3)  
+4️⃣ [Avoid Mapping Fields as Both "text" and "keyword"](#4)  
+5️⃣ [Disabling Type Coercion](#5)  
+6️⃣ [Choosing the Right Numeric Data Type](#6)  
+7️⃣ [Optimizing Storage with Mapping Parameters](#7)  
+   - 🔹 [Disabling "doc_values"](#7-1)  
+   - 🔹 [Disabling "norms"](#7-2)  
+   - 🔹 [Disabling "index"](#7-3)  
+   
+8️⃣ [When to Optimize Mapping](#8)  
+9️⃣ [Conclusion](#9)  
 
 ---
 
-## **1. Introduction**
+## **1. Introduction** <a id="1"></a>
 Elasticsearch me **mapping** kaafi important hota hai kyunki ye batata hai ki har field ka data type kya hoga aur us field pe kaunsi optimizations apply hogi. Agar mapping sahi set nahi ki gayi, to **storage ka zyada use hoga, query performance slow ho sakti hai, aur unnecessary fields store ho sakti hain.**
 
 Is guide me **best practices aur recommendations** diye gaye hain jo Elasticsearch mapping ko optimize karne me madad karenge.
 
 ---
 
-## **2. Explicit Mapping vs Dynamic Mapping**
-### **Dynamic Mapping Issues**
+## **2. Explicit Mapping vs Dynamic Mapping** <a id="2"></a>
+
+### **Dynamic Mapping Issues** <a id="2-1"></a>
 **Dynamic mapping** Elasticsearch ka ek feature hai jo naye fields ko automatically detect kar leta hai aur unka data type set kar deta hai. Yeh development phase me convenient hota hai, **lekin production me problem create kar sakta hai:**
 ✅ **Incorrect data types**: Elasticsearch galat type assign kar sakta hai.
 ✅ **Unoptimized storage**: Zyada space consume ho sakti hai.
 ✅ **Unnecessary keyword fields**: Default dynamic mapping text fields ko **both text and keyword** bana deta hai, jo extra disk space leta hai.
 
-### **Why Use Explicit Mapping?**
+### **Why Use Explicit Mapping?** <a id="2-2"></a>
 Agar tumhare paas **bahut saare documents** store karne hain, to **explicit mapping** use karna better hai. Iska matlab hai ki tum **pehle se hi har field ka type define kar do** taaki optimization achhe se ho sake.
 
 ---
 
-## **3. Setting "dynamic" Parameter**
+## **3. Setting "dynamic" Parameter** <a id="3"></a>
 "dynamic" parameter ko **"strict"** set karne ka recommendation diya gaya hai.
 
 ```json
@@ -59,7 +62,7 @@ Agar tumhare paas **bahut saare documents** store karne hain, to **explicit mapp
 
 ---
 
-## **4. Avoid Mapping Fields as Both "text" and "keyword"**
+## **4. Avoid Mapping Fields as Both "text" and "keyword"** <a id="4"></a>
 Elasticsearch me dynamic mapping by default har string field ko **"text" + "keyword"** dono bana deta hai. Agar yeh zaroori nahi hai, to avoid karo.
 
 ### **Kab "text" aur "keyword" use karein?**
@@ -82,7 +85,7 @@ Elasticsearch me dynamic mapping by default har string field ko **"text" + "keyw
 
 ---
 
-## **5. Disabling Type Coercion**
+## **5. Disabling Type Coercion** <a id="5"></a>
 Elasticsearch **galat type ke data** ko automatically correct kar sakta hai (coercion), jo problem create kar sakta hai.
 
 ```json
@@ -101,7 +104,7 @@ Elasticsearch **galat type ke data** ko automatically correct kar sakta hai (coe
 
 ---
 
-## **6. Choosing the Right Numeric Data Type**
+## **6. Choosing the Right Numeric Data Type** <a id="6"></a>
 Agar number ka size zyada nahi hai, to **chhota data type** use karo taaki disk space save ho.
 
 | Data Type | Size | Use Case |
@@ -124,8 +127,8 @@ Agar number ka size zyada nahi hai, to **chhota data type** use karo taaki disk 
 
 ---
 
-## **7. Optimizing Storage with Mapping Parameters**
-### **Disabling "doc_values"**
+## **7. Optimizing Storage with Mapping Parameters** <a id="7"></a>
+### **Disabling "doc_values"** <a id="7-1"></a>
 Agar field **sorting/aggregation** ke liye nahi chahiye, to "doc_values" **false** set karo.
 ```json
 {
@@ -138,7 +141,7 @@ Agar field **sorting/aggregation** ke liye nahi chahiye, to "doc_values" **false
 ```
 ✅ Space bachane ke liye **large text fields** me use hota hai.
 
-### **Disabling "norms"**
+### **Disabling "norms"** <a id="7-2"></a>
 Agar **relevance scoring** chahiye nahi, to "norms" disable kar do.
 ```json
 {
@@ -151,7 +154,7 @@ Agar **relevance scoring** chahiye nahi, to "norms" disable kar do.
 ```
 ✅ Aggregation aur filtering me useful hota hai.
 
-### **Disabling "index"**
+### **Disabling "index"** <a id="7-3"></a>
 Agar kisi field pe search nahi karni, to indexing disable kar do.
 ```json
 {
@@ -166,7 +169,7 @@ Agar kisi field pe search nahi karni, to indexing disable kar do.
 
 ---
 
-## **8. When to Optimize Mapping**
+## **8. When to Optimize Mapping** <a id="8"></a>
 Agar tumhare paas **1 million+ documents** store hone wale hain, to **pehle se optimized mapping define karo.**
 Agar aisa nahi karoge, to later **reindexing** karni padegi, jo costly ho sakta hai.
 
@@ -175,7 +178,7 @@ Agar aisa nahi karoge, to later **reindexing** karni padegi, jo costly ho sakta 
 
 ---
 
-## **9. Conclusion**
+## **9. Conclusion** <a id="9"></a>
 ✔ **Explicit mapping production me better hai.**
 ✔ **"Strict" dynamic mapping control provide karta hai.**
 ✔ **Unnecessary "text + keyword" mapping avoid karo.**

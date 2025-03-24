@@ -6,17 +6,17 @@ Elasticsearch me `doc_values` ek important feature hai jo structured data (like 
 
 ## 📑 **Table of Contents**  
 
-1️⃣ [Introduction to `doc_values`](#introduction-to-doc_values)  
-2️⃣ [Why `doc_values` is important?](#why-doc_values-is-important)  
-3️⃣ [How `doc_values` works internally?](#how-doc_values-works-internally)  
-4️⃣ [Example: Using `doc_values`](#example-using-doc_values)  
-5️⃣ [Disabling `doc_values`](#disabling-doc_values)  
-6️⃣ [Conclusion](#conclusion)  
+1️⃣ [Introduction to `doc_values`](#1)  
+2️⃣ [Why `doc_values` is important?](#2)  
+3️⃣ [How `doc_values` works internally?](#3)  
+4️⃣ [Example: Using `doc_values`](#4)  
+5️⃣ [Disabling `doc_values`](#5)  
+6️⃣ [Conclusion](#6)  
 
 ---
 
-## 1️⃣ **Introduction to `doc_values`**  
-<a id="introduction-to-doc_values"></a>  
+## 1️⃣ **Introduction to `doc_values`**  <a id="1"></a>
+
 By default, Elasticsearch me **numeric, date, aur keyword** fields ko `doc_values` ke saath store kiya jata hai.  
 
 🔹 **Purpose:** `doc_values` ka main kaam hai **disk-based columnar storage** provide karna jisse aggregation aur sorting operations fast ho sake.  
@@ -25,8 +25,8 @@ By default, Elasticsearch me **numeric, date, aur keyword** fields ko `doc_value
 
 ---
 
-## 2️⃣ **Why `doc_values` is important?**  
-<a id="why-doc_values-is-important"></a>  
+## 2️⃣ **Why `doc_values` is important?**  <a id="2"></a>
+
 Elasticsearch me searching fast hoti hai because of **inverted index**, but sorting aur aggregations me problem ho sakti hai.  
 
 ✅ **Fast Aggregations & Sorting** – Kyunki `doc_values` columnar format me store hota hai, aggregation aur sorting bahut fast hoti hai.  
@@ -35,8 +35,7 @@ Elasticsearch me searching fast hoti hai because of **inverted index**, but sort
 
 ---
 
-## 3️⃣ **How `doc_values` works internally?**  
-<a id="how-doc_values-works-internally"></a>  
+## 3️⃣ **How `doc_values` works internally?**  <a id="3"></a>
 
 Elasticsearch me `doc_values` ek **columnar data structure** use karta hai. Har field ke values alag-alag sorted format me store hote hain.  
 
@@ -56,8 +55,7 @@ Elasticsearch me `doc_values` ek **columnar data structure** use karta hai. Har 
 
 ---
 
-## 4️⃣ **Example: Using `doc_values`**  
-<a id="example-using-doc_values"></a>  
+## 4️⃣ **Example: Using `doc_values`**  <a id="4"></a>
 
 ### ✅ **Step 1: Create an Index with `doc_values`**  
 
@@ -115,8 +113,7 @@ GET my_index/_search
 
 ---
 
-## 5️⃣ **Disabling `doc_values`**  
-<a id="disabling-doc_values"></a>  
+## 5️⃣ **Disabling `doc_values`**  <a id="5"></a>
 
 Agar tumhe `doc_values` disable karna ho, to aisa mapping define kar sakte ho:  
 
@@ -140,8 +137,7 @@ PUT my_index
 
 ---
 
-## 6️⃣ **Conclusion**  
-<a id="conclusion"></a>  
+## 6️⃣ **Conclusion**  <a id="6"></a>
 
 ✅ `doc_values` Elasticsearch ka ek powerful feature hai jo **sorting, filtering, aur aggregations** fast banata hai.  
 ✅ Yeh **disk-based columnar storage** use karta hai, jo **RAM-efficient** hota hai.  

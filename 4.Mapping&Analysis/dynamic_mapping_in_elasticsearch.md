@@ -1,22 +1,23 @@
 # **Dynamic Mapping in Elasticsearch**
 
-## **Table of Contents**
+## **Table of Contents**  
 
-1. [Introduction to Dynamic Mapping](#introduction-to-dynamic-mapping)
-2. [How Dynamic Mapping Works](#how-dynamic-mapping-works)
-3. [Examples of Dynamic Mapping](#examples-of-dynamic-mapping)
-4. [Data Type Detection](#data-type-detection)
-   - [Date Detection](#date-detection)
-   - [Numeric Detection](#numeric-detection)
-5. [Handling Strings: Text vs. Keyword](#handling-strings-text-vs-keyword)
-6. [Handling Objects and Arrays](#handling-objects-and-arrays)
-7. [Optimizing Dynamic Mapping](#optimizing-dynamic-mapping)
-8. [Disabling or Controlling Dynamic Mapping](#disabling-or-controlling-dynamic-mapping)
-9. [Conclusion](#conclusion)
+1️⃣ [Introduction to Dynamic Mapping](#1)  
+2️⃣ [How Dynamic Mapping Works](#2)  
+3️⃣ [Examples of Dynamic Mapping](#3)  
+4️⃣ [Data Type Detection](#4)  
+   - [Date Detection](#4-1)  
+   - [Numeric Detection](#4-2)  
+
+5️⃣ [Handling Strings: Text vs. Keyword](#5)  
+6️⃣ [Handling Objects and Arrays](#6)  
+7️⃣ [Optimizing Dynamic Mapping](#7)  
+8️⃣ [Disabling or Controlling Dynamic Mapping](#8)  
+9️⃣ [Conclusion](#9)  
 
 ---
 
-## **1. Introduction to Dynamic Mapping**
+## **1. Introduction to Dynamic Mapping** <a id="1"></a>
 
 Elasticsearch me documents ko index karne ke liye humein pehle se field mappings define karni padti hai. Lekin, agar hum manually har ek field ka mapping na karna chahein, toh Elasticsearch **Dynamic Mapping** feature ka use karta hai.
 
@@ -28,7 +29,7 @@ Elasticsearch me documents ko index karne ke liye humein pehle se field mappings
 
 ---
 
-## **2. How Dynamic Mapping Works**
+## **2. How Dynamic Mapping Works** <a id="2"></a>
 
 Jab bhi Elasticsearch kisi naye document me naye fields dekhta hai, toh:
 
@@ -38,7 +39,7 @@ Jab bhi Elasticsearch kisi naye document me naye fields dekhta hai, toh:
 
 ---
 
-## **3. Examples of Dynamic Mapping**
+## **3. Examples of Dynamic Mapping** <a id="3"></a>
 
 Agar hum ek naye document ko index karein jisme pehle se koi mapping define nahi hai:
 
@@ -65,9 +66,9 @@ Elasticsearch automatically in fields ke liye mapping create karega:
 
 ---
 
-## **4. Data Type Detection**
+## **4. Data Type Detection** <a id="4"></a>
 
-### **4.1 Date Detection**
+### **4.1 Date Detection** <a id="4-1"></a>
 
 - JSON me **date ka specific data type nahi hota**.
 - Elasticsearch **date detection** ka use karke automatically identify karta hai ki yeh ek date value hai.
@@ -80,14 +81,14 @@ Example:
 
 Yeh **date** ke roop me identify hogi.
 
-### **4.2 Numeric Detection**
+### **4.2 Numeric Detection** <a id="4-2"></a>
 
 - Agar ek **string ke andar sirf numbers hain**, toh Elasticsearch usko **integer ya float** ke roop me map kar sakta hai.
 - Numeric detection **by default disabled** hoti hai.
 
 ---
 
-## **5. Handling Strings: Text vs. Keyword**
+## **5. Handling Strings: Text vs. Keyword** <a id="5"></a>
 
 - **Text:** Full-text search ke liye use hota hai.
 - **Keyword:** Exact match, sorting aur aggregations ke liye use hota hai.
@@ -103,7 +104,7 @@ Example:
 
 ---
 
-## **6. Handling Objects and Arrays**
+## **6. Handling Objects and Arrays** <a id="6"></a>
 
 - **Objects:** Elasticsearch me objects ko **nested fields** ke roop me treat kiya jata hai.
 - **Arrays:** Elasticsearch arrays ko **multiple values** jaise treat karta hai.
@@ -121,7 +122,7 @@ Isko Elasticsearch **nested structure** me map karega.
 
 ---
 
-## **7. Optimizing Dynamic Mapping**
+## **7. Optimizing Dynamic Mapping** <a id="7"></a>
 
 - **Unnecessary text/keyword mapping avoid karo** agar uski zaroorat nahi hai.
 - **Manually mapping define karo** agar tumhe pata hai ki kis type ka data aayega.
@@ -137,7 +138,7 @@ Iska matlab hai agar **256 characters se bada data aaya**, toh Elasticsearch usk
 
 ---
 
-## **8. Disabling or Controlling Dynamic Mapping**
+## **8. Disabling or Controlling Dynamic Mapping** <a id="8"></a>
 
 Agar tum dynamic mapping ko **disable** ya **restrict** karna chaahte ho:
 
@@ -155,7 +156,7 @@ PUT my_index
 
 ---
 
-## **9. Conclusion**
+## **9. Conclusion** <a id="9"></a>
 
 - **Dynamic Mapping** Elasticsearch ko **flexible** aur **user-friendly** banata hai.
 - **Automatically data types detect karne ki ability** Elasticsearch ko powerful banati hai.

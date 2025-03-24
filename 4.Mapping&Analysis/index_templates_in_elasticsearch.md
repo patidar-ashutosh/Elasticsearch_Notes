@@ -1,21 +1,21 @@
 # **Index Templates in Elasticsearch**  
 Index templates Elasticsearch me ek **powerful feature** hai jo naye banne wale indices par automatically **settings aur field mappings** apply karne ka kaam karta hai. Ye templates **pattern-based rules** ka use karke naye indices par apply ho jate hain.
 
-## **📜 Table of Contents**
-1. [Index Templates Kya Hain?](#index-templates-kya-hain)
-2. [Index Templates Ka Structure](#index-templates-ka-structure)
-3. [Index Templates Ki Zaroorat Kyu Hoti Hai?](#index-templates-ki-zaroorat-kyu-hoti-hai)
-4. [Index Templates Kaise Kaam Karte Hain?](#index-templates-kaise-kaam-karte-hain)
-5. [Index Templates Ka Example](#index-templates-ka-example)
-6. [Index Templates Kaise Create Karein?](#index-templates-kaise-create-karein)
-7. [Index Templates Kaise Update Aur Delete Karein?](#index-templates-kaise-update-aur-delete-karein)
-8. [Index Template Priorities](#index-template-priorities)
-9. [Kab Index Templates Use Karna Chahiye?](#kab-index-templates-use-karna-chahiye)
-10. [Conclusion](#conclusion)
+## **📜 Table of Contents**  
+1️⃣ [Index Templates Kya Hain?](#1)  
+2️⃣ [Index Templates Ka Structure](#2)  
+3️⃣ [Index Templates Ki Zaroorat Kyu Hoti Hai?](#3)  
+4️⃣ [Index Templates Kaise Kaam Karte Hain?](#4)  
+5️⃣ [Index Templates Ka Example](#5)  
+6️⃣ [Index Templates Kaise Create Karein?](#6)  
+7️⃣ [Index Templates Kaise Update Aur Delete Karein?](#7)  
+8️⃣ [Index Template Priorities](#8)  
+9️⃣ [Kab Index Templates Use Karna Chahiye?](#9)  
+🔟 [Conclusion](#10)  
 
 ---
 
-## **1️⃣ Index Templates Kya Hain?**  
+## **1️⃣ Index Templates Kya Hain?**  <a id="1"></a>
 **Index templates** Elasticsearch me ek aise mechanism hain jo **naye indices par automatically settings aur mappings apply** kar dete hain **jab bhi unka naam kisi pattern se match hota hai**.  
 Yani agar tum **dynamic indexing** kar rahe ho (jaise time-based indices create kar rahe ho), toh har baar manually settings aur mappings apply karne ki zaroorat nahi hoti.
 
@@ -28,7 +28,7 @@ Toh tum ek **index template** create kar sakte ho jo har naye `logs-*` index par
 
 ---
 
-## **2️⃣ Index Templates Ka Structure**  
+## **2️⃣ Index Templates Ka Structure**  <a id="2"></a>
 Ek **index template** JSON format me likha jata hai aur usme **3 main parts** hote hain:
 
 1. **`index_patterns`** → Yeh batata hai ki template kaunse index names par apply hoga (wildcards `*` use kar sakte hain).
@@ -63,7 +63,7 @@ PUT _index_template/logs_template
 
 ---
 
-## **3️⃣ Index Templates Ki Zaroorat Kyu Hoti Hai?**  
+## **3️⃣ Index Templates Ki Zaroorat Kyu Hoti Hai?**  <a id="3"></a>
 Index templates tab useful hote hain jab:
 - **Har mahine ya har din naye indices create ho rahe ho** (jaise logs ya analytics data).
 - **Manually har naye index ke liye mappings aur settings apply na karni pade**.
@@ -72,7 +72,7 @@ Index templates tab useful hote hain jab:
 
 ---
 
-## **4️⃣ Index Templates Kaise Kaam Karte Hain?**  
+## **4️⃣ Index Templates Kaise Kaam Karte Hain?**  <a id="4"></a>
 Elasticsearch me jab bhi ek **naya index create hota hai**, toh yeh steps follow hote hain:
 
 1. **Check karta hai ki index exist karta hai ya nahi**  
@@ -86,7 +86,7 @@ Yeh **automatic process** hai, hume index manually create karne ki zaroorat nahi
 
 ---
 
-## **5️⃣ Index Templates Ka Example**  
+## **5️⃣ Index Templates Ka Example**  <a id="5"></a>
 ### **📝 Without Index Template:**
 Agar tum bina index template ke ek document store karte ho:
 ```json
@@ -106,7 +106,7 @@ Agar pehle se ek index template apply hai, toh yeh data automatically sahi setti
 
 ---
 
-## **6️⃣ Index Templates Kaise Create Karein?**  
+## **6️⃣ Index Templates Kaise Create Karein?**  <a id="6"></a>
 Agar tum **Kibana Console ya API** se index template create karna chahte ho, toh **PUT request** ka use karna hoga.
 
 ```json
@@ -129,7 +129,7 @@ PUT _index_template/my_template
 
 ---
 
-## **7️⃣ Index Templates Kaise Update Aur Delete Karein?**  
+## **7️⃣ Index Templates Kaise Update Aur Delete Karein?**  <a id="7"></a>
 **🔄 Update:**  
 Agar tum ek index template ko **update** karna chahte ho, toh same **PUT request** bhejo.
 
@@ -160,7 +160,7 @@ DELETE _index_template/my_template
 
 ---
 
-## **8️⃣ Index Template Priorities**  
+## **8️⃣ Index Template Priorities**  <a id="8"></a>
 Agar multiple index templates ek hi index pattern ke liye match ho rahe hain, toh **priority decide karti hai kaunsa apply hoga**.
 
 **Example:**  
@@ -183,7 +183,7 @@ PUT _index_template/specific_template
 
 ---
 
-## **9️⃣ Kab Index Templates Use Karna Chahiye?**  
+## **9️⃣ Kab Index Templates Use Karna Chahiye?**  <a id="9"></a>
 ✅ **Jab multiple similar indices create ho rahe ho**  
 ✅ **Jab har naye index ke liye same settings aur mappings apply karni ho**  
 ✅ **Jab manually index create karna avoid karna ho**  
@@ -192,7 +192,7 @@ PUT _index_template/specific_template
 
 ---
 
-## **🔟 Conclusion**  
+## **🔟 Conclusion**  <a id="10"></a>
 Index templates **automation aur consistency** maintain karne ke liye **best practice** hai. Ye naye indices ke liye:
 - **Settings & Mappings automatically apply kar dete hain**  
 - **Manual configuration ki zaroorat khatam kar dete hain**  

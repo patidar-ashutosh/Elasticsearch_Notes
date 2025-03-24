@@ -1,17 +1,18 @@
 # 📌 **How Missing Fields Are Handled in Elasticsearch**  
 
 ## 📜 **Table of Contents**  
-1️⃣ **[Missing Fields in Elasticsearch](#1-missing-fields-in-elasticsearch) 🧐**  
-2️⃣ **[Difference from Relational Databases](#2-difference-from-relational-databases-⚖️)**  
-3️⃣ **[How Elasticsearch Handles Missing Fields](#3-how-elasticsearch-handles-missing-fields-⚙️)**  
-4️⃣ **[Should You Handle Missing Fields at Application Level?](#4-should-you-handle-missing-fields-at-application-level-🤔)**  
-5️⃣ **[Workarounds for Handling Missing Fields](#5-workarounds-for-handling-missing-fields-🔄)**  
-6️⃣ **[Impact on Search Queries](#6-impact-on-search-queries-🔍)**  
-7️⃣ **[Example & Expected Output](#7-example--expected-output-📝)**  
+1️⃣ [Missing Fields in Elasticsearch](#1) 🧐  
+2️⃣ [Difference from Relational Databases](#2) ⚖️  
+3️⃣ [How Elasticsearch Handles Missing Fields](#3) ⚙️  
+4️⃣ [Should You Handle Missing Fields at Application Level?](#4) 🤔  
+5️⃣ [Workarounds for Handling Missing Fields](#5) 🔄  
+6️⃣ [Impact on Search Queries](#6) 🔍  
+7️⃣ [Example & Expected Output](#7) 📝  
+8️⃣ [Key Takeaways](#8) 🎯  
 
 ---  
 
-## 1️⃣ **Missing Fields in Elasticsearch 🧐**  
+## 1️⃣ **Missing Fields in Elasticsearch 🧐**  <a id="1"></a>
 Elasticsearch me **documents ka structure flexible hota hai**, matlab kisi bhi document me koi bhi field missing ho sakti hai. Yeh relational databases (like MySQL, PostgreSQL) se **bilkul alag** hai, jisme NULL values ko explicitly allow karna padta hai.  
 
 💡 **Example:**  
@@ -33,7 +34,7 @@ Yaha first document me `created_at` **missing hai**, par Elasticsearch fir bhi i
 
 ---
 
-## 2️⃣ **Difference from Relational Databases ⚖️**  
+## 2️⃣ **Difference from Relational Databases ⚖️**  <a id="2"></a>
 | Feature               | Elasticsearch | Relational Databases (SQL) |
 |----------------------|--------------|---------------------------|
 | Missing Fields Allowed? | ✅ Haan, koi bhi field chhod sakte ho | ❌ Nahi, NULL allow karna padega |
@@ -43,7 +44,7 @@ Yaha first document me `created_at` **missing hai**, par Elasticsearch fir bhi i
 
 ---
 
-## 3️⃣ **How Elasticsearch Handles Missing Fields ⚙️**  
+## 3️⃣ **How Elasticsearch Handles Missing Fields ⚙️**  <a id="3"></a>
 - Elasticsearch **automatically optional** bana deta hai sabhi fields ko.  
 - Agar kisi field ka mapping defined hai, fir bhi tum usse **document me add karna compulsory nahi** kar sakte.  
 - Elasticsearch **kabhi bhi document reject nahi karega** sirf is wajah se ki koi field missing hai.  
@@ -54,7 +55,7 @@ Yaha first document me `created_at` **missing hai**, par Elasticsearch fir bhi i
 
 ---
 
-## 4️⃣ **Should You Handle Missing Fields at Application Level? 🤔**  
+## 4️⃣ **Should You Handle Missing Fields at Application Level? 🤔**  <a id="4"></a>
 Haan, kyunki:  
 ✅ Elasticsearch **force nahi karega** ki har document me ek specific field ho.  
 ✅ **Data integrity** maintain karni hai to tumhe **application level pe check lagana padega**.  
@@ -65,7 +66,7 @@ Application me **default values set karo** ya fir **validation lagao** taaki mis
 
 ---
 
-## 5️⃣ **Workarounds for Handling Missing Fields 🔄**  
+## 5️⃣ **Workarounds for Handling Missing Fields 🔄**  <a id="5"></a>
 ### ✅ **1. Default Value Set Karna (Script Fields)**
 Agar koi field missing ho to ek **default value assign karne ke liye** script use kar sakte ho:  
 ```json
@@ -96,7 +97,7 @@ Agar tumhe sirf wo documents chahiye **jisme ek particular field exist karti hai
 
 ---
 
-## 6️⃣ **Impact on Search Queries 🔍**  
+## 6️⃣ **Impact on Search Queries 🔍**  <a id="6"></a>
 Agar tum kisi field ke basis pe **search kar rahe ho aur kuch documents me wo field missing hai**, to:  
 1️⃣ Elasticsearch **automatically un documents ko exclude kar dega**.  
 2️⃣ Tumhe **"exists" query ka use karna padega** agar sirf valid documents dikhane hain.  
@@ -123,7 +124,7 @@ Agar tumhe `created_at` ke basis pe sorting karni ho aur kuch documents me yeh f
 
 ---
 
-## 7️⃣ **Example & Expected Output 📝**  
+## 7️⃣ **Example & Expected Output 📝**  <a id="7"></a>
 ### **Indexing Documents**  
 ```json
 PUT reviews/_doc/1
@@ -177,7 +178,7 @@ GET reviews/_search
 
 ---
 
-## 🎯 **Key Takeaways**  
+## 8️⃣ **Key Takeaways 🎯**  <a id="8"></a>
 ✅ Elasticsearch me **missing fields allowed hoti hain**, unlike relational databases.  
 ✅ Tumhe **application level pe validation lagana padega** agar kisi field ka absence problem create kar sakta hai.  
 ✅ Query likhte waqt dhyan rakhna padega ki **missing fields aggregation aur sorting ko impact** kar sakti hain.  

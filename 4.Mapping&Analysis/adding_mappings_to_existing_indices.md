@@ -9,6 +9,7 @@
 5️⃣ **[Verifying the New Mapping](#5)** 🔍  
 6️⃣ **[Why Elasticsearch Doesn’t Store Timestamps by Default?](#6)** ⏳  
 7️⃣ **[Edge Cases & Best Practices](#7)** ⚠️  
+8️⃣ **[Conclusion](#8)** 🎯  
 
 ---  
 
@@ -175,7 +176,7 @@ Elasticsearch **automatically document index hone ka time save nahi karta**, kyu
 
 ---
 
-## 🎯 **Conclusion**  
+## 8️⃣ 🎯 **Conclusion**  <a id="8"></a>
 - **Existing index me naye fields add karne ke liye Mapping API ka use hota hai.**  
 - **"mappings" nahi, sirf "properties" key specify karni hoti hai.**  
 - **"created_at" jaisa timestamp field manually add karna padta hai.**  

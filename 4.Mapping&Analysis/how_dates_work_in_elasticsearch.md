@@ -4,17 +4,18 @@ Elasticsearch me **dates kaise store hoti hain, format kya hota hai, queries kai
 
 ---
 
-# **📜 Table of Contents**
-1️⃣ [Elasticsearch me Date Field Mapping](#elasticsearch-me-date-field-mapping)  
-2️⃣ [Elasticsearch Me Date Format Options](#elasticsearch-me-date-format-options)  
-3️⃣ [Date Storage: Internal Representation](#date-storage-internal-representation)  
-4️⃣ [Timezone Handling in Dates](#timezone-handling-in-dates)  
-5️⃣ [Indexing Documents with Dates](#indexing-documents-with-dates)  
-6️⃣ [Common Mistakes and Best Practices](#common-mistakes-and-best-practices)  
+# **📜 Table of Contents**  
+1️⃣ [Elasticsearch me Date Field Mapping](#1)  
+2️⃣ [Elasticsearch Me Date Format Options](#2)  
+3️⃣ [Date Storage: Internal Representation](#3)  
+4️⃣ [Timezone Handling in Dates](#4)  
+5️⃣ [Indexing Documents with Dates](#5)  
+6️⃣ [Common Mistakes and Best Practices](#6)  
+7️⃣ [Final Summary](#7)  
 
 ---
 
-## 1️⃣ **Elasticsearch Me Date Field Mapping**  
+## 1️⃣ **Elasticsearch Me Date Field Mapping**  <a id="1"></a>
 Agar tumhe kisi document me **date store karni ho**, to tumhe **date field ka mapping** define karna hoga.  
 
 ```json
@@ -31,7 +32,7 @@ PUT my_index
 
 ---
 
-## 2️⃣ **Elasticsearch Me Date Format Options**  
+## 2️⃣ **Elasticsearch Me Date Format Options**  <a id="2"></a>
 Elasticsearch me **3 tarike se date specify** kar sakte ho:  
 
 ### ✅ **1. ISO 8601 Format (Recommended)**
@@ -62,7 +63,7 @@ Elasticsearch me **3 tarike se date specify** kar sakte ho:
 
 ---
 
-## 3️⃣ **Date Storage: Internal Representation**  
+## 3️⃣ **Date Storage: Internal Representation**  <a id="3"></a>
 Agar tum string format me date bhejte ho, to Elasticsearch **internally usko milliseconds me convert** karta hai.
 
 ### 🔹 **Example**
@@ -80,7 +81,7 @@ Elasticsearch **internally ise milliseconds me convert** karega:
 
 ---
 
-## 4️⃣ **Timezone Handling in Dates**  
+## 4️⃣ **Timezone Handling in Dates**  <a id="4"></a>
 Elasticsearch by default **UTC timezone use karta hai**. Agar tum alag timezone doge, to Elasticsearch **use automatically UTC me convert** karega.
 
 ### ✅ **Example: Timezone Offset**
@@ -92,7 +93,7 @@ Elasticsearch by default **UTC timezone use karta hai**. Agar tum alag timezone 
 
 ---
 
-## 5️⃣ **Indexing Documents with Dates**  
+## 5️⃣ **Indexing Documents with Dates**  <a id="5"></a>
 Ab hum alag-alag date formats wale documents ko index karte hain:
 
 ```json
@@ -117,7 +118,7 @@ PUT my_index/_doc/3
 
 ---
 
-## 6️⃣ **Common Mistakes and Best Practices**  
+## 6️⃣ **Common Mistakes and Best Practices**  <a id="6"></a>
 
 ❌ **Mistake: UNIX timestamp directly store karna**  
 ```json
@@ -141,7 +142,7 @@ PUT my_index/_doc/4
 
 ---
 
-## **🔥 Final Summary**
+## 7️⃣ **🔥 Final Summary** <a id="7"></a>
 - Elasticsearch me dates ko alag-alag tarike se specify kar sakte ho (ISO 8601, epoch time, UNIX timestamp).  
 - Internally **dates ko milliseconds me store kiya jata hai** queries ko optimize karne ke liye.  
 - **Timezone handling automatic hoti hai**, lekin UTC default hota hai.  

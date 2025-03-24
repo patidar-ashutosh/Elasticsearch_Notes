@@ -1,22 +1,22 @@
 # Analyzers & Search Queries in Elasticsearch
 
-## Table of Contents
-1. [Introduction](#introduction)
-2. [Analyzers & Indexing](#analyzers--indexing)
-3. [Analyzers & Search Queries](#analyzers--search-queries)
-4. [How Elasticsearch Handles Queries](#how-elasticsearch-handles-queries)
-5. [Case Insensitivity in Search](#case-insensitivity-in-search)
-6. [Custom Analyzers](#custom-analyzers)
-7. [Conclusion](#conclusion)
+## **📌 Table of Contents**  
+1️⃣ [Introduction](#1)  
+2️⃣ [Analyzers & Indexing](#2)  
+3️⃣ [Analyzers & Search Queries](#3)  
+4️⃣ [How Elasticsearch Handles Queries](#4)  
+5️⃣ [Case Insensitivity in Search](#5)  
+6️⃣ [Custom Analyzers](#6)  
+7️⃣ [Conclusion](#7)  
 
 ---
 
-## Introduction
+## 1. Introduction <a id="1"></a>
 Analyzers Elasticsearch mein **text fields** ko process karne ke liye use hote hain. Jab hum documents ko index karte hain, tab analyzers text ko lowercase kar sakte hain, stemming apply kar sakte hain, aur stop words remove kar sakte hain. Yehi process search queries ke sath bhi hoti hai, taaki consistent aur relevant results mil sakein.
 
 ---
 
-## Analyzers & Indexing
+## 2. Analyzers & Indexing <a id="2"></a>
 Jab hum ek **text field** ko index karte hain, Elasticsearch use analyze karta hai. Default **standard analyzer** ka behavior:
 
 1. **Lowercasing:** Saare words ko lowercase mein convert karna.
@@ -39,7 +39,7 @@ she, be, drink, water
 
 ---
 
-## Analyzers & Search Queries
+## 3. Analyzers & Search Queries <a id="3"></a>
 Jab hum kisi document ko search karte hain, toh Elasticsearch queries ko bhi same analyzer se pass karta hai. Iska matlab jo process indexing ke waqt hui thi, wahi process **search query text** par bhi lagegi.
 
 ### Example:
@@ -66,7 +66,7 @@ Agar search query analyze nahi hoti, toh "drinking" aur "drink" alag tokens hote
 
 ---
 
-## How Elasticsearch Handles Queries
+## 4. How Elasticsearch Handles Queries <a id="4"></a>
 1. Query analyzer ko check karta hai jo field ke mapping mein defined hai.
 2. Agar custom analyzer available hai, toh use apply karta hai, warna **standard analyzer** use hota hai.
 3. Query ko analyze karke **processed terms** generate karta hai.
@@ -75,7 +75,7 @@ Agar search query analyze nahi hoti, toh "drinking" aur "drink" alag tokens hote
 
 ---
 
-## Case Insensitivity in Search
+## 5. Case Insensitivity in Search <a id="5"></a>
 Elasticsearch **case-insensitive** searching support karta hai, kyunki analyzers text ko **lowercase** mein convert kar dete hain.
 
 ### Example:
@@ -83,7 +83,7 @@ Agar koi query "WATER" likhta hai aur document mein "water" likha hai, toh query
 
 ---
 
-## Custom Analyzers
+## 6. Custom Analyzers <a id="6"></a>
 Elasticsearch mein **custom analyzers** bhi bana sakte hain jo specific processing apply karte hain.
 
 ### Example:
@@ -121,7 +121,7 @@ Is analyzer mein:
 
 ---
 
-## Conclusion
+## 7. Conclusion <a id="7"></a>
 - **Analyzers indexing aur search queries dono ke liye use hote hain.**
 - **Search queries ko bhi same analyze karna padta hai taaki expected results milein.**
 - **Case insensitive searching Elasticsearch mein by default hoti hai.**

@@ -1,25 +1,25 @@
 # 📊 **Using the Analyze API in Elasticsearch**  
 
 ## 📌 **Table of Contents**  
-1. 🔍 **Introduction to Analyze API**  
-2. 🛠️ **How to Use the Analyze API**  
-3. 🏗️ **Understanding the Standard Analyzer**  
-4. 🔄 **Tokenization Process**  
-5. 🏷️ **Metadata in Analyze API Response**  
-6. 🧑‍🔬 **Custom Analyzers Breakdown**  
-7. 📝 **Example Queries & Expected Output**  
-8. 🎯 **Key Takeaways**  
+1. 🔍 [Introduction to Analyze API](#1)  
+2. 🛠️ [How to Use the Analyze API](#2)  
+3. 🏗️ [Understanding the Standard Analyzer](#3)  
+4. 🔄 [Tokenization Process](#4)  
+5. 🏷️ [Metadata in Analyze API Response](#5)  
+6. 🧑‍🔬 [Custom Analyzers Breakdown](#6)  
+7. 📝 [Example Queries & Expected Output](#7)  
+8. 🎯 [Key Takeaways](#8)  
 
 ---  
 
-## 🔍 **1. Introduction to Analyze API**  
+## 🔍 **1. Introduction to Analyze API**  <a id="1"></a>
 Analyze API **Elasticsearch me ek debugging tool hai** jo tumhe batata hai ki **koi string ka analysis kaise hoga**. Iska use mainly **custom analyzers banane ya existing analyzers ko samajhne** ke liye hota hai.  
 
 Is API se tum **tokens, token types, offsets, aur filters** ka effect dekh sakte ho. **Production me custom analyzers create karne se pehle yeh API kaafi useful hoti hai!** 🚀  
 
 ---  
 
-## 🛠️ **2. How to Use the Analyze API**  
+## 🛠️ **2. How to Use the Analyze API**  <a id="2"></a>
 Elasticsearch me Analyze API use karne ka **endpoint** hai:  
 
 ```
@@ -62,7 +62,7 @@ POST _analyze
 
 ---  
 
-## 🏗️ **3. Understanding the Standard Analyzer**  
+## 🏗️ **3. Understanding the Standard Analyzer**  <a id="3"></a>
 **"standard" analyzer** Elasticsearch ka **default analyzer** hai. Yeh **3 main components** se milkar banta hai:  
 
 1. **Character Filters:**  
@@ -79,7 +79,7 @@ POST _analyze
 
 ---  
 
-## 🔄 **4. Tokenization Process**  
+## 🔄 **4. Tokenization Process**  <a id="4"></a>
 Agar tum yeh query run karo:  
 
 ```json
@@ -107,7 +107,7 @@ POST _analyze
 
 ---  
 
-## 🏷️ **5. Metadata in Analyze API Response**  
+## 🏷️ **5. Metadata in Analyze API Response**  <a id="5"></a>
 Har token ke saath **extra metadata hota hai**, jo tumhe analysis process ko aur deeply samajhne me help karta hai:  
 
 1. **`token`** → Actual tokenized word.  
@@ -117,7 +117,7 @@ Har token ke saath **extra metadata hota hai**, jo tumhe analysis process ko aur
 
 ---  
 
-## 🧑‍🔬 **6. Custom Analyzers Breakdown**  
+## 🧑‍🔬 **6. Custom Analyzers Breakdown**  <a id="6"></a>
 Agar tum **standard analyzer ke equivalent ek custom analyzer create karna chaho**, to aise hoga:  
 
 ```json
@@ -133,7 +133,7 @@ POST _analyze
 
 ---  
 
-## 📝 **7. Example Queries & Expected Output**  
+## 📝 **7. Example Queries & Expected Output**  <a id="7"></a>
 
 ### **🧐 Testing with Stopwords**
 ```json
@@ -159,7 +159,7 @@ POST _analyze
 
 ---
 
-## 🎯 **8. Key Takeaways**  
+## 🎯 **8. Key Takeaways**  <a id="8"></a>
 ✅ **Analyze API debugging ke liye bahut powerful tool hai**  
 ✅ **Standard analyzer tokens ko lowercase me convert karta hai aur punctuation remove karta hai**  
 ✅ **Metadata jaise offsets aur token type analysis ko aur insightful banate hain**  

@@ -1,30 +1,30 @@
 # **Understanding Analysis in Elasticsearch**  
 
 ## **Table of Contents**  
-1. [Introduction to Analysis](#introduction-to-analysis)  
-2. [Why Analysis is Needed](#why-analysis-is-needed)  
-3. [How Elasticsearch Processes Text](#how-elasticsearch-processes-text)  
-4. [Understanding Analyzers](#understanding-analyzers)  
-   - [Character Filters](#character-filters)  
-   - [Tokenizers](#tokenizers)  
-   - [Token Filters](#token-filters)  
-5. [How Default Analysis Works](#how-default-analysis-works)  
-6. [Standard Analyzer](#standard-analyzer)  
-7. [Other Built-in Analyzers](#other-built-in-analyzers)  
-8. [Creating Custom Analyzers](#creating-custom-analyzers)  
-9. [Examples of Analysis in Kibana](#examples-of-analysis-in-kibana)  
-10. [Conclusion](#conclusion)  
+1. [Introduction to Analysis](#1)  
+2. [Why Analysis is Needed](#2)  
+3. [How Elasticsearch Processes Text](#3)  
+4. [Understanding Analyzers](#4)  
+   - [Character Filters](#4-1)  
+   - [Tokenizers](#4-2)  
+   - [Token Filters](#4-3)  
+5. [How Default Analysis Works](#5)  
+6. [Standard Analyzer](#6)  
+7. [Other Built-in Analyzers](#7)  
+8. [Creating Custom Analyzers](#8)  
+9. [Examples of Analysis in Kibana](#9)  
+10. [Conclusion](#10)  
 
 ---
 
-## **1️⃣ Introduction to Analysis**  
+## **1️⃣ Introduction to Analysis**  <a id="1"></a>
 Elasticsearch me *Analysis* ka matlab hai text values ko process karna taaki unhe efficiently search kiya ja sake. Is process ko *Text Analysis* bhi kaha jata hai kyunki yeh sirf text fields ke liye apply hota hai.  
 
 Jab bhi hum kisi text ko index karte hain, uska ek analysis process hota hai jo Elasticsearch ke internal data structure ke according hota hai.  
 
 ---
 
-## **2️⃣ Why Analysis is Needed?**  
+## **2️⃣ Why Analysis is Needed?**  <a id="2"></a>
 Jab hum Elasticsearch me data store karte hain, toh hum jo original text bhejte hain, woh *"_source"* field me save hota hai.  
 
 Lekin actual search queries ke time, Elasticsearch in original values ko use nahi karta. Kyunki ek bada text efficiently search karne ke liye process karna zaroori hota hai.  
@@ -40,7 +40,7 @@ Isliye Elasticsearch text ko process karta hai taaki fast aur accurate searching
 
 ---
 
-## **3️⃣ How Elasticsearch Processes Text?**  
+## **3️⃣ How Elasticsearch Processes Text?**  <a id="3"></a>
 Jab bhi hum ek *text* field ko index karte hain, Elasticsearch ek *Analyzer* ka use karta hai jo us text ko analyze karta hai.  
 
 🔹 *Analyzer* ke **3 main parts** hote hain:  
@@ -52,8 +52,8 @@ Yeh sab milkar ek efficient searchable format create karte hain.
 
 ---
 
-## **4️⃣ Understanding Analyzers**  
-### **📌 Character Filters**  
+## **4️⃣ Understanding Analyzers**  <a id="4"></a>
+### **📌 Character Filters**  <a id="4-1"></a>
 ✔️ Yeh step original text ko modify karta hai before tokenization.  
 ✔️ Text me se unwanted characters remove kiye ja sakte hain ya replace kiye ja sakte hain.  
 
@@ -72,7 +72,7 @@ Buy the best coffee maker!
 
 ---
 
-### **📌 Tokenizer**  
+### **📌 Tokenizer**  <a id="4-2"></a>
 ✔️ Yeh step text ko *tokens* me todta hai.  
 ✔️ Tokenization ka matlab hai text ko chhoti units (words) me convert karna.  
 
@@ -89,7 +89,7 @@ Agar `"standard"` tokenizer use ho, toh output tokens honge:
 
 ---
 
-### **📌 Token Filters**  
+### **📌 Token Filters**  <a id="4-3"></a>
 ✔️ Yeh tokens pe further processing karta hai jaise lowercase conversion, stopwords removal, stemming, etc.  
 
 Example:  
@@ -108,7 +108,7 @@ Aur `"lowercase"` token filter use ho, toh output tokens honge:
 
 ---
 
-## **5️⃣ How Default Analysis Works?**  
+## **5️⃣ How Default Analysis Works?**  <a id="5"></a>
 Jab Elasticsearch ek text field ko index karta hai, toh uske default analysis process me yeh steps hote hain:  
 1. **Character Filter** → (By default, koi nahi hota)  
 2. **Tokenizer** → `standard` tokenizer use hota hai  
@@ -127,7 +127,7 @@ Analysis ke baad tokens honge:
 
 ---
 
-## **6️⃣ Standard Analyzer**  
+## **6️⃣ Standard Analyzer**  <a id="6"></a>
 ✔️ Yeh Elasticsearch ka default analyzer hai.  
 ✔️ Yeh **standard tokenizer** aur **lowercase token filter** use karta hai.  
 
@@ -142,7 +142,7 @@ Tokens honge:
 
 ---
 
-## **7️⃣ Other Built-in Analyzers**  
+## **7️⃣ Other Built-in Analyzers**  <a id="7"></a>
 Apart from *Standard Analyzer*, Elasticsearch me aur bhi built-in analyzers available hain:  
 
 | Analyzer | Description |
@@ -164,7 +164,7 @@ Tokens honge:
 
 ---
 
-## **8️⃣ Creating Custom Analyzers**  
+## **8️⃣ Creating Custom Analyzers**  <a id="8"></a>
 Hum apna custom analyzer bhi bana sakte hain by combining:  
 ✔️ Character Filters  
 ✔️ Tokenizers  
@@ -219,7 +219,7 @@ GET custom_index/_analyze
 
 ---
 
-## **9️⃣ Examples of Analysis in Kibana**  
+## **9️⃣ Examples of Analysis in Kibana**  <a id="9"></a>
 ### **Example 1: Standard Analyzer (Default)**
 Jab hum `"standard"` analyzer ka use karte hain, toh yeh text ko tokenize karta hai aur lowercase bhi karta hai.  
 
@@ -281,7 +281,7 @@ GET _analyze
 
 ---
 
-## **🔟 Conclusion**  
+## **🔟 Conclusion**  <a id="10"></a>
 ✔️ *Analysis* ka purpose hai text ko efficiently searchable format me store karna.  
 ✔️ Elasticsearch ke analyzers 3 parts me divide hote hain:  
    - Character Filters  
