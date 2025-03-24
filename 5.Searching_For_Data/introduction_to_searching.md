@@ -1,16 +1,16 @@
 # 📌 **Table of Contents**  
 
-1️⃣ **🔍 Searching Approaches in Elasticsearch**  
-2️⃣ **🌐 URI Search vs Query DSL**  
-3️⃣ **📝 Writing Your First Query DSL Search**  
-4️⃣ **📊 Understanding the Search API Response**  
-5️⃣ **🔢 Breakdown of the Response Keys**  
-6️⃣ **✅ Example: Running a Match All Query**  
-7️⃣ **📌 Key Takeaways and What's Next**  
+1️⃣ [🔍 Searching Approaches in Elasticsearch](#1)  
+2️⃣ [🌐 URI Search vs Query DSL](#2)  
+3️⃣ [📝 Writing Your First Query DSL Search](#3)  
+4️⃣ [📊 Understanding the Search API Response](#4)  
+5️⃣ [🔢 Breakdown of the Response Keys](#5)  
+6️⃣ [✅ Example: Running a Match All Query](#6)  
+7️⃣ [📌 Key Takeaways and What's Next](#7)  
 
 ---
 
-## 1️⃣ 🔍 **Searching Approaches in Elasticsearch**  
+## 1️⃣ 🔍 **Searching Approaches in Elasticsearch**  <a id="1"></a>
 
 Elasticsearch me data ko search karne ke **do tareeke** hote hain:  
 
@@ -24,7 +24,7 @@ Elasticsearch me data ko search karne ke **do tareeke** hote hain:
 
 ---
 
-## 2️⃣ 🌐 **URI Search vs Query DSL**  
+## 2️⃣ 🌐 **URI Search vs Query DSL**  <a id="2"></a>
 
 | Feature        | URI Search 🌍 | Query DSL 📝 |
 |---------------|-------------|-------------|
@@ -39,7 +39,7 @@ Elasticsearch me data ko search karne ke **do tareeke** hote hain:
 
 ---
 
-## 3️⃣ 📝 **Writing Your First Query DSL Search**  
+## 3️⃣ 📝 **Writing Your First Query DSL Search**  <a id="3"></a>
 
 Chalo ek **basic search query** likhte hain jo **saare documents** ko return kare! 🛠️  
 
@@ -59,7 +59,7 @@ GET my_index/_search
 
 ---
 
-## 4️⃣ 📊 **Understanding the Search API Response**  
+## 4️⃣ 📊 **Understanding the Search API Response**  <a id="4"></a>
 
 Jab hum query run karenge, to Elasticsearch **JSON format me response** dega:  
 
@@ -96,7 +96,7 @@ Jab hum query run karenge, to Elasticsearch **JSON format me response** dega:
 
 ---
 
-## 5️⃣ 🔢 **Breakdown of the Response Keys**  
+## 5️⃣ 🔢 **Breakdown of the Response Keys**  <a id="5"></a>
 
 | **Key**        | **Explanation** |
 |---------------|---------------|
@@ -114,7 +114,7 @@ Jab hum query run karenge, to Elasticsearch **JSON format me response** dega:
 
 ---
 
-## 6️⃣ ✅ **Example: Running a Match All Query**  
+## 6️⃣ ✅ **Example: Running a Match All Query**  <a id="6"></a>
 
 Chalo ek example dekhte hain jisme **humara index `products` hai**:  
 
@@ -171,14 +171,12 @@ GET products/_search
 
 ---
 
-## 7️⃣ 📌 **Key Takeaways and What's Next**  
+## 7️⃣ 📌 **Key Takeaways and What's Next**  <a id="7"></a>
 
 🔹 **Searching ke do tareeke hote hain**: URI search & Query DSL  
 🔹 **Query DSL zyada powerful aur preferred approach hai**  
 🔹 **Match All Query se sabhi documents return hote hain**  
 🔹 **Response me relevance scoring, shard details aur matched documents aate hain**  
-
-👨‍💻 **Next :** Hum **aur useful queries** explore karenge jo **filtered aur specific searches** me help karega! 🚀  
 
 ---
 

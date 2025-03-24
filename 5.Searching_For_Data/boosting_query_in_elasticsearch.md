@@ -3,17 +3,19 @@
 Boosting Query ek powerful technique hai jo relevance scoring ko manipulate karne ke liye use hoti hai. Bool Query me hum `should` clauses ka use karke relevance boost kar sakte hain, lekin agar hume kisi document ki relevance kam karni ho toh? Yahi kaam **Boosting Query** karta hai! 🎯  
 
 ## 📌 Table of Contents  
-1. 🔍 **Introduction** – Boosting Query kya hai?  
-2. ⚡ **Positive vs Negative Queries**  
-3. 🎛 **Negative Boost Parameter**  
-4. 🛠 **Boosting Query Example** – Apple Juice Filtering  
-5. 🏗 **Advanced Use Cases** – Preferences vs Requirements  
-6. 🎯 **Performance Considerations**  
-7. 🏁 **Conclusion**  
+
+1. 🔍 [**Introduction** – Boosting Query kya hai?](#1)  
+2. ⚡ [**Positive vs Negative Queries**](#2)  
+3. 🎛 [**Negative Boost Parameter**](#3)  
+4. 🛠 [**Boosting Query Example** – Apple Juice Filtering](#4)  
+5. 🏗 [**Advanced Use Cases** – Preferences vs Requirements](#5)  
+6. 🎯 [**Performance Considerations**](#6)  
+7. 🏁 [**Conclusion**](#7)  
 
 ---  
 
-## 🔍 1. Introduction – Boosting Query Kya Hai?  
+## 🔍 1. Introduction – Boosting Query Kya Hai?  <a id="1"></a>
+
 Boosting Query ka kaam hai kuch specific documents ki **relevance score ko kam karna** bina unhe completely filter kiye. Yeh Bool Query ka ek opposite behavior dikhata hai, jisme hum `should` clauses se relevance badhate hain.  
 
 🚀 **Use Case:**  
@@ -27,7 +29,8 @@ Boosting Query ka kaam hai kuch specific documents ki **relevance score ko kam k
 
 ---  
 
-## ⚡ 2. Positive vs Negative Queries  
+## ⚡ 2. Positive vs Negative Queries  <a id="2"></a>
+
 Boosting Query me do major parts hote hain:  
 
 | Parameter | Description | Example |
@@ -47,7 +50,8 @@ Boosting Query me do major parts hote hain:
 
 ---  
 
-## 🎛 3. Negative Boost Parameter  
+## 🎛 3. Negative Boost Parameter  <a id="3"></a>
+
 **Negative Boost** ek **floating point number** hota hai jo **0 se 1** ke beech me rehta hai.  
 👉 Jitna chhota number hoga, utni zyada penalty milegi.  
 
@@ -57,7 +61,8 @@ Boosting Query me do major parts hote hain:
 
 ---  
 
-## 🛠 4. Boosting Query Example – Apple Juice Filtering 🍏🍹  
+## 🛠 4. Boosting Query Example – Apple Juice Filtering 🍏🍹  <a id="4"></a>
+
 ```json
 {
   "query": {
@@ -85,7 +90,8 @@ Boosting Query me do major parts hote hain:
 
 ---
 
-## 🏗 5. Advanced Use Cases – Preferences vs Requirements  
+## 🏗 5. Advanced Use Cases – Preferences vs Requirements  <a id="5"></a>
+
 Kabhi kabhi hume ek saath multiple preferences apply karni hoti hain jaise:  
 ✅ Pasta Recipes ko boost karna 🍝  
 ❌ Bacon Recipes ki relevance kam karna 🥓  
@@ -115,7 +121,8 @@ Kabhi kabhi hume ek saath multiple preferences apply karni hoti hain jaise:
 
 ---  
 
-## 🎯 6. Performance Considerations  
+## 🎯 6. Performance Considerations  <a id="6"></a>
+
 ✅ **Performance Optimization:** Agar aapko sirf documents ko **filter** karna hai toh **Boosting Query** mat use karo, balki `must_not` + `filter` approach lo.  
 ✅ **Caching Benefits:** Boosting Query **score calculation karta hai**, toh agar aapko fast execution chahiye toh filter-based approach better hai.  
 
@@ -127,7 +134,8 @@ Kabhi kabhi hume ek saath multiple preferences apply karni hoti hain jaise:
 
 ---
 
-## 🏁 7. Conclusion  
+## 🏁 7. Conclusion  <a id="7"></a>
+
 🔥 **Boosting Query** ek **powerful tool** hai jo aapko query results ki **priority manipulate** karne me madad karta hai.  
 🔹 Agar aapko sirf kuch documents ka **score reduce** karna hai, toh Boosting Query best hai.  
 🔹 Agar aapko documents **exclude** karne hai, toh **Bool Query** ka `must_not` use karo.  

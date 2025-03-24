@@ -1,15 +1,16 @@
-# 📌 **Table of Contents**
-1️⃣ **Introduction to Term Level Queries** 🧐  
-2️⃣ **Key Characteristics of Term Level Queries** 🔑  
-3️⃣ **Term Level Query Example** 📝  
-4️⃣ **Case Sensitivity & Exact Matching** 🔠  
-5️⃣ **Common Mistake: Using Term Query on Text Fields** 🚨  
-6️⃣ **Correct Approach: Use Keyword Fields for Term Queries** ✅  
-7️⃣ **Final Recap & Learnings** 🎯  
+# 📌 **Table of Contents**  
+
+1️⃣ [🧐 Introduction to Term Level Queries](#1)  
+2️⃣ [🔑 Key Characteristics of Term Level Queries](#2)  
+3️⃣ [📝 Term Level Query Example](#3)  
+4️⃣ [🔠 Case Sensitivity & Exact Matching](#4)  
+5️⃣ [🚨 Common Mistake: Using Term Query on Text Fields](#5)  
+6️⃣ [✅ Correct Approach: Use Keyword Fields for Term Queries](#6)  
+7️⃣ [🎯 Final Recap & Learnings](#7)  
 
 ---
 
-## 1️⃣ **Introduction to Term Level Queries** 🧐  
+## 1️⃣ **Introduction to Term Level Queries** 🧐  <a id="1"></a>
 Elasticsearch mein queries ke alag-alag types hote hain, aur **Term Level Queries** ka use tab hota hai jab hume **exact value** search karni ho.  
 
 👉 **Example:**  
@@ -20,7 +21,7 @@ Term Level Queries **analyzed nahi hote**, iska matlab jo bhi value hum search k
 
 ---
 
-## 2️⃣ **Key Characteristics of Term Level Queries** 🔑  
+## 2️⃣ **Key Characteristics of Term Level Queries** 🔑  <a id="2"></a>
 ✔️ **Exact Value Match**: Sirf wahi documents match honge jisme value exactly same ho.  
 ✔️ **Case Sensitive**: `Nike` aur `nike` ko different maana jayega.  
 ✔️ **Substring Match Nahi Hota**: Agar tum `"Nik"` search karoge, to `"Nike"` match nahi karega.  
@@ -28,7 +29,7 @@ Term Level Queries **analyzed nahi hote**, iska matlab jo bhi value hum search k
 
 ---
 
-## 3️⃣ **Term Level Query Example** 📝  
+## 3️⃣ **Term Level Query Example** 📝  <a id="3"></a>
 Maan lo ki humare paas ek **products** index hai jisme humari documents store hain:  
 
 ### **📄 Sample Document**
@@ -75,7 +76,7 @@ GET products/_search
 
 ---
 
-## 4️⃣ **Case Sensitivity & Exact Matching** 🔠  
+## 4️⃣ **Case Sensitivity & Exact Matching** 🔠  <a id="4"></a>
 ### 🚨 **Wrong Query (Case Sensitive Issue)**
 ```json
 GET products/_search
@@ -100,7 +101,7 @@ GET products/_search
 
 ---
 
-## 5️⃣ **Common Mistake: Using Term Query on Text Fields** 🚨  
+## 5️⃣ **Common Mistake: Using Term Query on Text Fields** 🚨  <a id="5"></a>
 Agar tum kisi **text** field pe Term Query lagane ki koshish karoge, to result unexpected aayega.  
 
 ### **❌ Wrong Example (Using term on text field)**
@@ -119,7 +120,7 @@ Elasticsearch **text fields ko analyze** karta hai (lowercase, tokenization, ste
 
 ---
 
-## 6️⃣ **Correct Approach: Use Keyword Fields for Term Queries** ✅  
+## 6️⃣ **Correct Approach: Use Keyword Fields for Term Queries** ✅  <a id="6"></a>
 Agar tumhe **exact match** karna hai, to **keyword fields** ka use karo.  
 
 ✔️ **Right Approach:**  
@@ -137,7 +138,7 @@ GET products/_search
 
 ---
 
-## 7️⃣ **Final Recap & Learnings** 🎯  
+## 7️⃣ **Final Recap & Learnings** 🎯  <a id="7"></a>
 📌 **Term Level Queries ka use exact value match ke liye hota hai.**  
 📌 **Yeh case-sensitive hote hain, aur partial match nahi hota.**  
 📌 **Text fields ke sath Term Query use nahi karni chahiye.**  

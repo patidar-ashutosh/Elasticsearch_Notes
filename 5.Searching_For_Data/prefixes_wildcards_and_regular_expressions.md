@@ -1,17 +1,19 @@
 # 📌 **Prefixes, Wildcards & Regular Expressions**
 
-## 📖 **Table of Contents**
-1. 🔍 **Introduction**
-2. 🔠 **Prefix Query** 
-3. 🃏 **Wildcard Query** 
-4. 🔢 **Regular Expression Query** 
-5. 🎭 **Lucene Regex Engine** 
-6. 🔠 **Case Insensitive Searches** 
-7. 🏁 **Conclusion**
+## 📖 **Table of Contents**  
+
+1️⃣ [🔍 Introduction](#1)  
+2️⃣ [🔠 Prefix Query](#2)  
+3️⃣ [🃏 Wildcard Query](#3)  
+4️⃣ [🔢 Regular Expression Query](#4)  
+5️⃣ [🎭 Lucene Regex Engine](#5)  
+6️⃣ [🔠 Case Insensitive Searches](#6)  
+7️⃣ [🏁 Conclusion](#7)  
 
 ---
 
-## 🔍 **Introduction**
+## 1. 🔍 **Introduction** <a id="1"></a>
+
 Term level queries sirf **exact matches** ke liye hoti hain, **lekin** kuch exceptions hain jo **thoda flexibility deti hain**:
 - ✅ **Prefix query** → **Shuru ke characters match** karta hai.
 - ✅ **Wildcard query** → **Flexible pattern matching** karta hai (`*`, `?`).
@@ -21,7 +23,7 @@ Ye queries **keyword fields** ke saath use karni chahiye for better accuracy.
 
 ---
 
-## 🔠 **Prefix Query**  
+## 2. 🔠 **Prefix Query**  <a id="2"></a>
 
 - Prefix query **field ke start se match karti hai**..
 - Example: Agar hum `name.keyword` field pe **"Past"** se start hone wale values dhundhna chahein, toh yeh **"Pasta", "Pastry", "Paste"** ko match karegi.
@@ -59,7 +61,8 @@ Ye queries **keyword fields** ke saath use karni chahiye for better accuracy.
 
 ---
 
-## 🃏 **Wildcard Query**  
+## 3. 🃏 **Wildcard Query**  <a id="3"></a>
+
 Wildcard query **2 tarike ke wildcards support karti hai**:
 1. **`?` (Question Mark)** - **Ek single character match karega**  
 2. **`*` (Asterisk)** - **Zero ya more characters match karega**  
@@ -118,7 +121,8 @@ Wildcard query **2 tarike ke wildcards support karti hai**:
 
 ---
 
-## 🔢 **Regular Expression Query**  
+## 4. 🔢 **Regular Expression Query**  <a id="4"></a>
+
 Regular expressions **wildcards se zyada powerful** hoti hain.  
 
 ### 🔹 **Example 1: Simple Regex**
@@ -179,7 +183,8 @@ Regex queries se **complex patterns** define kar sakte ho, jaise:
 
 ---
 
-## 🎭 **Lucene Regex Engine**
+## 5. 🎭 **Lucene Regex Engine** <a id="5"></a>
+
 Elasticsearch **Apache Lucene Regex Engine** use karta hai, jo **standard regex engines se thoda different hota hai**:
 - **`^` aur `$` anchors supported nahi hote**.
 - **Pura term match karna zaroori hota hai**.
@@ -187,7 +192,8 @@ Elasticsearch **Apache Lucene Regex Engine** use karta hai, jo **standard regex 
 
 ---
 
-## 🔠 **Case Insensitive Searches**  
+## 6. 🔠 **Case Insensitive Searches**  <a id="6"></a>
+
 By default, **yeh queries case-sensitive hoti hain**.  
 Agar **case ignore karna hai**, toh **`case_insensitive: true`** parameter add kar sakte ho:
 
@@ -220,7 +226,8 @@ Isse **"past", "Past", "PAST"** sab match ho jayenge.
 
 ---
 
-## 🏁 **Conclusion**
+## 7. 🏁 **Conclusion** <a id="7"></a>
+
 | Query Type | Description | Example |
 |------------|------------|---------|
 | **Prefix Query** | Term ke start se match karta hai | `"Past"` → `"Pasta", "Pastry"` |

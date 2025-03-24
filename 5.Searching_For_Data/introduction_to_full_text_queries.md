@@ -1,16 +1,17 @@
 # 📖 Introduction to Full Text Queries
 
-## 📌 Table of Contents
-1. 🔍 **Full Text Queries Kya Hain?**  
-2. 🎯 **Term Level Queries vs Full Text Queries**  
-3. 📝 **Full Text Queries Kaam Kaise Karti Hain?**  
-4. 🔄 **Query Analysis Ka Role**  
-5. ⚡ **Full Text Queries vs Exact Matching**  
-6. 🛠 **Example with Output**  
+## 📌 Table of Contents  
+1️⃣ [🔍 **Full Text Queries Kya Hain?**](#1)  
+2️⃣ [🎯 **Term Level Queries vs Full Text Queries**](#2)  
+3️⃣ [📝 **Full Text Queries Kaam Kaise Karti Hain?**](#3)  
+4️⃣ [🔄 **Query Analysis Ka Role**](#4)  
+5️⃣ [⚡ **Full Text Queries vs Exact Matching**](#5)  
+6️⃣ [🛠 **Example with Output**](#6)  
+7️⃣ [🎯 **Conclusion**](#7)  
 
 ---
 
-## 🔍 Full Text Queries Kya Hain?
+## 1. 🔍 Full Text Queries Kya Hain? <a id="1"></a>
 
 Ab tak hum **term level queries** ke baare me padh chuke hain. Ab baat karte hain **full text queries** ki. Yeh queries **unstructured text data** (jaise ki blog posts, news articles, comments, etc.) me searching ke liye use hoti hain.
 
@@ -18,7 +19,7 @@ Jab hum Google ya kisi mail application me kuch search karte hain, toh hum exact
 
 ---
 
-## 🎯 Term Level Queries vs Full Text Queries
+## 2. 🎯 Term Level Queries vs Full Text Queries <a id="2"></a>
 
 | Feature | Term Level Queries | Full Text Queries |
 |---------|------------------|------------------|
@@ -31,7 +32,7 @@ Agar ek field **text type** ki hai, toh uske liye **full text queries** use karn
 
 ---
 
-## 📝 Full Text Queries Kaam Kaise Karti Hain?
+## 3. 📝 Full Text Queries Kaam Kaise Karti Hain? <a id="3"></a>
 
 - Full text queries **analyzed hoti hain**, iska matlab hai ki Elasticsearch query ko breakdown karta hai aur fir search karta hai.
 - Jab ek query run hoti hai, toh Elasticsearch mapping check karta hai aur agar **analyzer configured** hai toh use apply karta hai.
@@ -42,7 +43,7 @@ Example: Agar hum **"SHARDING"** search karein aur analyzer query ko lowercase k
 
 ---
 
-## 🔄 Query Analysis Ka Role
+## 4. 🔄 Query Analysis Ka Role <a id="4"></a>
 
 Jab documents index hote hain, toh unka text **analyzed** hota hai:
 1. **Lowercasing:** "SHARDING" -> "sharding"
@@ -53,7 +54,7 @@ Jab hum koi full text query chalate hain, toh **query bhi analyze hoti hai**, ta
 
 ---
 
-## ⚡ Full Text Queries vs Exact Matching
+## 5. ⚡ Full Text Queries vs Exact Matching <a id="5"></a>
 
 - **Term level queries** **exact match** ke liye use hoti hain.
 - **Full text queries** **partial match ya relevant results** ke liye use hoti hain.
@@ -61,7 +62,7 @@ Jab hum koi full text query chalate hain, toh **query bhi analyze hoti hai**, ta
 
 ---
 
-## 🛠 Example with Output
+## 6. 🛠 Example with Output <a id="6"></a>
 
 ### ✅ Data Indexing
 
@@ -116,7 +117,7 @@ GET posts/_search
 
 ---
 
-## 🎯 Conclusion
+## 7. 🎯 Conclusion <a id="7"></a>
 
 - **Full text queries** ka use **unstructured text** ko search karne ke liye hota hai.
 - **Query analyze hoti hai**, taaki search aur indexed text same format me ho.

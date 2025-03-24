@@ -2,22 +2,23 @@
 
 ## 📜 Table of Contents  
 
-1. 🔍 **Introduction to `bool` Query**  
-2. 🏗 **Structure of `bool` Query**  
-3. 🎭 **Clauses of `bool` Query**  
-   - ✅ `must`
-   - 🏆 `filter`
-   - 🔄 `should`
-   - 🚫 `must_not`
-4. ⚖ **Difference Between `must` & `filter`**  
-5. 💡 **Use Cases of `bool` Query**  
-6. 📝 **Examples with Expected Output**  
-7. 🎯 **Performance Optimization Tips**  
-8. 🔗 **Related Queries**  
+1. 🔍 [**Introduction to `bool` Query**](#1)  
+2. 🏗 [**Structure of `bool` Query**](#2)  
+3. 🎭 [**Clauses of `bool` Query**](#3)  
+   - ✅ [**`must`**](#3-1)  
+   - 🏆 [**`filter`**](#3-2)  
+   - 🔄 [**`should`**](#3-3)  
+   - 🚫 [**`must_not`**](#3-4)  
+4. ⚖ [**Difference Between `must` & `filter`**](#4)  
+5. 💡 [**Use Cases of `bool` Query**](#5)  
+6. 📝 [**Examples with Expected Output**](#6)  
+7. 🎯 [**Performance Optimization Tips**](#7)  
+8. 🔗 [**Related Queries**](#8)  
+9. 🎬 [**Conclusion**](#9)  
 
 ---
 
-## 🔍 1. Introduction to `bool` Query  
+## 🔍 1. Introduction to `bool` Query  <a id="1"></a>
 
 `bool` query ka use tab hota hai jab hume multiple conditions ko ek saath combine karna hota hai. Ye ek **compound query** hai jo alag-alag clauses ko combine karke ek complex query banane ka kaam karti hai.  
 
@@ -31,7 +32,7 @@ Toh `bool` query best solution hai!
 
 ---
 
-## 🏗 2. Structure of `bool` Query  
+## 🏗 2. Structure of `bool` Query  <a id="2"></a>
 
 Elasticsearch me `bool` query ka structure kuch is tarah hota hai:
 
@@ -64,9 +65,9 @@ Elasticsearch me `bool` query ka structure kuch is tarah hota hai:
 
 ---
 
-## 🎭 3. Clauses of `bool` Query  
+## 🎭 3. Clauses of `bool` Query  <a id="3"></a>
 
-### ✅ `must` Clause  
+### ✅ `must` Clause  <a id="3-1"></a>
 
 - Yeh condition **zaroori** hoti hai  
 - Yeh documents ka score bhi influence karti hai  
@@ -88,7 +89,7 @@ Elasticsearch me `bool` query ka structure kuch is tarah hota hai:
 
 ---
 
-### 🏆 `filter` Clause  
+### 🏆 `filter` Clause  <a id="3-2"></a>
 
 - Yeh condition bhi zaroori hoti hai **lekin** scoring ko affect nahi karti  
 - Performance-wise `must` se fast hoti hai  
@@ -110,7 +111,7 @@ Elasticsearch me `bool` query ka structure kuch is tarah hota hai:
 
 ---
 
-### 🔄 `should` Clause  
+### 🔄 `should` Clause  <a id="3-3"></a>
 
 - Yeh optional condition hoti hai  
 - Agar `should` clause match hoti hai toh document ka score badh jata hai  
@@ -136,7 +137,7 @@ Example:
 
 ---
 
-### 🚫 `must_not` Clause  
+### 🚫 `must_not` Clause  <a id="3-4"></a>
 
 - Yeh condition **match nahi honi chahiye**  
 - Yeh ek document ko **exclude** karne ke kaam aati hai  
@@ -158,7 +159,7 @@ Example:
 
 ---
 
-## ⚖ 4. Difference Between `must` & `filter`  
+## ⚖ 4. Difference Between `must` & `filter`  <a id="4"></a>
 
 | Feature | `must` | `filter` |
 |---------|--------|---------|
@@ -170,7 +171,7 @@ Agar tumhe **filtering** chahiye bina scoring ke, toh **`filter`** use karna bet
 
 ---
 
-## 💡 5. Use Cases of `bool` Query  
+## 💡 5. Use Cases of `bool` Query  <a id="5"></a>
 
 ✅ **E-Commerce Filtering** – `"category": "electronics"` hona chahiye (filter) aur `"brand": "Apple"` hona chahiye (must)  
 ✅ **Job Search** – `"skills": "Java"` hona chahiye (must) aur `"remote": "true"` optional ho (should)  
@@ -178,7 +179,7 @@ Agar tumhe **filtering** chahiye bina scoring ke, toh **`filter`** use karna bet
 
 ---
 
-## 📝 6. Examples with Expected Output  
+## 📝 6. Examples with Expected Output  <a id="6"></a>
 
 ### **Example 1 – Find active users in 'IT' department with good rating**  
 
@@ -210,7 +211,7 @@ Agar tumhe **filtering** chahiye bina scoring ke, toh **`filter`** use karna bet
 
 ---
 
-## 🎯 7. Performance Optimization Tips  
+## 🎯 7. Performance Optimization Tips  <a id="7"></a>
 
 1️⃣ **Use `filter` instead of `must` for exact match conditions** – Kyunki filter caching use karta hai.  
 2️⃣ **Avoid too many `should` clauses** – Performance impact ho sakta hai.  
@@ -219,7 +220,7 @@ Agar tumhe **filtering** chahiye bina scoring ke, toh **`filter`** use karna bet
 
 ---
 
-## 🔗 8. Related Queries  
+## 🔗 8. Related Queries  <a id="8"></a>
 
 - **`match` Query** – Text search ke liye  
 - **`term` Query** – Exact match ke liye  
@@ -227,7 +228,7 @@ Agar tumhe **filtering** chahiye bina scoring ke, toh **`filter`** use karna bet
 
 ---
 
-## 🎬 Conclusion  
+## 🎬 9. Conclusion  <a id="9"></a>
 
 Elasticsearch me `bool` query ek **powerful tool** hai jo tumhe complex search conditions apply karne me help karti hai. Agar tum **performance aur accuracy** dono optimize karna chahte ho toh **`must`, `filter`, `should`, `must_not`** ka sahi combination use karna zaroori hai! 🚀  
 

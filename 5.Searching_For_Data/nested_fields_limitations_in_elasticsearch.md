@@ -1,22 +1,25 @@
 ## 📌 **Nested Fields Limitations in Elasticsearch**  
 
-### 📖 **Table of Contents**  
-1️⃣ [Introduction](#introduction)  
-2️⃣ [Nested Fields ka Performance Impact](#nested-fields-ka-performance-impact)  
-3️⃣ [Nested Fields Queries](#nested-fields-queries)  
-4️⃣ [Nested Fields ke Limits](#nested-fields-ke-limits)  
-5️⃣ [Better Design Considerations](#better-design-considerations)  
-6️⃣ [Conclusion](#conclusion)  
+## 📖 **Table of Contents**  
+
+1️⃣ [Introduction](#1)  
+2️⃣ [Nested Fields ka Performance Impact](#2)  
+3️⃣ [Nested Fields Queries](#3)  
+4️⃣ [Nested Fields ke Limits](#4)  
+5️⃣ [Better Design Considerations](#5)  
+6️⃣ [Conclusion](#6)  
 
 ---
 
-### 🏁 **Introduction**  
+## 1. 🏁 **Introduction**  <a id="1"></a>
+
 Elasticsearch me **nested fields** kaafi useful hote hain jab hume **arrays of objects** ko query karna hota hai.  
 Lekin inka **proper use** karna zaroori hai, kyunki ye **performance aur scaling issues** la sakte hain.  
 
 ---
 
-### 🚀 **Nested Fields ka Performance Impact**  
+## 2. 🚀 **Nested Fields ka Performance Impact**  <a id="2"></a>
+
 ✅ **Nested Fields se Document Count Badhta Hai**  
 - Elasticsearch **har nested object** ke liye ek **Lucene document** create karta hai.  
 - Agar **1 million documents** index karein, jisme **10 nested objects** ho, to Elasticsearch actually **11 million documents** store karega.  
@@ -31,14 +34,16 @@ Lekin inka **proper use** karna zaroori hai, kyunki ye **performance aur scaling
 
 ---
 
-### 🔍 **Nested Fields Queries**  
+## 3. 🔍 **Nested Fields Queries**  <a id="3"></a>
+
 - **Nested objects** ko query karne ke liye **specialized queries** lagti hain.  
 - Standard queries se **different syntax** hoti hai.  
 - **Nested query** kaafi flexible hai, but queries **thodi complex** ho sakti hain.  
 
 ---
 
-### 📏 **Nested Fields ke Limits**  
+## 4. 📏 **Nested Fields ke Limits**  <a id="4"></a>
+
 🚨 **Index ke andar Nested Fields ki Limit**  
 - **Default: 50 nested fields per index**  
 - Isko increase kar sakte ho, but agar **jada nested fields** chahiye, to shayad tumhari document mapping **galat ho sakti hai**.  
@@ -50,7 +55,8 @@ Lekin inka **proper use** karna zaroori hai, kyunki ye **performance aur scaling
 
 ---
 
-### 🔄 **Better Design Considerations**  
+## 5. 🔄 **Better Design Considerations**  <a id="5"></a>
+
 💡 **Example: E-commerce Webshop (Shopify-type Service)**  
 🔹 **Bad Design (Bahut Zyada Nested Fields)**  
 - Agar ek **webshop document** ke andar **saare orders** nested field me store kar diye, to problem ho sakti hai.  
@@ -68,7 +74,8 @@ Agar ek document me **hazaron nested objects** ho sakte hain, to **better mappin
 
 ---
 
-### 🏁 **Conclusion**  
+## 6. 🏁 **Conclusion**  <a id="6"></a>
+
 ✔️ **Nested fields** powerful hain, but unke **performance aur scaling issues** bhi hain.  
 ✔️ **Nested fields ka limit samajhna zaroori hai** taki memory aur performance issues na aayein.  
 ✔️ Agar document **bada hone ka chance** hai, to **better design choices** adopt karo.  

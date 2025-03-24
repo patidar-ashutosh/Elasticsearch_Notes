@@ -1,18 +1,18 @@
 # 📑 Table of Contents
 
-1. 🔍 **Introduction to Searching Multiple Fields**  
-2. 🎯 **What is multi_match Query?**  
-3. ⚙️ **Basic Syntax & Example**  
-4. 📊 **Relevance Scoring in multi_match**  
-5. 📈 **Boosting Specific Fields**  
-6. 🔗 **Types of multi_match Queries**  
-7. 🏆 **Using tie_breaker for Better Relevance**  
-8. 🚀 **Advanced Use Cases & Optimization**  
-9. 📌 **Conclusion**  
+1️⃣ [🔍 **Introduction to Searching Multiple Fields**](#1)  
+2️⃣ [🎯 **What is multi_match Query?**](#2)  
+3️⃣ [⚙️ **Basic Syntax & Example**](#3)  
+4️⃣ [📊 **Relevance Scoring in multi_match**](#4)  
+5️⃣ [📈 **Boosting Specific Fields**](#5)  
+6️⃣ [🔗 **Types of multi_match Queries**](#6)  
+7️⃣ [🏆 **Using tie_breaker for Better Relevance**](#7)  
+8️⃣ [🚀 **Advanced Use Cases & Optimization**](#8)  
+9️⃣ [📌 **Conclusion**](#9)  
 
 ---
 
-## 🔍 1. Introduction to Searching Multiple Fields
+## 🔍 1. Introduction to Searching Multiple Fields <a id="1"></a>
 
 Jab hum **Elasticsearch** me search karte hain, to aksar ek hi field ka match dekhna hota hai. Par kabhi kabhi humein **multiple fields** me ek hi query ko apply karna padta hai. Jaise:
 
@@ -24,7 +24,7 @@ Iske liye **multi_match** query ka use hota hai jo ek powerful tool hai.
 
 ---
 
-## 🎯 2. What is multi_match Query?
+## 🎯 2. What is multi_match Query? <a id="2"></a>
 
 **multi_match query** ek advanced query hai jo ek **single search term** ko **multiple fields** me search karne ki ability deti hai. Yeh **match query** ka ek extension hai, jisme hum **multiple fields** ko specify kar sakte hain.
 
@@ -32,7 +32,7 @@ Agar kisi **ek field me match** milta hai, to document search results me aa jata
 
 ---
 
-## ⚙️ 3. Basic Syntax & Example
+## ⚙️ 3. Basic Syntax & Example <a id="3"></a>
 
 Agar hum **name** aur **tags** dono me "vegetable" ko search karna chahein, to query kuch aise likhi jayegi:
 
@@ -65,7 +65,7 @@ Agar hum **name** aur **tags** dono me "vegetable" ko search karna chahein, to q
 
 ---
 
-## 📊 4. Relevance Scoring in multi_match
+## 📊 4. Relevance Scoring in multi_match <a id="4"></a>
 
 Har **matching document** ko Elasticsearch ek **_score** assign karta hai jo relevance define karta hai. **multi_match query** by default **sabse high score wale field** ka score use karti hai.
 
@@ -80,7 +80,7 @@ Final score **sabse zyada score wale field** ka hota hai.
 
 ---
 
-## 📈 5. Boosting Specific Fields
+## 📈 5. Boosting Specific Fields <a id="5"></a>
 
 Agar kisi **specific field ko zyada importance** deni ho to uska **weightage** badhaya ja sakta hai **caret symbol (^)** ke sath.
 
@@ -102,7 +102,7 @@ Agar kisi **specific field ko zyada importance** deni ho to uska **weightage** b
 
 ---
 
-## 🔗 6. Types of multi_match Queries
+## 🔗 6. Types of multi_match Queries <a id="6"></a>
 
 multi_match query me **4 important types** hote hain:
 
@@ -130,7 +130,7 @@ Example:
 
 ---
 
-## 🏆 7. Using tie_breaker for Better Relevance
+## 🏆 7. Using tie_breaker for Better Relevance <a id="7"></a>
 
 By default, sirf **best matching field ka score** liya jata hai. **tie_breaker** ka use karke **baaki matching fields ka effect bhi include** kar sakte hain.
 
@@ -156,7 +156,7 @@ Final Score = 12.69 + (8.51 * 0.3) = 15.24
 
 ---
 
-## 🚀 8. Advanced Use Cases & Optimization
+## 🚀 8. Advanced Use Cases & Optimization <a id="8"></a>
 
 - **Synonyms Handling**: Agar ek hi cheez ke multiple names hain (e.g., "TV" = "Television"), to **synonyms analyzer** use karna better hoga.
 - **Nested Fields**: Agar documents complex ho (e.g., reviews ke andar user comments ho), to **nested query** ka use better hoga.
@@ -164,7 +164,7 @@ Final Score = 12.69 + (8.51 * 0.3) = 15.24
 
 ---
 
-## 📌 9. Conclusion
+## 📌 9. Conclusion <a id="9"></a>
 
 - **multi_match query** ek **powerful tool** hai jo **multiple fields me search** karne ki flexibility deta hai.
 - **Boosting aur tie_breaker** ka use karke relevance ko **fine-tune** kiya ja sakta hai.

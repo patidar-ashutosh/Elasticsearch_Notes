@@ -2,17 +2,17 @@
 
 ## 📜 Table of Contents  
 
-1. 🏗 **Nested Objects vs. Regular Objects**  
-2. 🔍 **Problem with Querying Nested Objects**  
-3. 🛠 **Fixing the Issue with Nested Data Type**  
-4. 📊 **How Elasticsearch Indexes Nested Documents**  
-5. 📌 **Querying Nested Fields Properly**  
-6. 🏆 **Relevance Scoring in Nested Queries**  
-7. 📝 **Final Thoughts & Key Takeaways**  
+1. 🏗 [**Nested Objects vs. Regular Objects**](#1)  
+2. 🔍 [**Problem with Querying Nested Objects**](#2)  
+3. 🛠 [**Fixing the Issue with Nested Data Type**](#3)  
+4. 📊 [**How Elasticsearch Indexes Nested Documents**](#4)  
+5. 📌 [**Querying Nested Fields Properly**](#5)  
+6. 🏆 [**Relevance Scoring in Nested Queries**](#6)  
+7. 📝 [**Final Thoughts & Key Takeaways**](#7)  
 
 ---  
 
-## 🏗 **Nested Objects vs. Regular Objects**  
+## 1. 🏗 **Nested Objects vs. Regular Objects**  <a id="1"></a>
 
 Elasticsearch me hum **object fields** ko store kar sakte hain, jo ek **array of objects** bhi ho sakte hain. **Lekin problem tab aati hai jab hume kisi specific object ke andar specific field ko query karna hota hai.**  
 
@@ -33,7 +33,7 @@ Imagine karo ek **recipe index** hai jisme ingredients ek **array of objects** h
 
 ---  
 
-## 🔍 **Problem with Querying Nested Objects**  
+## 2. 🔍 **Problem with Querying Nested Objects**  <a id="2"></a>
 
 Elasticsearch me **arrays of objects** ko **flattened structure** me store kiya jata hai, **jisme relationships lose ho jati hain.**  
 
@@ -59,7 +59,7 @@ For example, agar ek document me **parmesan** hai, aur kisi **dusre ingredient k
 
 ---  
 
-## 🛠 **Fixing the Issue with Nested Data Type**  
+## 3. 🛠 **Fixing the Issue with Nested Data Type**  <a id="3"></a>
 
 Solution hai **nested data type** use karna!  
 
@@ -86,7 +86,7 @@ Iske baad **hum accurate queries likh sakte hain jo objects ke andar sahi relati
 
 ---  
 
-## 📊 **How Elasticsearch Indexes Nested Documents**  
+## 4. 📊 **How Elasticsearch Indexes Nested Documents**  <a id="4"></a>
 
 Jab hum **nested mapping** use karte hain, to Elasticsearch **hidden Lucene documents** create karta hai.  
 
@@ -98,7 +98,7 @@ Agar ek recipe me **10 ingredients** hain, to Elasticsearch **11 documents** cre
 
 ---  
 
-## 📌 **Querying Nested Fields Properly**  
+## 5. 📌 **Querying Nested Fields Properly**  <a id="5"></a>
 
 Ab jab humne **nested mapping** define kar di hai, to hum **nested queries** likh sakte hain jo sahi results return karein.  
 
@@ -125,7 +125,7 @@ Sirf wahi recipes return hongi jisme **parmesan ka amount >= 100 hai.**
 
 ---  
 
-## 🏆 **Relevance Scoring in Nested Queries**  
+## 6. 🏆 **Relevance Scoring in Nested Queries**  <a id="6"></a>
 
 Nested queries ke saath **relevance score** ko control karne ke liye **score_mode** parameter use hota hai.  
 
@@ -151,7 +151,7 @@ Nested queries ke saath **relevance score** ko control karne ke liye **score_mod
 
 ---  
 
-## 📝 **Final Thoughts & Key Takeaways**  
+## 7. 📝 **Final Thoughts & Key Takeaways**  <a id="7"></a>
 
 ✅ **Nested data type use karo jab bhi tumhe object relationships maintain karni ho.**  
 ✅ **Normal object fields flatten ho jate hain, jo incorrect query results de sakte hain.**  

@@ -7,20 +7,20 @@ Elasticsearch me queries **2 types** ki hoti hain:
 Agar tum **sirf ek condition** se search kar rahe ho, to leaf query kaafi hai.  
 Agar **multiple conditions** combine karni hain (AND, OR, NOT, FILTER), to compound queries use karni padengi.  
 
----  
 # 📖 **Table of Contents**  
-1️⃣ **Introduction to Leaf Queries** 🍃  
-2️⃣ **Examples of Leaf Queries** 🛠️  
-3️⃣ **Introduction to Compound Queries** 🔗  
-4️⃣ **Types of Compound Queries** 🏗️  
-5️⃣ **Example: Searching for Alcohol Products** 🍷  
-6️⃣ **Nesting Compound Queries** 🎭  
-7️⃣ **Expected Output of Queries** 📜  
-8️⃣ **Conclusion** 🎯  
+1️⃣ [**Introduction to Leaf Queries** 🍃](#1)  
+2️⃣ [**Examples of Leaf Queries** 🛠️](#2)  
+3️⃣ [**Introduction to Compound Queries** 🔗](#3)  
+4️⃣ [**Types of Compound Queries** 🏗️](#4)  
+5️⃣ [**Example: Searching for Alcohol Products** 🍷](#5)  
+6️⃣ [**Nesting Compound Queries** 🎭](#6)  
+7️⃣ [**Expected Output of Queries** 📜](#7)  
+8️⃣ [**Conclusion** 🎯](#8)  
 
 ---
 
-## 1️⃣ **Introduction to Leaf Queries** 🍃  
+## 1️⃣ **Introduction to Leaf Queries** 🍃  <a id="1"></a>
+
 Leaf queries **directly match** documents ke fields ke against. Yeh **independently work kar sakti hain** aur kisi aur query ko wrap karne ki zarurat nahi hoti.  
 
 ✅ **Examples of Leaf Queries:**  
@@ -44,7 +44,8 @@ GET products/_search
 
 ---
 
-## 2️⃣ **Examples of Leaf Queries** 🛠️  
+## 2️⃣ **Examples of Leaf Queries** 🛠️  <a id="2"></a>
+
 | Query Type  | Description | Example |
 |------------|-------------|---------|
 | **Term Query** 🏷️ | Exact match karta hai kisi field ke value se | `"tags": "Alcohol"` |
@@ -54,7 +55,8 @@ GET products/_search
 
 ---
 
-## 3️⃣ **Introduction to Compound Queries** 🔗  
+## 3️⃣ **Introduction to Compound Queries** 🔗  <a id="3"></a>
+
 Compound queries **multiple leaf queries ko combine** karne ke kaam aati hain.  
 
 ✅ **Compound queries ke bina hum ek hi time me sirf ek condition laga sakte hain**  
@@ -80,7 +82,8 @@ Yeh `"bool"` query ek **compound query** hai jo **Term Query + Range Query** ko 
 
 ---
 
-## 4️⃣ **Types of Compound Queries** 🏗️  
+## 4️⃣ **Types of Compound Queries** 🏗️  <a id="4"></a>
+
 | Compound Query | Purpose | Example |
 |--------------|---------|---------|
 | **Bool Query** 🤖 | Multiple queries ko AND, OR, NOT ke logic ke sath combine karta hai | `must`, `should`, `filter`, `must_not` |
@@ -89,7 +92,8 @@ Yeh `"bool"` query ek **compound query** hai jo **Term Query + Range Query** ko 
 
 ---
 
-## 5️⃣ **Example: Searching for Alcohol Products** 🍷  
+## 5️⃣ **Example: Searching for Alcohol Products** 🍷  <a id="5"></a>
+
 Mujhe **"Alcohol"** wale products dhoondhne hain jo:  
 - Sold out ho chuke hain **(stock = 0)**  
 - Ya inactive ho chuke hain **(status = inactive)**  
@@ -127,7 +131,8 @@ GET products/_search
 
 ---
 
-## 6️⃣ **Nesting Compound Queries** 🎭  
+## 6️⃣ **Nesting Compound Queries** 🎭  <a id="6"></a>
+
 Agar aur complex queries likhni hain, to **compound queries ke andar bhi compound queries** nest kar sakte hain.  
 
 ➡️ **Example:** Agar mujhe `"Alcohol"` products dhoondhne hain jo ya to `"inactive"` ho ya `"stock < 10"` ho, aur **unpar discount bhi apply ho** raha ho, to query kuch aisi hogi:  
@@ -164,7 +169,8 @@ GET products/_search
 
 ---
 
-## 7️⃣ **Expected Output of Queries** 📜  
+## 7️⃣ **Expected Output of Queries** 📜  <a id="7"></a>
+
 Agar documents kuch is type ke hain:  
 
 ```json
@@ -185,7 +191,8 @@ Sirf wahi document aayega **jo conditions satisfy karta hai**.
 
 ---
 
-## 8️⃣ **Conclusion** 🎯  
+## 8️⃣ **Conclusion** 🎯  <a id="8"></a>
+
 ✅ **Leaf Queries** sirf ek field pe kaam karti hain (e.g. `term`, `match`, `range`).  
 ✅ **Compound Queries** multiple queries ko logically combine karti hain (`bool`, `dis_max`, `function_score`).  
 ✅ **Bool Queries me nesting** karke hum complex conditions likh sakte hain.  

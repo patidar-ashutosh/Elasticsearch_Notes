@@ -25,7 +25,6 @@
 
 [Leaf and Compound Queries in Elasticsearch](./leaf_and_compound_queries_in_elasticsearch.md)
 
-
 [Elasticsearch bool Query](./elasticsearch_bool_query.md)
 
 [Query Execution Contexts in Elasticsearch](./query_execution_contexts_in_elasticsearch.md)

@@ -1,17 +1,18 @@
 # 📊 Introduction to Relevance Scoring in Elasticsearch  
 
 ## 📌 Table of Contents  
-1. 🔍 **Relevance Scoring Kya Hota Hai?**  
-2. 📄 **_score Field Ka Role**  
-3. 🎯 **Full-Text Queries vs. Term-Level Queries**  
-4. 📑 **Example with Match Query**  
-5. 🧮 **Relevance Score Calculation (Basic Overview)**  
-6. 🔢 **Sorting Results by _score**  
-7. 📌 **Key Takeaways**  
+1️⃣ [🔍 **Relevance Scoring Kya Hota Hai?**](#1)  
+2️⃣ [📄 **_score Field Ka Role**](#2)  
+3️⃣ [🎯 **Full-Text Queries vs. Term-Level Queries**](#3)  
+4️⃣ [📑 **Example with Match Query**](#4)  
+5️⃣ [🧮 **Relevance Score Calculation (Basic Overview)**](#5)  
+6️⃣ [🔢 **Sorting Results by _score**](#6)  
+7️⃣ [📌 **Key Takeaways**](#7)  
 
 ---
 
-## 🔍 1. Relevance Scoring Kya Hota Hai?  
+## 🔍 1. Relevance Scoring Kya Hota Hai?  <a id="1"></a>
+
 Jab bhi hum **Elasticsearch** me koi **search query** run karte hain, toh multiple documents match kar sakte hain. **Par kaunsa document sabse relevant hai?**  
 Yahi kaam **Relevance Scoring** ka hota hai. Elasticsearch har matching document ko **_score** assign karta hai jo ye decide karta hai ki **kaunsa document sabse achha match karta hai** aur usko upar rank karega.  
 
@@ -19,7 +20,8 @@ Socho tum Google pe **"best pizza places"** search kar rahe ho. Tumhe expectatio
 
 ---
 
-## 📄 2. _score Field Ka Role  
+## 📄 2. _score Field Ka Role  <a id="2"></a>
+
 Jab hum **full-text search** karte hain, toh har document ke liye ek **_score field** generate hota hai jo relevance batata hai. **Jo document query ke zyada close hota hai, uska _score zyada hota hai.**  
 
 **Example:**  
@@ -31,7 +33,8 @@ Toh **first document ka _score zyada hoga**, kyunki dono words ("pasta" aur "chi
 
 ---
 
-## 🎯 3. Full-Text Queries vs. Term-Level Queries  
+## 🎯 3. Full-Text Queries vs. Term-Level Queries  <a id="3"></a>
+
 🔹 **Term-Level Queries:**  
 - Yeh **exact match** ke liye hote hain.  
 - Isme **_score ka koi role nahi hota**, kyunki bas check hota hai ki document match karta hai ya nahi (True/False).  
@@ -46,7 +49,8 @@ Toh **first document ka _score zyada hoga**, kyunki dono words ("pasta" aur "chi
 
 ---
 
-## 📑 4. Example with Match Query  
+## 📑 4. Example with Match Query  <a id="4"></a>
+
 Chalo ek **match query** ka example dekhte hain:  
 
 ```json
@@ -84,7 +88,8 @@ GET my_index/_search
 
 ---
 
-## 🧮 5. Relevance Score Calculation (Basic Overview)  
+## 🧮 5. Relevance Score Calculation (Basic Overview)  <a id="5"></a>
+
 Elasticsearch me **TF-IDF aur BM25 algorithms** use hote hain **_score calculate karne ke liye**. Basic factors jo affect karte hain:  
 
 1. **Term Frequency (TF)** – Agar koi word ek document me zyada baar aaya hai, toh uska score zyada hoga.  
@@ -95,7 +100,8 @@ Elasticsearch me **TF-IDF aur BM25 algorithms** use hote hain **_score calculate
 
 ---
 
-## 🔢 6. Sorting Results by _score  
+## 🔢 6. Sorting Results by _score  <a id="6"></a>
+
 Elasticsearch by default **search results ko _score ke descending order me sort karta hai**, yani **sabse relevant result sabse pehle aayega**.  
 
 Agar manually sort karna ho, toh yeh query use kar sakte ho:  
@@ -118,7 +124,8 @@ GET my_index/_search
 
 ---
 
-## 📌 7. Key Takeaways  
+## 📌 7. Key Takeaways  <a id="7"></a>
+
 ✅ **Relevance Scoring ka kaam hota hai best results ko upar dikhana**.  
 ✅ **_score field sirf full-text queries ke liye matter karta hai, term-level queries ke liye nahi**.  
 ✅ **Documents jinme query ke zyada terms hote hain, unka _score zyada hota hai**.  

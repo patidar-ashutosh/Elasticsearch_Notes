@@ -2,20 +2,19 @@
 
 Elasticsearch ki **dis_max query** ek powerful compound query hai jo multiple query clauses ko execute karti hai, par **best-matching clause ka score use karti hai** document ke relevance score ke liye. Isme ek additional **tie breaker** parameter bhi hota hai jo documents ko reward karta hai agar woh multiple clauses match karte hain.
 
----
-
 ## 📑 **Table of Contents**  
-1️⃣ **[Introduction](#introduction)** 🧐  
-2️⃣ **[Basic Working of dis_max Query](#basic-working)** ⚙️  
-3️⃣ **[Example: Simple dis_max Query](#simple-example)** 📌  
-4️⃣ **[Tie Breaker: Rewarding Multi-Matching Documents](#tie-breaker)** 🎯  
-5️⃣ **[Comparison with multi_match Query](#multi-match-query)** 🔄  
-6️⃣ **[Performance Considerations](#performance-considerations)** ⚡  
-7️⃣ **[Conclusion](#conclusion)** ✅  
+1️⃣ **[Introduction](#1)** 🧐  
+2️⃣ **[Basic Working of dis_max Query](#2)** ⚙️  
+3️⃣ **[Example: Simple dis_max Query](#3)** 📌  
+4️⃣ **[Tie Breaker: Rewarding Multi-Matching Documents](#4)** 🎯  
+5️⃣ **[Comparison with multi_match Query](#5)** 🔄  
+6️⃣ **[Performance Considerations](#6)** ⚡  
+7️⃣ **[Conclusion](#7)** ✅  
 
 ---
 
-## 🧐 **1. Introduction**  <a id="introduction"></a>  
+## 🧐 **1. Introduction**  <a id="1"></a>  
+
 Elasticsearch me agar hume **ek document ko multiple fields me search karna ho** aur best-matching field ka **highest relevance score lena ho**, tab **dis_max query** use hoti hai. Yeh bool query se thodi alag hai, kyunki yeh **best-matching score retain karti hai, na ki sabke scores ka sum leti hai**.
 
 > **Bool Query**: Multiple clauses ke scores ka sum ya weighted sum leti hai.  
@@ -23,7 +22,8 @@ Elasticsearch me agar hume **ek document ko multiple fields me search karna ho**
 
 ---
 
-## ⚙️ **2. Basic Working of dis_max Query**  <a id="basic-working"></a>  
+## ⚙️ **2. Basic Working of dis_max Query**  <a id="2"></a>  
+
 Disjunction Max Query ke andar multiple **query clauses** ho sakte hain. Agar **koi ek bhi clause match karta hai, to document match ho jata hai**. Relevance score **sirf sabse best-matching clause ka score** hota hai.
 
 ### 🔹 **Query Structure**  
@@ -44,7 +44,8 @@ Disjunction Max Query ke andar multiple **query clauses** ho sakte hain. Agar **
 
 ---
 
-## 📌 **3. Example: Simple dis_max Query**  <a id="simple-example"></a>  
+## 📌 **3. Example: Simple dis_max Query**  <a id="3"></a>  
+
 Maan lo, humare paas ek **products index** hai jisme documents kuch is tarah hain:
 
 ```json
@@ -76,7 +77,8 @@ Yaha **document 2 ka score zyada hai** kyunki "vegetable" **tags field me match 
 
 ---
 
-## 🎯 **4. Tie Breaker: Rewarding Multi-Matching Documents**  <a id="tie-breaker"></a>  
+## 🎯 **4. Tie Breaker: Rewarding Multi-Matching Documents**  <a id="4"></a>  
+
 Agar ek document **multiple query clauses match kare**, to uska relevance score badhane ke liye **tie_breaker** parameter use hota hai. 
 
 ```json
@@ -114,7 +116,8 @@ Isme **document 2 ka score increase ho gaya** kyunki **usne dono clauses match k
 
 ---
 
-## 🔄 **5. Comparison with multi_match Query**  <a id="multi-match-query"></a>  
+## 🔄 **5. Comparison with multi_match Query**  <a id="5"></a>  
+
 Dis_max query aur **multi_match query** dono kaafi similar lag sakti hain, par kaafi differences hain:
 
 | Feature | dis_max Query | multi_match Query |
@@ -153,14 +156,16 @@ To agar **multi_match ka best_fields type use kar rahe ho, to internally dis_max
 
 ---
 
-## ⚡ **6. Performance Considerations**  <a id="performance-considerations"></a>  
+## ⚡ **6. Performance Considerations**  <a id="6"></a>  
+
 - **dis_max query fast hoti hai** kyunki yeh sirf **highest score select karti hai** na ki saare scores ko sum karti hai.  
 - **Tie breaker ka use optimization ke liye carefully karna chahiye** kyunki yeh extra calculations introduce karta hai.  
 - **Agar aapko combined score chahiye to bool query ka use karein**, nahi to **dis_max best approach hai**.
 
 ---
 
-## ✅ **7. Conclusion**  <a id="conclusion"></a>  
+## ✅ **7. Conclusion**  <a id="7"></a>  
+
 ✅ **dis_max query best relevance score select karti hai** from multiple query clauses.  
 ✅ **Tie breaker parameter multi-matching documents ko reward karta hai**.  
 ✅ **multi_match query ka best_fields type internally dis_max query hi hota hai**.  

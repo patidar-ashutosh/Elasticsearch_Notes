@@ -1,17 +1,17 @@
 ## 🔍 Query Execution Contexts in Elasticsearch  
 
-### 📌 **Table of Contents**  
-1️⃣ [Introduction](#introduction)  
-2️⃣ [Query Context 🔎](#query-context-)  
-3️⃣ [Filter Context 🚦](#filter-context-)  
-4️⃣ [Performance Optimization 🚀](#performance-optimization-)  
-5️⃣ [Real-World Example 🏢](#real-world-example-)  
-6️⃣ [Expected Output 📊](#expected-output-)  
-7️⃣ [Conclusion 🎯](#conclusion-)  
+# 📌 **Table of Contents**  
+1️⃣ [Introduction](#1)  
+2️⃣ [Query Context 🔎](#2)  
+3️⃣ [Filter Context 🚦](#3)  
+4️⃣ [Performance Optimization 🚀](#4)  
+5️⃣ [Real-World Example 🏢](#5)  
+6️⃣ [Conclusion 🎯](#6)  
 
 ---
 
-## 📌 **Introduction**  
+## 1. 📌 **Introduction**  <a id="1"></a>
+
 Elasticsearch me **queries do alag-alag contexts** me execute hoti hain:  
 1. **Query Context** → **Relevance Score** ka use hota hai.  
 2. **Filter Context** → **Binary Matching (Yes/No)** hota hai, aur relevance score calculate nahi hota.  
@@ -20,7 +20,8 @@ Samajhne ke liye dono contexts ko alag-alag breakdown karte hain.
 
 ---
 
-## 🔎 **Query Context**  
+## 2. 🔎 **Query Context**  <a id="2"></a>
+
 Ye tab hota hai jab tumhara query **`query` key** ke andar likha hota hai.  
 
 ### 🔥 **Key Points:**  
@@ -42,7 +43,8 @@ Ye tab hota hai jab tumhara query **`query` key** ke andar likha hota hai.
 
 ---
 
-## 🚦 **Filter Context**  
+## 3. 🚦 **Filter Context**  <a id="3"></a>
+
 Ye tab hota hai jab query **binary answer** (Yes/No) return kare bina **relevance score calculate kiye**.  
 
 ### ⚡ **Key Points:**  
@@ -67,7 +69,8 @@ Ye tab hota hai jab query **binary answer** (Yes/No) return kare bina **relevanc
 
 ---
 
-## 🚀 **Performance Optimization**  
+## 4. 🚀 **Performance Optimization**  <a id="4"></a>
+
 ✔️ **Relevance score ki zarurat nahi?** → **Filter Context** use karo.  
 ✔️ **Frequent queries ke results cache ho sakte hain?** → **Filter Context** use karo.  
 ✔️ **Text search aur ranking required hai?** → **Query Context** use karo.  
@@ -88,7 +91,8 @@ Ye tab hota hai jab query **binary answer** (Yes/No) return kare bina **relevanc
 
 ---
 
-## 🏢 **Real-World Example**  
+## 5. 🏢 **Real-World Example**  <a id="5"></a>
+
 **E-commerce website** pe tumhe **relevant products** dikhane hain **filters ke sath**.  
 
 ```json
@@ -111,8 +115,6 @@ Ye tab hota hai jab query **binary answer** (Yes/No) return kare bina **relevanc
 ⚡ **Iska benefit?**  
 ✔️ Faster response time  
 ✔️ Accurate search results  
-
----
 
 ## 📊 **Expected Output**  
 ```json
@@ -147,7 +149,8 @@ Ye tab hota hai jab query **binary answer** (Yes/No) return kare bina **relevanc
 
 ---
 
-## 🎯 **Conclusion**  
+## 6. 🎯 **Conclusion**  <a id="6"></a>
+
 ✅ **Query Context** → **Relevance scoring hoti hai**, search results ko **ranking** milti hai.  
 ✅ **Filter Context** → **Binary match hota hai (Yes/No)**, aur **fast execution** hoti hai.  
 ✅ **Best practice:** **Relevance score ki zarurat ho tabhi Query Context use karo, nahi to Filter Context use karo**.  

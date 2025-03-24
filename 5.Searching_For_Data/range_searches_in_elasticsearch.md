@@ -1,17 +1,19 @@
 ### **Range Searches in Elasticsearch**  
 
 #### **📌 Table of Contents**  
-1. 🔍 **Introduction to Range Searches**  
-2. 🎯 **Basic Structure of a Range Query**  
-3. 📊 **Searching Numeric Ranges**  
-4. 📅 **Searching Date Ranges**  
-5. 🕐 **Using Custom Date Formats**  
-6. 🌍 **Handling Time Zones in Queries**  
-7. 📝 **Summary**  
+
+1️⃣ [🔍 Introduction to Range Searches](#1)  
+2️⃣ [🎯 Basic Structure of a Range Query](#2)  
+3️⃣ [📊 Searching Numeric Ranges](#3)  
+4️⃣ [📅 Searching Date Ranges](#4)  
+5️⃣ [🕐 Using Custom Date Formats](#5)  
+6️⃣ [🌍 Handling Time Zones in Queries](#6)  
+7️⃣ [📝 Summary](#7)  
 
 ---  
 
-### **🔍 Introduction to Range Searches**  
+### 1. **🔍 Introduction to Range Searches**  <a id="1"></a>
+
 Ab tak humne dekha kaise **term aur terms queries** ka use karke exact values ko search kiya ja sakta hai. Lekin kai baar hume **range-based searches** karni hoti hain, jaise:  
 ✅ **Stock me kam bache products dikhana**  
 ✅ **Kisi specific date range ke beech me create hue products dikhana**  
@@ -20,7 +22,8 @@ Elasticsearch me **range queries** ka use karke aise searches perform ki ja sakt
 
 ---
 
-### **🎯 Basic Structure of a Range Query**  
+### 2. **🎯 Basic Structure of a Range Query**  <a id="2"></a>
+
 Elasticsearch me range query ka structure bilkul **baaki queries** jaisa hi hota hai.  
 - Field ka naam specify karte hain  
 - Uske andar **gte, lte, gt, lt** parameters set karte hain.  
@@ -31,7 +34,7 @@ Yaha `gte` aur `lte` ka matlab:
 
 ---
 
-### **📊 Searching Numeric Ranges**  
+### 3. **📊 Searching Numeric Ranges**  <a id="3"></a>
 
 Maan lo hume **1 se 5 stock quantity ke beech ke products** dikhane hain. To hum kuch aise query likhenge:  
 
@@ -87,7 +90,7 @@ Yeh query **1 aur 5 ko include nahi karegi.**
 
 ---
 
-### **📅 Searching Date Ranges**  
+### 4. **📅 Searching Date Ranges**  <a id="4"></a>
 Agar hume **specific date range** me bane products dikhane hain, to hum date format me query likh sakte hain.  
 
 #### **📌 Query**  
@@ -122,7 +125,7 @@ Agar hume **specific date range** me bane products dikhane hain, to hum date for
 
 ---
 
-### **🕐 Using Custom Date Formats**  
+### 5. **🕐 Using Custom Date Formats**  <a id="5"></a>
 Kuch scenarios me hum **different date formats** bhi use kar sakte hain.  
 
 #### **📌 Query (Custom Date Format)**
@@ -144,7 +147,7 @@ Yeh same **01 January 2024 - 01 February 2024** ke documents fetch karega.
 
 ---
 
-### **🌍 Handling Time Zones in Queries**  
+### 6. **🌍 Handling Time Zones in Queries**  <a id="6"></a>
 Elasticsearch me **dates UTC (Coordinated Universal Time) format** me store hoti hain. Agar aap **local time zone** me query kar rahe ho, to time zone specify karna padega.  
 
 #### **📌 Query (With Time Zone)**
@@ -166,7 +169,7 @@ Elasticsearch me **dates UTC (Coordinated Universal Time) format** me store hoti
 
 ---
 
-### **📝 Summary**  
+### 7. **📝 Summary**  <a id="7"></a>
 ✅ **Range query** ka use hum **numeric aur date ranges** search karne ke liye karte hain.  
 ✅ `gte`, `lte`, `gt`, `lt` ka use boundaries set karne ke liye hota hai.  
 ✅ **Dates ke saath time zones** ka dhyan rakhna zaroori hota hai.  

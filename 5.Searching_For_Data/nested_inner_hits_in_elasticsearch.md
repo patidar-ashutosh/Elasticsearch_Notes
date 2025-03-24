@@ -2,20 +2,20 @@
 
 Elasticsearch me **Nested Inner Hits** ek powerful feature hai jo nested queries ke results ko aur bhi informative banata hai. Jab hum kisi **nested object** pe query chalate hain, to by default hume **sirf parent document** milta hai. Lekin kabhi-kabhi hume yeh bhi jaanna hota hai ki **kaunsa nested object match** hua hai. **Inner hits** isi kaam ke liye hota hai.  
 
----
-
 ## 📌 Table of Contents  
-1️⃣ **[Nested Queries Recap](#nested-queries-recap)** 🏗️  
-2️⃣ **[Inner Hits Kya Hai?](#inner-hits-kya-hai)** 🔎  
-3️⃣ **[Inner Hits Enable Kaise Karein?](#inner-hits-enable-kaise-karein)** ⚙️  
-4️⃣ **[Inner Hits Ka Structure](#inner-hits-ka-structure)** 🏛️  
-5️⃣ **[Inner Hits Ka Sorting & Naming](#inner-hits-ka-sorting-naming)** 📌  
-6️⃣ **[Example: Elasticsearch Query with Inner Hits](#example-elasticsearch-query-with-inner-hits)** 🧑‍💻  
-7️⃣ **[Conclusion](#conclusion)** 🎯  
+
+1️⃣ **[Nested Queries Recap](#1)** 🏗️  
+2️⃣ **[Inner Hits Kya Hai?](#2)** 🔎  
+3️⃣ **[Inner Hits Enable Kaise Karein?](#3)** ⚙️  
+4️⃣ **[Inner Hits Ka Structure](#4)** 🏛️  
+5️⃣ **[Inner Hits Ka Sorting & Naming](#5)** 📌  
+6️⃣ **[Example: Elasticsearch Query with Inner Hits](#6)** 🧑‍💻  
+7️⃣ **[Conclusion](#7)** 🎯  
 
 ---
 
-## 1️⃣ 🏗️ Nested Queries Recap  
+## 1️⃣ 🏗️ Nested Queries Recap  <a id="1"></a>
+
 - Humne **Nested Query** ka use kiya tha taaki **array of objects** ko alag-alag query kar sakein.  
 - Jab humne **ingredients** ke andar **parmesan** ka amount >=100 filter kiya tha, tab hume unexpected results mile the.  
 - Iska reason yeh tha ki Elasticsearch **objects ke relationships maintain nahi karta**, jab tak hum usse explicitly **nested data type** na banayein.  
@@ -28,7 +28,8 @@ Humne sirf **parent documents** dekhe, hume yeh nahi pata chala ki **kaunsa nest
 
 ---
 
-## 2️⃣ 🔎 Inner Hits Kya Hai?  
+## 2️⃣ 🔎 Inner Hits Kya Hai?  <a id="2"></a>
+
 **Inner Hits** ek additional feature hai jo batata hai ki **kaunsa nested object query se match hua hai**.  
 - **Parent document milne ke saath-saath**, hum uske andar ke **matching nested objects** bhi dekh sakte hain.  
 - Yeh useful hota hai jab **highlighting**, **debugging**, ya **detailed filtering** karni ho.  
@@ -39,7 +40,8 @@ Humne sirf **parent documents** dekhe, hume yeh nahi pata chala ki **kaunsa nest
 
 ---
 
-## 3️⃣ ⚙️ Inner Hits Enable Kaise Karein?  
+## 3️⃣ ⚙️ Inner Hits Enable Kaise Karein?  <a id="3"></a>
+
 Inner Hits ko **enable karna bahut simple hai**, bas hume **nested query ke andar** ek `inner_hits` parameter add karna hota hai.  
 
 ### ✅ **Basic Query with Inner Hits**  
@@ -66,7 +68,8 @@ Ab hume sirf **parent recipe documents** nahi milenge, balki **uske andar match 
 
 ---
 
-## 4️⃣ 🏛️ Inner Hits Ka Structure  
+## 4️⃣ 🏛️ Inner Hits Ka Structure  <a id="4"></a>
+
 Jab **inner_hits** enable hota hai, to Elasticsearch ke response me ek naya **inner_hits** object add ho jata hai:  
 
 ```json
@@ -103,7 +106,8 @@ Jab **inner_hits** enable hota hai, to Elasticsearch ke response me ek naya **in
 
 ---
 
-## 5️⃣ 📌 Inner Hits Ka Sorting & Naming  
+## 5️⃣ 📌 Inner Hits Ka Sorting & Naming  <a id="5"></a>
+
 Hum **inner_hits** ko aur customize kar sakte hain:  
 ✅ **Sorting Inner Hits**: By default **relevance score** ke basis pe sort hota hai.  
 ✅ **Naming Inner Hits**: Agar multiple nested queries ek hi field pe ho, to hum `name` parameter se alag naam de sakte hain.  
@@ -134,7 +138,8 @@ Hum **inner_hits** ko aur customize kar sakte hain:
 
 ---
 
-## 6️⃣ 🧑‍💻 Example: Elasticsearch Query with Inner Hits  
+## 6️⃣ 🧑‍💻 Example: Elasticsearch Query with Inner Hits  <a id="6"></a>
+
 ```json
 {
   "query": {
@@ -165,7 +170,8 @@ Matching Ingredient: Parmesan, Amount: 150 grams
 
 ---
 
-## 7️⃣ 🎯 Conclusion  
+## 7️⃣ 🎯 Conclusion  <a id="7"></a>
+
 - **Nested Queries** allow independent querying of objects inside arrays.  
 - **Inner Hits** allow us to see which **specific nested objects matched** the query.  
 - It helps in **debugging, filtering, and highlighting** results.  

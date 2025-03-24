@@ -1,16 +1,17 @@
 # 📖 Phrase Searches in Elasticsearch  
 
 ## 📌 **Table of Contents**  
-1. 🔍 **Introduction to Phrase Searches**  
-2. 📜 **Difference Between `match` Query & `match_phrase` Query**  
-3. 📊 **How Elasticsearch Handles Phrase Searches (Behind the Scenes)**  
-4. 🏗️ **Example Queries & Their Outputs**  
-5. 🛠️ **Optimization Tips for Phrase Searches**  
-6. 🎯 **Conclusion & Key Takeaways**  
+1️⃣ [🔍 **Introduction to Phrase Searches**](#1)  
+2️⃣ [📜 **Difference Between `match` Query & `match_phrase` Query**](#2)  
+3️⃣ [📊 **How Elasticsearch Handles Phrase Searches (Behind the Scenes)**](#3)  
+4️⃣ [🏗️ **Example Queries & Their Outputs**](#4)  
+5️⃣ [🛠️ **Optimization Tips for Phrase Searches**](#5)  
+6️⃣ [🎯 **Conclusion & Key Takeaways**](#6)  
 
 ---
 
-## 🔍 **1. Introduction to Phrase Searches**  
+## 🔍 **1. Introduction to Phrase Searches**  <a id="1"></a>
+
 Elasticsearch me **phrase searches** ka use **exact sequence of words** ko match karne ke liye hota hai. Jab hum **`match` query** ka use karte hain, toh words kisi bhi order me ho sakte hain aur beech me extra words ho tab bhi match ho sakta hai.  
 
 Lekin agar **`match_phrase` query** ka use karein, toh **words ka exact order aur adjacency (saath saath hone ki condition)** zaroori hoti hai.  
@@ -21,7 +22,7 @@ Lekin agar **match_phrase query** se search karein, toh **sirf "Fanta Zero"** mi
 
 ---
 
-## 📜 **2. Difference Between `match` Query & `match_phrase` Query**  
+## 📜 **2. Difference Between `match` Query & `match_phrase` Query**  <a id="2"></a>
 
 | Feature                 | `match` Query                 | `match_phrase` Query         |
 |-------------------------|---------------------------------|----------------------------------|
@@ -32,7 +33,7 @@ Lekin agar **match_phrase query** se search karein, toh **sirf "Fanta Zero"** mi
 
 ---
 
-## 📊 **3. How Elasticsearch Handles Phrase Searches (Behind the Scenes)**  
+## 📊 **3. How Elasticsearch Handles Phrase Searches (Behind the Scenes)**  <a id="3"></a>
 
 Jab Elasticsearch **phrase searches** karta hai, toh sirf itna nahi dekhta ki **terms kisi document me hain ya nahi**, balki ye bhi dekhta hai ki **terms kis position pe hain**.  
 
@@ -55,7 +56,7 @@ Toh query match nahi karegi, kyunki **"to" aur "Elasticsearch" ke beech me ek ex
 
 ---
 
-## 🏗️ **4. Example Queries & Their Outputs**  
+## 🏗️ **4. Example Queries & Their Outputs**  <a id="4"></a>
 
 ### 📝 **Example Documents:**
 ```json
@@ -131,7 +132,8 @@ Is baar **id: 1 aur id: 3** match ho jayenge, kyunki `"guide"` aur `"Elasticsear
 
 ---
 
-## 🛠️ **5. Optimization Tips for Phrase Searches**  
+## 🛠️ **5. Optimization Tips for Phrase Searches**  <a id="5"></a>
+
 🔹 **Indexing Optimization:**  
 - `match_phrase` query ko fast banane ke liye **position offsets enable karein**.  
 - Agar zyada complex queries chalani ho toh **shingles tokenizer** ka use karein.  
@@ -156,7 +158,8 @@ Is baar **id: 1 aur id: 3** match ho jayenge, kyunki `"guide"` aur `"Elasticsear
 ```
 ---
 
-## 🎯 **6. Conclusion & Key Takeaways**  
+## 🎯 **6. Conclusion & Key Takeaways**  <a id="6"></a>
+
 ✅ **`match_phrase` query order aur adjacency maintain karti hai.**  
 ✅ **Normal `match` query se difference ye hai ki usme order matter nahi karta.**  
 ✅ **Inverted index me term positions store hoti hain jo phrase search me kaam aati hain.**  
