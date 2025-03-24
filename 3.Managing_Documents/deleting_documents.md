@@ -1,15 +1,16 @@
 # 🗑️ **Deleting Documents in Elasticsearch**  
 
 ## 📌 **Table of Contents**  
-1. 🔹 [Introduction](#introduction)  
-2. 🛠️ [Deleting a Single Document](#deleting-a-single-document)  
-3. 🚀 [Verifying Deletion](#verifying-deletion)  
-4. 📝 [Deleting Documents by Query](#deleting-documents-by-query)  
-5. 🎯 [Best Practices](#best-practices)  
+
+1️⃣ **[🔹 Introduction](#1)**  
+2️⃣ **[🛠️ Deleting a Single Document](#2)**  
+3️⃣ **[🚀 Verifying Deletion](#3)**  
+4️⃣ **[📝 Deleting Documents by Query](#4)**  
+5️⃣ **[🎯 Best Practices](#5)**  
 
 ---
 
-## 🔹 **Introduction**  
+## 🔹 **Introduction**  <a id="1"></a>
 Ab tak tum **documents ko index, update, aur replace karna seekh chuke ho**.  
 
 Ab **documents delete karna seekhenge**, jo kaafi **simple** process hai.  
@@ -19,7 +20,7 @@ Ab **documents delete karna seekhenge**, jo kaafi **simple** process hai.
 
 ---
 
-## 🛠️ **Deleting a Single Document**  
+## 🛠️ **Deleting a Single Document**  <a id="2"></a>
 
 Agar tumhare paas ek **document hai `id: 100`** aur tumhe use delete karna hai, to ye query use kar sakte ho:  
 
@@ -43,7 +44,7 @@ DELETE /products/_doc/100
 
 ---
 
-## 🚀 **Verifying Deletion**  
+## 🚀 **Verifying Deletion**  <a id="3"></a>
 
 Agar tumhe check karna hai ki document delete ho gaya ya nahi, to `GET` query se verify kar sakte ho:  
 
@@ -63,7 +64,7 @@ GET /products/_doc/100
 
 ---
 
-## 📝 **Deleting Documents by Query**  
+## 📝 **Deleting Documents by Query**  <a id="4"></a>
 
 Agar tumhe **multiple documents delete karne hain jo ek specific condition match karte hain**, to tum `DELETE BY QUERY` use kar sakte ho.  
 
@@ -96,7 +97,7 @@ POST /products/_delete_by_query
 
 ---
 
-## 🎯 **Best Practices**  
+## 🎯 **Best Practices**  <a id="5"></a>
 
 ✔️ **Agar tumhe delete operation frequently karna hai, to soft deletes ya versioning ka use karo.**  
 ✔️ **Bulk delete karte waqt, ensure karo ki query sahi hai, warna galat documents delete ho sakte hain.**  

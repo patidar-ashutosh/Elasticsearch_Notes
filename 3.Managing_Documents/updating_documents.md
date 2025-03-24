@@ -2,16 +2,16 @@
 
 ## 📌 **Table of Contents**  
 
-1. 🔹 [Introduction](#introduction)  
-2. 🔄 [Updating an Existing Field](#updating-an-existing-field)  
-3. ➕ [Adding a New Field](#adding-a-new-field)  
-4. 🛠️ [How Updates Work Internally](#how-updates-work-internally)  
-5. 📝 [Examples with Expected Output](#examples-with-expected-output)  
-6. 🎯 [Best Practices](#best-practices)  
+1️⃣ **[🔹 Introduction](#1)**  
+2️⃣ **[🔄 Updating an Existing Field](#2)**  
+3️⃣ **[➕ Adding a New Field](#3)**  
+4️⃣ **[🛠️ How Updates Work Internally](#4)**  
+5️⃣ **[📝 Examples with Expected Output](#5)**  
+6️⃣ **[🎯 Best Practices](#6)**  
 
 ---
 
-## 🔹 **Introduction**  
+## 🔹 **Introduction**  <a id="1"></a>
 Ab tak humne **documents ko index** aur **retrieve** karna sikha.  
 Ab hum sikhenge **documents ko update kaise karein**, chahe kisi **existing field ka value change** karna ho ya **new field add karni ho**.  
 
@@ -19,7 +19,7 @@ Elasticsearch me **documents immutable** hote hain, iska matlab **direct update 
 
 ---
 
-## 🔄 **Updating an Existing Field**  
+## 🔄 **Updating an Existing Field**  <a id="2"></a>
 
 Agar tum kisi **document ke kisi field ka value update** karna chahte ho, to **Update API** ka use kar sakte ho.  
 
@@ -82,7 +82,7 @@ POST /products/_update/100
 
 ---
 
-## ➕ **Adding a New Field**  
+## ➕ **Adding a New Field**  <a id="3"></a>
 
 Elasticsearch me **update ke time new fields bhi add** kar sakte hain.  
 
@@ -133,7 +133,7 @@ Agar hum `GET /products/_doc/100` karenge, to **updated document** milega.
 
 ---
 
-## 🛠️ **How Updates Work Internally**  
+## 🛠️ **How Updates Work Internally**  <a id="4"></a>
 
 🔹 Elasticsearch ke documents **immutable** hote hain, iska matlab **direct update possible nahi hota**.  
 🔹 Jab hum document **update** karte hain, Elasticsearch actually:  
@@ -148,7 +148,7 @@ Agar **multiple fields update karni ho**, to **ek single update request me** sab
 
 ---
 
-## 📝 **Examples with Expected Output**  
+## 📝 **Examples with Expected Output**  <a id="5"></a>
 
 ### ✅ **1. Update an Existing Field (`in_stock`)**
 #### **Request:**
@@ -213,7 +213,7 @@ POST /products/_update/100
 
 ---
 
-## 🎯 **Best Practices**  
+## 🎯 **Best Practices**  <a id="6"></a>
 
 ✔️ **Frequent updates avoid karo** kyunki har baar document reindex hota hai.  
 ✔️ **Agar ek se zyada fields update karni ho, to ek hi request me sab update karo**.  

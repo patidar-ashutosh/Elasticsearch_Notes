@@ -2,33 +2,33 @@
 
 ## 📌 **Table of Contents**  
 
-1. 🔹 [Introduction](#introduction)  
-2. 🏗️ [Creating an Index](#creating-an-index)  
-   - Understanding Shards & Replicas  
-   - Customizing Index Settings  
-3. ❌ [Deleting an Index](#deleting-an-index)  
-4. 🔄 [Understanding Response Output](#understanding-response-output)  
-5. 📝 [Examples with Expected Output](#examples-with-expected-output)  
-6. 🎯 [Best Practices for Production](#best-practices-for-production)  
+1. 🔹 [Introduction](#1)  
+2. 🏗️ [Creating an Index](#2)  
+   - [Understanding Shards & Replicas](#2-1)
+   - [Customizing Index Settings](#2-2)
+3. ❌ [Deleting an Index](#3)  
+4. 🔄 [Understanding Response Output](#4)  
+5. 📝 [Examples with Expected Output](#5)  
+6. 🎯 [Best Practices for Production](#6)  
 
 ---  
 
-## 🔹 **Introduction**  
+## 🔹 **Introduction**  <a id="1"></a>
 Elasticsearch me data ko store karne ke liye **indices** ka use hota hai. Index ek tarah ka **database** hota hai jo multiple **shards** me divide hota hai.  
 Is section me hum **index create aur delete karna** sikhenge, saath hi **shard & replica settings** kaise configure kare ye bhi dekhenge.  
 
 ---  
 
-## 🏗️ **Creating an Index**  
+## 🏗️ **Creating an Index**  <a id="2"></a>
 
-### 🔸 **Understanding Shards & Replicas**  
+### 🔸 **Understanding Shards & Replicas**  <a id="2-1"></a>
 - **Shards:** Elasticsearch ek index ko **multiple partitions (shards)** me todta hai taaki query execution fast ho.  
 - **Replica Shards:** Ye **backup copies** hote hain jo failover aur load balancing ke liye use hote hain.  
 - Default Elasticsearch me:  
   - `number_of_shards = 1`  
   - `number_of_replicas = 1`  
 
-### 🔸 **Customizing Index Settings**  
+### 🔸 **Customizing Index Settings**  <a id="2-2"></a>
 Agar tumhe **default settings change karni ho** to index creation ke time JSON request body me settings specify kar sakte ho.  
 
 🔹 **Example: Creating an Index with Custom Settings**  
@@ -45,7 +45,7 @@ PUT /products
 
 ---
 
-## ❌ **Deleting an Index**  
+## ❌ **Deleting an Index**  <a id="3"></a>
 Agar koi index delete karna ho to Elasticsearch ke REST API ka use karke easily delete kar sakte ho.  
 
 🔹 **Example: Deleting an Index**  
@@ -60,7 +60,7 @@ DELETE /pages
 
 ---
 
-## 🔄 **Understanding Response Output**  
+## 🔄 **Understanding Response Output**  <a id="4"></a>
 
 Jab hum index create karte hain, response me **acknowledgment keys** milti hain:  
 
@@ -81,7 +81,7 @@ Jab hum index create karte hain, response me **acknowledgment keys** milti hain:
 
 ---
 
-## 📝 **Examples with Expected Output**  
+## 📝 **Examples with Expected Output**  <a id="5"></a>
 
 ### ✅ **1. Creating an Index with Default Settings**  
 #### **Request:**
@@ -135,7 +135,7 @@ DELETE /users
 
 ---
 
-## 🎯 **Best Practices for Production**  
+## 🎯 **Best Practices for Production**  <a id="6"></a>
 1️⃣ Default settings use karo agar tumhe **shard & replica configuration ka deep knowledge nahi hai**.  
 2️⃣ Index delete karne se pehle **backup** lena mat bhoolna!  
 3️⃣ Large-scale deployments ke liye **shard size** ka dhyan rakho, kyunki zyada shards performance impact kar sakte hain.  

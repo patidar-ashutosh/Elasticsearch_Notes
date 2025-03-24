@@ -1,27 +1,27 @@
-# **🗂 Table of Contents**
-1️⃣ [Introduction](#introduction)
-2️⃣ [Understanding `delete_by_query`](#understanding-delete_by_query)
-3️⃣ [Basic Example](#basic-example)
-4️⃣ [Handling Version Conflicts](#handling-version-conflicts)
-5️⃣ [Advanced Use Cases](#advanced-use-cases)
-6️⃣ [Comparison with `update_by_query`](#comparison-with-update_by_query)
-7️⃣ [Conclusion](#conclusion)
+# **🗂 Table of Contents**  
+1️⃣ [Introduction](#1)  
+2️⃣ [Understanding `delete_by_query`](#2)  
+3️⃣ [Basic Example](#3)  
+4️⃣ [Handling Version Conflicts](#4)  
+5️⃣ [Advanced Use Cases](#5)  
+6️⃣ [Comparison with `update_by_query`](#6)  
+7️⃣ [Conclusion](#7)  
 
 ---
 
 # **🛑 Delete By Query in Elasticsearch**
 
-## **1️⃣ Introduction**
+## **1️⃣ Introduction** <a id="1"></a>
 
 Elasticsearch me **`delete_by_query`** ka use **multiple documents** ko ek sath delete karne ke liye hota hai jo kisi particular **condition ko match** karte hain.
 
 > 💡 **Matlab:** Tum **kisi condition ke basis pe ek sath multiple documents ko delete** kar sakte ho bina manually ek-ek document ko delete kiye.
 
-## **2️⃣ Understanding `delete_by_query`**
+## **2️⃣ Understanding `delete_by_query`** <a id="2"></a>
 
 `delete_by_query` API **search query** ke basis pe documents delete karta hai. Yeh **query match hone wale sabhi documents** ko delete karega. Yeh bulk operations me useful hota hai jab tumhe **expired data cleanup** ya **outdated records delete** karne ho.
 
-## **3️⃣ Basic Example**
+## **3️⃣ Basic Example** <a id="3"></a>
 
 Agar tumhe **jitne bhi products `"in_stock": 0"` hain unko delete karna ho**, to tum `delete_by_query` ka use kar sakte ho:
 
@@ -38,7 +38,7 @@ POST /products/_delete_by_query
 
 ✅ **Yeh Elasticsearch me se sabhi `"in_stock": 0"` wale products delete kar dega.**
 
-## **4️⃣ Handling Version Conflicts**
+## **4️⃣ Handling Version Conflicts** <a id="4"></a>
 
 Agar **query execute karte waqt koi version conflict aata hai**, to tum **`conflicts: proceed`** parameter ka use kar sakte ho taki query abort na ho aur jo documents delete ho sakte hain, wo delete ho jayein:
 
@@ -56,7 +56,7 @@ POST /products/_delete_by_query
 
 ✅ **Yeh query version conflicts ko ignore karke delete operation continue karegi.**
 
-## **5️⃣ Advanced Use Cases**
+## **5️⃣ Advanced Use Cases** <a id="5"></a>
 
 ### **🟢 Example: Delete Orders Before 2023**
 
@@ -92,7 +92,7 @@ POST /products/_delete_by_query
 
 ✅ **Yeh `products` index ke sabhi documents delete karega, lekin index itself delete nahi hoga.**
 
-## **6️⃣ Comparison with `update_by_query`**
+## **6️⃣ Comparison with `update_by_query`** <a id="6"></a>
 
 | Feature  | `update_by_query` | `delete_by_query` |
 |----------|-----------------|-----------------|
@@ -101,7 +101,7 @@ POST /products/_delete_by_query
 | **Performance** | Thoda slow ho sakta hai kyunki update me scripting lagta hai | Fast hota hai kyunki sirf delete operation perform hota hai |
 | **Use Cases** | Price increase, field add/remove, bulk data correction | Expired data delete karna, purani entries remove karna |
 
-## **7️⃣ Conclusion**
+## **7️⃣ Conclusion** <a id="7"></a>
 
 ✅ **`delete_by_query` ka use multiple documents ko delete karne ke liye hota hai** jo kisi condition ko match karte hain.  
 ✅ **Yeh bulk deletion ke liye efficient aur fast tarika hai.**  

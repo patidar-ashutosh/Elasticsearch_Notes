@@ -1,17 +1,18 @@
 # 📜 **Scripted Updates in Elasticsearch**  
 
 ## 📌 **Table of Contents**  
-1. 🔹 [Introduction](#introduction)  
-2. ⚡ [Why Use Scripted Updates?](#why-use-scripted-updates)  
-3. 📝 [Basic Scripted Update Example](#basic-scripted-update-example)  
-4. 🛠️ [Using Parameters in Scripts](#using-parameters-in-scripts)  
-5. 🚀 [Conditional Updates with `noop`](#conditional-updates-with-noop)  
-6. 🗑️ [Deleting a Document Using a Script](#deleting-a-document-using-a-script)  
-7. 🎯 [Best Practices](#best-practices)  
+
+1️⃣ **[🔹 Introduction](#1)**  
+2️⃣ **[⚡ Why Use Scripted Updates?](#2)**  
+3️⃣ **[📝 Basic Scripted Update Example](#3)**  
+4️⃣ **[🛠️ Using Parameters in Scripts](#4)**  
+5️⃣ **[🚀 Conditional Updates with `noop`](#5)**  
+6️⃣ **[🗑️ Deleting a Document Using a Script](#6)**  
+7️⃣ **[🎯 Best Practices](#7)**  
 
 ---
 
-## 🔹 **Introduction**  
+## 🔹 **Introduction**  <a id="1"></a>
 Agar tum **document update** kar rahe ho aur kisi field ka value **decrease ya increase** karna hai **bina uska current value retrieve kiye**, to **scripted updates** ka use kar sakte ho.  
 
 Elasticsearch me **scripting allow hoti hai**, jisme tum **custom logic likh sakte ho**, jaise:  
@@ -22,7 +23,7 @@ Elasticsearch me **scripting allow hoti hai**, jisme tum **custom logic likh sak
 
 ---
 
-## ⚡ **Why Use Scripted Updates?**  
+## ⚡ **Why Use Scripted Updates?**  <a id="2"></a>
 
 🔹 **Without Scripted Update:**  
   - Pehle **document retrieve karo**  
@@ -36,7 +37,7 @@ Elasticsearch me **scripting allow hoti hai**, jisme tum **custom logic likh sak
 
 ---
 
-## 📝 **Basic Scripted Update Example**  
+## 📝 **Basic Scripted Update Example**  <a id="3"></a>
 
 🔹 **Maan lo hume `in_stock` field ko `-1` karna hai.**  
 🔹 **Hume uska pehle se value pata nahi hai, bas ek request me update karna hai.**  
@@ -65,7 +66,7 @@ POST /products/_update/100
 
 ---
 
-## 🛠️ **Using Parameters in Scripts**  
+## 🛠️ **Using Parameters in Scripts**  <a id="4"></a>
 
 Agar tum **dynamic value se update karna chahte ho**, to **parameters pass kar sakte ho**.  
 
@@ -98,7 +99,7 @@ POST /products/_update/100
 
 ---
 
-## 🚀 **Conditional Updates with `noop`**  
+## 🚀 **Conditional Updates with `noop`**  <a id="5"></a>
 
 🔹 **Maan lo hume `in_stock` ko sirf tab decrease karna hai jab wo `0` se zyada ho.**  
 🔹 **Agar `in_stock == 0` ho, to update na ho (i.e., `noop`).**  
@@ -120,7 +121,7 @@ POST /products/_update/100
 
 ---
 
-## 🗑️ **Deleting a Document Using a Script**  
+## 🗑️ **Deleting a Document Using a Script**  <a id="6"></a>
 
 🔹 **Agar kisi product ka `in_stock` `1` hai, aur wo bik gaya, to hum usse delete kar sakte hain.**  
 
@@ -141,7 +142,7 @@ POST /products/_update/100
 
 ---
 
-## 🎯 **Best Practices**  
+## 🎯 **Best Practices**  <a id="7"></a>
 
 ✔️ **Frequent scripted updates avoid karo** kyunki Elasticsearch me **document immutable hote hain**, aur har update me **reindexing hoti hai**.  
 ✔️ **Agar simple update hai, to normal Update API use karo**.  

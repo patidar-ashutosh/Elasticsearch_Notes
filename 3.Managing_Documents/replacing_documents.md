@@ -1,16 +1,17 @@
 # 📜 **Replacing Documents in Elasticsearch**  
 
 ## 📌 **Table of Contents**  
-1. 🔹 [Introduction](#introduction)  
-2. ⚡ [What is Document Replacement?](#what-is-document-replacement)  
-3. 📝 [Basic Example of Replacing a Document](#basic-example-of-replacing-a-document)  
-4. 🛠️ [How Replacement Works](#how-replacement-works)  
-5. 🚀 [Key Considerations](#key-considerations)  
-6. 🎯 [Best Practices](#best-practices)  
+
+1️⃣ **[🔹 Introduction](#1)**  
+2️⃣ **[⚡ What is Document Replacement?](#2)**  
+3️⃣ **[📝 Basic Example of Replacing a Document](#3)**  
+4️⃣ **[🛠️ How Replacement Works](#4)**  
+5️⃣ **[🚀 Key Considerations](#5)**  
+6️⃣ **[🎯 Best Practices](#6)**  
 
 ---
 
-## 🔹 **Introduction**  
+## 🔹 **Introduction**  <a id="1"></a>
 Ab tak tum **naye documents ko index karna aur existing documents ko update karna** seekh chuke ho.  
 
 Ab **documents ko replace karna sikhenge**.  
@@ -20,7 +21,7 @@ Ab **documents ko replace karna sikhenge**.
 
 ---
 
-## ⚡ **What is Document Replacement?**  
+## ⚡ **What is Document Replacement?**  <a id="2"></a>
 
 🔹 **Document replace karne ka matlab:**  
 ✔️ **Existing document ko puri tarah se overwrite karna**  
@@ -33,7 +34,7 @@ Ab **documents ko replace karna sikhenge**.
 
 ---
 
-## 📝 **Basic Example of Replacing a Document**  
+## 📝 **Basic Example of Replacing a Document**  <a id="3"></a>
 
 Maan lo tumhare paas **`id: 100`** ka ek product document hai:  
 
@@ -72,7 +73,7 @@ PUT /products/_doc/100
 
 ---
 
-## 🛠️ **How Replacement Works?**  
+## 🛠️ **How Replacement Works?**  <a id="4"></a>
 
 🔹 **Jab tum `PUT /index/_doc/{id}` use karte ho:**  
 ✔️ **Agar document exist nahi karta, to naya document create ho jata hai**  
@@ -90,7 +91,7 @@ PUT /products/_doc/100
 
 ---
 
-## 🚀 **Key Considerations**  
+## 🚀 **Key Considerations**  <a id="5"></a>
 
 🔹 **Kya replace karne par version change hota hai?**  
 ✔️ Haan, Elasticsearch har replace operation me **document ka `_version` increment kar deta hai**.  
@@ -103,7 +104,7 @@ PUT /products/_doc/100
 
 ---
 
-## 🎯 **Best Practices**  
+## 🎯 **Best Practices**  <a id="6"></a>
 
 ✔️ **Agar sirf kuch fields update karni hain, to `POST _update` ka use karo, `PUT _doc` nahi**.  
 ✔️ **Agar document ko completely replace kar rahe ho, to ensure karo ki naye document me saare required fields ho**.  

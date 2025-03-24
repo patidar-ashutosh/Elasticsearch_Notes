@@ -1,4 +1,17 @@
-# 📌 **seq_no and primary_term in Elasticsearch**  
+## 📌 **Table of Contents**  
+
+1️⃣ **[Introduction](#1)** – `_seq_no` aur `_primary_term` ka overview.  
+2️⃣ **[Scenario: E-commerce Product Update](#2)** – Real-world example ke saath explanation.  
+3️⃣ **[Creating the Document](#3)** – Document insert karne par `_seq_no` aur `_primary_term` ka behavior.  
+4️⃣ **[Updating the Document](#4)** – Sequence number ka increment kaise hota hai?  
+5️⃣ **[When does `_primary_term` change?](#5)** – Cluster failure aur leader election ka impact.  
+6️⃣ **[Summary Table](#6)**   
+7️⃣ **[Importance of `_seq_no` and `_primary_term`](#7)** – Concurrency control aur data consistency.  
+8️⃣ **[Conclusion](#8)** – Key takeaways aur final thoughts. 🚀  
+
+---
+
+# 📌 **seq_no and primary_term in Elasticsearch**  <a id="1"></a>
 
 Elasticsearch me **`seq_no` (Sequence Number)** aur **`primary_term`** do important fields hote hain jo **concurrency control** aur **data consistency** maintain karne ke liye use hote hain.  
 
@@ -6,7 +19,7 @@ Chalo ek **real-world example** ke saath in dono ko samajhte hain.
 
 ---
 
-## **🔹 Scenario: E-commerce Product Update**  
+## **🔹 Scenario: E-commerce Product Update**  <a id="2"></a>
 
 Maan lo ek **e-commerce app** hai aur hum ek **product "Laptop"** ka data Elasticsearch me store kar rahe hain.  
 
@@ -24,7 +37,7 @@ Maan lo ek **e-commerce app** hai aur hum ek **product "Laptop"** ka data Elasti
 
 ---
 
-## **🛠 Step 1: Creating the Document**  
+## **🛠 Step 1: Creating the Document**  <a id="3"></a>
 Sabse pehle hum **ek new product create karte hain**:  
 ```http
 PUT /products/_doc/101
@@ -57,7 +70,7 @@ PUT /products/_doc/101
 
 ---
 
-## **🛠 Step 2: Updating the Document (First Update)**  
+## **🛠 Step 2: Updating the Document (First Update)**  <a id="4"></a>
 Ab hum `price` update karte hain:  
 ```http
 POST /products/_update/101
@@ -119,7 +132,7 @@ POST /products/_update/101
 
 ---
 
-## **🔹 When does `_primary_term` change?**  
+## **🔹 When does `_primary_term` change?**  <a id="5"></a>
 Agar cluster me **leader node fail ho jaye** ya **naya leader elected ho**, tab **`_primary_term` change hota hai**.  
 
 ### **Example: Node Failure**
@@ -152,7 +165,7 @@ POST /products/_update/101
 
 ---
 
-## **📌 Summary:**
+## **📌 Summary:** <a id="6"></a>
 | Action        | `_seq_no` | `_primary_term` |
 |--------------|---------|---------------|
 | **Document Created**  | 0       | 1             |
@@ -163,7 +176,7 @@ POST /products/_update/101
 
 ---
 
-## **🔹 Why are `_seq_no` and `_primary_term` important?**
+## **🔹 Why are `_seq_no` and `_primary_term` important?** <a id="7"></a>
 ✅ **Concurrency Control:**  
    - Elasticsearch **optimistic concurrency control** use karta hai.  
    - Agar **do clients ek hi document update kar rahe hain**, to `_seq_no` aur `_primary_term` ensure karte hain ki **latest version me update ho**.  
@@ -178,7 +191,7 @@ POST /products/_update/101
 
 ---
 
-## **🚀 Conclusion**
+## **🚀 Conclusion** <a id="8"></a>
 👉 **`_seq_no` har update ke saath badhta hai.**  
 👉 **`_primary_term` tab badhta hai jab cluster me leader node change hota hai.**  
 👉 **Ye system concurrency control aur data consistency ke liye use hota hai.**  

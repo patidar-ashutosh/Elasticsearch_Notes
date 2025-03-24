@@ -1,26 +1,26 @@
 # 📌 Elasticsearch Bulk API
 
-## 📖 Table of Contents
-1. 🔍 **Introduction to Bulk API**
-2. 🏗 **Why Use Bulk API?**
-3. 🛠 **Bulk API Syntax and Structure**
-4. 📜 **Indexing Multiple Documents Using Bulk API**
-5. 📝 **Updating Documents in Bulk**
-6. ❌ **Deleting Documents in Bulk**
-7. ⚡ **Performance Considerations & Best Practices**
-8. 🛑 **Common Errors & Troubleshooting**
-9. 🎯 **Conclusion**
+## 📖 Table of Contents  
+1. 🔍 [Introduction to Bulk API](#1)  
+2. 🏗 [Why Use Bulk API?](#2)  
+3. 🛠 [Bulk API Syntax and Structure](#3)  
+4. 📜 [Indexing Multiple Documents Using Bulk API](#4)  
+5. 📝 [Updating Documents in Bulk](#5)  
+6. ❌ [Deleting Documents in Bulk](#6)  
+7. ⚡ [Performance Considerations & Best Practices](#7)  
+8. 🛑 [Common Errors & Troubleshooting](#8)  
+9. 🎯 [Conclusion](#9)  
 
 ---
 
-## 🔍 1. Introduction to Bulk API
+## 🔍 1. Introduction to Bulk API <a id="1"></a>
 Elasticsearch **Bulk API** ek powerful feature hai jo tumhe ek hi request me multiple documents ko **index**, **update**, aur **delete** karne ki suvidha deta hai. Yeh API large-scale indexing aur updates ke liye kaafi efficient hoti hai.
 
 💡 **Key Use Case:** Jab tumhare paas **bahut saare** documents ho aur tum ek-ek karke request bhejne ki jagah **batch processing** karna chahte ho.
 
 ---
 
-## 🏗 2. Why Use Bulk API?
+## 🏗 2. Why Use Bulk API? <a id="2"></a>
 Agar tum **single request** se har document ko index karoge, toh har ek ke liye HTTP overhead hoga, jo **performance slow** kar sakta hai. Bulk API ka use karne se:
 
 ✅ **Faster indexing** - Kyunki multiple documents ek hi request me process hote hain.
@@ -29,7 +29,7 @@ Agar tum **single request** se har document ko index karoge, toh har ek ke liye 
 
 ---
 
-## 🛠 3. Bulk API Syntax and Structure
+## 🛠 3. Bulk API Syntax and Structure <a id="3"></a>
 Bulk API ek **JSON payload** ko expect karta hai, jo multiple **action and data lines** se bana hota hai.
 
 **Syntax Example:**
@@ -48,7 +48,7 @@ Bulk API ek **JSON payload** ko expect karta hai, jo multiple **action and data 
 
 ---
 
-## 📜 4. Indexing Multiple Documents Using Bulk API
+## 📜 4. Indexing Multiple Documents Using Bulk API <a id="4"></a>
 
 ### **Example: Insert Multiple Documents**
 ```sh
@@ -75,7 +75,7 @@ POST _bulk
 
 ---
 
-## 📝 5. Updating Documents in Bulk
+## 📝 5. Updating Documents in Bulk <a id="5"></a>
 
 Agar tumhe documents update karne hai, toh **update action** ka use karna hoga.
 
@@ -104,7 +104,7 @@ POST _bulk
 
 ---
 
-## ❌ 6. Deleting Documents in Bulk
+## ❌ 6. Deleting Documents in Bulk <a id="6"></a>
 Agar tum documents delete karna chahte ho toh **delete action** ka use kar sakte ho.
 
 ### **Example: Delete Multiple Documents**
@@ -130,7 +130,7 @@ POST _bulk
 
 ---
 
-## ⚡ 7. Performance Considerations & Best Practices
+## ⚡ 7. Performance Considerations & Best Practices <a id="7"></a>
 
 🚀 **Best Practices for Bulk API:**
 - **Batch size ko optimize karo** - Ek batch me **5-15 MB** ka data bhejna recommended hai.
@@ -140,7 +140,7 @@ POST _bulk
 
 ---
 
-## 🛑 8. Common Errors & Troubleshooting
+## 🛑 8. Common Errors & Troubleshooting <a id="8"></a>
 
 🚨 **Common Errors:**
 1. **400 Bad Request** - JSON format galat hai ya blank line end me hai.
@@ -149,7 +149,7 @@ POST _bulk
 
 ---
 
-## 🎯 9. Conclusion
+## 🎯 9. Conclusion <a id="9"></a>
 Elasticsearch **Bulk API** ek **high-performance tool** hai jo tumhe **large-scale indexing, updating, aur deleting** ke liye madad karta hai. Isko sahi tarike se implement karna **performance aur efficiency** dono improve karta hai.
 
 Agar tum **high-volume data ingestion** ya **batch processing** kar rahe ho, toh Bulk API **best choice** hai. 🚀

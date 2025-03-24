@@ -1,16 +1,17 @@
 # 📌 **How Elasticsearch Writes Data**  
 
 ## 📜 **Table of Contents**  
-1. 🔹 [Introduction](#introduction)  
-2. 🏗️ [Write Request Flow](#write-request-flow)  
-3. 🔄 [Handling Failures in Data Replication](#handling-failures-in-data-replication)  
-4. 🧠 [Primary Terms & Sequence Numbers](#primary-terms--sequence-numbers)  
-5. 🚀 [Global & Local Checkpoints](#global--local-checkpoints)  
-6. 🎯 [Key Takeaways](#key-takeaways)  
+
+1️⃣ **[🔹 Introduction](#1)**  
+2️⃣ **[🏗️ Write Request Flow](#2)**  
+3️⃣ **[🔄 Handling Failures in Data Replication](#3)**  
+4️⃣ **[🧠 Primary Terms & Sequence Numbers](#4)**  
+5️⃣ **[🚀 Global & Local Checkpoints](#5)**  
+6️⃣ **[🎯 Key Takeaways](#6)**  
 
 ---
 
-## 🔹 **Introduction**  
+## 🔹 **Introduction**  <a id="1"></a>
 Ab humne **Elasticsearch ka read process samajh liya**, to next step hai **write process** ka deep dive lena.  
 
 ⚠️ **Important:**  
@@ -20,7 +21,7 @@ Ab humne **Elasticsearch ka read process samajh liya**, to next step hai **write
 
 ---
 
-## 🏗️ **Write Request Flow**  
+## 🏗️ **Write Request Flow**  <a id="2"></a>
 Elasticsearch me **write request ka execution flow** kuch is tarah hota hai:
 
 1️⃣ **Client (Application, Kibana ya Command Line) Elasticsearch ko write request bhejta hai**  
@@ -42,7 +43,7 @@ shard = hash(_routing) \mod \text{number of shards}
 
 ---
 
-## 🔄 **Handling Failures in Data Replication**  
+## 🔄 **Handling Failures in Data Replication**  <a id="3"></a>
 📌 **Elasticsearch distributed system hai, isliye failure handling critical hoti hai!**  
 Agar **write request ke beech me primary shard fail ho jaye**, to data inconsistency ho sakti hai.  
 
@@ -57,7 +58,7 @@ Elasticsearch **Primary Terms aur Sequence Numbers** ka use karta hai taaki cons
 
 ---
 
-## 🧠 **Primary Terms & Sequence Numbers**  
+## 🧠 **Primary Terms & Sequence Numbers**  <a id="4"></a>
 ✅ **Primary Terms:**  
 - Jab bhi **primary shard change hota hai, ek primary term counter increment hota hai**  
 - Primary term **track karta hai ki kitni baar primary shard change ho chuka hai**  
@@ -90,7 +91,7 @@ Elasticsearch **Primary Terms aur Sequence Numbers** ka use karta hai taaki cons
 
 ---
 
-## 🚀 **Global & Local Checkpoints**  
+## 🚀 **Global & Local Checkpoints**  <a id="5"></a>
 Elasticsearch me **data recovery fast karne ke liye checkpoints ka use hota hai**.  
 
 📌 **Checkpoints ka kaam:**  
@@ -110,14 +111,12 @@ Elasticsearch me **data recovery fast karne ke liye checkpoints ka use hota hai*
 
 ---
 
-## 🎯 **Key Takeaways**  
+## 🎯 **Key Takeaways**  <a id="6"></a>
 ✅ **Write requests sirf primary shard pe hoti hain, replicas ko parallel update kiya jata hai**  
 ✅ **Agar primary shard fail ho jaye, to Elasticsearch ek replica ko new primary bana deta hai**  
 ✅ **Primary Terms aur Sequence Numbers ka use consistency maintain karne ke liye hota hai**  
 ✅ **Global aur Local Checkpoints shard recovery process ko optimize karte hain**  
 ✅ **Data replication asynchronous hoti hai, par consistency maintain karne ke liye extra mechanisms hain**  
-
----
 
 ---
 [Reference Video Link](https://youtu.be/Zei4mlPatpY?si=z6ZTi3dpVBuuKi3K)

@@ -1,16 +1,17 @@
 # 📌 **How Elasticsearch Reads Data**  
 
 ## 📜 **Table of Contents**  
-1. 🔹 [Introduction](#introduction)  
-2. 🏗️ [Coordinating Node](#coordinating-node)  
-3. 🔄 [Routing & Replication Group](#routing--replication-group)  
-4. 🧠 [Adaptive Replica Selection (ARS)](#adaptive-replica-selection-ars)  
-5. 🚀 [Read Request Execution Flow](#read-request-execution-flow)  
-6. 🎯 [Key Takeaways](#key-takeaways)  
+
+1️⃣ **[🔹 Introduction](#1)**  
+2️⃣ **[🏗️ Coordinating Node](#2)**  
+3️⃣ **[🔄 Routing & Replication Group](#3)**  
+4️⃣ **[🧠 Adaptive Replica Selection (ARS)](#4)**  
+5️⃣ **[🚀 Read Request Execution Flow](#5)**  
+6️⃣ **[🎯 Key Takeaways](#6)**  
 
 ---
 
-## 🔹 **Introduction**  
+## 🔹 **Introduction**  <a id="1"></a>
 Elasticsearch me **data read ka process kaafi optimized hota hai**!  
 Pichle topic me **Routing** ka concept dekha tha, ab **single document reading** ka pura flow samjhte hain.  
 
@@ -19,7 +20,7 @@ Yaha **search queries ka process cover nahi kar rahe**, sirf **single document r
 
 ---
 
-## 🏗️ **Coordinating Node**  
+## 🏗️ **Coordinating Node**  <a id="2"></a>
 Jab bhi **read request aati hai, to ek node us request ko receive karti hai**.  
 🛠️ Is node ko **Coordinating Node** kaha jata hai.  
 
@@ -30,7 +31,7 @@ Jab bhi **read request aati hai, to ek node us request ko receive karti hai**.
 
 ---
 
-## 🔄 **Routing & Replication Group**  
+## 🔄 **Routing & Replication Group**  <a id="3"></a>
 Jab Coordinating Node ek document fetch karna chahta hai, to sabse pehle **Routing Formula** apply hota hai:  
 
 \[
@@ -47,7 +48,7 @@ shard = hash(_routing) \mod \text{number of shards}
 
 ---
 
-## 🧠 **Adaptive Replica Selection (ARS)**  
+## 🧠 **Adaptive Replica Selection (ARS)**  <a id="4"></a>
 📌 **Ab sawal uthta hai, agar multiple copies available hain to Elasticsearch kaunsi shard copy choose karega?**  
 
 ✅ **Answer: Adaptive Replica Selection (ARS)**  
@@ -63,7 +64,7 @@ shard = hash(_routing) \mod \text{number of shards}
 
 ---
 
-## 🚀 **Read Request Execution Flow**  
+## 🚀 **Read Request Execution Flow**  <a id="5"></a>
 
 ### **Step-by-Step Process:**  
 1️⃣ **Client (Application, Kibana ya Command Line) Elasticsearch ko request bhejta hai**  
@@ -99,14 +100,12 @@ Client ---> Coordinating Node ---> Finds Shard Using Routing ---> ARS Selects Fa
 
 ---
 
-## 🎯 **Key Takeaways**  
+## 🎯 **Key Takeaways**  <a id="6"></a>
 ✅ **Coordinating Node har read request ko process karta hai**  
 ✅ **Routing formula use hota hai shard identify karne ke liye**  
 ✅ **Elasticsearch sirf primary shard pe rely nahi karta, balki replication group ka use karta hai**  
 ✅ **Best performing shard Adaptive Replica Selection (ARS) ke through choose hota hai**  
 ✅ **Ye process fast aur efficient hota hai, jo Elasticsearch ko highly scalable banata hai**  
-
----
 
 ---
 [Reference Video Link](https://youtu.be/oz9PecSxE74?si=rQkFyvgPNj5r8a-9)

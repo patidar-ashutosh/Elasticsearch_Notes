@@ -1,4 +1,16 @@
-# 📌 **Global & Local Checkpoints in Elasticsearch**  
+## 📌 **Table of Contents**  
+
+1️⃣ **[Introduction](#1)**  
+2️⃣ **[Local Checkpoint](#2)**  
+3️⃣ **[Global Checkpoint](#3)**  
+4️⃣ **[Step-by-Step Example](#4)**  
+5️⃣ **[Why are Global & Local Checkpoints Important?](#5)**  
+6️⃣ **[Conclusion](#6)**  
+7️⃣ **[Final Thought](#7) 🚀**  
+
+---
+
+# 📌 **Global & Local Checkpoints in Elasticsearch**  <a id="1"></a>
 
 Elasticsearch me **checkpoints** ka use **data consistency** aur **fault tolerance** maintain karne ke liye hota hai. Do important checkpoints hote hain:  
 
@@ -9,7 +21,7 @@ Ye dono **write operations** aur **replication process** me critical role play k
 
 ---
 
-## **🔹 1. Local Checkpoint**  
+## **🔹 1. Local Checkpoint**  <a id="2"></a>
 Local checkpoint **har shard ke andar track hota hai**. Ye **last successfully processed sequence number ko represent karta hai**.  
 
 📌 **Example:**  
@@ -25,7 +37,7 @@ Agar **`seq_no = 4` tak successfully commit ho gaya hai**, to **local checkpoint
 
 ---
 
-## **🔹 2. Global Checkpoint**  
+## **🔹 2. Global Checkpoint**  <a id="3"></a>
 Global checkpoint **poore cluster me replicated data ka consistency ensure karta hai**. Ye **sabhi replicas ke local checkpoints ka minimum value hota hai**.  
 
 📌 **Example:**  
@@ -46,7 +58,7 @@ Global Checkpoint = **min(P1, R1, R2) = min(5, 4, 3) = 3**
 
 ---
 
-## **🛠 Example: Step-by-Step Explanation**
+## **🛠 Example: Step-by-Step Explanation** <a id="4"></a>
 Maan lo **`products` index** me **documents add ho rahe hain**.  
 
 ### **1️⃣ Write Operation (Document Create)**
@@ -78,7 +90,7 @@ Seq No |  Primary (P1)  |  Replica 1 (R1)  |  Replica 2 (R2)  |  Global Checkpoi
 
 ---
 
-## **🔹 Why are Global & Local Checkpoints Important?**
+## **🔹 Why are Global & Local Checkpoints Important?** <a id="5"></a>
 ✅ **Consistency Maintain Karna:**  
    - Agar **server crash ho jaye**, to Elasticsearch **global checkpoint tak ka data safely recover** kar sakta hai.  
 
@@ -90,7 +102,7 @@ Seq No |  Primary (P1)  |  Replica 1 (R1)  |  Replica 2 (R2)  |  Global Checkpoi
 
 ---
 
-## **🚀 Conclusion**  
+## **🚀 Conclusion**  <a id="6"></a>
 | **Concept**           | **Definition** |
 |----------------------|---------------|
 | **Local Checkpoint** | Har shard ka **latest successfully written sequence number** |
@@ -99,7 +111,7 @@ Seq No |  Primary (P1)  |  Replica 1 (R1)  |  Replica 2 (R2)  |  Global Checkpoi
 
 ---
 
-## **🤔 Final Thought**  
+## **🤔 Final Thought**  <a id="7"></a>
 👉 **Local checkpoint sirf ek shard ke andar track hota hai.**  
 👉 **Global checkpoint poore cluster ka consistency maintain karta hai.**  
 👉 **Agar ek replica slow ho, to global checkpoint bhi delay hoga.**  

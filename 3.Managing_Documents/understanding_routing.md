@@ -1,17 +1,18 @@
 # 📌 **Understanding Routing in Elasticsearch**  
 
 ## 📜 **Table of Contents**  
-1. 🔹 [Introduction](#introduction)  
-2. ⚙️ [What is Routing?](#what-is-routing)  
-3. 🔢 [Routing Formula](#routing-formula)  
-4. 🚀 [How Elasticsearch Uses Routing](#how-elasticsearch-uses-routing)  
-5. 🔄 [Custom Routing](#custom-routing)  
-6. ❌ [Why Can't We Change the Number of Shards?](#why-cant-we-change-the-number-of-shards)  
-7. 🎯 [Key Takeaways](#key-takeaways)  
+
+1️⃣ **[🔹 Introduction](#1)**  
+2️⃣ **[⚙️ What is Routing?](#2)**  
+3️⃣ **[🔢 Routing Formula](#3)**  
+4️⃣ **[🚀 How Elasticsearch Uses Routing](#4)**  
+5️⃣ **[🔄 Custom Routing](#5)**  
+6️⃣ **[❌ Why Can't We Change the Number of Shards?](#6)**  
+7️⃣ **[🎯 Key Takeaways](#7)**  
 
 ---
 
-## 🔹 **Introduction**  
+## 🔹 **Introduction**  <a id="1"></a>
 Tum ab tak **documents ko index, update, delete aur retrieve karna seekh chuke ho**.  
 Ab ek **important internal concept** dekhte hain – **Routing**!  
 
@@ -23,7 +24,7 @@ Ab ek **important internal concept** dekhte hain – **Routing**!
 
 ---
 
-## ⚙️ **What is Routing?**  
+## ⚙️ **What is Routing?**  <a id="2"></a>
 🔹 **Routing ka kaam hai correct shard ka determination karna**  
 ✔️ **Indexing ke waqt:** Kaunsa shard document store karega?  
 ✔️ **Retrieving ke waqt:** Kaunsa shard se document uthana hai?  
@@ -70,7 +71,7 @@ GET /products/_doc/2?routing=mobile
 
 ---
 
-## 🔢 **Routing Formula**  
+## 🔢 **Routing Formula**  <a id="3"></a>
 Elasticsearch ek **simple formula** use karta hai:  
 
 \[
@@ -103,7 +104,7 @@ To ye document **shard-4** me store ho jayega.
 
 ---
 
-## 🚀 **How Elasticsearch Uses Routing?**  
+## 🚀 **How Elasticsearch Uses Routing?**  <a id="4"></a>
 
 1️⃣ **Indexing ke waqt**  
    - Jab tum ek **naya document store karte ho**, routing formula decide karta hai ki **kaunsa shard use hoga**.  
@@ -124,7 +125,7 @@ To Elasticsearch:
 
 ---
 
-## 🔄 **Custom Routing**  
+## 🔄 **Custom Routing**  <a id="5"></a>
 
 By default, Elasticsearch document ID ka hash leke shard determine karta hai.  
 🔹 **Lekin tum chaho to custom `_routing` value bhi specify kar sakte ho.**  
@@ -151,7 +152,7 @@ GET /products/_doc/105?routing=electronics
 
 ---
 
-## ❌ **Why Can't We Change the Number of Shards?**  
+## ❌ **Why Can't We Change the Number of Shards?**  <a id="6"></a>
 
 🤔 **Elasticsearch me ek baar index create hone ke baad tum number of shards badal nahi sakte. Kyu?**  
 
@@ -204,15 +205,13 @@ Matlab **document ab shard-3 me expect hoga**, par **actual me wo shard-4 me pad
 
 ---
 
-## 🎯 **Key Takeaways**  
+## 🎯 **Key Takeaways**  <a id="7"></a>
 
 ✅ **Routing ka kaam correct shard ka determination karna hota hai**  
 ✅ **Default routing me `_id` ka hash lekar shard determine hota hai**  
 ✅ **Jab tum retrieve/update/delete karte ho, Elasticsearch wahi formula use karke direct correct shard pe request bhejta hai**  
 ✅ **Custom routing ka use kiya ja sakta hai agar tumhe documents specific shards pe store karne ho**  
 ✅ **Shards ki count change nahi kar sakte, warna document retrieval issue ho sakta hai**  
-
----
 
 ---
 [Reference Video Link](https://youtu.be/hP6i_lh3A60?si=y0jxR52rmwPBkJZy) 

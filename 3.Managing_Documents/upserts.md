@@ -1,16 +1,17 @@
 # 📜 **Upserts in Elasticsearch**  
 
 ## 📌 **Table of Contents**  
-1. 🔹 [Introduction](#introduction)  
-2. ⚡ [What is Upsert?](#what-is-upsert)  
-3. 📝 [Basic Upsert Example](#basic-upsert-example)  
-4. 🛠️ [How Upsert Works](#how-upsert-works)  
-5. 🚀 [Using Parameters in Upserts](#using-parameters-in-upserts)  
-6. 🎯 [Best Practices](#best-practices)  
+
+1️⃣ **[🔹 Introduction](#1)**  
+2️⃣ **[⚡ What is Upsert?](#2)**  
+3️⃣ **[📝 Basic Upsert Example](#3)**  
+4️⃣ **[🛠️ How Upsert Works](#4)**  
+5️⃣ **[🚀 Using Parameters in Upserts](#5)**  
+6️⃣ **[🎯 Best Practices](#6)**  
 
 ---
 
-## 🔹 **Introduction**  
+## 🔹 **Introduction**  <a id="1"></a>
 Elasticsearch me **documents ko update karne ka ek aur tareeka** hai, jise **upsert** kehte hain.  
 
 ✔️ Agar **document exist karta hai**, to **update ho jata hai**.  
@@ -21,7 +22,7 @@ Agar tumhe **conditionally update ya insert** karna ho, to **upsert ka use kar s
 
 ---
 
-## ⚡ **What is Upsert?**  
+## ⚡ **What is Upsert?**  <a id="2"></a>
 
 🔹 **Upsert ka matlab hai:**  
 ✔️ **"Update + Insert"**  
@@ -35,7 +36,7 @@ Agar tumhe **conditionally update ya insert** karna ho, to **upsert ka use kar s
 
 ---
 
-## 📝 **Basic Upsert Example**  
+## 📝 **Basic Upsert Example**  <a id="3"></a>
 
 🔹 **Maan lo tumhe `id: 101` ka document update karna hai.**  
 🔹 **Agar wo pehle se exist nahi karta, to naye data se insert karna hai.**  
@@ -78,7 +79,7 @@ POST /products/_update/101
 
 ---
 
-## 🛠️ **How Upsert Works?**  
+## 🛠️ **How Upsert Works?**  <a id="4"></a>
 
 🔹 **Scenario 1:** (Agar document exist nahi karta)  
 - **`upsert` ka content insert ho jayega**  
@@ -97,7 +98,7 @@ POST /products/_update/101
 
 ---
 
-## 🚀 **Using Parameters in Upserts**  
+## 🚀 **Using Parameters in Upserts**  <a id="5"></a>
 
 Agar tum **dynamic value se update karna chahte ho**, to **parameters use kar sakte ho**.  
 
@@ -142,7 +143,7 @@ POST /products/_update/101
 
 ---
 
-## 🎯 **Best Practices**  
+## 🎯 **Best Practices**  <a id="6"></a>
 
 ✔️ **Agar document insert karna ho aur update bhi karna ho, to Upsert best option hai**.  
 ✔️ **Frequent upserts avoid karo**, kyunki Elasticsearch **document ko immutable treat karta hai**.  

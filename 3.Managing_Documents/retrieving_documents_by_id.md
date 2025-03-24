@@ -2,25 +2,26 @@
 
 ## 📌 **Table of Contents**  
 
-1. 🔹 [Introduction](#introduction)  
-2. 📥 [Retrieving a Document by ID](#retrieving-a-document-by-id)  
-3. 🔄 [Understanding the Response](#understanding-the-response)  
-   - **_source**: Document Data  
-   - **found**: Document Existence  
-4. ❌ [Handling Missing Documents](#handling-missing-documents)  
-5. 📝 [Examples with Expected Output](#examples-with-expected-output)  
-6. 🎯 [Best Practices](#best-practices)  
+1️⃣ **[🔹 Introduction](#1)**  
+2️⃣ **[📥 Retrieving a Document by ID](#2)**  
+3️⃣ **[🔄 Understanding the Response](#3)**  
+   - **[_source: Document Data](#3-1)**  
+   - **[found: Document Existence](#3-2)**  
+   
+4️⃣ **[❌ Handling Missing Documents](#4)**  
+5️⃣ **[📝 Examples with Expected Output](#5)**  
+6️⃣ **[🎯 Best Practices](#6)**  
 
 ---
 
-## 🔹 **Introduction**  
+## 🔹 **Introduction**  <a id="1"></a>
 Elasticsearch me documents ka access **ID ke basis par** bhi kiya ja sakta hai. Agar tumhe kisi document ka exact `_id` pata ho, to tum **GET request** ka use karke us document ko easily retrieve kar sakte ho.  
 
 Aaj hum sikhenge **documents ko ID se retrieve karna**, **response ko samajhna**, aur **missing documents handle karna**.  
 
 ---
 
-## 📥 **Retrieving a Document by ID**  
+## 📥 **Retrieving a Document by ID**  <a id="2"></a>
 
 Agar tumhe kisi document ka `_id` pata ho, to tum **GET method** ka use karke us document ko retrieve kar sakte ho.  
 
@@ -37,11 +38,11 @@ GET /products/_doc/100
 
 ---
 
-## 🔄 **Understanding the Response**  
+## 🔄 **Understanding the Response**  <a id="3"></a>
 
 Jab tum **GET request** bhejte ho, to response me kuch important cheezein hoti hain:  
 
-### 🔹 **1. `_source` Key: Document Data**  
+### 🔹 **1. `_source` Key: Document Data**  <a id="3-1"></a>
 Agar document mil gaya, to response me **`_source` key ke andar pura document JSON format me milega**.  
 
 #### **Example Response (Document Found)**  
@@ -61,7 +62,7 @@ Agar document mil gaya, to response me **`_source` key ke andar pura document JS
 
 ---
 
-### 🔹 **2. `found` Key: Document Existence**  
+### 🔹 **2. `found` Key: Document Existence**  <a id="3-2"></a>
 Agar document exist nahi karta, to `found: false` return hota hai aur `_source` key response me nahi aati.  
 
 #### **Example Response (Document Not Found)**  
@@ -76,7 +77,7 @@ Agar document exist nahi karta, to `found: false` return hota hai aur `_source` 
 
 ---
 
-## ❌ **Handling Missing Documents**  
+## ❌ **Handling Missing Documents**  <a id="4"></a>
 
 Agar document exist nahi karta, to Elasticsearch **404 Not Found** error return karta hai.  
 
@@ -98,7 +99,7 @@ GET /products/_doc/999
 
 ---
 
-## 📝 **Examples with Expected Output**  
+## 📝 **Examples with Expected Output**  <a id="5"></a>
 
 ### ✅ **1. Retrieve an Existing Document**  
 #### **Request:**
@@ -137,7 +138,7 @@ GET /products/_doc/999
 
 ---
 
-## 🎯 **Best Practices**  
+## 🎯 **Best Practices**  <a id="6"></a>
 
 ✔️ **Document `_id` ka dhyan rakho, kyunki Elasticsearch auto-generate karta hai agar manually specify na kiya ho**  
 ✔️ **Agar unsure ho document `_id` ke baare me, to search queries ka use karo**  

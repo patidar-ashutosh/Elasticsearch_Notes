@@ -7,16 +7,17 @@ Lekin phir bhi versioning ka **kuch important use-case** hai jo samajhna zaroori
 ---
 
 ## 📖 **Table of Contents**  
-1️⃣ **🔍 Document Versioning Kya Hota Hai?**  
-2️⃣ **📊 Internal Versioning (Default)**  
-3️⃣ **🔄 Versioning in Update & Delete Operations**  
-4️⃣ **🔗 Internal vs External Versioning**  
-5️⃣ **⚡ Optimistic Locking aur Versioning ka Role**  
-6️⃣ **✅ Conclusion**  
+
+1️⃣ **[🔍 Document Versioning Kya Hota Hai?](#1)**  
+2️⃣ **[📊 Internal Versioning (Default)](#2)**  
+3️⃣ **[🔄 Versioning in Update & Delete Operations](#3)**  
+4️⃣ **[🔗 Internal vs External Versioning](#4)**  
+5️⃣ **[⚡ Optimistic Locking aur Versioning ka Role](#5)**  
+6️⃣ **[✅ Conclusion](#6)**  
 
 ---
 
-## **1️⃣ 🔍 Document Versioning Kya Hota Hai?**  
+## **1️⃣ 🔍 Document Versioning Kya Hota Hai?**  <a id="1"></a>
 Jab bhi tum **Elasticsearch me koi document index karte ho**, to uske saath ek **`_version` metadata field** automatically store hoti hai.  
 
 ✔ **Basic Rules:**  
@@ -30,7 +31,7 @@ Jab bhi tum **Elasticsearch me koi document index karte ho**, to uske saath ek *
 
 ---
 
-## **2️⃣ 📊 Internal Versioning (Default)**
+## **2️⃣ 📊 Internal Versioning (Default)** <a id="2"></a>
 🔹 Elasticsearch **default me internal versioning use karta hai**.  
 🔹 `_version` **field automatically maintain hoti hai**, aur tum usko response me dekh sakte ho.  
 
@@ -57,7 +58,7 @@ PUT /products/_doc/1
 
 ---
 
-## **3️⃣ 🔄 Versioning in Update & Delete Operations**
+## **3️⃣ 🔄 Versioning in Update & Delete Operations** <a id="3"></a>
 Jab tum document update ya delete karte ho, to `_version` automatically increment hota hai.  
 
 ### **Update Example**
@@ -91,7 +92,7 @@ Agar **60 sec ke baad create kiya** to `_version = 1` se reset hoga.
 
 ---
 
-## **4️⃣ 🔗 Internal vs External Versioning**
+## **4️⃣ 🔗 Internal vs External Versioning** <a id="4"></a>
 Elasticsearch me **2 tarah ki versioning hoti hai**:  
 
 | **Type**       | **Kaise Work Karta Hai?** |
@@ -113,7 +114,7 @@ PUT /products/_doc/1?version=5&version_type=external
 
 ---
 
-## **5️⃣ ⚡ Optimistic Locking aur Versioning ka Role**  
+## **5️⃣ ⚡ Optimistic Locking aur Versioning ka Role**  <a id="5"></a>
 ✔ **Pehle versioning ka use Optimistic Locking ke liye hota tha**  
 ✔ **Optimistic Locking ka matlab hai ki jab multiple users ek document ko modify kar rahe ho, to overwrite hone se bachaya jaye.**  
 ✔ **Lekin ab Elasticsearch me primary terms aur sequence numbers use kiye jate hain, jo zyada efficient hain.**  
@@ -122,7 +123,7 @@ PUT /products/_doc/1?version=5&version_type=external
 
 ---
 
-## **✅ Conclusion**
+## **✅ Conclusion** <a id="6"></a>
 1️⃣ **Elasticsearch sirf latest version store karta hai.**  
 2️⃣ **_version field automatically maintain hoti hai.**  
 3️⃣ **Document update hone pe version badhta hai.**  
