@@ -5,19 +5,20 @@
 # 📌 **Fuzzy Match Query (Handling Typos) in Elasticsearch**  
 
 ## 📑 **Table of Contents**  
-1️⃣ 🔍 **Introduction: Why Fuzziness Matters?**  
-2️⃣ 🔡 **What is Fuzziness? (Levenshtein Distance)**  
-3️⃣ ⚙ **Implementing Fuzziness in Match Query**  
-4️⃣ 🛠 **Understanding `AUTO` in Fuzziness**  
-5️⃣ 🎭 **Fuzziness Example & Output**  
-6️⃣ 🔄 **Fuzziness vs Match Phrase Query (Slop vs Fuzziness)**  
-7️⃣ 🔄 **Damerau-Levenshtein Algorithm (Transpositions)**  
-8️⃣ ⚠ **Limitations & Performance Considerations**  
-9️⃣ ✅ **Best Practices for Using Fuzziness**  
+1️⃣ 🔍 [Introduction: Why Fuzziness Matters?](#1)  
+2️⃣ 🔡 [What is Fuzziness? (Levenshtein Distance)](#2)  
+3️⃣ ⚙ [Implementing Fuzziness in Match Query](#3)  
+4️⃣ 🛠 [Understanding `AUTO` in Fuzziness](#4)  
+5️⃣ 🎭 [Fuzziness Example & Output](#5)  
+6️⃣ 🔄 [Fuzziness vs Match Phrase Query (Slop vs Fuzziness)](#6)  
+7️⃣ 🔄 [Damerau-Levenshtein Algorithm (Transpositions)](#7)  
+8️⃣ ⚠ [Limitations & Performance Considerations](#8)  
+9️⃣ ✅ [Best Practices for Using Fuzziness](#9)  
 
 ---  
 
-## 1️⃣ 🔍 **Introduction: Why Fuzziness Matters?**  
+## 1️⃣ 🔍 **Introduction: Why Fuzziness Matters?**  <a id="1"></a>
+
 Jab hum **Elasticsearch me search queries likhte hain**, tab hum input ko **accurately control** kar sakte hain. **Par jab end users search karte hain, to unse galtiyan hone ke chances bahut zyada hote hain.**  
 Agar **typo ya spelling mistake** ho jaye, to **relevant documents miss ho sakte hain**, jo ek **bad user experience** create karta hai.  
 
@@ -27,7 +28,8 @@ Is problem ko solve karne ke liye **fuzziness ka use hota hai**, jisme **Elastic
 
 ---  
 
-## 2️⃣ 🔡 **What is Fuzziness? (Levenshtein Distance)**  
+## 2️⃣ 🔡 **What is Fuzziness? (Levenshtein Distance)**  <a id="2"></a>
+
 Fuzziness ka base **Levenshtein Distance Algorithm** hai. Ye check karta hai ki **kitne minimum character changes (insertion, deletion, substitution) ki zaroorat hai ek word ko doosre me convert karne ke liye.**  
 
 ✏ **Example:**  
@@ -47,7 +49,8 @@ Elasticsearch me maximum **fuzziness value = 2** hoti hai, kyunki usse zyada fuz
 
 ---  
 
-## 3️⃣ ⚙ **Implementing Fuzziness in Match Query**  
+## 3️⃣ ⚙ **Implementing Fuzziness in Match Query**  <a id="3"></a>
+
 Fuzziness ko use karne ka **sabse common tarika** hai **match query me `fuzziness` parameter add karna.**  
 
 ### 📝 **Basic Query: Without Fuzziness**  
@@ -83,7 +86,8 @@ GET products/_search
 
 ---
 
-## 4️⃣ 🛠 **Understanding `AUTO` in Fuzziness**  
+## 4️⃣ 🛠 **Understanding `AUTO` in Fuzziness**  <a id="4"></a>
+
 Jab hum `fuzziness: "auto"` likhte hain, to Elasticsearch **word length ke basis par fuzziness decide karta hai.**  
 
 📊 **Auto Fuzziness Rules:**  
@@ -100,7 +104,8 @@ Jab hum `fuzziness: "auto"` likhte hain, to Elasticsearch **word length ke basis
 
 ---
 
-## 5️⃣ 🎭 **Fuzziness Example & Output**  
+## 5️⃣ 🎭 **Fuzziness Example & Output**  <a id="5"></a>
+
 Agar user `"lobster"` ki jagah `"L0bster"` likhta hai, to **Elasticsearch automatically match karega.**  
 
 ### 🔹 **Query with Fuzziness:**
@@ -136,13 +141,15 @@ GET products/_search
 
 ---
 
-## 6️⃣ 🔄 **Fuzziness vs Match Phrase Query (Slop vs Fuzziness)**  
+## 6️⃣ 🔄 **Fuzziness vs Match Phrase Query (Slop vs Fuzziness)**  <a id="6"></a>
+
 - **Fuzziness** → Spelling mistakes aur typos handle karta hai.  
 - **Match Phrase Query (`slop`)** → Words ki **order mismatch hone par bhi match hone deta hai** (e.g., `"dog black"` vs `"black dog"`).  
 
 ---
 
-## 7️⃣ 🔄 **Damerau-Levenshtein Algorithm (Transpositions)**  
+## 7️⃣ 🔄 **Damerau-Levenshtein Algorithm (Transpositions)**  <a id="7"></a>
+
 Damerau-Levenshtein algorithm me **extra feature** hota hai:  
 ✏ **Transposition** → **Adjacent letters swap hone par bhi match hone dete hain.**  
 
@@ -168,7 +175,8 @@ GET products/_search
 
 ---
 
-## 8️⃣ ⚠ **Limitations & Performance Considerations**  
+## 8️⃣ ⚠ **Limitations & Performance Considerations**  <a id="8"></a>
+
 - **Fuzziness > 2 allow nahi hoti** kyunki **performance slow ho jati hai.**  
 - **Highly fuzzy search irrelevant results la sakti hai.**  
 
@@ -178,7 +186,8 @@ GET products/_search
 
 ---
 
-## 9️⃣ ✅ **Best Practices for Using Fuzziness**  
+## 9️⃣ ✅ **Best Practices for Using Fuzziness**  <a id="9"></a>
+
 ✅ **Use `auto` instead of fixed values**  
 ✅ **Optimize indexing & analyze performance**  
 ✅ **Avoid high fuzziness for large datasets**  

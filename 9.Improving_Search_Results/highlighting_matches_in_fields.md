@@ -1,17 +1,18 @@
 # 📌 **Highlighting Matches in Fields in Elasticsearch**  
 
 ## 📖 **Table of Contents**  
-1. 🔍 **Highlighting in Search Engines**  
-2. ⚡ **Elasticsearch Highlighter Overview**  
-3. 🛠 **Basic Example of Highlighting**  
-4. 🎭 **How Elasticsearch Generates Highlights**  
-5. 🔄 **Synonyms & Stemming in Highlighting**  
-6. 🎨 **Customizing Highlight Tags**  
-7. 🏁 **Conclusion & Final Thoughts**  
+1️⃣ [🔍 Highlighting in Search Engines](#1)  
+2️⃣ [⚡ Elasticsearch Highlighter Overview](#2)  
+3️⃣ [🛠 Basic Example of Highlighting](#3)  
+4️⃣ [🎭 How Elasticsearch Generates Highlights](#4)  
+5️⃣ [🔄 Synonyms & Stemming in Highlighting](#5)  
+6️⃣ [🎨 Customizing Highlight Tags](#6)  
+7️⃣ [🏁 Conclusion & Final Thoughts](#7)  
 
 ---
 
-## 🔍 **1. Highlighting in Search Engines**  
+## 🔍 **1. Highlighting in Search Engines**  <a id="1"></a>
+
 Jab bhi tum Google, Bing ya kisi bhi search engine me kuch search karte ho, to matched text **bold ya highlight** ho jata hai. Ye feature **Elasticsearch me bhi available hai!**  
 
 🔹 **Example:**  
@@ -19,7 +20,8 @@ Agar tum `"Elasticsearch tutorial"` search kar rahe ho, aur result me `"Elastics
 
 ---
 
-## ⚡ **2. Elasticsearch Highlighter Overview**  
+## ⚡ **2. Elasticsearch Highlighter Overview**  <a id="2"></a>
+
 **Elasticsearch me highlighting ka use highlighter object se hota hai.**  
 
 💡 **Why Use Highlighter?**  
@@ -32,7 +34,8 @@ Elasticsearch **default** me `"plain"` highlighter use karta hai, jo most cases 
 
 ---
 
-## 🛠 **3. Basic Example of Highlighting**  
+## 🛠 **3. Basic Example of Highlighting**  <a id="3"></a>
+
 Chalo ek **basic example** dekhte hai highlighting ka.
 
 ### 🔧 **Step 1: Index a Sample Document**  
@@ -88,14 +91,16 @@ POST my_index/_search
 
 ---
 
-## 🎭 **4. How Elasticsearch Generates Highlights**  
+## 🎭 **4. How Elasticsearch Generates Highlights**  <a id="4"></a>
+
 🔹 Elasticsearch **documents ke inverted index me jaake matching fragments fetch karta hai.**  
 🔹 **Long documents** hone par pura text nahi dikhata, **sirf matched parts (fragments) dikhata hai.**  
 🔹 **Default me `<em>` tag ka use hota hai**, jisse tum easily highlight kar sako.
 
 ---
 
-## 🔄 **5. Synonyms & Stemming in Highlighting**  
+## 🔄 **5. Synonyms & Stemming in Highlighting**  <a id="5"></a>
+
 **Synonyms aur stemming ka impact bhi hota hai highlights par.**  
 
 ### **Example with Synonyms**
@@ -147,7 +152,8 @@ POST my_index/_search
 
 ---
 
-## 🎨 **6. Customizing Highlight Tags**  
+## 🎨 **6. Customizing Highlight Tags**  <a id="6"></a>
+
 By default, highlighted text `<em>` tags me wrap hota hai. Tum isko change bhi kar sakte ho.
 
 ### **Example: Custom Tags**
@@ -195,7 +201,8 @@ POST my_index/_search
 
 ---
 
-## 🏁 **7. Conclusion & Final Thoughts**  
+## 🏁 **7. Conclusion & Final Thoughts**  <a id="7"></a>
+
 ✅ **Highlighting feature search results ko readable aur user-friendly banata hai.**  
 ✅ **Synonyms aur stemming ko Elasticsearch automatically handle karta hai, jo manually handle karna difficult hota.**  
 ✅ **Different highlighter types available hain**, jo complex scenarios me kaam aate hain.  

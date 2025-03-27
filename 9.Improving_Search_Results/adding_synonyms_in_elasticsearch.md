@@ -1,17 +1,19 @@
 ## 📝 **Adding Synonyms in Elasticsearch** 🔍
 
-### 📌 **Table of Contents**
-1️⃣ [Introduction to Synonyms](#introduction-to-synonyms)  
-2️⃣ [Custom Analyzer with Synonym Token Filter](#custom-analyzer-with-synonym-token-filter)  
-3️⃣ [Syntax for Defining Synonyms](#syntax-for-defining-synonyms)  
-4️⃣ [How Elasticsearch Handles Synonyms](#how-elasticsearch-handles-synonyms)  
-5️⃣ [Different Types of Synonym Rules](#different-types-of-synonym-rules)  
-6️⃣ [Testing Synonyms with the Analyze API](#testing-synonyms-with-the-analyze-api)  
-7️⃣ [Searching with Synonyms](#searching-with-synonyms)  
-8️⃣ [Use Cases for Synonyms in Search](#use-cases-for-synonyms-in-search)  
+## 📌 **Table of Contents**  
+1️⃣ [Introduction to Synonyms](#1)  
+2️⃣ [Custom Analyzer with Synonym Token Filter](#2)  
+3️⃣ [Syntax for Defining Synonyms](#3)  
+4️⃣ [How Elasticsearch Handles Synonyms](#4)  
+5️⃣ [Different Types of Synonym Rules](#5)  
+6️⃣ [Testing Synonyms with the Analyze API](#6)  
+7️⃣ [Searching with Synonyms](#7)  
+8️⃣ [Use Cases for Synonyms in Search](#8)  
+9️⃣ [Conclusion](#9)
+
 ---
 
-## 🔥 **1. Introduction to Synonyms** <a name="introduction-to-synonyms"></a>
+## 🔥 **1. Introduction to Synonyms** <a id="1"></a>
 
 Elasticsearch me synonyms ka use **better search results** ke liye kiya jata hai. Synonyms allow karte hain ki **ek word ka equivalent word bhi search me match ho sake**. 
 
@@ -24,7 +26,7 @@ Ye **search experience ko improve** karta hai taaki users ko relevant results mi
 
 ---
 
-## ⚙️ **2. Custom Analyzer with Synonym Token Filter** <a name="custom-analyzer-with-synonym-token-filter"></a>
+## ⚙️ **2. Custom Analyzer with Synonym Token Filter** <a id="2"></a>
 
 Elasticsearch me synonyms add karne ke liye **custom analyzer** use hota hai, jo ek **custom token filter** ke through synonyms ko define karta hai.  
 
@@ -70,7 +72,7 @@ PUT synonyms
 
 ---
 
-## 🖋 **3. Syntax for Defining Synonyms** <a name="syntax-for-defining-synonyms"></a>
+## 🖋 **3. Syntax for Defining Synonyms** <a id="3"></a>
 
 Synonyms define karne ke multiple tarike hote hain:
 
@@ -83,7 +85,7 @@ Synonyms define karne ke multiple tarike hote hain:
 
 ---
 
-## 🔄 **4. How Elasticsearch Handles Synonyms** <a name="how-elasticsearch-handles-synonyms"></a>
+## 🔄 **4. How Elasticsearch Handles Synonyms** <a id="4"></a>
 
 Synonyms **inverted index** me store hote hain, jo searching ke process ko optimize karta hai.
 
@@ -96,7 +98,7 @@ Agar **"awesome"** ko **"great, super"** se replace kiya gaya hai, to jab koi **
 
 ---
 
-## 🎭 **5. Different Types of Synonym Rules** <a name="different-types-of-synonym-rules"></a>
+## 🎭 **5. Different Types of Synonym Rules** <a id="5"></a>
 
 Elasticsearch me synonyms define karne ke multiple approaches hain:
 
@@ -126,7 +128,7 @@ Elasticsearch me synonyms define karne ke multiple approaches hain:
 
 ---
 
-## 🧪 **6. Testing Synonyms with the Analyze API** <a name="testing-synonyms"></a>
+## 🧪 **6. Testing Synonyms with the Analyze API** <a id="6"></a>
 
 Synonyms ka test karne ke liye **Analyze API** ka use hota hai.
 
@@ -151,7 +153,7 @@ POST synonyms/_analyze
 
 ---
 
-## 🔎 **7. Searching with Synonyms** <a name="searching-with-synonyms"></a>
+## 🔎 **7. Searching with Synonyms** <a id="7"></a>
 
 Synonyms search queries me kaise kaam karte hain, ye samajhne ke liye do queries run karte hain.
 
@@ -183,7 +185,7 @@ GET synonyms/_search
 
 ---
 
-## 🎯 **8. Use Cases for Synonyms in Search** <a name="use-cases-for-synonyms"></a>
+## 🎯 **8. Use Cases for Synonyms in Search** <a id="8"></a>
 
 ✅ **E-commerce Search:**  
    - `"mobile"` ko `"smartphone"` se replace karna  
@@ -200,7 +202,7 @@ GET synonyms/_search
 
 ---
 
-## 🎉 **Conclusion**  
+## 🎉 **9. Conclusion**  <a id="9"></a>
 
 Synonyms **search accuracy** badhane ke liye ek powerful feature hai. Isme:  
 - **Custom Analyzer** create karna  

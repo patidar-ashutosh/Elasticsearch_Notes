@@ -1,18 +1,19 @@
 **Proximity Searches** ka concept **match_phrase query** ka ek advanced version hai jo flexible searching allow karta hai. Isme **slop parameter** ka use hota hai jo batata hai ki words kitna door tak ho sakte hain ek doosre se, phir bhi match hoga.
 
 ## 📌 **Table of Contents**  
-1️⃣ **Proximity Search Kya Hai? 🧐**  
-2️⃣ **Inverted Index Aur Term Positioning 🔍**  
-3️⃣ **Match Phrase Query vs Proximity Search 🤔**  
-4️⃣ **Slop Parameter Ka Role 📏**  
-5️⃣ **Examples Aur Output 📝**  
-6️⃣ **Edit Distance Aur Word Rearrangement 🔄**  
-7️⃣ **Slop Parameter Ka Best Value Kaise Choose Kare? 🎯**  
-8️⃣ **Key Takeaways 🏆**  
+1️⃣ [Proximity Search Kya Hai? 🧐](#1)  
+2️⃣ [Inverted Index Aur Term Positioning 🔍](#2)  
+3️⃣ [Match Phrase Query vs Proximity Search 🤔](#3)  
+4️⃣ [Slop Parameter Ka Role 📏](#4)  
+5️⃣ [Examples Aur Output 📝](#5)  
+6️⃣ [Edit Distance Aur Word Rearrangement 🔄](#6)  
+7️⃣ [Slop Parameter Ka Best Value Kaise Choose Kare? 🎯](#7)  
+8️⃣ [Key Takeaways 🏆](#8)  
 
 ---  
 
-## 1️⃣ **Proximity Search Kya Hai? 🧐**  
+## 1️⃣ **Proximity Search Kya Hai? 🧐**  <a id="1"></a>
+
 Normal **match_phrase query** me words ka order **exact** hona chahiye. **Proximity search** me hum ye restriction **relax** kar sakte hain, taaki kuch extra words beech me ho sakein.  
 
 🛠 **Example:**  
@@ -20,7 +21,8 @@ Agar hum **"spicy sauce"** search karein, toh default phrase query me **"spicy t
 
 ---
 
-## 2️⃣ **Inverted Index Aur Term Positioning 🔍**  
+## 2️⃣ **Inverted Index Aur Term Positioning 🔍**  <a id="2"></a>
+
 Elasticsearch jab text analyze karta hai toh:  
 - **Words ko tokenize karta hai** (split karta hai)  
 - **Inverted index banata hai** (document retrieval fast karne ke liye)  
@@ -39,7 +41,8 @@ Agar hum **match_phrase query** se **"spicy sauce"** search karein, toh yeh matc
 
 ---
 
-## 3️⃣ **Match Phrase Query vs Proximity Search 🤔**  
+## 3️⃣ **Match Phrase Query vs Proximity Search 🤔**  <a id="3"></a>
+
 📍 **Match Phrase Query:**  
 - **Strict order follow karta hai**  
 - Beech me koi extra word nahi ho sakta  
@@ -69,7 +72,8 @@ GET my_index/_search
 
 ---
 
-## 4️⃣ **Slop Parameter Ka Role 📏**  
+## 4️⃣ **Slop Parameter Ka Role 📏**  <a id="4"></a>
+
 **Slop parameter define karta hai ki kitna movement allow hoga.**  
 - **slop = 0** (default) → Exact match required  
 - **slop = 1** → Ek word beech me allowed  
@@ -80,7 +84,7 @@ Agar **slop = 2** rakhein aur query **"spicy sauce"** ho, toh yeh **"spicy hot t
 
 ---
 
-## 5️⃣ **Examples Aur Output 📝**  
+## 5️⃣ **Examples Aur Output 📝**  <a id="5"></a>
 
 📍 **Query Without Slop (Exact Match Required)**  
 ```json
@@ -129,7 +133,8 @@ GET my_index/_search
 
 ---
 
-## 6️⃣ **Edit Distance Aur Word Rearrangement 🔄**  
+## 6️⃣ **Edit Distance Aur Word Rearrangement 🔄**  <a id="6"></a>
+
 **Edit Distance** ka matlab hai ki ek word ko kitni baar move karna padega match hone ke liye.  
 
 🛠 **Example:**  
@@ -139,7 +144,8 @@ Agar **"spicy sauce"** query karein aur document me **"sauce spicy"** likha ho, 
 
 ---
 
-## 7️⃣ **Slop Parameter Ka Best Value Kaise Choose Kare? 🎯**  
+## 7️⃣ **Slop Parameter Ka Best Value Kaise Choose Kare? 🎯**  <a id="7"></a>
+
 🔹 **Chhoti slop value (0-2)** → Strict searching  
 🔹 **Badi slop value (3-5)** → Loose searching  
 🔹 **Bohot badi slop value (5+)** → Irrelevant results bhi match ho sakte hain  
@@ -148,7 +154,8 @@ Agar **"spicy sauce"** query karein aur document me **"sauce spicy"** likha ho, 
 
 ---
 
-## 8️⃣ **Key Takeaways 🏆**  
+## 8️⃣ **Key Takeaways 🏆**  <a id="8"></a>
+
 ✅ **Proximity search match_phrase query ka ek advanced version hai**  
 ✅ **Slop parameter flexibility provide karta hai**  
 ✅ **Jitna bada slop, utna zyada loose matching**  

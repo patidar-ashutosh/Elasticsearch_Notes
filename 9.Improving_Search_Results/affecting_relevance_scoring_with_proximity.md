@@ -1,16 +1,18 @@
 ## 🔍 Affecting Relevance Scoring with Proximity  
 
-### 📌 **Table of Contents**  
-1️⃣ [Introduction: Relevance Scoring & Proximity](#introduction)  
-2️⃣ [Match vs. Match Phrase Query](#match-vs-match-phrase-query)  
-3️⃣ [Boolean Query for Best of Both Worlds](#boolean-query)  
-4️⃣ [Boosting Relevance with Proximity](#boosting-relevance)  
-5️⃣ [Using Slop Parameter for Flexibility](#slop-parameter)  
-6️⃣ [Key Takeaways](#key-takeaways)  
+## 📌 **Table of Contents**  
+1️⃣ [Introduction: Relevance Scoring & Proximity](#1)  
+2️⃣ [Match vs. Match Phrase Query](#2)  
+3️⃣ [Boolean Query for Best of Both Worlds](#3)  
+4️⃣ [Boosting Relevance with Proximity](#4)  
+5️⃣ [Using Slop Parameter for Flexibility](#5)  
+6️⃣ [Key Takeaways](#6)  
+7️⃣ [Conclusion](#7)
 
 ---
 
-## 📖 **1. Introduction: Relevance Scoring & Proximity** <a name="introduction"></a>  
+## 📖 **1. Introduction: Relevance Scoring & Proximity** <a id="1"></a>
+
 Jab **Elasticsearch** documents ko match karta hai, to sirf **terms ka presence** nahi, balki **unki proximity (nazdeeki)** bhi relevance score ko affect karti hai.  
 **Jitne words ek dusre ke kareeb honge, utni zyada relevance hogi.**  
 
@@ -22,7 +24,7 @@ ho, to **pehla document zyada relevant hoga** kyunki **spicy aur sauce ek saath 
 
 ---
 
-## 🆚 **2. Match vs. Match Phrase Query** <a name="match-vs-match-phrase-query"></a>  
+## 🆚 **2. Match vs. Match Phrase Query** <a id="2"></a>
 
 🔹 **Match Query:** Words ki **presence** matter karti hai, order aur proximity nahi.  
 🔹 **Match Phrase Query:** Words **specified order me hone chahiye** aur proximity matter karti hai.  
@@ -38,7 +40,7 @@ Agar query `"spicy sauce"` hai:
 
 ---
 
-## 🔗 **3. Boolean Query for Best of Both Worlds** <a name="boolean-query"></a>  
+## 🔗 **3. Boolean Query for Best of Both Worlds** <a id="3"></a>
 
 Agar **match query** se documents mil rahe hain **(chahe terms kisi bhi order me ho)**  
 aur **match phrase query** se **proximity boost** mil raha hai,  
@@ -70,14 +72,14 @@ to dono ko **bool query** se combine kar sakte hain!
 
 ---
 
-## 📈 **4. Boosting Relevance with Proximity** <a name="boosting-relevance"></a>  
+## 📈 **4. Boosting Relevance with Proximity** <a id="4"></a>
 
 **Bool query** me **match phrase query** ka use karke proximity se relevance boost kar sakte hain.  
 ✅ Jo words **ek saath honge, unka score zyada hoga!**  
 
 ---
 
-## ⚙️ **5. Using Slop Parameter for Flexibility** <a name="slop-parameter"></a>  
+## ⚙️ **5. Using Slop Parameter for Flexibility** <a id="5"></a>
 
 🎯 **Problem:**  
 Agar match phrase query strict hai, to `"I love spicy sauce"` match karega,  
@@ -114,7 +116,7 @@ Slop parameter **kitne extra words allowed hain ye define karta hai.**
 
 ---
 
-## 🏆 **6. Key Takeaways** <a name="key-takeaways"></a>  
+## 🏆 **6. Key Takeaways** <a id="6"></a>
 
 ✅ **Proximity matters:** Words jitne kareeb honge, utna zyada relevance score milega.  
 ✅ **Match vs. Match Phrase Query:**  
@@ -125,5 +127,6 @@ Slop parameter **kitne extra words allowed hain ye define karta hai.**
 
 ---
 
-💡 **Conclusion:**  
+## 💡 **7. Conclusion**  <a id="7"></a>
+
 Agar tumhe relevance improve karni ho, to **match aur match phrase queries ko combine karo** aur **slop parameter use karo**. Yeh trick tumhare **search results ko smart aur accurate banayegi!** 🚀

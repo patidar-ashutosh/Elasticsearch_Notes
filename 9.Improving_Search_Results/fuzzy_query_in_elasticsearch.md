@@ -6,16 +6,18 @@ Fuzzy query ek **term-level query** hai jo approximate matching ke liye use hoti
 ---
 
 ## 📌 **Table of Contents**  
-1️⃣ [Fuzzy Query Kya Hai? 🤔](#fuzzy-query-kya-hai)  
-2️⃣ [Match Query vs Fuzzy Query ⚔️](#match-query-vs-fuzzy-query)  
-3️⃣ [Fuzzy Query Ka Basic Syntax 📝](#fuzzy-query-ka-basic-syntax)  
-4️⃣ [Case Sensitivity Issue & Analyzer Effect 🔡](#case-sensitivity-issue--analyzer-effect)  
-5️⃣ [Example & Expected Output 🛠️](#example--expected-output)  
-6️⃣ [Best Practices & Kab Use Karna Chahiye? ✅](#best-practices--kab-use-karna-chahiye)  
+1️⃣ [Fuzzy Query Kya Hai? 🤔](#1)  
+2️⃣ [Match Query vs Fuzzy Query ⚔️](#2)  
+3️⃣ [Fuzzy Query Ka Basic Syntax 📝](#3)  
+4️⃣ [Case Sensitivity Issue & Analyzer Effect 🔡](#4)  
+5️⃣ [Example & Expected Output 🛠️](#5)  
+6️⃣ [Best Practices & Kab Use Karna Chahiye? ✅](#6)  
+7️⃣ [Final Thoughts 🎯](#7)
 
 ---
 
-## 1️⃣ **Fuzzy Query Kya Hai? 🤔**  
+## 1️⃣ **Fuzzy Query Kya Hai? 🤔**  <a id="1"></a>
+
 Fuzzy query ka kaam yeh hai ki agar koi user **galat spelling likh de ya ek-do characters ka difference ho**, to bhi Elasticsearch usko match karne ki koshish kare. Yeh query **Levenshtein Edit Distance** ka use karti hai jisse minor spelling mistakes ko handle kiya ja sake.  
 
 🔹 Agar user "elastisearch" likhta hai instead of "elasticsearch", to fuzzy query usko identify kar sakti hai.  
@@ -23,7 +25,8 @@ Fuzzy query ka kaam yeh hai ki agar koi user **galat spelling likh de ya ek-do c
 
 ---
 
-## 2️⃣ **Match Query vs Fuzzy Query ⚔️**  
+## 2️⃣ **Match Query vs Fuzzy Query ⚔️**  <a id="2"></a>
+
 | Feature | Match Query + Fuzziness | Fuzzy Query |
 |---------|----------------------|-------------|
 | Query Type | Full-Text Query | Term-Level Query |
@@ -38,7 +41,8 @@ Fuzzy query ka kaam yeh hai ki agar koi user **galat spelling likh de ya ek-do c
 
 ---
 
-## 3️⃣ **Fuzzy Query Ka Basic Syntax 📝**  
+## 3️⃣ **Fuzzy Query Ka Basic Syntax 📝**  <a id="3"></a>
+
 Agar hum fuzzy query ka use karein kisi **exact match** wale field ke liye, to yeh kuch aisa dikhega:  
 
 ```json
@@ -59,7 +63,8 @@ GET products/_search
 
 ---
 
-## 4️⃣ **Case Sensitivity Issue & Analyzer Effect 🔡**  
+## 4️⃣ **Case Sensitivity Issue & Analyzer Effect 🔡**  <a id="4"></a>
+
 Agar field **lowercase analyzer** ka use karti hai, to fuzzy query fail ho sakti hai kyunki yeh **analyzed terms** ka use nahi karti.  
 
 👉 **Issue Example:**  
@@ -89,7 +94,8 @@ GET products/_search
 
 ---
 
-## 5️⃣ **Example & Expected Output 🛠️**  
+## 5️⃣ **Example & Expected Output 🛠️**  <a id="5"></a>
+
 ### 🔹 **Dataset Example**  
 ```json
 {
@@ -137,7 +143,8 @@ GET products/_search
 
 ---
 
-## 6️⃣ **Best Practices & Kab Use Karna Chahiye? ✅**  
+## 6️⃣ **Best Practices & Kab Use Karna Chahiye? ✅**  <a id="6"></a>
+
 ✔️ Agar **short fields** (e.g., usernames, product codes) search kar rahe ho to fuzzy query useful hai.  
 ✔️ Agar **full-text search** kar rahe ho, to **match query + fuzziness** use karna better hai.  
 ✔️ Analyzer ka dhyan rakhna! Fuzzy query **analyzed fields** ke saath kaam nahi karti.  
@@ -145,7 +152,8 @@ GET products/_search
 
 ---
 
-## 🎯 **Final Thoughts**  
+## 7️⃣ **Final Thoughts 🎯**  <a id="7"></a>
+
 - **Fuzzy query** aur **match query + fuzziness** me clear difference hai.  
 - Fuzzy query **term-level query** hai, to yeh analyzed fields pe kaam nahi karti.  
 - Match query ko **fuzziness parameter** ke saath use karna zyada common hai.  

@@ -1,17 +1,17 @@
 # 📌 Stemming in Elasticsearch
 
-## 📖 Table of Contents
-1. 🔍 **Introduction to Stemming**
-2. 🛠 **Why Use Stemming?**
-3. ⚙ **How Stemming Works in Elasticsearch**
-4. 🚀 **Example: Applying Stemming**
-5. 🎭 **Combining Stemming with Synonyms**
-6. 🔦 **Highlighting Stemmed Words**
-7. 🏁 **Conclusion**
+## 📖 Table of Contents  
+1️⃣ [🔍 Introduction to Stemming](#1)  
+2️⃣ [🛠 Why Use Stemming?](#2)  
+3️⃣ [⚙ How Stemming Works in Elasticsearch](#3)  
+4️⃣ [🚀 Example: Applying Stemming](#4)  
+5️⃣ [🎭 Combining Stemming with Synonyms](#5)  
+6️⃣ [🔦 Highlighting Stemmed Words](#6)  
+7️⃣ [🏁 Conclusion](#7)  
 
 ---
 
-## 🔍 1. Introduction to Stemming
+## 🔍 1. Introduction to Stemming <a id="1"></a>
 
 **Stemming** ek process hai jisme words ko unke root form me convert kiya jata hai taki search results zyada flexible ho sakein.
 
@@ -24,7 +24,7 @@ Elasticsearch stemming ka use karta hai better search matches ke liye, taaki sim
 
 ---
 
-## 🛠 2. Why Use Stemming?
+## 🛠 2. Why Use Stemming? <a id="2"></a>
 
 ✅ **Improved Search Matches** – Users jo "running" search karein, unhe "run" waale results bhi mil sakein.  
 ✅ **Better User Experience** – Synonyms aur similar words automatically match ho sakein.  
@@ -32,7 +32,7 @@ Elasticsearch stemming ka use karta hai better search matches ke liye, taaki sim
 
 ---
 
-## ⚙ 3. How Stemming Works in Elasticsearch
+## ⚙ 3. How Stemming Works in Elasticsearch <a id="3"></a>
 
 **Stemming Elasticsearch ke Token Filters ke through implement hota hai.**
 
@@ -67,7 +67,7 @@ PUT stemming_test
 
 ---
 
-## 🚀 4. Example: Applying Stemming
+## 🚀 4. Example: Applying Stemming <a id="4"></a>
 
 ### **Step 1: Index a Document**
 
@@ -113,7 +113,7 @@ POST stemming_test/_search
 
 ---
 
-## 🎭 5. Combining Stemming with Synonyms
+## 🎭 5. Combining Stemming with Synonyms <a id="5"></a>
 
 Agar tum stemming ko **synonyms ke saath combine** karna chaho, to Elasticsearch automatically synonyms ko bhi stemmed form me analyze karega.
 
@@ -159,7 +159,7 @@ POST stemming_test/_search
 
 ---
 
-## 🔦 6. Highlighting Stemmed Words
+## 🔦 6. Highlighting Stemmed Words <a id="6"></a>
 
 Agar tum chaho ki stemmed words search results me **highlight** ho jayein, to tum Elasticsearch highlighter use kar sakte ho.
 
@@ -206,7 +206,7 @@ POST stemming_test/_search
 
 ---
 
-## 🏁 7. Conclusion
+## 🏁 7. Conclusion <a id="7"></a>
 
 ✅ **Stemming helps in matching words in their root form.**  
 ✅ **It improves search accuracy and flexibility.**  

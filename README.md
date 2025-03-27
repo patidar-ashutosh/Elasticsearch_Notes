@@ -12,6 +12,6 @@
 
 [Controlling Query Results](7.Controlling_Query_Results/README.md)
 
-[Aggregations In Elasticsearch](8.Aggregations)/README.md
+[Aggregations In Elasticsearch](8.Aggregations/README.md)
 
 [Improving Search Results](9.Improving_Search_Results/README.md)
