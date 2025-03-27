@@ -7,15 +7,16 @@ Is explanation me hum **Bucket Aggregations ka deep dive karenge**, unka **outpu
 ---
 
 ## 📌 **Table of Contents**  
-1️⃣ [🔍 Bucket Aggregations Kya Hai?](#bucket-aggregations-kya-hai)  
-2️⃣ [📊 Bucket Aggregations vs Metric Aggregations](#bucket-vs-metric-aggregations)  
-3️⃣ [🛠️ Terms Aggregation – Example aur Output](#terms-aggregation-example)  
-4️⃣ [⚙️ Advanced Features: Missing Values & Ordering](#advanced-features)  
-5️⃣ [📌 Recap: Key Takeaways](#recap-key-takeaways)  
+
+1️⃣ **[🔍 Bucket Aggregations Kya Hai?](#1)**  
+2️⃣ **[📊 Bucket Aggregations vs Metric Aggregations](#2)**  
+3️⃣ **[🛠️ Terms Aggregation – Example aur Output](#3)**  
+4️⃣ **[⚙️ Advanced Features: Missing Values & Ordering](#4)**  
+5️⃣ **[📌 Recap: Key Takeaways](#5)**  
 
 ---
 
-## 1️⃣ 🔍 **Bucket Aggregations Kya Hai?**  
+## 1️⃣ 🔍 **Bucket Aggregations Kya Hai?**  <a id="1"></a>
 
 **Bucket Aggregations** ka kaam **values calculate karna nahi**, balki **documents ko different groups me classify karna** hota hai. Yeh classification **kisi condition ya criterion** ke basis par hoti hai.  
 
@@ -31,7 +32,7 @@ Is explanation me hum **Bucket Aggregations ka deep dive karenge**, unka **outpu
 
 ---
 
-## 2️⃣ 📊 **Bucket Aggregations vs Metric Aggregations**  
+## 2️⃣ 📊 **Bucket Aggregations vs Metric Aggregations**  <a id="2"></a>
 
 | Feature | 🏗️ Bucket Aggregations | 📏 Metric Aggregations |  
 |---------|----------------------|----------------------|  
@@ -42,7 +43,7 @@ Is explanation me hum **Bucket Aggregations ka deep dive karenge**, unka **outpu
 
 ---
 
-## 3️⃣ 🛠️ **Terms Aggregation – Example aur Output**  
+## 3️⃣ 🛠️ **Terms Aggregation – Example aur Output**  <a id="3"></a>
 
 **Terms Aggregation** ek **common bucket aggregation** hai jo **har unique value ke liye ek bucket create** karti hai.  
 
@@ -80,7 +81,7 @@ Is explanation me hum **Bucket Aggregations ka deep dive karenge**, unka **outpu
 
 ---
 
-## 4️⃣ ⚙️ **Advanced Features: Missing Values & Ordering**  
+## 4️⃣ ⚙️ **Advanced Features: Missing Values & Ordering**  <a id="4"></a>
 
 ### 📌 **Missing Values ka Handling**  
 Agar kuch documents me **"status" field nahi hai ya NULL hai**, toh unhe **ek custom bucket** me daal sakte ho.  
@@ -157,7 +158,7 @@ Buckets ko **sorting** karne ke liye `"order"` parameter use kar sakte ho.
 
 ---
 
-## 5️⃣ 📌 **Recap: Key Takeaways**  
+## 5️⃣ 📌 **Recap: Key Takeaways**  <a id="5"></a>
 
 ✅ **Bucket Aggregations** documents ko **groups (buckets)** me divide karti hai.  
 ✅ **Terms Aggregation** har **unique value** ke liye ek **bucket** create karti hai.  

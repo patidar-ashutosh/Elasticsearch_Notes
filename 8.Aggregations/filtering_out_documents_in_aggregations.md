@@ -8,15 +8,17 @@ Hum dekhenge ki **filter aggregations** kaise kaam karti hain aur **aggregation 
 ---
 
 ## 📜 **Table of Contents**  
-1️⃣ [Aggregation ka Context kya hota hai? 🌍](#aggregation-ka-context-kya-hota-hai)  
-2️⃣ [Filter Aggregation kya hai? 🎯](#filter-aggregation-kya-hai)  
-3️⃣ [Example: Low-Value Orders ko Filter Karna 🛒](#example-low-value-orders-ko-filter-karna)  
-4️⃣ [Query Execution Flow 🛠️](#query-execution-flow)  
-5️⃣ [Recap: Key Takeaways 🔄](#recap-key-takeaways)  
+1️⃣ [Aggregation ka Context kya hota hai? 🌍](#1)  
+2️⃣ [Filter Aggregation kya hai? 🎯](#2)  
+3️⃣ [Example: Low-Value Orders ko Filter Karna 🛒](#3)  
+4️⃣ [Query Execution Flow 🛠️](#4)  
+5️⃣ [Recap: Key Takeaways 🔄](#5)  
+6️⃣ [Conclusion 🎯](#6)
 
 ---
 
-## 🌍 **1. Aggregation ka Context kya hota hai?**  
+## 🌍 **1. Aggregation ka Context kya hota hai?**  <a id="1"></a>
+
 Aggregations **apne context** ke basis pe kaam karti hain.  
 - **Top-level aggregation** → Puri dataset pe run hoti hai (e.g., `match_all`).  
 - **Nested aggregations** → Apne **parent aggregation ke context** me run hoti hain.  
@@ -27,13 +29,15 @@ Agar hume sirf **₹50 se upar wale orders** pe aggregation run karni ho, to **f
 
 ---
 
-## 🎯 **2. Filter Aggregation kya hai?**  
+## 🎯 **2. Filter Aggregation kya hai?**  <a id="2"></a>
+
 Filter aggregation ek **bucket aggregation** hai jo **query filter** apply karke sirf matching documents pe aggregation run karti hai.  
 💡 Yeh **search queries** ki tarah hi hoti hai jisme **term, range, match queries** use ki jati hain.  
 
 ---
 
-## 🛒 **3. Example: Low-Value Orders ko Filter Karna**  
+## 🛒 **3. Example: Low-Value Orders ko Filter Karna**  <a id="3"></a>
+
 💡 **Scenario:**  
 Hume sirf **₹50 se kam ke orders ko ignore** karna hai aur baaki orders ka **average amount** nikalna hai.  
 
@@ -79,7 +83,8 @@ Hume sirf **₹50 se kam ke orders ko ignore** karna hai aur baaki orders ka **a
 
 ---
 
-## 🛠️ **4. Query Execution Flow**  
+## 🛠️ **4. Query Execution Flow**  <a id="4"></a>
+
 1️⃣ **Elasticsearch pura dataset fetch karta hai.**  
 2️⃣ **Filter aggregation apply hoti hai, jo sirf ₹50 se upar wale orders ko allow karti hai.**  
 3️⃣ **Filtered dataset pe avg aggregation apply hoti hai.**  
@@ -91,7 +96,7 @@ Isliye **range queries** likhte waqt dhyan do.
 
 ---
 
-## 🔄 **5. Recap: Key Takeaways**  
+## 🔄 **5. Recap: Key Takeaways**  <a id="5"></a>
 ✔ **Filter Aggregations sirf matching documents par aggregation run karti hain.**  
 ✔ **Query filtering aur Aggregation filtering alag cheezein hain.**  
 ✔ **Filter Aggregations ka use performance improve karta hai kyunki yeh sirf required data par aggregation apply karta hai.**  
@@ -99,5 +104,6 @@ Isliye **range queries** likhte waqt dhyan do.
 
 ---
 
-## 🎯 **Conclusion**  
+## 🎯 **6. Conclusion**  <a id="6"></a>
+
 Filter aggregations kaafi useful hain jab hume **specific subset of documents** par analysis karna ho.  

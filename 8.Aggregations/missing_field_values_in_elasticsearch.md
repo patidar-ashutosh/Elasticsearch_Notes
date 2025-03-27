@@ -9,16 +9,16 @@ Agar tum ek aggregation kar rahe ho kisi field pe (jaise `status`), lekin kuch d
 ---
 
 ## 📌 **Table of Contents**  
-
-1️⃣ [🔍 Missing Aggregation Kya Hai?](#1-missing-aggregation-kya-hai)  
-2️⃣ [⚙️ Missing Aggregation Kaise Kaam Karti Hai?](#2-missing-aggregation-kaise-kaam-karti-hai)  
-3️⃣ [📝 Example: Missing Aggregation](#3-example-missing-aggregation)  
-4️⃣ [📊 Combining Missing Aggregation with Other Aggregations](#4-combining-missing-aggregation-with-other-aggregations)  
-5️⃣ [⚠️ Important Notes](#5-important-notes)  
+1️⃣ [🔍 Missing Aggregation Kya Hai?](#1)  
+2️⃣ [⚙️ Missing Aggregation Kaise Kaam Karti Hai?](#2)  
+3️⃣ [📝 Example: Missing Aggregation](#3)  
+4️⃣ [📊 Combining Missing Aggregation with Other Aggregations](#4)  
+5️⃣ [⚠️ Important Notes](#5)  
+6️⃣ [🎯 Conclusion](#6)
 
 ---
 
-## 1️⃣ 🔍 **Missing Aggregation Kya Hai?**  
+## 1️⃣ 🔍 **Missing Aggregation Kya Hai?**  <a id="1"></a>
 
 Jab hum kisi specific field par aggregation apply karte hain, to agar kisi document me wo field **nahi hai** ya **null hai**, to normal aggregation usse consider nahi karegi.  
 
@@ -27,7 +27,7 @@ Jab hum kisi specific field par aggregation apply karte hain, to agar kisi docum
 
 ---
 
-## 2️⃣ ⚙️ **Missing Aggregation Kaise Kaam Karti Hai?**  
+## 2️⃣ ⚙️ **Missing Aggregation Kaise Kaam Karti Hai?**  <a id="2"></a>
 
 🔹 **Yeh ek bucket aggregation hai**, jo **missing ya null values wale documents ka count** karti hai.  
 🔹 **Sirf un documents ko consider karti hai jisme specified field missing hai ya null hai.**  
@@ -35,7 +35,7 @@ Jab hum kisi specific field par aggregation apply karte hain, to agar kisi docum
 
 ---
 
-## 3️⃣ 📝 **Example: Missing Aggregation**  
+## 3️⃣ 📝 **Example: Missing Aggregation**  <a id="3"></a>
 
 ### **Step 1: Test Data Insert Karna**  
 Pehle hum **kuch aise documents insert karenge jisme `status` field missing hai ya null hai**.  
@@ -91,7 +91,7 @@ Ab hum **missing aggregation** run karenge jo **un documents ko count karegi jis
 
 ---
 
-## 4️⃣ 📊 **Combining Missing Aggregation with Other Aggregations**  
+## 4️⃣ 📊 **Combining Missing Aggregation with Other Aggregations**  <a id="4"></a>
 
 Ab hum **missing aggregation ko sub-aggregation ke saath use karenge** taaki **un documents ka total amount sum** kar sakein jisme `status` field missing hai.  
 
@@ -136,7 +136,7 @@ Ab hum **missing aggregation ko sub-aggregation ke saath use karenge** taaki **u
 
 ---
 
-## 5️⃣ ⚠️ **Important Notes**  
+## 5️⃣ ⚠️ **Important Notes**  <a id="5"></a>
 
 🔹 **Missing Aggregation sirf un documents ko count karti hai jisme field missing ho ya null ho.**  
 🔹 **Agar field ka default mapping me `null_value` set hai, to wo consider kiya jayega.**  
@@ -144,7 +144,7 @@ Ab hum **missing aggregation ko sub-aggregation ke saath use karenge** taaki **u
 
 ---
 
-## 🎯 **Conclusion**  
+## 6️⃣ 🎯 **Conclusion**  <a id="6"></a>
 
 ✅ **Missing Aggregation** ka use **un documents ko find karne ke liye hota hai jisme koi field missing ya null ho.**  
 ✅ **Isse hum easily missing values ka analysis kar sakte hain aur data completeness check kar sakte hain.**  

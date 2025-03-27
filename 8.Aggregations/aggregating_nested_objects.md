@@ -12,15 +12,16 @@ Uske liye hume **nested aggregation** lagani padegi.
 
 ## 📌 **Table of Contents**  
 
-1️⃣ [🔍 Nested Aggregation Kya Hai?](#1-nested-aggregation-kya-hai)  
-2️⃣ [⚠️ Normal Aggregation Kyun Kaam Nahi Karti?](#2-normal-aggregation-kyun-kaam-nahi-karti)  
-3️⃣ [📝 Example: Nested Aggregation](#3-example-nested-aggregation)  
-4️⃣ [🔄 Combining Nested Aggregation with Other Aggregations](#4-combining-nested-aggregation-with-other-aggregations)  
-5️⃣ [⚠️ Important Notes](#5-important-notes)  
+1️⃣ [🔍 Nested Aggregation Kya Hai?](#1)  
+2️⃣ [⚠️ Normal Aggregation Kyun Kaam Nahi Karti?](#2)  
+3️⃣ [📝 Example: Nested Aggregation](#3)  
+4️⃣ [🔄 Combining Nested Aggregation with Other Aggregations](#4)  
+5️⃣ [⚠️ Important Notes](#5)  
+6️⃣ [🎯 Conclusion](#6)
 
 ---
 
-## 1️⃣ 🔍 **Nested Aggregation Kya Hai?**  
+## 1️⃣ 🔍 **Nested Aggregation Kya Hai?**  <a id="1"></a>
 
 Agar kisi field ka **data type `nested` hai**, to usko normal aggregation se process nahi kiya ja sakta.  
 🔹 **Nested Aggregation** ka use karke tum **nested documents ko aggregate** kar sakte ho.  
@@ -31,14 +32,14 @@ Agar kisi field ka **data type `nested` hai**, to usko normal aggregation se pro
 
 ---
 
-## 2️⃣ ⚠️ **Normal Aggregation Kyun Kaam Nahi Karti?**  
+## 2️⃣ ⚠️ **Normal Aggregation Kyun Kaam Nahi Karti?**  <a id="2"></a>
 
 Agar tum `employees.age` par bina nested aggregation ke **`min` aggregation** lagate ho, to **result null aayega**.  
 🚨 **Reason:** Elasticsearch nested fields ko **independent documents** ki tarah store karta hai, to normal aggregations unko access nahi kar sakti.  
 
 ---
 
-## 3️⃣ 📝 **Example: Nested Aggregation**  
+## 3️⃣ 📝 **Example: Nested Aggregation**  <a id="3"></a>
 
 ### **Step 1: Sample Data Insert Karna**  
 
@@ -168,7 +169,7 @@ Ab hum **Nested Aggregation** ka use karenge taaki `employees` field access ho s
 
 ---
 
-## 4️⃣ 🔄 **Combining Nested Aggregation with Other Aggregations**  
+## 4️⃣ 🔄 **Combining Nested Aggregation with Other Aggregations**  <a id="4"></a>
 
 Ab hum ek aur aggregation add karte hain jo **average age calculate karegi employees ki.**  
 
@@ -223,7 +224,7 @@ Ab hum ek aur aggregation add karte hain jo **average age calculate karegi emplo
 
 ---
 
-## 5️⃣ ⚠️ **Important Notes**  
+## 5️⃣ ⚠️ **Important Notes**  <a id="5"></a>
 
 🔹 **Nested Aggregation sirf `nested` type ki fields pe lagti hai.**  
 🔹 **Normal aggregation `nested` fields ko access nahi kar sakti.**  
@@ -232,7 +233,7 @@ Ab hum ek aur aggregation add karte hain jo **average age calculate karegi emplo
 
 ---
 
-## 🎯 **Conclusion**  
+## 6️⃣ 🎯 **Conclusion**  <a id="6"></a>
 
 ✅ **Nested Aggregation** Elasticsearch me **nested objects** pe aggregation karne ka **sahi tareeka** hai.  
 ✅ **Agar field `nested` type ki hai, to bina nested aggregation ke us pe kaam nahi hoga.**  

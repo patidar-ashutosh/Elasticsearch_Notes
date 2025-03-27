@@ -8,15 +8,17 @@ hum **nested aggregations** ke concept ko explore karenge, jo aggregations ke an
 ---
 
 ## 📜 **Table of Contents**  
-1️⃣ [Bucket vs Metric Aggregations 🪣📊](#bucket-vs-metric-aggregations)  
-2️⃣ [Nested Aggregations kya hai? 🔄](#nested-aggregations-kya-hai)  
-3️⃣ [Example: Terms + Stats Aggregation 📝](#example-terms--stats-aggregation)  
-4️⃣ [Aggregation Context & Query Filtering 🔍](#aggregation-context--query-filtering)  
-5️⃣ [Recap: Key Takeaways 🔄](#recap-key-takeaways)  
+1️⃣ [Bucket vs Metric Aggregations 🪣📊](#1)  
+2️⃣ [Nested Aggregations kya hai? 🔄](#2)  
+3️⃣ [Example: Terms + Stats Aggregation 📝](#3)  
+4️⃣ [Aggregation Context & Query Filtering 🔍](#4)  
+5️⃣ [Recap: Key Takeaways 🔄](#5)  
+6️⃣ [Conclusion 🎯](#6)
 
 ---
 
-## 🪣📊 **1. Bucket vs Metric Aggregations**  
+## 🪣📊 **1. Bucket vs Metric Aggregations**  <a id="1"></a>
+
 Elasticsearch me aggregations do types ki hoti hain:  
 | Aggregation Type | Description | Example |
 |------------------|------------|---------|
@@ -27,7 +29,8 @@ Elasticsearch me aggregations do types ki hoti hain:
 
 ---
 
-## 🔄 **2. Nested Aggregations kya hai?**  
+## 🔄 **2. Nested Aggregations kya hai?**  <a id="2"></a>
+
 Nested aggregations ka concept **recursion** jaisa hota hai.  
 Matlab ek **bucket aggregation** ke andar ek **metric aggregation** ya aur ek **bucket aggregation** ho sakti hai.  
 
@@ -36,7 +39,8 @@ Agar tumhe kisi **order dataset** me different **statuses (processed, pending, c
 
 ---
 
-## 📝 **3. Example: Terms + Stats Aggregation**  
+## 📝 **3. Example: Terms + Stats Aggregation**  <a id="3"></a>
+
 💡 **Scenario:** Hume orders ke **status** ke basis pe unka **total_amount** ka stats nikalna hai.  
 
 ### ✅ **Query:**
@@ -96,7 +100,8 @@ Agar tumhe kisi **order dataset** me different **statuses (processed, pending, c
 
 ---
 
-## 🔍 **4. Aggregation Context & Query Filtering**  
+## 🔍 **4. Aggregation Context & Query Filtering**  <a id="4"></a>
+
 Aggregations **context** ke basis pe run hoti hain.  
 
 ### 🎯 **Example: Sirf ₹100 se upar wale orders ke liye aggregation run karna**  
@@ -125,7 +130,8 @@ Aggregations **context** ke basis pe run hoti hain.
 
 ---
 
-## 🔄 **5. Recap: Key Takeaways**  
+## 🔄 **5. Recap: Key Takeaways**  <a id="5"></a>
+
 ✔ **Metric aggregations (Stats, Sum, Avg)** simple numerical results deti hain.  
 ✔ **Bucket aggregations (Terms, Filters)** documents ko groups me divide karti hain.  
 ✔ **Bucket aggregations ke andar aur aggregations nest ho sakti hain.**  
@@ -134,6 +140,7 @@ Aggregations **context** ke basis pe run hoti hain.
 
 ---
 
-## 🎯 **Conclusion**  
+## 🎯 **6. Conclusion**  <a id="6"></a>
+
 -   Nested aggregations ka use **complex analysis** ke liye kiya jata hai.  
 -   Ab tum multiple aggregations ko combine karke **deep insights** nikal sakte ho.  

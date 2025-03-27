@@ -6,20 +6,20 @@ Histograms Elasticsearch me data ko **dynamic buckets** me divide karne ke liye 
 
 ## 📌 **Table of Contents**  
 
-1️⃣ [📌 Histogram Kya Hota Hai?](#1-histogram-kya-hota-hai)  
-2️⃣ [⚙️ Histogram Aggregation Kaise Kaam Karta Hai?](#2-histogram-aggregation-kaise-kaam-karta-hai)  
-3️⃣ [📝 Example: Histogram Aggregation](#3-example-histogram-aggregation)  
-4️⃣ [⚙️ Histogram Buckets Customize Kaise Karein?](#4-histogram-buckets-customize-kaise-karein)  
-   - **min_doc_count** (Empty Buckets Ko Hatana)  
-   - **extended_bounds** (Specific Range Me Buckets Banana)  
+1️⃣ [📌 Histogram Kya Hota Hai?](#1)  
+2️⃣ [⚙️ Histogram Aggregation Kaise Kaam Karta Hai?](#2)  
+3️⃣ [📝 Example: Histogram Aggregation](#3)  
+4️⃣ [⚙️ Histogram Buckets Customize Kaise Karein?](#4)  
+   - [min_doc_count](#4-1)  
+   - [extended_bounds](#4-2)  
 
-5️⃣ [📅 Date Histogram Aggregation](#5-date-histogram-aggregation)  
-
-6️⃣ [🛠️ Offset Parameter Ka Use](#6-offset-parameter-ka-use)  
+5️⃣ [📅 Date Histogram Aggregation](#5)  
+6️⃣ [🛠️ Offset Parameter Ka Use](#6)  
+7️⃣ [🎯 Conclusion](#7)
 
 ---
 
-## 1️⃣ 📌 **Histogram Kya Hota Hai?**  
+## 1️⃣ 📌 **Histogram Kya Hota Hai?**  <a id="1"></a>
 
 Histogram ek **data visualization technique** hai jo numerical values ko specific **intervals (buckets)** me group karta hai. Iska use tab hota hai jab hume kisi numeric field ka **distribution pattern** samajhna ho.  
 
@@ -31,7 +31,7 @@ Histogram ek **data visualization technique** hai jo numerical values ko specifi
 
 ---
 
-## 2️⃣ ⚙️ **Histogram Aggregation Kaise Kaam Karta Hai?**  
+## 2️⃣ ⚙️ **Histogram Aggregation Kaise Kaam Karta Hai?**  <a id="2"></a>
 
 🔹 Histogram aggregation ek **numeric field** ke values ko specified **intervals** me divide karta hai.  
 🔹 Minimum aur maximum values ke beech me **equal-sized buckets** banaye jate hain.  
@@ -52,7 +52,7 @@ Agar kisi document ka **total_amount = 60** hai, to ye **50 ke bucket me store h
 
 ---
 
-## 3️⃣ 📝 **Example: Histogram Aggregation**  
+## 3️⃣ 📝 **Example: Histogram Aggregation**  <a id="3"></a>
 
 ```json
 {
@@ -93,9 +93,10 @@ Agar kisi document ka **total_amount = 60** hai, to ye **50 ke bucket me store h
 
 ---
 
-## 4️⃣ ⚙️ **Histogram Buckets Customize Kaise Karein?**  
+## 4️⃣ ⚙️ **Histogram Buckets Customize Kaise Karein?**  <a id="4"></a>
 
-### 🔹 **1. min_doc_count (Empty Buckets Ko Hatana)**  
+### 🔹 **1. min_doc_count (Empty Buckets Ko Hatana)**  <a id="4-1"></a>
+
 By default, histogram **har possible bucket** banata hai, even agar usme **koi document na ho**. Agar aap **empty buckets remove** karna chahte ho, to `min_doc_count` set kar sakte ho.  
 
 ```json
@@ -117,7 +118,8 @@ By default, histogram **har possible bucket** banata hai, even agar usme **koi d
 
 ---
 
-### 🔹 **2. extended_bounds (Specific Range Me Buckets Banana)**  
+### 🔹 **2. extended_bounds (Specific Range Me Buckets Banana)**  <a id="4-2"></a>
+
 Agar aapko **fixed min aur max range** specify karni ho, to `extended_bounds` use kar sakte ho.  
 
 ```json
@@ -138,7 +140,7 @@ Agar aapko **fixed min aur max range** specify karni ho, to `extended_bounds` us
 
 ---
 
-## 5️⃣ 📅 **Date Histogram Aggregation**  
+## 5️⃣ 📅 **Date Histogram Aggregation**  <a id="5"></a>
 
 **Date histogram aggregation** numeric values ki jagah **date fields** ke liye use hota hai. Ye **time-based data analysis** ke liye best hota hai.  
 
@@ -162,7 +164,7 @@ Agar aapko **fixed min aur max range** specify karni ho, to `extended_bounds` us
 
 ---
 
-## 6️⃣ 🛠️ **Offset Parameter Ka Use**  
+## 6️⃣ 🛠️ **Offset Parameter Ka Use**  <a id="6"></a>
 
 Kabhi-kabhi hume **histogram buckets ko adjust** karna hota hai, jisme `offset` parameter kaam aata hai.  
 
@@ -187,7 +189,7 @@ Kabhi-kabhi hume **histogram buckets ko adjust** karna hota hai, jisme `offset` 
 
 ---
 
-## 🎯 **Conclusion**  
+## 7️⃣ 🎯 **Conclusion**  <a id="7"></a>
 
 ✅ **Histogram aggregation** automatically **numeric values ko dynamic buckets** me divide karta hai.  
 ✅ **min_doc_count** se **empty buckets** remove kiye ja sakte hain.  

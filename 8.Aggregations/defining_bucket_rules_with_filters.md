@@ -8,15 +8,17 @@ Hum **filters aggregation** ka use karna sikhenge jisme hum **multiple filter-ba
 ---
 
 ## 📜 **Table of Contents**  
-1️⃣ [Filters Aggregation kya hai? 🎯](#filters-aggregation-kya-hai)  
-2️⃣ [Example: Recipes ko Buckets me Divide Karna 🍝](#example-recipes-ko-buckets-me-divide-karna)  
-3️⃣ [Query Execution Flow 🛠️](#query-execution-flow)  
-4️⃣ [Sub-Aggregations: Bucket ke Andar Calculation 📊](#sub-aggregations-bucket-ke-andar-calculation)  
-5️⃣ [Recap: Key Takeaways 🔄](#recap-key-takeaways)  
+1️⃣ [Filters Aggregation kya hai? 🎯](#1)  
+2️⃣ [Example: Recipes ko Buckets me Divide Karna 🍝](#2)  
+3️⃣ [Query Execution Flow 🛠️](#3)  
+4️⃣ [Sub-Aggregations: Bucket ke Andar Calculation 📊](#4)  
+5️⃣ [Recap: Key Takeaways 🔄](#5)  
+6️⃣ [Conclusion 🎯](#6)
 
 ---
 
-## 🎯 **1. Filters Aggregation kya hai?**  
+## 🎯 **1. Filters Aggregation kya hai?**  <a id="1"></a>
+
 `filters` aggregation ek **bucket aggregation** hai jo predefined **rules ke basis par documents ko different buckets me place** karti hai.  
 
 🔹 **Filter Aggregation vs Filters Aggregation:**  
@@ -30,7 +32,8 @@ Agar hume **recipe index** me se sirf **pasta aur spaghetti** wale documents ala
 
 ---
 
-## 🍝 **2. Example: Recipes ko Buckets me Divide Karna**  
+## 🍝 **2. Example: Recipes ko Buckets me Divide Karna**  <a id="2"></a>
+
 💡 **Scenario:**  
 Ek restaurant ke paas **recipe data** hai, aur unhe dekhna hai ki **kitni pasta aur spaghetti recipes** hain aur unki **average rating** kya hai.  
 
@@ -72,14 +75,16 @@ Ek restaurant ke paas **recipe data** hai, aur unhe dekhna hai ki **kitni pasta 
 
 ---
 
-## 🛠️ **3. Query Execution Flow**  
+## 🛠️ **3. Query Execution Flow**  <a id="3"></a>
+
 1️⃣ Elasticsearch **filters aggregation** ko process karta hai aur **predefined rules** ke basis par documents ko alag-alag buckets me place karta hai.  
 2️⃣ Har bucket ka **document count** return hota hai.  
 3️⃣ **Agar sub-aggregations di hain, to unhe bhi process kiya jata hai.**  
 
 ---
 
-## 📊 **4. Sub-Aggregations: Bucket ke Andar Calculation**  
+## 📊 **4. Sub-Aggregations: Bucket ke Andar Calculation**  <a id="4"></a>
+
 Sirf bucket counts lena useful nahi hota, **hume in buckets pe further calculations bhi chahiye**.  
 Ab hum **har bucket ke andar average rating nikalenge**.  
 
@@ -131,7 +136,8 @@ Ab hum **har bucket ke andar average rating nikalenge**.
 
 ---
 
-## 🔄 **5. Recap: Key Takeaways**  
+## 🔄 **5. Recap: Key Takeaways**  <a id="5"></a>
+
 ✔ **Filters aggregation predefined rules ke basis par multiple buckets create karti hai.**  
 ✔ **Har bucket me sirf wahi documents hote hain jo uske rule ko match karte hain.**  
 ✔ **Sub-aggregations ka use karke hum bucket ke andar further analysis kar sakte hain.**  
@@ -139,5 +145,6 @@ Ab hum **har bucket ke andar average rating nikalenge**.
 
 ---
 
-## 🎯 **Conclusion**  
+## 🎯 **6. Conclusion**  <a id="6"></a>
+
 Agar tumhe **data ko custom rules ke basis par divide karna ho**, to `filters` aggregation best choice hai.  

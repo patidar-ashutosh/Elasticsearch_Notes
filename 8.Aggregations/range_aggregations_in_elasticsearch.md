@@ -12,16 +12,17 @@ Hum **dono aggregations ko examples ke sath samjhenge** aur dekhenge **sub-aggre
 ---
 
 ## 📜 **Table of Contents**  
-1️⃣ [Range Aggregation kya hai? 🎯](#range-aggregation-kya-hai)  
-2️⃣ [Example: Order Amount Distribution 💰](#example-order-amount-distribution)  
-3️⃣ [Date Range Aggregation ⏳](#date-range-aggregation)  
-4️⃣ [Result Formatting aur Custom Keys 🎨](#result-formatting-aur-custom-keys)  
-5️⃣ [Sub-Aggregations: Bucket Statistics 📊](#sub-aggregations-bucket-statistics)  
-6️⃣ [Recap: Key Takeaways 🔄](#recap-key-takeaways)  
+1️⃣ [Range Aggregation kya hai? 🎯](#1)  
+2️⃣ [Example: Order Amount Distribution 💰](#2)  
+3️⃣ [Date Range Aggregation ⏳](#3)  
+4️⃣ [Result Formatting aur Custom Keys 🎨](#4)  
+5️⃣ [Sub-Aggregations: Bucket Statistics 📊](#5)  
+6️⃣ [Recap: Key Takeaways 🔄](#6)  
 
 ---
 
-## 🎯 **1. Range Aggregation kya hai?**  
+## 🎯 **1. Range Aggregation kya hai?**  <a id="1"></a>
+
 🔹 **Range aggregation** ka use numeric values ko **predefined ranges me split** karne ke liye hota hai.  
 🔹 **Date range aggregation** isi concept ko **date fields** pe apply karta hai.  
 🔹 **To value exclude hoti hai** (i.e., `to` range me jo value hoti hai, wo bucket me include nahi hoti).  
@@ -31,7 +32,8 @@ Ek e-commerce store ko dekhna hai ki **kitne orders kis price range me aa rahe h
 
 ---
 
-## 💰 **2. Example: Order Amount Distribution**  
+## 💰 **2. Example: Order Amount Distribution**  <a id="2"></a>
+
 💡 **Scenario:**  
 Hume dekhna hai ki **orders ka amount kis range me distribute ho raha hai**:  
 - ₹0 - ₹50  
@@ -79,7 +81,8 @@ Hume dekhna hai ki **orders ka amount kis range me distribute ho raha hai**:
 
 ---
 
-## ⏳ **3. Date Range Aggregation**  
+## ⏳ **3. Date Range Aggregation**  <a id="3"></a>
+
 Agar hum **date ke basis pe documents ko distribute** karna chahein, to **date_range aggregation** ka use karenge.  
 
 💡 **Scenario:**  
@@ -125,7 +128,8 @@ Hume dekhna hai ki **2016 ke first aur second half me kitne purchases hue**.
 
 ---
 
-## 🎨 **4. Result Formatting aur Custom Keys**  
+## 🎨 **4. Result Formatting aur Custom Keys**  <a id="4"></a>
+
 Elasticsearch **default me buckets ke keys** ko `"from-to"` format me show karta hai.  
 Agar hume **custom keys ya specific date format** chahiye, to hum `"format"` aur `"key"` parameters ka use kar sakte hain.  
 
@@ -168,7 +172,8 @@ Agar hume **custom keys ya specific date format** chahiye, to hum `"format"` aur
 
 ---
 
-## 📊 **5. Sub-Aggregations: Bucket Statistics**  
+## 📊 **5. Sub-Aggregations: Bucket Statistics**  <a id="5"></a>
+
 Sirf **document counts lena enough nahi hota**, **hume aur details bhi chahiye**.  
 
 💡 **Scenario:**  
@@ -214,7 +219,8 @@ Har price range me **total, min, max, avg, aur count** nikalna hai.
 
 ---
 
-## 🔄 **6. Recap: Key Takeaways**  
+## 🔄 **6. Recap: Key Takeaways**  <a id="6"></a>
+
 ✔ **Range aggregation se numeric values ko predefined buckets me place kar sakte hain.**  
 ✔ **Date range aggregation se time-based data ko categorize kar sakte hain.**  
 ✔ **Custom keys aur date formats result readability improve karte hain.**  

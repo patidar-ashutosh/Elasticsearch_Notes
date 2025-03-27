@@ -1,16 +1,16 @@
 ### 📌 **Table of Contents**  
 
-1️⃣ **Introduction - Document Counts Approximate Kyun Hote Hain?** 🧐  
-2️⃣ **Elasticsearch Cluster ka Role** 🏗️  
-3️⃣ **Terms Aggregation ka Process (Step-by-Step)** 🔄  
-4️⃣ **Example: Shards ke Top Terms Aur Aggregation Issue** 🛠️  
-5️⃣ **doc_count_error_upper_bound Kya Hai?** 📉  
-6️⃣ **Accuracy vs Performance - Trade-off** ⚖️  
-7️⃣ **Best Practices (Size Parameter Ka Effect)** 🎯  
+1️⃣ [Introduction - Document Counts Approximate Kyun Hote Hain?](#1) 🧐  
+2️⃣ [Elasticsearch Cluster ka Role](#2) 🏗️  
+3️⃣ [Terms Aggregation ka Process (Step-by-Step)](#3) 🔄  
+4️⃣ [Example: Shards ke Top Terms Aur Aggregation Issue](#4) 🛠️  
+5️⃣ [doc_count_error_upper_bound Kya Hai?](#5) 📉  
+6️⃣ [Accuracy vs Performance - Trade-off](#6) ⚖️  
+7️⃣ [Best Practices (Size Parameter Ka Effect)](#7) 🎯  
 
 ---
 
-### 🔍 **1️⃣ Introduction - Document Counts Approximate Kyun Hote Hain?**  
+## 🔍 **1️⃣ Introduction - Document Counts Approximate Kyun Hote Hain?**  <a id="1"></a>
 
 Jaise hi hum **terms aggregation** lagate hain, Elasticsearch documents ko **buckets** me group karta hai. ⚡  
 Par **ek issue** hai—**counts hamesha accurate nahi hote**. ❌  
@@ -24,7 +24,7 @@ Is wajah se **document counting process** thodi inaccurate ho sakti hai.
 
 ---
 
-### 🏗️ **2️⃣ Elasticsearch Cluster ka Role**  
+## 🏗️ **2️⃣ Elasticsearch Cluster ka Role**  <a id="2"></a>
 
 Elasticsearch **ek distributed system** hai, jisme **index ka data shards** me store hota hai.  
 Jab hum **terms aggregation** chalate hain, to **coordinating node** har **shard** se top results leta hai.  
@@ -39,7 +39,7 @@ Fir **coordinating node** inhe merge karega. 🚀
 
 ---
 
-### 🔄 **3️⃣ Terms Aggregation ka Process (Step-by-Step)**  
+## 🔄 **3️⃣ Terms Aggregation ka Process (Step-by-Step)**  <a id="3"></a>
 
 Maan lo humare paas **3 shards (A, B, C)** hain, jisme **order documents** store hain.  
 Aur hum ek aggregation chala rahe hain jo **product_name** field pe kaam karega.  
@@ -58,7 +58,7 @@ Aur hum ek aggregation chala rahe hain jo **product_name** field pe kaam karega.
 
 ---
 
-### 🛠️ **4️⃣ Example: Shards ke Top Terms Aur Aggregation Issue**  
+## 🛠️ **4️⃣ Example: Shards ke Top Terms Aur Aggregation Issue**  <a id="4"></a>
 
 Agar hum **size: 3** ka query chalayein, to **har shard apne top 3 products return karega**.  
 
@@ -78,7 +78,7 @@ Agar hum **size: 3** ka query chalayein, to **har shard apne top 3 products retu
 
 ---
 
-### 📉 **5️⃣ doc_count_error_upper_bound Kya Hai?**  
+## 📉 **5️⃣ doc_count_error_upper_bound Kya Hai?**  <a id="5"></a>
 
 `doc_count_error_upper_bound` ek special **error margin** hota hai jo batata hai ki **counts maximum kitna galat ho sakta hai**.  
 
@@ -92,7 +92,7 @@ Agar hum **size: 3** ka query chalayein, to **har shard apne top 3 products retu
 
 ---
 
-### ⚖️ **6️⃣ Accuracy vs Performance - Trade-off**  
+## ⚖️ **6️⃣ Accuracy vs Performance - Trade-off**  <a id="6"></a>
 
 **Accuracy increase karne ka ek tareeka hai—`size` parameter badhaya jaye.**  
 
@@ -108,7 +108,7 @@ Agar hum **size: 3** ka query chalayein, to **har shard apne top 3 products retu
 
 ---
 
-### 🎯 **7️⃣ Best Practices (Size Parameter Ka Effect)**  
+## 🎯 **7️⃣ Best Practices (Size Parameter Ka Effect)**  <a id="7"></a>
 
 ✅ **Size parameter ko 10 ya usse zyada rakho** accuracy ke liye.  
 ✅ **Large data sets me aggregation queries optimize karo**.  

@@ -24,7 +24,7 @@
 
 ---
 
-## 1️⃣ 🎯 **Introduction to Metric Aggregations** <a name="1"></a>
+## 1️⃣ 🎯 **Introduction to Metric Aggregations** <a id="1"></a>
 Metric aggregations Elasticsearch me **numeric fields** pe aggregations perform karne ke liye hoti hain. Ye aggregations search queries ke results ya **poore index ke documents** pe apply ho sakti hain.  
 
 Jaise agar ek `orders` index me **total_amount** field hai, to hum `sum`, `avg`, `min`, `max`, `count` ya `stats` aggregation apply karke different calculations nikal sakte hain.  
@@ -35,9 +35,9 @@ Jaise agar ek `orders` index me **total_amount** field hai, to hum `sum`, `avg`,
 
 ---
 
-## 2️⃣ 🔢 **Single-Value Metric Aggregations** <a name="2"></a>
+## 2️⃣ 🔢 **Single-Value Metric Aggregations** <a id="2"></a>
 
-### 2.1 🔢 **Sum Aggregation** <a name="2.1"></a>
+### 2.1 🔢 **Sum Aggregation** <a id="2.1"></a>
 Yeh aggregation ek numeric field ke **sum (योग)** ko return karti hai.  
 
 🔹 **Use Case:** Total sales calculate karna.  
@@ -69,7 +69,7 @@ GET orders/_search
 
 ---
 
-### 2.2 📊 **Average Aggregation** <a name="2.2"></a>
+### 2.2 📊 **Average Aggregation** <a id="2.2"></a>
 Yeh aggregation ek numeric field ka **average (औसत)** calculate karti hai.  
 
 🔹 **Use Case:** Average order value nikalna.  
@@ -101,7 +101,7 @@ GET orders/_search
 
 ---
 
-### 2.3 📉 **Min Aggregation** <a name="2.3"></a>
+### 2.3 📉 **Min Aggregation** <a id="2.3"></a>
 Yeh aggregation ek numeric field ka **sabse chhota (minimum) value** return karti hai.  
 
 🔹 **Use Case:** Sabse sasta order ka amount nikalna.  
@@ -133,7 +133,7 @@ GET orders/_search
 
 ---
 
-### 2.4 📈 **Max Aggregation** <a name="2.4"></a>
+### 2.4 📈 **Max Aggregation** <a id="2.4"></a>
 Yeh aggregation ek numeric field ka **sabse bada (maximum) value** return karti hai.  
 
 🔹 **Use Case:** Sabse expensive order ka amount nikalna.  
@@ -165,7 +165,7 @@ GET orders/_search
 
 ---
 
-### 2.5 🔢 **Value Count Aggregation** <a name="2.5"></a>
+### 2.5 🔢 **Value Count Aggregation** <a id="2.5"></a>
 Yeh aggregation ek numeric field ke **total count** ko return karti hai.  
 
 🔹 **Use Case:** Total number of orders count karna.  
@@ -197,9 +197,9 @@ GET orders/_search
 
 ---
 
-## 3️⃣ 📊 **Multi-Value Metric Aggregations** <a name="3"></a>
+## 3️⃣ 📊 **Multi-Value Metric Aggregations** <a id="3"></a>
 
-### 3.1 📊 **Stats Aggregation** <a name="3.1"></a>
+### 3.1 📊 **Stats Aggregation** <a id="3.1"></a>
 Yeh ek **combined aggregation** hai jo **sum, avg, min, max, aur count** ek sath return karti hai.  
 
 🔹 **Use Case:** Ek hi query me multiple stats chahiye ho.  
@@ -235,7 +235,46 @@ GET orders/_search
 
 ---
 
-### 3.3 🎯 **Cardinality Aggregation** <a name="3.3"></a>
+### 3.2 📊 **Extended Stats Aggregation** <a id="3.2"></a>
+Yeh aggregation **stats aggregation** ka extended version hai jo extra statistical metrics provide karta hai jaise **standard deviation, variance, sum_of_squares, aur avg**.
+
+🔹 **Use Case:** Advanced analytics ke liye zyada insights chahiye ho.  
+🔹 **Example Query:**
+```json
+GET orders/_search
+{
+  "size": 0,
+  "aggs": {
+    "extended_amount_stats": {
+      "extended_stats": {
+        "field": "total_amount"
+      }
+    }
+  }
+}
+```
+🔹 **Expected Output:**
+```json
+{
+  "aggregations": {
+    "extended_amount_stats": {
+      "count": 1000,
+      "min": 100.0,
+      "max": 50000.0,
+      "avg": 2500.0,
+      "sum": 250000.0,
+      "sum_of_squares": 1.25e+10,
+      "variance": 6250000.0,
+      "std_deviation": 2500.0
+    }
+  }
+}
+```
+👉 Matlab, **yeh normal stats aggregation ka advanced version hai jo extra mathematical insights deta hai.**  
+
+---
+
+### 3.3 🎯 **Cardinality Aggregation** <a id="3.3"></a>
 Yeh aggregation **unique values** count karti hai.  
 
 🔹 **Use Case:** Kitne unique salesmen hain count karna.  
@@ -267,3 +306,35 @@ GET orders/_search
 
 ---
 
+## 4️⃣ 🛠️ **Practical Example with Query** <a id="4"></a>
+Agar hume **ek saath multiple aggregations** execute karni ho to hum ek combined query likh sakte hain.
+
+🔹 **Example Query:**
+```json
+GET orders/_search
+{
+  "size": 0,
+  "aggs": {
+    "total_sales": { "sum": { "field": "total_amount" } },
+    "avg_order_value": { "avg": { "field": "total_amount" } },
+    "min_order_value": { "min": { "field": "total_amount" } },
+    "max_order_value": { "max": { "field": "total_amount" } },
+    "total_orders": { "value_count": { "field": "total_amount" } }
+  }
+}
+```
+🔹 **Expected Output:**
+```json
+{
+  "aggregations": {
+    "total_sales": { "value": 250000.0 },
+    "avg_order_value": { "value": 2500.0 },
+    "min_order_value": { "value": 100.0 },
+    "max_order_value": { "value": 50000.0 },
+    "total_orders": { "value": 1000 }
+  }
+}
+```
+👉 Matlab, **hum ek hi request me multiple aggregations ka result nikal sakte hain.**  
+
+---

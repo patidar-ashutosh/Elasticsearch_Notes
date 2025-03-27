@@ -1,17 +1,19 @@
 # 📌 Introduction to Aggregations in **Elasticsearch**  
 
 ## 📑 **Table of Contents**  
-1. 🔍 **Introduction** – Aggregations Kya Hain?  
-2. 📊 **Why Aggregations?** – Use Cases  
-3. 🏗 **Understanding Execution Context**  
-4. 🎯 **Basic Example: Grouping Orders by Product ID**  
-5. 🛠 **Important Fields in Our Test Data**  
-6. 🔢 **Types of Aggregations in Elasticsearch**  
-7. ✅ **Next Steps & Best Practices**  
+
+1️⃣ **[🔍 Introduction – Aggregations Kya Hain?](#1)**  
+2️⃣ **[📊 Why Aggregations? – Use Cases](#2)**  
+3️⃣ **[🏗 Understanding Execution Context](#3)**  
+4️⃣ **[🎯 Basic Example: Grouping Orders by Product ID](#4)**  
+5️⃣ **[🛠 Important Fields in Our Test Data](#5)**  
+6️⃣ **[🔢 Types of Aggregations in Elasticsearch](#6)**  
+7️⃣ **[✅ Next Steps & Best Practices](#7)**  
 
 ---
 
-## 🔍 **1. Introduction – Aggregations Kya Hain?**  
+## 🔍 **1. Introduction – Aggregations Kya Hain?**  <a id="1"></a>
+
 Elasticsearch me **aggregations** ek **powerful feature** hai jo tumhe data ko group karne, analyze karne, aur statistical summaries nikalne ki ability deti hai.  
 
 Agar tum SQL se familiar ho, toh tumhe `GROUP BY`, `SUM()`, `AVG()`, `COUNT()` jaise functions pata honge. **Elasticsearch aggregations usse bhi zyada advanced aur flexible hain!**  
@@ -23,7 +25,8 @@ Agar tum SQL se familiar ho, toh tumhe `GROUP BY`, `SUM()`, `AVG()`, `COUNT()` j
 
 ---
 
-## 📊 **2. Why Aggregations? – Use Cases**  
+## 📊 **2. Why Aggregations? – Use Cases**  <a id="2"></a>
+
 Aggregations tumhare **big data analytics** ke liye bahut useful hain. Kuch real-world scenarios dekho:  
 
 | 💡 **Use Case** | 🎯 **Aggregation Type** |
@@ -36,7 +39,8 @@ Aggregations tumhare **big data analytics** ke liye bahut useful hain. Kuch real
 
 ---
 
-## 🏗 **3. Understanding Execution Context**  
+## 🏗 **3. Understanding Execution Context**  <a id="3"></a>
+
 Aggregation queries **document set** pe kaam karti hain, jo **execution context** ke through define hota hai.  
 
 🚀 **Example:**  
@@ -46,7 +50,8 @@ Aggregation queries **document set** pe kaam karti hain, jo **execution context*
 
 ---
 
-## 🎯 **4. Basic Example: Grouping Orders by Product ID**  
+## 🎯 **4. Basic Example: Grouping Orders by Product ID**  <a id="4"></a>
+
 Samjho ki tumhare paas **orders index** hai aur tum har **product ID** ke basis pe **total amount** dekhna chahte ho.  
 
 ### ✅ **Query: Sum of Sales per Product**
@@ -85,7 +90,8 @@ Samjho ki tumhare paas **orders index** hai aur tum har **product ID** ke basis 
 
 ---
 
-## 🛠 **5. Important Fields in Our Test Data**  
+## 🛠 **5. Important Fields in Our Test Data**  <a id="5"></a>
+
 Test data me **orders index** ka structure kuch aisa hai:  
 
 | 🏷 **Field** | 🔍 **Description** |
@@ -105,7 +111,8 @@ Test data me **orders index** ka structure kuch aisa hai:
 
 ---
 
-## 🔢 **6. Types of Aggregations in Elasticsearch**  
+## 🔢 **6. Types of Aggregations in Elasticsearch**  <a id="6"></a>
+
 Aggregations kaafi **categories me divided** hoti hain. Tumhe **Metric Aggregations** se start karna chahiye.
 
 ### 🔹 **Metric Aggregations (Statistics ke liye)**  
@@ -176,13 +183,11 @@ Agar tumhe **nested objects** ke andar aggregations chalani hain, toh tumhe **ne
 
 ---
 
-## ✅ **7. Next Steps & Best Practices**  
+## ✅ **7. Next Steps & Best Practices**  <a id="7"></a>
+
 ✔ **Aggregation queries ko optimize karo** `size: 0` use karke taaki unnecessary documents return na ho.  
 ✔ **Fields ko keyword type me store karo** agar tum `terms` aggregation use kar rahe ho.  
 ✔ **Nested aggregations ka dhyan rakho** agar tumhare data me objects ke andar objects hain.  
 ✔ **Pipeline aggregations** explore karo complex calculations ke liye.  
 
 ---
-
-## 🚀 **What’s Next?**  
-💡 **Next topic me hum Metric Aggregations ko detail me dekhenge!**  

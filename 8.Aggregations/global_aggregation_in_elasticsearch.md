@@ -10,15 +10,16 @@ Lekin **Global Aggregation** ka use karne se **poore index ke documents** aggreg
 
 ## 📌 **Table of Contents**  
 
-1️⃣ [🔍 Global Aggregation Kya Hai?](#1-global-aggregation-kya-hai)  
-2️⃣ [⚙️ Global Aggregation Kaise Kaam Karta Hai?](#2-global-aggregation-kaise-kaam-karta-hai)  
-3️⃣ [📝 Example: Global Aggregation](#3-example-global-aggregation)  
-4️⃣ [📊 Comparing Global & Normal Aggregation](#4-comparing-global-and-normal-aggregation)  
-5️⃣ [⚠️ Important Notes](#5-important-notes)  
+1️⃣ [🔍 Global Aggregation Kya Hai?](#1)  
+2️⃣ [⚙️ Global Aggregation Kaise Kaam Karta Hai?](#2)  
+3️⃣ [📝 Example: Global Aggregation](#3)  
+4️⃣ [📊 Comparing Global & Normal Aggregation](#4)  
+5️⃣ [⚠️ Important Notes](#5)  
+6️⃣ [🎯 Conclusion](#6)
 
 ---
 
-## 1️⃣ 🔍 **Global Aggregation Kya Hai?**  
+## 1️⃣ 🔍 **Global Aggregation Kya Hai?**  <a id="1"></a>
 
 Jab tum ek query Elasticsearch me run karte ho, to aggregation **sirf wahi documents consider karti hai** jo query ke filter ke andar aate hain.  
 
@@ -32,7 +33,7 @@ Maan lo ki humare paas ek index hai jo **orders** store karta hai, aur hum sirf 
 
 ---
 
-## 2️⃣ ⚙️ **Global Aggregation Kaise Kaam Karta Hai?**  
+## 2️⃣ ⚙️ **Global Aggregation Kaise Kaam Karta Hai?**  <a id="2"></a>
 
 🔹 **Normal aggregations** sirf filtered documents pe kaam karti hain.  
 🔹 **Global aggregation** index ke **sabhi documents** ko consider karti hai, chahe koi filter laga ho ya na ho.  
@@ -41,7 +42,7 @@ Maan lo ki humare paas ek index hai jo **orders** store karta hai, aur hum sirf 
 
 ---
 
-## 3️⃣ 📝 **Example: Global Aggregation**  
+## 3️⃣ 📝 **Example: Global Aggregation**  <a id="3"></a>
 
 👀 **Query Without Global Aggregation**  
 
@@ -125,7 +126,7 @@ Maan lo ki humare paas ek index hai jo **orders** store karta hai, aur hum sirf 
 
 ---
 
-## 4️⃣ 📊 **Comparing Global & Normal Aggregation**  
+## 4️⃣ 📊 **Comparing Global & Normal Aggregation**  <a id="4"></a>
 
 | Feature               | Normal Aggregation            | Global Aggregation              |  
 |-----------------------|-----------------------------|---------------------------------|  
@@ -141,7 +142,7 @@ Maan lo ki humare paas ek index hai jo **orders** store karta hai, aur hum sirf 
 
 ---
 
-## 5️⃣ ⚠️ **Important Notes**  
+## 5️⃣ ⚠️ **Important Notes**  <a id="5"></a>
 
 🔹 **Global Aggregation hamesha top-level pe hoti hai.**  
 🔹 **Sub-aggregations** ko allow karti hai, lekin khud kisi aur aggregation ka part nahi ban sakti.  
@@ -149,7 +150,7 @@ Maan lo ki humare paas ek index hai jo **orders** store karta hai, aur hum sirf 
 
 ---
 
-## 🎯 **Conclusion**  
+## 6️⃣ 🎯 **Conclusion**  <a id="6"></a>
 
 ✅ **Global Aggregation** query ke scope se bahar nikal kar **poore index ke documents pe kaam karti hai.**  
 ✅ **Iska use tab hota hai jab filtered documents aur full dataset ka comparison karna ho.**  
