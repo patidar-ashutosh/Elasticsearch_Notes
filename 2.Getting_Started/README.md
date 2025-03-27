@@ -1,13 +1,13 @@
-[Understanding the basic architecture](./understanding_the_basic_architecture.md)
+1. [Understanding the Basic Architecture](./understanding_the_basic_architecture.md)  
 
-[Inspecting the cluster](./inspecting_the_cluster.md)
+2. [Inspecting the Cluster](./inspecting_the_cluster.md)  
 
-[Sharding and scalability](./sharding_and_scalability.md)
+3. [Sharding and Scalability](./sharding_and_scalability.md)  
 
-[Understanding Replication in Elasticsearch](./understanding_replication_in_elasticsearch.md)
+4. [Understanding Replication in Elasticsearch](./understanding_replication_in_elasticsearch.md)  
 
-[Overview of node roles](./overview_of_node_roles.md)
+5. [Overview of Node Roles](./overview_of_node_roles.md)  
 
-[Replication & Snapshot](./replication_and_snapshot.md)
+6. [Replication & Snapshot](./replication_and_snapshot.md)  
 
-[Delaying Allocation](./delaying_allocation.md)
+7. [Delaying Allocation](./delaying_allocation.md)  

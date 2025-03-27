@@ -1,13 +1,13 @@
-[Specifying the Result Format](./specifying_the_result_format.md)
+1. [Specifying the Result Format](./specifying_the_result_format.md)  
 
-[Source Filtering](./source_filtering.md)
+2. [Source Filtering](./source_filtering.md)  
 
-[Specifying the Result Size](./specifying_the_result_size.md)
+3. [Specifying the Result Size](./specifying_the_result_size.md)  
 
-[Specifying an Offset](./specifying_an_offset.md)
+4. [Specifying an Offset](./specifying_an_offset.md)  
 
-[Pagination](./pagination.md)
+5. [Pagination](./pagination.md)  
 
-[Sorting Results in Elasticsearch](./sorting_results_in_elasticsearch.md)
+6. [Sorting Results in Elasticsearch](./sorting_results_in_elasticsearch.md)  
 
-[Sorting by Multi-Value Fields](./sorting_by_multi-value_fields.md)
+7. [Sorting by Multi-Value Fields](./sorting_by_multi-value_fields.md)  

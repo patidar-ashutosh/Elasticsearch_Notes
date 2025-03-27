@@ -1,23 +1,23 @@
-[Introduction to Aggregations in Elasticsearch](./introduction_to_aggregations_in_elasticsearch.md)
+1. [Introduction to Aggregations in Elasticsearch](./introduction_to_aggregations_in_elasticsearch.md)  
 
-[Metric Aggregations](./metric_aggregations.md)
+2. [Metric Aggregations](./metric_aggregations.md)  
 
-[Introduction to Bucket Aggregations](./introduction_to_bucket_aggregations.md)
+3. [Introduction to Bucket Aggregations](./introduction_to_bucket_aggregations.md)  
 
-[Document Counts Approximately](./document_counts_approximately.md)
+4. [Document Counts Approximately](./document_counts_approximately.md)  
 
-[Nested Aggregations in Elasticsearch](./nested_aggregations_in_elasticsearch.md)
+5. [Nested Aggregations in Elasticsearch](./nested_aggregations_in_elasticsearch.md)  
 
-[Filtering Out Documents in Aggregations](./filtering_out_documents_in_aggregations.md)
+6. [Filtering Out Documents in Aggregations](./filtering_out_documents_in_aggregations.md)  
 
-[Defining Bucket Rules with Filters](./defining_bucket_rules_with_filters.md)
+7. [Defining Bucket Rules with Filters](./defining_bucket_rules_with_filters.md)  
 
-[Range Aggregations in Elasticsearch](./range_aggregations_in_elasticsearch.md)
+8. [Range Aggregations in Elasticsearch](./range_aggregations_in_elasticsearch.md)  
 
-[Histograms in Elasticsearch](./histograms_in_elasticsearch.md)
+9. [Histograms in Elasticsearch](./histograms_in_elasticsearch.md)  
 
-[Global Aggregation in Elasticsearch](./global_aggregation_in_elasticsearch.md)
+10. [Global Aggregation in Elasticsearch](./global_aggregation_in_elasticsearch.md)  
 
-[Missing Field Values in Elasticsearch](./missing_field_values_in_elasticsearch.md)
+11. [Missing Field Values in Elasticsearch](./missing_field_values_in_elasticsearch.md)  
 
-[Aggregating Nested Objects](./aggregating_nested_objects.md)
+12. [Aggregating Nested Objects](./aggregating_nested_objects.md)  
