@@ -2,16 +2,16 @@
 
 ## 📖 Table of Contents  
 
-1️⃣ **🚀 Introduction: Why Result Formatting Matters?**  
-2️⃣ **📝 Converting JSON to YAML Output**  
-3️⃣ **🎨 Pretty JSON Formatting for Readability**  
-4️⃣ **💻 Running Queries in Terminal (cURL Example)**  
-5️⃣ **⚠️ When to Use Pretty Formatting?**  
-6️⃣ **🔚 Summary & Key Takeaways**  
+1️⃣ **[🚀 Introduction: Why Result Formatting Matters?](#1)**  
+2️⃣ **[📝 Converting JSON to YAML Output](#2)**  
+3️⃣ **[🎨 Pretty JSON Formatting for Readability](#3)**  
+4️⃣ **[💻 Running Queries in Terminal (cURL Example)](#4)**  
+5️⃣ **[⚠️ When to Use Pretty Formatting?](#5)**  
+6️⃣ **[🔚 Summary & Key Takeaways](#6)**  
 
 ---
 
-## 1️⃣ 🚀 Introduction: Why Result Formatting Matters?  
+## 1️⃣ 🚀 Introduction: Why Result Formatting Matters?  <a id="1"></a>
 
 Elasticsearch **by default JSON format me results return karta hai**, lekin kabhi-kabhi **readability improve karne ke liye formatting zaroori hoti hai**.  
 
@@ -22,7 +22,7 @@ Elasticsearch **by default JSON format me results return karta hai**, lekin kabh
 
 ---
 
-## 2️⃣ 📝 Converting JSON to YAML Output  
+## 2️⃣ 📝 Converting JSON to YAML Output  <a id="2"></a>
 
 👉 **Elasticsearch ke response ko YAML format me convert karne ke liye ek simple query parameter add karna hota hai.**  
 
@@ -48,7 +48,7 @@ hits:
 
 ---
 
-## 3️⃣ 🎨 Pretty JSON Formatting for Readability  
+## 3️⃣ 🎨 Pretty JSON Formatting for Readability  <a id="3"></a>
 
 By default, Elasticsearch ke raw JSON results **compact hote hain**, jo ki terminal me **hard to read** hote hain.  
 
@@ -88,7 +88,7 @@ GET my_index/_search?pretty
 
 ---
 
-## 4️⃣ 💻 Running Queries in Terminal (cURL Example)  
+## 4️⃣ 💻 Running Queries in Terminal (cURL Example)  <a id="4"></a>
 
 Agar tum Kibana console ki jagah **directly terminal me queries run kar rahe ho**, to format manually set karna padega.  
 
@@ -112,7 +112,7 @@ curl -X GET "http://localhost:9200/my_index/_search?pretty"
 
 ---
 
-## 5️⃣ ⚠️ When to Use Pretty Formatting?  
+## 5️⃣ ⚠️ When to Use Pretty Formatting?  <a id="5"></a>
 
 🛠️ **Use pretty formatting:**  
 ✅ **Debugging ke waqt**  
@@ -125,7 +125,7 @@ curl -X GET "http://localhost:9200/my_index/_search?pretty"
 
 ---
 
-## 6️⃣ 🔚 Summary & Key Takeaways  
+## 6️⃣ 🔚 Summary & Key Takeaways  <a id="6"></a>
 
 ✅ **JSON ko YAML format me convert kar sakte hain (`?format=yaml`)**  
 ✅ **Pretty JSON response ke liye (`?pretty`) parameter use karein**  

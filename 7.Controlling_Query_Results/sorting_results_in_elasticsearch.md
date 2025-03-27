@@ -1,24 +1,26 @@
 # 📌 Sorting Results in **Elasticsearch**  
 
 ## 📑 Table of Contents  
-1. 🔍 **Introduction** – Sorting Basics  
-2. 📜 **Simple Sorting** – Sorting by a Single Field  
-3. 🔄 **Sorting Order** – Ascending vs. Descending  
-4. 🔢 **Sorting by Multiple Fields**  
-5. 🎯 **Sorting by Score**  
-6. 🛠 **Elasticsearch’s Internal Sorting Mechanism**  
-7. ✅ **Conclusion & Key Takeaways**  
+
+1️⃣ **[🔍 Introduction – Sorting Basics](#1)**  
+2️⃣ **[📜 Simple Sorting – Sorting by a Single Field](#2)**  
+3️⃣ **[🔄 Sorting Order – Ascending vs. Descending](#3)**  
+4️⃣ **[🔢 Sorting by Multiple Fields](#4)**  
+5️⃣ **[🎯 Sorting by Score](#5)**  
+6️⃣ **[🛠 Elasticsearch’s Internal Sorting Mechanism](#6)**  
+7️⃣ **[✅ Conclusion & Key Takeaways](#7)**  
 
 ---
 
-## 🔍 **1. Introduction** – Sorting Basics  
+## 🔍 **1. Introduction** – Sorting Basics  <a id="1"></a>
+
 Sorting results in **Elasticsearch** is similar to using `ORDER BY` in SQL. Agar tumhare paas kaafi saare **documents** hain aur tum chahte ho ki **koi specific order me aaye**, toh tum **sort** parameter ka use kar sakte ho.  
 
 Jaise agar tumhe **sabse kam preparation time wale recipes dikhani hain**, toh tum **preparation_time_minutes** field pe **ascending order me sort** kar sakte ho.
 
 ---
 
-## 📜 **2. Simple Sorting** – Sorting by a Single Field  
+## 📜 **2. Simple Sorting** – Sorting by a Single Field  <a id="2"></a>
 
 ### ✅ **Query:** Sorting Recipes by Preparation Time (Ascending)
 ```json
@@ -50,7 +52,8 @@ Same result aayega, lekin explicitly `asc` likhna readability ke liye better hai
 
 ---
 
-## 🔄 **3. Sorting Order** – Ascending vs. Descending  
+## 🔄 **3. Sorting Order** – Ascending vs. Descending  <a id="3"></a>
+
 Sorting order ko **asc (ascending)** ya **desc (descending)** se define kar sakte ho.
 
 ### ✅ **Query:** Sorting by `created` Field (Descending)
@@ -77,7 +80,8 @@ Sorting order ko **asc (ascending)** ya **desc (descending)** se define kar sakt
 
 ---
 
-## 🔢 **4. Sorting by Multiple Fields**  
+## 🔢 **4. Sorting by Multiple Fields**  <a id="4"></a>
+
 Kabhi-kabhi tumhe ek se **zyada fields** ke basis pe sorting karni pad sakti hai.  
 
 ### ✅ **Query:**  
@@ -115,7 +119,8 @@ Preparation Time | Created Date
 
 ---
 
-## 🎯 **5. Sorting by Score**  
+## 🎯 **5. Sorting by Score**  <a id="5"></a>
+
 Elasticsearch me by default results **relevance score ke basis pe sort hote hain**, par agar tum **custom sorting** use kar rahe ho toh manually `_score` include karna padega.
 
 ### ✅ **Query:** Sorting by Score
@@ -136,7 +141,8 @@ Elasticsearch me by default results **relevance score ke basis pe sort hote hain
 
 ---
 
-## 🛠 **6. Elasticsearch’s Internal Sorting Mechanism**  
+## 🛠 **6. Elasticsearch’s Internal Sorting Mechanism**  <a id="6"></a>
+
 1. **Dates →** Elasticsearch internally dates ko **milliseconds since epoch** me store karta hai.
 2. **Text Fields →** Directly sort nahi ho sakti (`keyword` type ya `fielddata: true` lagana padta hai).
 3. **Score Sorting →** Default sorting `_score` ke basis pe hoti hai.
@@ -147,7 +153,8 @@ Elasticsearch me by default results **relevance score ke basis pe sort hote hain
 
 ---
 
-## ✅ **7. Conclusion & Key Takeaways**  
+## ✅ **7. Conclusion & Key Takeaways**  <a id="7"></a>
+
 ✔ **Sorting Elasticsearch me simple hai, SQL ke ORDER BY jaisa kaam karta hai.**  
 ✔ **Default sorting ascending hoti hai, explicitly define bhi kar sakte ho.**  
 ✔ **Multiple fields pe sort karna possible hai (pehle primary sort, phir secondary sort).**  

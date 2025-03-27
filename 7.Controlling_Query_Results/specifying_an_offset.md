@@ -2,16 +2,16 @@
 
 ## 📖 Table of Contents  
 
-1️⃣ **🔍 Introduction: Why Use an Offset?**  
-2️⃣ **⚙️ `from` Parameter: How It Works**  
-3️⃣ **📌 Example Queries: Implementing Offsets**  
-4️⃣ **📊 SQL vs Elasticsearch: Offset Comparison**  
-5️⃣ **🛠️ Best Practices & Performance Considerations**  
-6️⃣ **🔚 Summary & Key Takeaways**  
+1️⃣ **[🔍 Introduction: Why Use an Offset?](#1)**  
+2️⃣ **[⚙️ `from` Parameter: How It Works](#2)**  
+3️⃣ **[📌 Example Queries: Implementing Offsets](#3)**  
+4️⃣ **[📊 SQL vs Elasticsearch: Offset Comparison](#4)**  
+5️⃣ **[🛠️ Best Practices & Performance Considerations](#5)**  
+6️⃣ **[🔚 Summary & Key Takeaways](#6)**  
 
 ---
 
-## 1️⃣ 🔍 Introduction: Why Use an Offset?  
+## 1️⃣ 🔍 Introduction: Why Use an Offset?  <a id="1"></a>
 
 🔹 Tumne abhi **size parameter** ka use karke **number of results control karna seekha**, lekin agar tumhe **agli page ke results retrieve karne hain** to kya karoge?  
 🔹 **Solution:** Elasticsearch me tum `from` parameter ka use karke **kitne documents skip karne hain yeh define kar sakte ho.**  
@@ -23,7 +23,7 @@
 
 ---
 
-## 2️⃣ ⚙️ `from` Parameter: How It Works  
+## 2️⃣ ⚙️ `from` Parameter: How It Works  <a id="2"></a>
 
 ✅ **By default, `from = 0` hota hai** (matlab query first record se start hoti hai).  
 ✅ Agar tum `from = 10` set karte ho, **to first 10 records skip ho jayenge, aur agle results fetch honge.**  
@@ -31,7 +31,7 @@
 
 ---
 
-## 3️⃣ 📌 Example Queries: Implementing Offsets  
+## 3️⃣ 📌 Example Queries: Implementing Offsets  <a id="3"></a>
 
 ### **🚀 Example 1: First Page (0-9 records)**  
 ```json
@@ -78,7 +78,7 @@ GET my_index/_search
 
 ---
 
-## 4️⃣ **📊 SQL vs Elasticsearch: Offset Comparison**  
+## 4️⃣ **📊 SQL vs Elasticsearch: Offset Comparison**  <a id="4"></a>
 
 Agar tum SQL se familiar ho, to tum **Elasticsearch ke `size` aur `from` parameters ko SQL ke `LIMIT` aur `OFFSET` clauses ke equivalent samajh sakte ho.**  
 
@@ -91,7 +91,7 @@ Agar tum SQL se familiar ho, to tum **Elasticsearch ke `size` aur `from` paramet
 
 ---
 
-## 5️⃣ 🛠️ **Best Practices & Performance Considerations**  
+## 5️⃣ 🛠️ **Best Practices & Performance Considerations**  <a id="5"></a>
 
 ⚠️ **Beware of Large Offsets!**  
 - **Agar tum `from: 1000000` set karte ho, to Elasticsearch ko 1 million records skip karne padenge**, jo bohot slow ho sakta hai.  
@@ -103,7 +103,7 @@ Agar tum SQL se familiar ho, to tum **Elasticsearch ke `size` aur `from` paramet
 
 ---
 
-## 6️⃣ 🔚 Summary & Key Takeaways  
+## 6️⃣ 🔚 Summary & Key Takeaways  <a id="6"></a>
 
 ✅ **`from` parameter se tum specify kar sakte ho ki kitne records skip karne hain.**  
 ✅ **Pagination ke liye `from` aur `size` ko combine karna best practice hai.**  

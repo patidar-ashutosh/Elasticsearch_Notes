@@ -2,17 +2,17 @@
 
 ## 📖 Table of Contents  
 
-1️⃣ **🔍 Introduction: Why Source Filtering?**  
-2️⃣ **❌ Disabling `_source` Field Completely**  
-3️⃣ **🎯 Selecting Specific Fields to Return**  
-4️⃣ **📌 Filtering Nested Objects & Wildcards**  
-5️⃣ **⚙️ Advanced Source Filtering (Includes & Excludes)**  
-6️⃣ **🛠️ Comparison with SQL (`SELECT` Statement)**  
-7️⃣ **🔚 Summary & Key Takeaways**  
+1️⃣ **[🔍 Introduction: Why Source Filtering?](#1)**  
+2️⃣ **[❌ Disabling `_source` Field Completely](#2)**  
+3️⃣ **[🎯 Selecting Specific Fields to Return](#3)**  
+4️⃣ **[📌 Filtering Nested Objects & Wildcards](#4)**  
+5️⃣ **[⚙️ Advanced Source Filtering (Includes & Excludes)](#5)**  
+6️⃣ **[🛠️ Comparison with SQL (`SELECT` Statement)](#6)**  
+7️⃣ **[🔚 Summary & Key Takeaways](#7)**  
 
 ---
 
-## 1️⃣ 🔍 Introduction: Why Source Filtering?  
+## 1️⃣ 🔍 Introduction: Why Source Filtering?  <a id="1"></a>
 
 🔹 Elasticsearch me **_source field by default pura document return karta hai**, lekin agar tumhe sirf kuch specific fields chahiye, to **source filtering ka use karke response size optimize kar sakte ho.**  
 
@@ -23,7 +23,7 @@
 
 ---
 
-## 2️⃣ ❌ Disabling `_source` Field Completely  
+## 2️⃣ ❌ Disabling `_source` Field Completely  <a id="2"></a>
 
 Agar tum **sirf document ID retrieve karna chahte ho** aur pura `_source` data nahi chahiye, to `_source` ko **false** set kar sakte ho.  
 
@@ -52,7 +52,7 @@ GET my_index/_search
 
 ---
 
-## 3️⃣ 🎯 Selecting Specific Fields to Return  
+## 3️⃣ 🎯 Selecting Specific Fields to Return  <a id="3"></a>
 
 Agar tum sirf **ek ya kuch specific fields chahte ho**, to `_source` me unka naam specify kar sakte ho.  
 
@@ -93,7 +93,7 @@ GET my_index/_search
 
 ---
 
-## 4️⃣ 📌 Filtering Nested Objects & Wildcards  
+## 4️⃣ 📌 Filtering Nested Objects & Wildcards  <a id="4"></a>
 
 Agar tum nested objects me **kisi specific field** ko access karna chahte ho, to **dot notation** use kar sakte ho.  
 
@@ -134,7 +134,7 @@ GET my_index/_search
 
 ---
 
-## 5️⃣ ⚙️ Advanced Source Filtering (Includes & Excludes)  
+## 5️⃣ ⚙️ Advanced Source Filtering (Includes & Excludes)  <a id="5"></a>
 
 Agar tum kuch fields ko **include/exclude** karna chahte ho, to **advanced filtering** ka use kar sakte ho.  
 
@@ -166,7 +166,7 @@ GET my_index/_search
 
 ---
 
-## 6️⃣ 🛠️ Comparison with SQL (`SELECT` Statement)  
+## 6️⃣ 🛠️ Comparison with SQL (`SELECT` Statement)  <a id="6"></a>
 
 Agar tum SQL background se ho, to `_source` filtering **SQL ke `SELECT column_name` jaisa kaam karta hai.**  
 
@@ -180,7 +180,7 @@ Agar tum SQL background se ho, to `_source` filtering **SQL ke `SELECT column_na
 
 ---
 
-## 7️⃣ 🔚 Summary & Key Takeaways  
+## 7️⃣ 🔚 Summary & Key Takeaways  <a id="7"></a>
 
 ✅ **Agar `_source` ko `false` set karein, to document ka data return nahi hoga.**  
 ✅ **Sirf specific fields return karne ke liye `_source`: `"field_name"` ya `_source`: `["field1", "field2"]` use karein.**  

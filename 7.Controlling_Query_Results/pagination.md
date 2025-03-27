@@ -2,18 +2,18 @@
 
 ## 📖 Table of Contents  
 
-1️⃣ **🔍 Introduction: What is Pagination?**  
-2️⃣ **⚙️ How Pagination Works in Elasticsearch**  
-3️⃣ **📌 Example Queries: Implementing Pagination**  
-4️⃣ **📊 Calculation: Total Pages & Offsets**  
-5️⃣ **⚠️ Deep Pagination Limitations & `search_after`**  
-6️⃣ **🔄 Pagination vs Cursors: Key Differences**  
-7️⃣ **🛠️ Best Practices for Efficient Pagination**  
-8️⃣ **🔚 Summary & Key Takeaways**  
+1️⃣ **[🔍 Introduction: What is Pagination?](#1)**  
+2️⃣ **[⚙️ How Pagination Works in Elasticsearch](#2)**  
+3️⃣ **[📌 Example Queries: Implementing Pagination](#3)**  
+4️⃣ **[📊 Calculation: Total Pages & Offsets](#4)**  
+5️⃣ **[⚠️ Deep Pagination Limitations & `search_after`](#5)**  
+6️⃣ **[🔄 Pagination vs Cursors: Key Differences](#6)**  
+7️⃣ **[🛠️ Best Practices for Efficient Pagination](#7)**  
+8️⃣ **[🔚 Summary & Key Takeaways](#8)**  
 
 ---
 
-## 1️⃣ 🔍 Introduction: What is Pagination?  
+## 1️⃣ 🔍 Introduction: What is Pagination?  <a id="1"></a>
 
 🔹 **Pagination ka matlab hota hai search results ko multiple pages me distribute karna, taaki ek hi request me bohot zyada data na aaye.**  
 🔹 Tumhe **total pages calculate karne hote hain** aur har page ke liye **correct offset set karna hota hai.**  
@@ -21,7 +21,7 @@
 
 ---
 
-## 2️⃣ ⚙️ How Pagination Works in Elasticsearch  
+## 2️⃣ ⚙️ How Pagination Works in Elasticsearch  <a id="2"></a>
 
 ✅ **`size` (Limit):** Ek page me kitne documents fetch karne hain.  
 ✅ **`from` (Offset):** Kitne documents **skip karne hain** before fetching the results.  
@@ -30,7 +30,7 @@
 
 ---
 
-## 3️⃣ 📌 Example Queries: Implementing Pagination  
+## 3️⃣ 📌 Example Queries: Implementing Pagination  <a id="3"></a>
 
 ### **🚀 First Page (0-9 records)**  
 ```json
@@ -77,7 +77,7 @@ GET my_index/_search
 
 ---
 
-## 4️⃣ 📊 Calculation: Total Pages & Offsets  
+## 4️⃣ 📊 Calculation: Total Pages & Offsets  <a id="4"></a>
 
 ✔️ Total number of pages calculate karne ka formula:  
 \[
@@ -104,7 +104,7 @@ Matlab **50 records skip karne hain aur agle 10 fetch karne hain.**
 
 ---
 
-## 5️⃣ ⚠️ Deep Pagination Limitations & `search_after`  
+## 5️⃣ ⚠️ Deep Pagination Limitations & `search_after`  <a id="5"></a>
 
 📌 **Elasticsearch me deep pagination ka limit 10,000 results tak hota hai.**  
 ✔️ Agar **tumhe 10,000+ results fetch karne hain**, to **`search_after` use karo**, jo zyada efficient hota hai.  
@@ -129,7 +129,7 @@ GET my_index/_search
 
 ---
 
-## 6️⃣ 🔄 Pagination vs Cursors: Key Differences  
+## 6️⃣ 🔄 Pagination vs Cursors: Key Differences  <a id="6"></a>
 
 📌 **Elasticsearch queries stateless hoti hain**, matlab **har query fresh results return karti hai.**  
 
@@ -149,7 +149,7 @@ GET my_index/_search
 
 ---
 
-## 7️⃣ 🛠️ Best Practices for Efficient Pagination  
+## 7️⃣ 🛠️ Best Practices for Efficient Pagination  <a id="7"></a>
 
 ✅ **`size` aur `from` ka use sirf small pagination ke liye karo.**  
 ✅ **Deep pagination ke liye `search_after` ya `scroll API` prefer karo.**  
@@ -158,7 +158,7 @@ GET my_index/_search
 
 ---
 
-## 8️⃣ 🔚 Summary & Key Takeaways  
+## 8️⃣ 🔚 Summary & Key Takeaways  <a id="8"></a>
 
 ✅ **`size` se page ka data limit hota hai, aur `from` se offset set hota hai.**  
 ✅ **Total pages = Total Hits ÷ Page Size (rounded up).**  

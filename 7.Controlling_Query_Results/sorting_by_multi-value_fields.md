@@ -1,17 +1,19 @@
 # 📌 Sorting by Multi-Value Fields in **Elasticsearch**  
 
 ## 📑 **Table of Contents**  
-1. 🔍 **Introduction** – Multi-Value Fields  
-2. 📜 **Sorting Modes Overview**  
-3. 🎯 **Sorting by Average (`avg`)**  
-4. ➕ **Sorting by Sum (`sum`)**  
-5. 📊 **Sorting by Min & Max (`min` / `max`)**  
-6. 🗓 **Sorting Dates with Multi-Value Fields**  
-7. ✅ **Conclusion & Best Practices**  
+
+1️⃣ **[🔍 Introduction – Multi-Value Fields](#1)**  
+2️⃣ **[📜 Sorting Modes Overview](#2)**  
+3️⃣ **[🎯 Sorting by Average (`avg`)](#3)**  
+4️⃣ **[➕ Sorting by Sum (`sum`)](#4)**  
+5️⃣ **[📊 Sorting by Min & Max (`min` / `max`)](#5)**  
+6️⃣ **[🗓 Sorting Dates with Multi-Value Fields](#6)**  
+7️⃣ **[✅ Conclusion & Best Practices](#7)**  
 
 ---
 
-## 🔍 **1. Introduction** – Multi-Value Fields  
+## 🔍 **1. Introduction** – Multi-Value Fields  <a id="1"></a>
+
 Kuch fields aisi hoti hain jo **single value ke bajay multiple values** store kar sakti hain. Example ke liye, **ratings** field jo ek **array of numbers** store karti hai.  
 
 Elasticsearch by default **first value** ko consider karta hai sorting ke liye, **lekin** tum `mode` specify karke control kar sakte ho ki kaunsi value use karni hai.
@@ -23,7 +25,8 @@ Elasticsearch by default **first value** ko consider karta hai sorting ke liye, 
 
 ---
 
-## 📜 **2. Sorting Modes Overview**  
+## 📜 **2. Sorting Modes Overview**  <a id="2"></a>
+
 Multi-value fields ko sort karne ke liye **5 sorting modes** hote hain:  
 
 | 🔢 **Mode**  | 📌 **Description** |
@@ -36,7 +39,8 @@ Multi-value fields ko sort karne ke liye **5 sorting modes** hote hain:
 
 ---
 
-## 🎯 **3. Sorting by Average (`avg`)**  
+## 🎯 **3. Sorting by Average (`avg`)**  <a id="3"></a>
+
 Agar tum chahte ho ki **highest average rating** wale recipes pehle aayein, toh `avg` mode ka use kar sakte ho.
 
 ### ✅ **Query: Sorting by Average Rating (Descending)**
@@ -67,7 +71,8 @@ Agar tum chahte ho ki **highest average rating** wale recipes pehle aayein, toh 
 
 ---
 
-## ➕ **4. Sorting by Sum (`sum`)**  
+## ➕ **4. Sorting by Sum (`sum`)**  <a id="4"></a>
+
 Agar tum chahte ho ki **total rating sum** ke basis pe sorting ho, toh `sum` mode ka use kar sakte ho.
 
 ### ✅ **Query: Sorting by Sum of Ratings (Descending)**
@@ -98,7 +103,8 @@ Agar tum chahte ho ki **total rating sum** ke basis pe sorting ho, toh `sum` mod
 
 ---
 
-## 📊 **5. Sorting by Min & Max (`min` / `max`)**  
+## 📊 **5. Sorting by Min & Max (`min` / `max`)**  <a id="5"></a>
+
 Agar tum **sabse chhoti** ya **sabse badi** rating ke basis pe sorting karna chahte ho, toh `min` ya `max` use kar sakte ho.
 
 ### ✅ **Query: Sorting by Max Rating (Descending)**
@@ -131,7 +137,8 @@ Agar tum **sabse chhoti** ya **sabse badi** rating ke basis pe sorting karna cha
 
 ---
 
-## 🗓 **6. Sorting Dates with Multi-Value Fields**  
+## 🗓 **6. Sorting Dates with Multi-Value Fields**  <a id="6"></a>
+
 `min` aur `max` mode **numbers ke saath saath dates pe bhi kaam karta hai.**  
 
 ### ✅ **Query: Sorting by Earliest Created Date (Ascending)**
@@ -162,7 +169,8 @@ Agar tum **sabse chhoti** ya **sabse badi** rating ke basis pe sorting karna cha
 
 ---
 
-## ✅ **7. Conclusion & Best Practices**  
+## ✅ **7. Conclusion & Best Practices**  <a id="7"></a>
+
 ✔ **Multi-value fields Elasticsearch me by default first value ke basis pe sort hote hain.**  
 ✔ **`mode` parameter se tum control kar sakte ho ki kaunsi value sort ke liye use ho.**  
 ✔ **`avg`, `sum`, `min`, `max`, aur `median` modes ka use alag-alag scenarios me hota hai.**  
