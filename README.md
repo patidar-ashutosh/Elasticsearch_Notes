@@ -15,3 +15,8 @@
 8. [Aggregations In Elasticsearch](8.Aggregations/README.md)  
 
 9. [Improving Search Results](9.Improving_Search_Results/README.md)  
+
+
+
+🚀 [One Shot Recap](./One_Shot_Recap/README.md)
+---
