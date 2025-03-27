@@ -1,15 +1,16 @@
 ## 📜 **Table of Contents**  
 
-1️⃣ **[Has Parent Query Kya Hai?](#1-has-parent-query-kya-hai) 🔍**  
-2️⃣ **[Basic Query Syntax](#2-basic-query-syntax) 📝**  
-3️⃣ **[Query Ka Expected Output](#3-query-ka-expected-output) 📊**  
-4️⃣ **[Relevance Score Ka Role](#4-relevance-score-ka-role) 📌**  
-5️⃣ **[Parent ID Query vs Has Parent Query](#5-parent-id-query-vs-parent-id-query) ⚖️**  
-6️⃣ **[Real-World Use Cases](#6-real-world-use-cases) 🌍**  
+1️⃣ **[Has Parent Query Kya Hai?](#1) 🔍**  
+2️⃣ **[Basic Query Syntax](#2) 📝**  
+3️⃣ **[Query Ka Expected Output](#3) 📊**  
+4️⃣ **[Relevance Score Ka Role](#4) 📌**  
+5️⃣ **[Parent ID Query vs Has Parent Query](#5) ⚖️**  
+6️⃣ **[Real-World Use Cases](#6) 🌍**  
+7️⃣ **[Key Takeaways](#7) 🎯**
 
 ---
 
-## 1️⃣ **Has Parent Query Kya Hai?** 🔍  
+## 1️⃣ **Has Parent Query Kya Hai?** 🔍  <a id="1"></a>
 
 Agar tumhe kisi **parent document ke kuch conditions** ke basis pe **child documents** retrieve karne hain, to `has_parent` query use hoti hai.  
 
@@ -19,7 +20,7 @@ Agar tumhe kisi **parent document ke kuch conditions** ke basis pe **child docum
 
 ---
 
-## 2️⃣ **Basic Query Syntax** 📝  
+## 2️⃣ **Basic Query Syntax** 📝  <a id="2"></a>
 
 Chalo ek query likhte hain jo **Development department ke saare employees** ko return karegi:  
 
@@ -45,7 +46,7 @@ GET my_index/_search
 
 ---
 
-## 3️⃣ **Query Ka Expected Output** 📊  
+## 3️⃣ **Query Ka Expected Output** 📊  <a id="3"></a>
 
 Agar **Development department (ID = 1)** ke andar **4 employees** hain, to response kuch aisa aayega:  
 
@@ -79,7 +80,7 @@ Agar **Development department (ID = 1)** ke andar **4 employees** hain, to respo
 
 ---
 
-## 4️⃣ **Relevance Score Ka Role** 📌  
+## 4️⃣ **Relevance Score Ka Role** 📌  <a id="4"></a>
 
 🚨 **Default behavior:** Has Parent Query **parent document ka relevance score ignore karti hai**, aur **flat score = 1** assign hota hai.  
 
@@ -108,7 +109,7 @@ GET my_index/_search
 
 ---
 
-## 5️⃣ **Parent ID Query vs Has Parent Query** ⚖️  
+## 5️⃣ **Parent ID Query vs Has Parent Query** ⚖️  <a id="5"></a>
 
 | Feature | `parent_id` Query | `has_parent` Query |
 |---------|----------------|----------------|
@@ -119,7 +120,7 @@ GET my_index/_search
 
 ---
 
-## 6️⃣ **Real-World Use Cases** 🌍  
+## 6️⃣ **Real-World Use Cases** 🌍  <a id="6"></a>
 
 💼 **HR Database:** **Kaunse employees kisi specific department me hain?**  
 🛒 **E-Commerce:** **Kaunse products kisi discount category ke andar aate hain?**  
@@ -127,7 +128,7 @@ GET my_index/_search
 
 ---
 
-## 🎯 **Key Takeaways**  
+## 7️⃣ **Key Takeaways** 🎯  <a id="7"></a>
 
 ✅ **Has Parent Query** ka use karke tum **parent document ke conditions** ke basis pe **child documents fetch** kar sakte ho.  
 ✅ **`parent_type` option** me **parent relation ka naam** dena zaroori hai.  

@@ -1,16 +1,17 @@
 ## 📜 **Table of Contents**  
 
-1️⃣ **[Documents ko Indexing Karna](#1-documents-ko-indexing-karna) 📄**  
-2️⃣ **[Parent-Child Relationship Kya Hai?](#2-parent-child-relationship-kya-hai) 👨‍👩‍👦**  
-3️⃣ **[Join Field Ka Use Karke Parent Ko Add Karna](#3-join-field-ka-use-karke-parent-ko-add-karna) 🔗**  
-4️⃣ **[Child Documents Ko Parent Se Link Karna](#4-child-documents-ko-parent-se-link-karna) 🧑‍💼➡️🏢**  
-5️⃣ **[Routing Parameter Ka Role](#5-routing-parameter-ka-role) 📌**  
-6️⃣ **[Dynamic Mapping Ka Use](#6-dynamic-mapping-ka-use) 🏗️**  
-7️⃣ **[Complete Example with Expected Output](#7-complete-example-with-expected-output) 💻**  
+1️⃣ **[Documents ko Indexing Karna](#1) 📄**  
+2️⃣ **[Parent-Child Relationship Kya Hai?](#2) 👨‍👩‍👦**  
+3️⃣ **[Join Field Ka Use Karke Parent Ko Add Karna](#3) 🔗**  
+4️⃣ **[Child Documents Ko Parent Se Link Karna](#4) 🧑‍💼➡️🏢**  
+5️⃣ **[Routing Parameter Ka Role](#5) 📌**  
+6️⃣ **[Dynamic Mapping Ka Use](#6) 🏗️**  
+7️⃣ **[Complete Example with Expected Output](#7) 💻**  
+8️⃣ **[Key Takeaways](#8) 🎯**  
 
 ---  
 
-## 1️⃣ **Documents ko Indexing Karna** 📄  
+## 1️⃣ **Documents ko Indexing Karna** 📄  <a id="1"></a>
 
 Elasticsearch me documents JSON format me store hote hain, aur unhe **index** ke andar add karte hain. Basic tarika yeh hai:  
 
@@ -27,7 +28,7 @@ Yeh ek simple document add karega **my_index** ke andar.
 
 ---  
 
-## 2️⃣ **Parent-Child Relationship Kya Hai?** 👨‍👩‍👦  
+## 2️⃣ **Parent-Child Relationship Kya Hai?** 👨‍👩‍👦  <a id="2"></a>
 
 Kayi baar documents ke beech **relation** hota hai. Jaise:  
 
@@ -40,7 +41,7 @@ Normal relational DB me **foreign keys** hoti hain, but Elasticsearch me **join 
 
 ---  
 
-## 3️⃣ **Join Field Ka Use Karke Parent Ko Add Karna** 🔗  
+## 3️⃣ **Join Field Ka Use Karke Parent Ko Add Karna** 🔗  <a id="3"></a>
 
 Jab hum **department (parent document)** ko add karte hain, to hume **join field** specify karni hoti hai.  
 
@@ -56,7 +57,7 @@ PUT my_index/_doc/1
 
 ---  
 
-## 4️⃣ **Child Documents Ko Parent Se Link Karna** 🧑‍💼➡️🏢  
+## 4️⃣ **Child Documents Ko Parent Se Link Karna** 🧑‍💼➡️🏢  <a id="4"></a>
 
 Ab ek **employee (child document)** ko add karte hain aur specify karte hain ki **parent ID** kaunsa hoga.  
 
@@ -78,7 +79,7 @@ PUT my_index/_doc/2?routing=1
 
 ---  
 
-## 5️⃣ **Routing Parameter Ka Role** 📌  
+## 5️⃣ **Routing Parameter Ka Role** 📌  <a id="5"></a>
 
 🚨 Jab parent-child relation use kar rahe ho, to **routing** zaroori hoti hai!  
 
@@ -107,7 +108,7 @@ PUT my_index/_doc/3?routing=1
 
 ---  
 
-## 6️⃣ **Dynamic Mapping Ka Use** 🏗️  
+## 6️⃣ **Dynamic Mapping Ka Use** 🏗️  <a id="6"></a>
 
 💡 Elasticsearch me **fields ko manually define** karna zaroori nahi hai! Agar hum ek naya field (e.g. salary) add kar dein, to Elasticsearch automatically mapping create kar lega.  
 
@@ -129,7 +130,7 @@ Yeh Elasticsearch ka **Dynamic Mapping** feature hai jo naye fields ko automatic
 
 ---  
 
-## 7️⃣ **Complete Example with Expected Output** 💻  
+## 7️⃣ **Complete Example with Expected Output** 💻  <a id="7"></a>
 
 ### ✅ **Parent Document Add Karna (Department)**  
 
@@ -205,7 +206,7 @@ PUT my_index/_doc/3
 
 ---  
 
-## 🎯 **Key Takeaways**  
+## 8️⃣ **Key Takeaways** 🎯 <a id="8"></a> 
 
 ✅ **Join fields** ka use karke **parent-child relation** establish kar sakte hain.  
 ✅ Parent document simple hota hai, but **child document me "parent" ID specify** karni hoti hai.  

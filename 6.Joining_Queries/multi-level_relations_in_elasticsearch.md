@@ -7,20 +7,19 @@ Agar **single-level relation** me ek **parent-child** ka connection hota hai, to
 
 Ye useful hota hai **complex organizational data structures** ko store aur query karne ke liye.  
 
----  
-
 ## 📜 **Table of Contents**  
 
-1️⃣ **🔍 Multi-Level Relations Kya Hote Hain?**  
-2️⃣ **🏗️ Index aur Mapping Setup**  
-3️⃣ **📄 Documents ko Insert Karna**  
-4️⃣ **🔎 Multi-Level Search Queries**  
-5️⃣ **🚀 Practical Example with Output**  
-6️⃣ **🛠️ Important Considerations**  
+1️⃣ **[🔍 Multi-Level Relations Kya Hote Hain?](#1)**  
+2️⃣ **[🏗️ Index aur Mapping Setup](#2)**  
+3️⃣ **[📄 Documents ko Insert Karna](#3)**  
+4️⃣ **[🔎 Multi-Level Search Queries](#4)**  
+5️⃣ **[🚀 Practical Example with Output](#5)**  
+6️⃣ **[🛠️ Important Considerations](#6)**  
+7️⃣ **[🎯 Conclusion](#7)**
 
 ---
 
-## 1️⃣ **🔍 Multi-Level Relations Kya Hote Hain?**  
+## 1️⃣ **🔍 Multi-Level Relations Kya Hote Hain?**  <a id="1"></a>
 
 Elasticsearch me **multi-level relations** ka use tab hota hai jab ek entity ke andar multiple related entities store karni ho.  
 
@@ -33,7 +32,7 @@ Ye hierarchical relation **parent-child relation** ka ek extended form hai. **El
 
 ---
 
-## 2️⃣ **🏗️ Index aur Mapping Setup**  
+## 2️⃣ **🏗️ Index aur Mapping Setup**  <a id="2"></a>
 
 Pehle ek **index create karte hain**, jisme `join` field define karenge.  
 
@@ -62,7 +61,7 @@ PUT company
 
 ---
 
-## 3️⃣ **📄 Documents ko Insert Karna**  
+## 3️⃣ **📄 Documents ko Insert Karna**  <a id="3"></a>
 
 Ab **Company, Department, Supplier, aur Employees** ke documents insert karte hain.
 
@@ -119,7 +118,7 @@ PUT company/_doc/4?routing=1
 
 ---
 
-## 4️⃣ **🔎 Multi-Level Search Queries**  
+## 4️⃣ **🔎 Multi-Level Search Queries**  <a id="4"></a>
 
 ### 🔍 **Find Companies with a Specific Employee**
 ```json
@@ -162,7 +161,7 @@ GET company/_search
 
 ---
 
-## 5️⃣ **🚀 Practical Example with Output**  
+## 5️⃣ **🚀 Practical Example with Output**  <a id="5"></a>
 
 Ab ek **real-world example** dekhte hain:
 
@@ -217,7 +216,7 @@ GET company/_search
 
 ---
 
-## 6️⃣ **🛠️ Important Considerations**  
+## 6️⃣ **🛠️ Important Considerations**  <a id="6"></a>
 
 🔹 **Routing Query Parameter**  
   - Multi-level relations me **routing zaroori hota hai**.  
@@ -231,7 +230,7 @@ GET company/_search
 
 ---
 
-## 🎯 **Conclusion**  
+## 7️⃣ **🎯 Conclusion**  <a id="7"></a>
 
 ✅ **Multi-level relations Elasticsearch me complex hierarchical data ko efficiently store aur query karne ka ek powerful feature hai.**  
 ✅ **Parent-child relations ka use karke hum Company -> Department -> Employees ka ek structured relation maintain kar sakte hain.**  

@@ -1,15 +1,16 @@
 ## 📜 **Table of Contents**  
 
-1️⃣ **[Parent ID Query Kya Hai?](#1-parent-id-query-kya-hai) 🔍**  
-2️⃣ **[Basic Query Syntax](#2-basic-query-syntax) 📝**  
-3️⃣ **[Query Ka Expected Output](#3-query-ka-expected-output) 📊**  
-4️⃣ **[Routing Ka Role](#4-routing-ka-role) 📌**  
-5️⃣ **[Parent ID Query vs Has Parent Query](#5-parent-id-query-vs-has-parent-query) ⚖️**  
-6️⃣ **[Real-World Use Cases](#6-real-world-use-cases) 🌍**  
+1️⃣ **[Parent ID Query Kya Hai?](#1) 🔍**  
+2️⃣ **[Basic Query Syntax](#2) 📝**  
+3️⃣ **[Query Ka Expected Output](#3) 📊**  
+4️⃣ **[Routing Ka Role](#4) 📌**  
+5️⃣ **[Parent ID Query vs Has Parent Query](#5) ⚖️**  
+6️⃣ **[Real-World Use Cases](#6) 🌍**  
+7️⃣ **[Key Takeaways](#7) 🎯**
 
 ---
 
-## 1️⃣ **Parent ID Query Kya Hai?** 🔍  
+## 1️⃣ **Parent ID Query Kya Hai?** 🔍  <a id="1"></a>
 
 Elasticsearch me agar tumhe kisi **parent document ke ID** ke basis pe uske **child documents** retrieve karne hain, to `parent_id` query use hoti hai.  
 
@@ -19,7 +20,7 @@ Elasticsearch me agar tumhe kisi **parent document ke ID** ke basis pe uske **ch
 
 ---
 
-## 2️⃣ **Basic Query Syntax** 📝  
+## 2️⃣ **Basic Query Syntax** 📝  <a id="2"></a>
 
 Chalo ek query likhte hain jo **department ID = 1** ke saare employees ko return karegi:  
 
@@ -40,7 +41,7 @@ GET my_index/_search
 
 ---
 
-## 3️⃣ **Query Ka Expected Output** 📊  
+## 3️⃣ **Query Ka Expected Output** 📊  <a id="3"></a>
 
 Agar **department ID = 1** ke andar **4 employees** hain, to response kuch aisa aayega:  
 
@@ -82,7 +83,7 @@ Agar **department ID = 1** ke andar **4 employees** hain, to response kuch aisa 
 
 ---
 
-## 4️⃣ **Routing Ka Role** 📌  
+## 4️⃣ **Routing Ka Role** 📌  <a id="4"></a>
 
 🚨 **Routing Elasticsearch ke shards manage karne me help karta hai.**  
 
@@ -104,7 +105,7 @@ GET my_index/_search?routing=1
 
 ---
 
-## 5️⃣ **Parent ID Query vs Has Parent Query** ⚖️  
+## 5️⃣ **Parent ID Query vs Has Parent Query** ⚖️  <a id="5"></a>
 
 | Feature | `parent_id` Query | `has_parent` Query |
 |---------|----------------|----------------|
@@ -114,7 +115,7 @@ GET my_index/_search?routing=1
 
 ---
 
-## 6️⃣ **Real-World Use Cases** 🌍  
+## 6️⃣ **Real-World Use Cases** 🌍  <a id="6"></a>
 
 💼 **HR Database:** **Ek department me kaunse employees hain?**  
 🛒 **E-Commerce:** **Ek category me kaunse products hain?**  
@@ -122,7 +123,7 @@ GET my_index/_search?routing=1
 
 ---
 
-## 🎯 **Key Takeaways**  
+## 7️⃣ **Key Takeaways** 🎯  <a id="7"></a>
 
 ✅ **Parent ID Query** ka use karke tum **parent document ke ID** ke basis pe **child documents fetch** kar sakte ho.  
 ✅ **`type` option** me **child relation ka naam** dena zaroori hai.  

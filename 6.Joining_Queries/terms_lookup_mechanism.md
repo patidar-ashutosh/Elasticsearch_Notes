@@ -2,18 +2,18 @@
 
 ## 📖 Table of Contents  
 
-1️⃣ **🔍 Terms Query Kya Hoti Hai?**  
-2️⃣ **📌 Terms Lookup Mechanism Kya Hai?**  
-3️⃣ **🔄 Terms Query vs Terms Lookup Query**  
-4️⃣ **🛠️ Practical Example with JSON Queries**  
-5️⃣ **📊 Expected Output Explanation**  
-6️⃣ **⚡ Performance Benefits of Terms Lookup**  
-7️⃣ **💡 Real-World Use Cases**  
-8️⃣ **🔚 Summary & Key Takeaways**  
+1️⃣ **[🔍 Terms Query Kya Hoti Hai?](#1)**  
+2️⃣ **[📌 Terms Lookup Mechanism Kya Hai?](#2)**  
+3️⃣ **[🔄 Terms Query vs Terms Lookup Query](#3)**  
+4️⃣ **[🛠️ Practical Example with JSON Queries](#4)**  
+5️⃣ **[📊 Expected Output Explanation](#5)**  
+6️⃣ **[⚡ Performance Benefits of Terms Lookup](#6)**  
+7️⃣ **[💡 Real-World Use Cases](#7)**  
+8️⃣ **[🔚 Summary & Key Takeaways](#8)**  
 
 ---
 
-## 1️⃣ 🔍 Terms Query Kya Hoti Hai?  
+## 1️⃣ 🔍 Terms Query Kya Hoti Hai?  <a id="1"></a>
 
 **Terms query** ka use hota hai jab tumhe **multiple values** ke basis pe documents filter karne hote hain. Ye **match query** jaisa hi hota hai, bas yeh ek se zyada values ko support karta hai.  
 
@@ -34,7 +34,7 @@ Maan lo tumhe **specific user IDs** ke stories fetch karni hain.
 
 ---  
 
-## 2️⃣ 📌 Terms Lookup Mechanism Kya Hai?  
+## 2️⃣ 📌 Terms Lookup Mechanism Kya Hai?  <a id="2"></a>
 
 Agar hume **500+ user IDs** ko query karna ho, to manually sabko list karna feasible nahi hoga. **Terms lookup mechanism** Elasticsearch me dynamically terms retrieve karne ka ek smart way hai.  
 
@@ -43,7 +43,7 @@ Agar hume **500+ user IDs** ko query karna ho, to manually sabko list karna feas
 
 ---
 
-## 3️⃣ 🔄 Terms Query vs Terms Lookup Query  
+## 3️⃣ 🔄 Terms Query vs Terms Lookup Query  <a id="3"></a>
 
 Agar hume manually IDs specify karni ho, to **normal terms query** ka use hota hai:  
 
@@ -77,7 +77,7 @@ Agar hume manually IDs specify karni ho, to **normal terms query** ka use hota h
 
 ---
 
-## 4️⃣ 🛠️ Practical Example with JSON Queries  
+## 4️⃣ 🛠️ Practical Example with JSON Queries  <a id="4"></a>
 
 ### **Step 1: Users Index Create Karo**  
 ```json
@@ -161,7 +161,7 @@ GET stories/_search
 
 ---
 
-## 5️⃣ 📊 Expected Output Explanation  
+## 5️⃣ 📊 Expected Output Explanation  <a id="5"></a>
 
 Agar **John Doe (`id:1`) ke following users (2, 3) hain**, to query ka output kuch aisa hoga:  
 
@@ -181,7 +181,7 @@ Agar **John Doe (`id:1`) ke following users (2, 3) hain**, to query ka output ku
 
 ---
 
-## 6️⃣ ⚡ Performance Benefits of Terms Lookup  
+## 6️⃣ ⚡ Performance Benefits of Terms Lookup  <a id="6"></a>
 
 ✅ **Network Calls Reduce Hote Hain:**  
    - Agar hum ye lookup application level pe karein, to pehle ek query se user ka `following` field fetch karna padega.  
@@ -198,7 +198,7 @@ Agar **John Doe (`id:1`) ke following users (2, 3) hain**, to query ka output ku
 
 ---
 
-## 7️⃣ 💡 Real-World Use Cases  
+## 7️⃣ 💡 Real-World Use Cases  <a id="7"></a>
 
 ✅ **Social Media Feed:**  
    - **Users index me followers ki list store hoti hai.**  
@@ -214,7 +214,7 @@ Agar **John Doe (`id:1`) ke following users (2, 3) hain**, to query ka output ku
 
 ---
 
-## 8️⃣ 🔚 Summary & Key Takeaways  
+## 8️⃣ 🔚 Summary & Key Takeaways  <a id="8"></a>
 
 ✅ **Terms Query** ek normal query hai jo manually specify kiye gaye multiple values ko match karti hai.  
 ✅ **Terms Lookup Mechanism** dynamically ek aur document se terms fetch karne ka smart way hai.  

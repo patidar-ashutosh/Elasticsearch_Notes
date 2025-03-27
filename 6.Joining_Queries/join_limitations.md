@@ -2,17 +2,17 @@
 
 ## 📖 Table of Contents  
 
-1️⃣ **🔗 Join Fields Recap**  
-2️⃣ **🚫 Joins Across Indexes are NOT Allowed**  
-3️⃣ **🔄 Parent & Child Documents Must Be on the Same Shard**  
-4️⃣ **📌 Only One Join Field Per Index**  
-5️⃣ **👨‍👩‍👦 One Parent, Multiple Children Rule**  
-6️⃣ **⚡ Why These Limitations Exist? (Performance Reasons)**  
-7️⃣ **🔚 Summary & Key Takeaways**  
+1️⃣ **[🔗 Join Fields Recap](#1)**  
+2️⃣ **[🚫 Joins Across Indexes are NOT Allowed](#2)**  
+3️⃣ **[🔄 Parent & Child Documents Must Be on the Same Shard](#3)**  
+4️⃣ **[📌 Only One Join Field Per Index](#4)**  
+5️⃣ **[👨‍👩‍👦 One Parent, Multiple Children Rule](#5)**  
+6️⃣ **[⚡ Why These Limitations Exist? (Performance Reasons)](#6)**  
+7️⃣ **[🔚 Summary & Key Takeaways](#7)**  
 
 ---
 
-## 1️⃣ 🔗 Join Fields Recap  
+## 1️⃣ 🔗 Join Fields Recap  <a id="1"></a>
 
 Elasticsearch me **parent-child relationships** banane ke liye **join field** ka use hota hai.  
 - **Parent Document:** Yeh ek root-level entity hoti hai (jaise Department).  
@@ -23,7 +23,7 @@ Agar basic join queries ka idea nahi hai, to pehle isko samajhna zaroori hai! �
 
 ---
 
-## 2️⃣ 🚫 Joins Across Indexes are NOT Allowed  
+## 2️⃣ 🚫 Joins Across Indexes are NOT Allowed  <a id="2"></a>
 
 **❌ Elasticsearch allow nahi karta ki hum alag-alag indexes ke documents ko join karein.**  
 
@@ -50,7 +50,7 @@ company_index
 
 ---
 
-## 3️⃣ 🔄 Parent & Child Documents Must Be on the Same Shard  
+## 3️⃣ 🔄 Parent & Child Documents Must Be on the Same Shard  <a id="3"></a>
 
 ✅ **Parent aur child documents ko same shard pe store karna compulsory hai.**  
 
@@ -78,7 +78,7 @@ PUT company/_doc/2?routing=1&refresh
 
 ---
 
-## 4️⃣ 📌 Only One Join Field Per Index  
+## 4️⃣ 📌 Only One Join Field Per Index  <a id="4"></a>
 
 **⚠️ Elasticsearch ek index me sirf ek join field allow karta hai.**  
 - **Ye SQL relational databases se different hota hai.**  
@@ -98,7 +98,7 @@ PUT company/_doc/2?routing=1&refresh
 
 ---
 
-## 5️⃣ 👨‍👩‍👦 One Parent, Multiple Children Rule  
+## 5️⃣ 👨‍👩‍👦 One Parent, Multiple Children Rule  <a id="5"></a>
 
 ✅ **Ek parent multiple children hold kar sakta hai, par ek child sirf ek hi parent ka hissa ho sakta hai.**  
 
@@ -115,7 +115,7 @@ Agar tumhe **multi-parent relationships** chahiye, to **nested fields ya denorma
 
 ---
 
-## 6️⃣ ⚡ Why These Limitations Exist? (Performance Reasons)  
+## 6️⃣ ⚡ Why These Limitations Exist? (Performance Reasons)  <a id="6"></a>
 
 Yeh saari limitations **Elasticsearch ke high-speed search architecture** ko maintain karne ke liye hai.  
 
@@ -127,7 +127,7 @@ Yeh saari limitations **Elasticsearch ke high-speed search architecture** ko mai
 
 ---
 
-## 7️⃣ 🔚 Summary & Key Takeaways  
+## 7️⃣ 🔚 Summary & Key Takeaways  <a id="7"></a>
 
 ✅ **Joins sirf ek hi index ke andar ho sakte hain.**  
 ✅ **Parent aur child ko same shard pe store karna zaroori hai (routing required).**  

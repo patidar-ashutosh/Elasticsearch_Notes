@@ -2,17 +2,17 @@
 
 ## 📖 Table of Contents  
 
-1️⃣ **🚀 Introduction: Why Performance Matters?**  
-2️⃣ **⚠️ Join Queries Are Expensive!**  
-3️⃣ **📉 Performance Issues with `has_child` & `has_parent` Queries**  
-4️⃣ **🏗️ Multi-Level Relationships = More Overhead**  
-5️⃣ **✅ When to Use Join Fields?**  
-6️⃣ **🔄 Alternative Approaches (Nested & Denormalization)**  
-7️⃣ **🔚 Summary & Key Takeaways**  
+1️⃣ **[🚀 Introduction: Why Performance Matters?](#1)**  
+2️⃣ **[⚠️ Join Queries Are Expensive!](#2)**  
+3️⃣ **[📉 Performance Issues with `has_child` & `has_parent` Queries](#3)**  
+4️⃣ **[🏗️ Multi-Level Relationships = More Overhead](#4)**  
+5️⃣ **[✅ When to Use Join Fields?](#5)**  
+6️⃣ **[🔄 Alternative Approaches (Nested & Denormalization)](#6)**  
+7️⃣ **[🔚 Summary & Key Takeaways](#7)**  
 
 ---
 
-## 1️⃣ 🚀 Introduction: Why Performance Matters?  
+## 1️⃣ 🚀 Introduction: Why Performance Matters?  <a id="1"></a>
 
 Ab tum join queries aur document relationships use karna seekh chuke ho. Ab baat karte hain **performance** ki.  
 
@@ -26,7 +26,7 @@ Yeh discussion **specifically "join" field ke performance impact** par focus kar
 
 ---
 
-## 2️⃣ ⚠️ Join Queries Are Expensive!  
+## 2️⃣ ⚠️ Join Queries Are Expensive!  <a id="2"></a>
 
 Elasticsearch **relational database jaisa nahi hai**. **JOIN queries traditionally SQL databases ke liye design ki gayi hain**, aur Elasticsearch me unka **performance impact high hota hai.**  
 
@@ -35,7 +35,7 @@ Jaise-jaise **index me documents badhte hain, join queries aur slow hoti jati ha
 
 ---
 
-## 3️⃣ 📉 Performance Issues with `has_child` & `has_parent` Queries  
+## 3️⃣ 📉 Performance Issues with `has_child` & `has_parent` Queries  <a id="3"></a>
 
 ### 🚨 **`has_child` Query Issue**  
 🔴 Jitne **zyada child documents unique parent documents se linked hote hain**, utna hi query **slow ho jati hai.**  
@@ -83,7 +83,7 @@ GET company/_search
 
 ---
 
-## 4️⃣ 🏗️ Multi-Level Relationships = More Overhead  
+## 4️⃣ 🏗️ Multi-Level Relationships = More Overhead  <a id="4"></a>
 
 ⚠️ **Elasticsearch me multi-level parent-child relationships maintain karna aur bhi slow hota hai.**  
 Agar ek **parent ka child hai, phir uska bhi ek child hai**, to **har level pe query overhead badh jata hai.**  
@@ -99,7 +99,7 @@ Company (Parent)
 
 ---
 
-## 5️⃣ ✅ When to Use Join Fields?  
+## 5️⃣ ✅ When to Use Join Fields?  <a id="5"></a>
 
 ### 🔥 **Best Scenario for Join Fields**
 Agar **one-to-many** relationship hai **aur** ek entity doosri se kaafi kam hai, tab join field use karna **theek ho sakta hai.**  
@@ -116,7 +116,7 @@ Agar **one-to-many** relationship hai **aur** ek entity doosri se kaafi kam hai,
 
 ---
 
-## 6️⃣ 🔄 Alternative Approaches (Nested & Denormalization)  
+## 6️⃣ 🔄 Alternative Approaches (Nested & Denormalization)  <a id="6"></a>
 
 ### 🔹 **1. Nested Objects (Better Performance)**  
 Agar tumhe relational data store karna hai, **to nested objects use karo.**  
@@ -171,7 +171,7 @@ Elasticsearch SQL jaisa **relational model** nahi follow karta. Isliye **data ko
 
 ---
 
-## 7️⃣ 🔚 Summary & Key Takeaways  
+## 7️⃣ 🔚 Summary & Key Takeaways  <a id="7"></a>
 
 ✅ **Join queries expensive hote hain, avoid karna chahiye.**  
 ✅ **More child-parent relationships = slower queries.**  

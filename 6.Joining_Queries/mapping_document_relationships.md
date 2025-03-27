@@ -1,15 +1,17 @@
 ## 📑 Table of Contents  
 
-1️⃣ **Mapping me Relationship Define Karna** 🗺️  
-2️⃣ **Join Field Kya Hota Hai?** 🔗  
-3️⃣ **Relations Object Ka Role** 🏗️  
-4️⃣ **Example: Department aur Employee Relationship** 🏢👨‍💼  
-5️⃣ **Multiple Children Relationship** 👨‍👩‍👧‍👦  
-6️⃣ **Querying Parent-Child Relationships** 🔍  
+1️⃣ [**Mapping me Relationship Define Karna**](#1) 🗺️  
+2️⃣ [**Join Field Kya Hota Hai?**](#2) 🔗  
+3️⃣ [**Relations Object Ka Role**](#3) 🏗️  
+4️⃣ [**Example: Department aur Employee Relationship**](#4) 🏢👨‍💼  
+5️⃣ [**Multiple Children Relationship**](#5) 👨‍👩‍👧‍👦  
+6️⃣ [**Querying Parent-Child Relationships**](#6) 🔍  
+7️⃣ [**Conclusion**](#7) 🎯
 
 ---
 
-## 1️⃣ **Mapping me Relationship Define Karna** 🗺️  
+## 1️⃣ **Mapping me Relationship Define Karna** 🗺️  <a id="1"></a>
+
 Elasticsearch me **documents ka relationship** define karne ke liye hum **mapping** ka use karte hain. Relationship define karna **important** hota hai jab hume **parent-child structure** create karna ho jaise:  
 - **Department → Employee**  
 - **Country → State → City**  
@@ -19,7 +21,8 @@ Iske liye Elasticsearch ek **special field** provide karta hai **join field**.
 
 ---
 
-## 2️⃣ **Join Field Kya Hota Hai?** 🔗  
+## 2️⃣ **Join Field Kya Hota Hai?** 🔗  <a id="2"></a>
+
 🔹 Join Field ek **special data type** hota hai jo documents ke **relations** ko define karta hai.  
 🔹 Ye **parent-child** structure banane me help karta hai bina **multiple indices** create kiye.  
 🔹 **Parent aur Child ka relation** ek **single index** me manage ho sakta hai.  
@@ -46,7 +49,8 @@ Iske liye Elasticsearch ek **special field** provide karta hai **join field**.
 
 ---
 
-## 3️⃣ **Relations Object Ka Role** 🏗️  
+## 3️⃣ **Relations Object Ka Role** 🏗️  <a id="3"></a>
+
 **Relations object** ke andar **key-value pairs** hote hain jo **document types ka relationship** define karte hain.  
 
 📌 **Example:**  
@@ -67,7 +71,8 @@ Iska matlab **company parent** hai aur uske **3 children (manager, developer, de
 
 ---
 
-## 4️⃣ **Example: Department aur Employee Relationship** 🏢👨‍💼  
+## 4️⃣ **Example: Department aur Employee Relationship** 🏢👨‍💼  <a id="4"></a>
+
 Chalo ek **proper mapping** banate hain **department aur employee** ke relation ke liye.  
 
 ### ✅ **Mapping Definition**  
@@ -92,7 +97,8 @@ PUT company_index
 
 ---
 
-## 5️⃣ **Multiple Children Relationship** 👨‍👩‍👧‍👦  
+## 5️⃣ **Multiple Children Relationship** 👨‍👩‍👧‍👦  <a id="5"></a>
+
 Agar ek **parent ke multiple children** hon toh usko **array me define** karte hain.  
 
 📌 **Example:**  
@@ -115,7 +121,8 @@ Iska matlab **school parent hai** aur uske **2 children (teacher & student)** ha
 
 ---
 
-## 6️⃣ **Querying Parent-Child Relationships** 🔍  
+## 6️⃣ **Querying Parent-Child Relationships** 🔍  <a id="6"></a>
+
 Parent-child relationship ka **biggest advantage** ye hai ki hum **parent ke basis pe child** ya **child ke basis pe parent** ko query kar sakte hain.  
 
 ### ✅ **Parent Document Insert Karna**  
@@ -175,7 +182,8 @@ GET company_index/_search
 
 ---
 
-## 🎯 **Conclusion**  
+## 7️⃣ **Conclusion** 🎯  <a id="7"></a>
+
 - 🔗 **Join Field** Elasticsearch me **document relationships** define karne ke liye use hota hai.  
 - 🏗 **Relations Object** me parent-child ka structure define hota hai.  
 - 🏢👨‍💼 **Example:** Department → Employee relationship define kar sakte hain.  

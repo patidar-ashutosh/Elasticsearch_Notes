@@ -2,21 +2,20 @@ ab tak humne **has_parent query** dekhi thi, jisme **parent ki conditions ke bas
 
 Ab **opposite case** dekhenge: **Parent documents ko retrieve karna based on child documents' conditions** using `has_child` query. 🚀  
 
----
-
 ## 📜 **Table of Contents**  
 
-1️⃣ **[Has Child Query Kya Hai?](#1-has-child-query-kya-hai) 🔍**  
-2️⃣ **[Basic Query Syntax](#2-basic-query-syntax) 📝**  
-3️⃣ **[Query Ka Expected Output](#3-query-ka-expected-output) 📊**  
-4️⃣ **[Relevance Score Ka Role](#4-relevance-score-ka-role) 🎯**  
-5️⃣ **[Min & Max Children Filter](#5-min-max-children-filter) 📌**  
-6️⃣ **[Parent-Child Sorting](#6-parent-child-sorting) 🔀**  
-7️⃣ **[Real-World Use Cases](#7-real-world-use-cases) 🌍**  
+1️⃣ **[Has Child Query Kya Hai?](#1) 🔍**  
+2️⃣ **[Basic Query Syntax](#2) 📝**  
+3️⃣ **[Query Ka Expected Output](#3) 📊**  
+4️⃣ **[Relevance Score Ka Role](#4) 🎯**  
+5️⃣ **[Min & Max Children Filter](#5) 📌**  
+6️⃣ **[Parent-Child Sorting](#6) 🔀**  
+7️⃣ **[Real-World Use Cases](#7) 🌍**  
+8️⃣ **[Key Takeaways](#8) 🎯**
 
 ---
 
-## 1️⃣ **Has Child Query Kya Hai?** 🔍  
+## 1️⃣ **Has Child Query Kya Hai?** 🔍  <a id="1"></a>
 
 `has_child` query ka kaam hai **parent documents ko retrieve karna** based on **conditions jo child documents par lagti hain**.  
 
@@ -26,7 +25,7 @@ Ab **opposite case** dekhenge: **Parent documents ko retrieve karna based on chi
 
 ---
 
-## 2️⃣ **Basic Query Syntax** 📝  
+## 2️⃣ **Basic Query Syntax** 📝  <a id="2"></a>
 
 Chalo ek query likhte hain jo **aise departments fetch karegi jinme 50+ age wale employees hon**:  
 
@@ -53,7 +52,7 @@ GET my_index/_search
 
 ---
 
-## 3️⃣ **Query Ka Expected Output** 📊  
+## 3️⃣ **Query Ka Expected Output** 📊  <a id="3"></a>
 
 Agar **Development department** me **52 age ka employee** hai, to response kuch aisa aayega:  
 
@@ -78,7 +77,7 @@ Agar **Development department** me **52 age ka employee** hai, to response kuch 
 
 ---
 
-## 4️⃣ **Relevance Score Ka Role** 🎯  
+## 4️⃣ **Relevance Score Ka Role** 🎯  <a id="4"></a>
 
 🚨 **Default Behavior:** Parent documents ka relevance score **child documents ke score se affect nahi hota**.  
 
@@ -113,7 +112,7 @@ GET my_index/_search
 
 ---
 
-## 5️⃣ **Min & Max Children Filter** 📌  
+## 5️⃣ **Min & Max Children Filter** 📌  <a id="5"></a>
 
 Kabhi kabhi tumhe yeh bhi define karna padta hai ki **ek parent ke andar minimum aur maximum kitne matching child documents hone chahiye**.  
 
@@ -144,7 +143,7 @@ GET my_index/_search
 
 ---
 
-## 6️⃣ **Parent-Child Sorting** 🔀  
+## 6️⃣ **Parent-Child Sorting** 🔀  <a id="6"></a>
 
 `has_child` query me **parent documents ko child documents ke basis pe sort bhi kar sakte ho**, lekin iske liye **scripting required hoti hai**.  
 
@@ -156,7 +155,7 @@ Agar chahiye to batao, ek example de sakta hoon! 😎
 
 ---
 
-## 7️⃣ **Real-World Use Cases** 🌍  
+## 7️⃣ **Real-World Use Cases** 🌍  <a id="7"></a>
 
 📊 **HR Database:** **Wo departments dikhana jinme 10+ employees ho**  
 🛒 **E-Commerce:** **Aise sellers fetch karna jinme 4-star se kam rating wale products ho**  
@@ -164,7 +163,7 @@ Agar chahiye to batao, ek example de sakta hoon! 😎
 
 ---
 
-## 🎯 **Key Takeaways**  
+## 8️⃣ **Key Takeaways** 🎯  <a id="8"></a>
 
 ✅ **Has Child Query** ka use karke tum **child documents ke conditions ke basis pe parent documents retrieve kar sakte ho.**  
 ✅ **`type` option** me **child document ka type define karna zaroori hai.**  

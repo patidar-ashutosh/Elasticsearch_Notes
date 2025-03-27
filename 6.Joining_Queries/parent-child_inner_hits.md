@@ -2,18 +2,18 @@
 
 ## 📖 Table of Contents  
 
-1️⃣ **🔍 Parent-Child Relationship Kya Hoti Hai?**  
-2️⃣ **📌 Inner Hits Kya Hai Aur Kyun Zaroori Hai?**  
-3️⃣ **🔄 has_child Query Ke Saath Inner Hits**  
-4️⃣ **🔗 has_parent Query Ke Saath Inner Hits**  
-5️⃣ **🛠️ Practical Example with JSON Queries**  
-6️⃣ **📊 Expected Output Explanation**  
-7️⃣ **💡 Real-World Use Cases**  
-8️⃣ **🔚 Summary & Key Takeaways**  
+1️⃣ **[🔍 Parent-Child Relationship Kya Hoti Hai?](#1)**  
+2️⃣ **[📌 Inner Hits Kya Hai Aur Kyun Zaroori Hai?](#2)**  
+3️⃣ **[🔄 has_child Query Ke Saath Inner Hits](#3)**  
+4️⃣ **[🔗 has_parent Query Ke Saath Inner Hits](#4)**  
+5️⃣ **[🛠️ Practical Example with JSON Queries](#5)**  
+6️⃣ **[📊 Expected Output Explanation](#6)**  
+7️⃣ **[💡 Real-World Use Cases](#7)**  
+8️⃣ **[🔚 Summary & Key Takeaways](#8)**  
 
 ---  
 
-## 1️⃣ 🔍 Parent-Child Relationship Kya Hoti Hai?  
+## 1️⃣ 🔍 Parent-Child Relationship Kya Hoti Hai?  <a id="1"></a>
 
 **Parent/Child relationship** ka use tab hota hai jab tum **1-to-Many relationships** ko Elasticsearch me efficiently store aur query karna chahte ho.  
 
@@ -27,7 +27,7 @@ Parent-child mapping ka fayda ye hai ki **documents ko independently index** kiy
 
 ---  
 
-## 2️⃣ 📌 Inner Hits Kya Hai Aur Kyun Zaroori Hai?  
+## 2️⃣ 📌 Inner Hits Kya Hai Aur Kyun Zaroori Hai?  <a id="2"></a>
 
 Jab tum **has_child** ya **has_parent** query run karte ho, to query **match hone wale documents ko return karti hai**, lekin **kis wajah se match hua**, ye dekhne ke liye **inner_hits** use kiya jata hai.  
 
@@ -37,7 +37,7 @@ Jab tum **has_child** ya **has_parent** query run karte ho, to query **match hon
 
 ---  
 
-## 3️⃣ 🔄 has_child Query Ke Saath Inner Hits  
+## 3️⃣ 🔄 has_child Query Ke Saath Inner Hits  <a id="3"></a>
 
 **has_child** query ka use hota hai jab tumhe **parent documents fetch karne ho jo kisi specific child document se match ho rahe ho.**  
 
@@ -63,7 +63,7 @@ Jab tum **has_child** ya **has_parent** query run karte ho, to query **match hon
 
 ---  
 
-## 4️⃣ 🔗 has_parent Query Ke Saath Inner Hits  
+## 4️⃣ 🔗 has_parent Query Ke Saath Inner Hits  <a id="4"></a>
 
 **has_parent** query ka use tab hota hai jab tumhe **child documents fetch karne ho jo kisi specific parent document se match ho rahe ho.**  
 
@@ -89,7 +89,7 @@ Jab tum **has_child** ya **has_parent** query run karte ho, to query **match hon
 
 ---  
 
-## 5️⃣ 🛠️ Practical Example with JSON Queries  
+## 5️⃣ 🛠️ Practical Example with JSON Queries  <a id="5"></a>
 
 ### **Index Mapping:**  
 ```json
@@ -152,7 +152,7 @@ GET company/_search
 
 ---  
 
-## 6️⃣ 📊 Expected Output Explanation  
+## 6️⃣ 📊 Expected Output Explanation  <a id="6"></a>
 
 Agar **has_child query** run karte ho, to output kuch aisa hoga:  
 
@@ -198,7 +198,7 @@ Agar **has_parent query** run karte ho, to output kuch aisa hoga:
 
 ---  
 
-## 7️⃣ 💡 Real-World Use Cases  
+## 7️⃣ 💡 Real-World Use Cases  <a id="7"></a>
 
 ✅ **E-commerce Applications:**  
    - Parent: **Product Category**  
@@ -217,7 +217,7 @@ Agar **has_parent query** run karte ho, to output kuch aisa hoga:
 
 ---  
 
-## 8️⃣ 🔚 Summary & Key Takeaways  
+## 8️⃣ 🔚 Summary & Key Takeaways  <a id="8"></a>
 
 ✅ **has_child** query se **parent documents ko fetch** kar sakte ho jisme **specific child document match hota ho.**  
 ✅ **has_parent** query se **child documents ko fetch** kar sakte ho jo **specific parent document se match hote hain.**  
