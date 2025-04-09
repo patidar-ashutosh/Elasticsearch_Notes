@@ -21,3 +21,5 @@
 11. [Missing Field Values in Elasticsearch](./missing_field_values_in_elasticsearch.md)  
 
 12. [Aggregating Nested Objects](./aggregating_nested_objects.md)  
+
+13. [Composite Aggregation in Elasticsearch](./composite_aggregation_in_elasticsearch.md)
