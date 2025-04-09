@@ -11,3 +11,5 @@
 6. [Sorting Results in Elasticsearch](./sorting_results_in_elasticsearch.md)  
 
 7. [Sorting by Multi-Value Fields](./sorting_by_multi-value_fields.md)  
+
+8. [Script-Based Custom Sorting](./script-based_custom_sorting.md)
